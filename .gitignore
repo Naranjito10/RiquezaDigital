@@ -1,0 +1,79 @@
+# ============================================================
+# SECRETOS Y CREDENCIALES — NUNCA SUBIR
+# ============================================================
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Configuración MCP (contiene tokens de API)
+.mcp.json
+**/.mcp.json
+
+# Claves y certificados
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# ============================================================
+# DATOS SENSIBLES DE CLIENTES
+# ============================================================
+
+# Perfiles con datos privados de clientes
+clients/**/credentials.json
+clients/**/billing.json
+
+# IDs y tokens de plataformas publicitarias
+marketing-digital/ads/clients/**/profile.json
+marketing-digital/ads/audits/
+marketing-digital/logs/
+
+# ============================================================
+# OUTPUTS Y REPORTES (generados, no versionables)
+# ============================================================
+
+output/reports/
+output/proposals/
+
+# ============================================================
+# SISTEMA OPERATIVO
+# ============================================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# PYTHON
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ============================================================
+# EDITORES E IDEs
+# ============================================================
+
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ============================================================
+# LOGS
+# ============================================================
+
+*.log
+logs/

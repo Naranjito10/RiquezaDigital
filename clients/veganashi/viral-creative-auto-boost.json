@@ -1,0 +1,477 @@
+{
+  "name": "Veganashi — Viral Creative Auto-Boost",
+  "nodes": [
+    {
+      "id": "node-trigger",
+      "name": "Diario 09:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      }
+    },
+    {
+      "id": "node-config",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [500, 300],
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            { "id": "a1", "name": "META_TOKEN", "value": "EAANuMdnDe3MBRcekqU1PCbwhvT6aD8iKQVclf74TDWXkvoZCStrt216BFfrhaX7A61cHuCfyilhfzZCZC6uGWhb0x6CcoIJvS60OBdMCSET8uZA8WKh28sVAZClz1XPxHN1SCW9KkWZAkXLmB5JtDoCMl4nc0V3RNwtBIFjmqXe0ZAl5eqi7ORZCyZBMMQyfK7zD5Wm0ADs5VGMK8Bb3GPTZBwhNbgQcNXOUiA", "type": "string" },
+            { "id": "a2", "name": "AD_ACCOUNT_ID", "value": "act_928041200992402", "type": "string" },
+            { "id": "a3", "name": "ANTHROPIC_KEY", "value": "PONER_AQUI_API_KEY_ANTHROPIC", "type": "string" },
+            { "id": "a4", "name": "VIRAL_MIN_VIEWS", "value": 3000, "type": "number" },
+            { "id": "a5", "name": "VIRAL_MIN_SAVES", "value": 50, "type": "number" },
+            { "id": "a6", "name": "VIRAL_MIN_ENGAGEMENT_RATE", "value": 0.05, "type": "number" },
+            { "id": "a7", "name": "WORST_MIN_SPEND", "value": 10, "type": "number" },
+            { "id": "a8", "name": "MAX_ADS_TO_PAUSE", "value": 2, "type": "number" },
+            { "id": "a9", "name": "NOTIFY_EMAIL", "value": "info@riquezadigital.es", "type": "string" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-get-ig-account",
+      "name": "GET IG Account ID",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [760, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.AD_ACCOUNT_ID }}/instagram_accounts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [{ "name": "fields", "value": "id,username" }]
+        }
+      }
+    },
+    {
+      "id": "node-extract-ig",
+      "name": "Extraer IDs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1020, 300],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const cfg = $('Config').first().json;\nconst igData = $input.first().json;\nconst igUserId = igData.data[0].id;\nreturn [{ json: { ...cfg, IG_USER_ID: igUserId } }];"
+      }
+    },
+    {
+      "id": "node-get-media",
+      "name": "GET IG Media",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1280, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.IG_USER_ID }}/media",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "id,media_type,timestamp,permalink,like_count,comments_count" },
+            { "name": "limit", "value": "40" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-filter-videos",
+      "name": "Filtrar Videos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1540, 300],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const cfg = $('Extraer IDs').first().json;\nconst media = $input.first().json.data || [];\nconst videos = media.filter(m => m.media_type === 'VIDEO' || m.media_type === 'REELS');\nreturn videos.map(v => ({ json: { ...cfg, media_id: v.id, permalink: v.permalink, timestamp: v.timestamp, like_count: v.like_count || 0, comments_count: v.comments_count || 0 } }));"
+      }
+    },
+    {
+      "id": "node-split-videos",
+      "name": "Loop Videos",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1800, 300],
+      "parameters": { "batchSize": 1, "options": {} }
+    },
+    {
+      "id": "node-get-insights",
+      "name": "GET Insights",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2060, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.media_id }}/insights",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [{ "name": "metric", "value": "impressions,reach,saved,video_views" }]
+        }
+      }
+    },
+    {
+      "id": "node-eval-viral",
+      "name": "Evaluar Viral",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2320, 300],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const prev = $('Filtrar Videos').item.json;\nconst insights = $input.item.json.data || [];\nconst get = (name) => (insights.find(i => i.name === name)?.values?.[0]?.value) || 0;\nconst views = get('video_views');\nconst reach = get('reach');\nconst saves = get('saved');\nconst likes = prev.like_count || 0;\nconst comments = prev.comments_count || 0;\nconst engagementRate = reach > 0 ? (likes + comments + saves) / reach : 0;\nconst isViral = views >= prev.VIRAL_MIN_VIEWS && saves >= prev.VIRAL_MIN_SAVES && engagementRate >= prev.VIRAL_MIN_ENGAGEMENT_RATE;\nreturn { json: { ...prev, views, reach, saves, engagementRate, isViral } };"
+      }
+    },
+    {
+      "id": "node-if-viral",
+      "name": "Es Viral?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [2580, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [{ "id": "c1", "leftValue": "={{ $json.isViral }}", "rightValue": true, "operator": { "type": "boolean", "operation": "true" } }],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-skip-not-viral",
+      "name": "Skip No Viral",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [2580, 520],
+      "parameters": {}
+    },
+    {
+      "id": "node-get-ads",
+      "name": "GET Ads Activos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2840, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.AD_ACCOUNT_ID }}/ads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "id,name,status,creative{object_story_id}" },
+            { "name": "effective_status", "value": "[\"ACTIVE\"]" },
+            { "name": "limit", "value": "200" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-check-duplicate",
+      "name": "Ya tiene Ad?",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [3100, 300],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const videoData = $('Evaluar Viral').item.json;\nconst ads = $input.item.json.data || [];\nconst mediaId = videoData.media_id;\nconst alreadyRunning = ads.some(ad => {\n  const storyId = ad.creative?.object_story_id || '';\n  return storyId.includes(mediaId);\n});\nreturn { json: { ...videoData, alreadyRunning } };"
+      }
+    },
+    {
+      "id": "node-if-duplicate",
+      "name": "Ya Publicado?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [3360, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [{ "id": "c2", "leftValue": "={{ $json.alreadyRunning }}", "rightValue": false, "operator": { "type": "boolean", "operation": "false" } }],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-skip-duplicate",
+      "name": "Skip Duplicado",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [3360, 520],
+      "parameters": {}
+    },
+    {
+      "id": "node-get-campaigns",
+      "name": "GET Campañas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3620, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.AD_ACCOUNT_ID }}/campaigns",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "id,name,objective,status,daily_budget,insights.date_preset(last_7d){spend,cpc,ctr}" },
+            { "name": "effective_status", "value": "[\"ACTIVE\"]" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-claude",
+      "name": "Claude — Decide Campaña",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3880, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $('Extraer IDs').first().json.ANTHROPIC_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-opus-4-5\",\n  \"max_tokens\": 512,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"Eres el estratega de Meta Ads de Veganashi, restaurante vegano en Barcelona. Objetivo: leads + awareness. Budget ~1000€/mes.\\n\\nVideo viral detectado:\\n- ID: {{ $('Ya tiene Ad?').item.json.media_id }}\\n- Views: {{ $('Ya tiene Ad?').item.json.views }}\\n- Saves: {{ $('Ya tiene Ad?').item.json.saves }}\\n- Engagement Rate: {{ $('Ya tiene Ad?').item.json.engagementRate }}\\n- URL: {{ $('Ya tiene Ad?').item.json.permalink }}\\n\\nCampañas activas:\\n{{ JSON.stringify($input.item.json.data, null, 2) }}\\n\\nResponde SOLO con JSON válido (sin markdown):\\n{ \\\"campaign_id\\\": \\\"...\\\", \\\"ad_set_id\\\": \\\"...\\\", \\\"razon\\\": \\\"...\\\" }\\n\\nElige la campaña más adecuada para añadir este creativo viral.\"\n  }]\n}"
+      }
+    },
+    {
+      "id": "node-parse-claude",
+      "name": "Parsear Claude",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [4140, 300],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const videoData = $('Ya tiene Ad?').item.json;\nconst response = $input.item.json;\nconst text = response.content?.[0]?.text || '{}';\nlet decision;\ntry { decision = JSON.parse(text); } catch(e) { const match = text.match(/\\{[^}]+\\}/s); decision = match ? JSON.parse(match[0]) : { campaign_id: '', ad_set_id: '', razon: 'Parse error' }; }\nreturn { json: { ...videoData, campaign_id: decision.campaign_id, ad_set_id: decision.ad_set_id, claude_razon: decision.razon } };"
+      }
+    },
+    {
+      "id": "node-create-creative",
+      "name": "Crear Creative",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [4400, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.AD_ACCOUNT_ID }}/adcreatives",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $json.META_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"name\": \"Viral IG Post - {{ $json.media_id }}\", \"instagram_actor_id\": \"{{ $json.IG_USER_ID }}\", \"source_instagram_media_id\": \"{{ $json.media_id }}\" }"
+      }
+    },
+    {
+      "id": "node-create-ad",
+      "name": "Crear Ad",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [4660, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Parsear Claude').item.json.AD_ACCOUNT_ID }}/ads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $('Parsear Claude').item.json.META_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"name\": \"Viral Auto-Boost {{ $('Parsear Claude').item.json.media_id }}\",\n  \"adset_id\": \"{{ $('Parsear Claude').item.json.ad_set_id }}\",\n  \"creative\": { \"creative_id\": \"{{ $input.item.json.id }}\" },\n  \"status\": \"ACTIVE\"\n}"
+      }
+    },
+    {
+      "id": "node-after-loop",
+      "name": "Fin Loop Videos",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [4920, 300],
+      "parameters": {}
+    },
+    {
+      "id": "node-get-all-ads-perf",
+      "name": "GET Ads Performance",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [5180, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v21.0/{{ $('Extraer IDs').first().json.AD_ACCOUNT_ID }}/ads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $('Extraer IDs').first().json.META_TOKEN }}" }]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "id,name,status,insights.date_preset(last_7d){spend,ctr,cost_per_result,impressions}" },
+            { "name": "effective_status", "value": "[\"ACTIVE\"]" },
+            { "name": "limit", "value": "200" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-find-worst",
+      "name": "Identificar Peores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [5440, 300],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const cfg = $('Extraer IDs').first().json;\nconst ads = $input.first().json.data || [];\nconst MIN_SPEND = cfg.WORST_MIN_SPEND || 10;\nconst MAX_PAUSE = cfg.MAX_ADS_TO_PAUSE || 2;\n\nconst withMetrics = ads.map(ad => {\n  const ins = ad.insights?.data?.[0] || {};\n  return {\n    id: ad.id,\n    name: ad.name,\n    spend: parseFloat(ins.spend || 0),\n    ctr: parseFloat(ins.ctr || 0),\n    cpl: parseFloat(ins.cost_per_result || 999),\n    impressions: parseInt(ins.impressions || 0)\n  };\n});\n\nconst eligible = withMetrics.filter(a => a.spend >= MIN_SPEND);\nif (eligible.length === 0) return [{ json: { worstPerformers: [] } }];\n\nconst avgCTR = eligible.reduce((s, a) => s + a.ctr, 0) / eligible.length;\nconst worst = eligible\n  .filter(a => a.ctr < avgCTR * 0.5 || a.cpl > 999)\n  .sort((a, b) => a.ctr - b.ctr)\n  .slice(0, MAX_PAUSE);\n\nreturn worst.length > 0 ? worst.map(w => ({ json: w })) : [{ json: { worstPerformers: [] } }];"
+      }
+    },
+    {
+      "id": "node-if-worst",
+      "name": "Hay Peores?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [5700, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [{ "id": "c3", "leftValue": "={{ $json.id }}", "rightValue": "", "operator": { "type": "string", "operation": "notEmpty" } }],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-pause-ad",
+      "name": "Pausar Ad",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [5960, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $('Extraer IDs').first().json.META_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{ \"status\": \"PAUSED\" }"
+      }
+    },
+    {
+      "id": "node-no-worst",
+      "name": "Sin Peores",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [5960, 420],
+      "parameters": {}
+    },
+    {
+      "id": "node-merge-email",
+      "name": "Merge Email",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [6220, 300],
+      "parameters": { "mode": "append" }
+    },
+    {
+      "id": "node-send-email",
+      "name": "Enviar Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [6480, 300],
+      "parameters": {
+        "toEmail": "info@riquezadigital.es",
+        "subject": "=🚀 Veganashi — Reporte Auto-Boost {{ $now.format('DD/MM/YYYY') }}",
+        "emailType": "html",
+        "message": "=<h2>🎯 Veganashi Viral Creative Auto-Boost</h2><p>Ejecución diaria completada el {{ $now.format('DD/MM/YYYY HH:mm') }}</p><p>Revisa Meta Ads Manager para confirmar los cambios.</p><p>— Riqueza Digital Automation</p>"
+      }
+    }
+  ],
+  "connections": {
+    "Diario 09:00": { "main": [[{ "node": "Config", "type": "main", "index": 0 }]] },
+    "Config": { "main": [[{ "node": "GET IG Account ID", "type": "main", "index": 0 }]] },
+    "GET IG Account ID": { "main": [[{ "node": "Extraer IDs", "type": "main", "index": 0 }]] },
+    "Extraer IDs": { "main": [[{ "node": "GET IG Media", "type": "main", "index": 0 }]] },
+    "GET IG Media": { "main": [[{ "node": "Filtrar Videos", "type": "main", "index": 0 }]] },
+    "Filtrar Videos": { "main": [[{ "node": "Loop Videos", "type": "main", "index": 0 }]] },
+    "Loop Videos": {
+      "main": [
+        [{ "node": "GET Insights", "type": "main", "index": 0 }],
+        [{ "node": "GET Ads Performance", "type": "main", "index": 0 }]
+      ]
+    },
+    "GET Insights": { "main": [[{ "node": "Evaluar Viral", "type": "main", "index": 0 }]] },
+    "Evaluar Viral": { "main": [[{ "node": "Es Viral?", "type": "main", "index": 0 }]] },
+    "Es Viral?": {
+      "main": [
+        [{ "node": "GET Ads Activos", "type": "main", "index": 0 }],
+        [{ "node": "Skip No Viral", "type": "main", "index": 0 }]
+      ]
+    },
+    "Skip No Viral": { "main": [[{ "node": "Loop Videos", "type": "main", "index": 0 }]] },
+    "GET Ads Activos": { "main": [[{ "node": "Ya tiene Ad?", "type": "main", "index": 0 }]] },
+    "Ya tiene Ad?": { "main": [[{ "node": "Ya Publicado?", "type": "main", "index": 0 }]] },
+    "Ya Publicado?": {
+      "main": [
+        [{ "node": "GET Campañas", "type": "main", "index": 0 }],
+        [{ "node": "Skip Duplicado", "type": "main", "index": 0 }]
+      ]
+    },
+    "Skip Duplicado": { "main": [[{ "node": "Loop Videos", "type": "main", "index": 0 }]] },
+    "GET Campañas": { "main": [[{ "node": "Claude — Decide Campaña", "type": "main", "index": 0 }]] },
+    "Claude — Decide Campaña": { "main": [[{ "node": "Parsear Claude", "type": "main", "index": 0 }]] },
+    "Parsear Claude": { "main": [[{ "node": "Crear Creative", "type": "main", "index": 0 }]] },
+    "Crear Creative": { "main": [[{ "node": "Crear Ad", "type": "main", "index": 0 }]] },
+    "Crear Ad": { "main": [[{ "node": "Loop Videos", "type": "main", "index": 0 }]] },
+    "GET Ads Performance": { "main": [[{ "node": "Identificar Peores", "type": "main", "index": 0 }]] },
+    "Identificar Peores": { "main": [[{ "node": "Hay Peores?", "type": "main", "index": 0 }]] },
+    "Hay Peores?": {
+      "main": [
+        [{ "node": "Pausar Ad", "type": "main", "index": 0 }],
+        [{ "node": "Sin Peores", "type": "main", "index": 0 }]
+      ]
+    },
+    "Pausar Ad": { "main": [[{ "node": "Merge Email", "type": "main", "index": 0 }]] },
+    "Sin Peores": { "main": [[{ "node": "Merge Email", "type": "main", "index": 1 }]] },
+    "Merge Email": { "main": [[{ "node": "Enviar Email", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "timezone": "Europe/Madrid",
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  }
+}
