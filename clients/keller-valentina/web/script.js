@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const navbarToggle = document.querySelector('.navbar__toggle');
     const mobileMenu = document.querySelector('.navbar__mobile-menu');
-    const navbarLinks = document.querySelectorAll('.navbar__mobile-menu a');
+    const navbarLinksMobile = document.querySelectorAll('.navbar__mobile-menu a');
 
     if (navbarToggle && mobileMenu) {
         navbarToggle.addEventListener('click', () => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close mobile menu when a link is clicked
-        navbarLinks.forEach(link => {
+        navbarLinksMobile.forEach(link => {
             link.addEventListener('click', () => {
                 navbarToggle.classList.remove('is-active');
                 mobileMenu.classList.remove('is-active');
@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth'
                 });
 
-                // Update active link class for desktop menu
-                document.querySelectorAll('.navbar__link').forEach(link => link.classList.remove('navbar__link--active'));
+                // Update active link class for desktop menu (only when clicked)
+                // This will be overridden by the Intersection Observer, but good for immediate feedback
+                document.querySelectorAll('.navbar__menu .navbar__link').forEach(link => link.classList.remove('navbar__link--active'));
                 this.classList.add('navbar__link--active');
             }
         });
@@ -76,44 +77,33 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    // Initial check for active link based on URL hash
-    const currentHash = window.location.hash;
-    if (currentHash) {
-        const activeLink = document.querySelector(`.navbar__link[href="${currentHash}"]`);
-        if (activeLink) {
-            document.querySelectorAll('.navbar__link').forEach(link => link.classList.remove('navbar__link--active'));
-            activeLink.classList.add('navbar__link--active');
-        }
-    } else {
-        // Default to Home if no hash and on desktop view
-        const homeLink = document.querySelector('.navbar__link[href="#home"]');
-        if (homeLink) {
-            homeLink.classList.add('navbar__link--active');
-        }
-    }
-
     // Observer to update active navigation link on scroll
-    const sections = document.querySelectorAll('main section');
-    const navLinks = document.querySelectorAll('.navbar__menu .navbar__link');
-    const mobileNavLinks = document.querySelectorAll('.navbar__mobile-menu .navbar__link');
+    // Targets main sections and specific service cards
+    const sectionsAndCards = document.querySelectorAll('main section[id], .service-card[id]'); 
+    const navLinksDesktop = document.querySelectorAll('.navbar__menu .navbar__link');
+    const navLinksMobile = document.querySelectorAll('.navbar__mobile-menu .navbar__link');
 
     const sectionObserverOptions = {
         root: null,
-        rootMargin: '-50% 0px -49% 0px', // When section midpoint is in view
-        threshold: 0
+        rootMargin: '-50% 0px -49% 0px', // When section midpoint is in view, adjusted to be more precise
+        threshold: 0 // Only needs to enter/exit viewport
     };
 
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.id;
-                navLinks.forEach(link => {
+                
+                // Update desktop links
+                navLinksDesktop.forEach(link => {
                     link.classList.remove('navbar__link--active');
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('navbar__link--active');
                     }
                 });
-                mobileNavLinks.forEach(link => {
+
+                // Update mobile links
+                navLinksMobile.forEach(link => {
                     link.classList.remove('navbar__link--active');
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('navbar__link--active');
@@ -123,7 +113,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, sectionObserverOptions);
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
+    sectionsAndCards.forEach(element => {
+        sectionObserver.observe(element);
     });
+
+    // Initial check for active link based on URL hash (if direct link with hash)
+    const currentHash = window.location.hash;
+    if (currentHash) {
+        const activeLink = document.querySelector(`.navbar__menu .navbar__link[href="${currentHash}"]`);
+        if (activeLink) {
+            document.querySelectorAll('.navbar__menu .navbar__link').forEach(link => link.classList.remove('navbar__link--active'));
+            activeLink.classList.add('navbar__link--active');
+        }
+    } else {
+        // Default to Home if no hash and on desktop view initially
+        const homeLink = document.querySelector('.navbar__menu .navbar__link[href="#home"]');
+        if (homeLink && window.scrollY < 50) { 
+            homeLink.classList.add('navbar__link--active');
+        }
+    }
 });

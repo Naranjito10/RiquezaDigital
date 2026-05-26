@@ -8,15 +8,15 @@
 
 ## Identidad Visual
 - **Logo:** Rosa estilizada en SVG + "KELLER" en tipografía serif con interletraje amplio + tagline "· EMPIEZA A CRECER ·" en mayúsculas.
-- **Paleta de Colores:**
-  - Gris medio: `#606060` (Texto secundario, metadata, fondos neutros).
-  - Púrpura/Ciruela (Primario): `#693875` (Color primario, acentos fuertes, botones).
-  - Malva/Rosa (Suave): `#CDABCE` (Fondos suaves, highlights, hover).
-  - Navy oscuro (Contraste): `#28316E` (Secciones oscuras premium, contraste profundo).
-  - Rosa claro: `#F1E6EF` (Fondos claros, secciones alternas, cards).
-  - Azul lavanda: `#D8E2ED` (Fondos secundarios claros).
-  - Blanco premium: `#FAFAF8` (Fondo base, limpieza).
-  - Dark Navy (Texto principal): `#1A1A2E`.
+- **Paleta de Colores (Definidas en :root):**
+  - `--keller-gray`: `#606060` (Texto secundario, metadata, fondos neutros)
+  - `--keller-plum`: `#693875` (Color primario, acentos fuertes, botones)
+  - `--keller-mauve`: `#CDABCE` (Fondos suaves, highlights, hover)
+  - `--keller-navy`: `#28316E` (Fondos premium, contraste profundo)
+  - `--keller-blush`: `#F1E6EF` (Fondos claros, secciones alternas, cards)
+  - `--keller-lavender`: `#D8E2ED` (Fondos secundarios claros)
+  - `--keller-white`: `#FAFAF8` (Fondo base, limpieza)
+  - `--keller-dark`: `#1A1A2E` (Texto principal, fondos hero)
 - **Tipografías:**
   - Display / Títulos: **Cormorant Garamond** (Google Fonts, pesos 300, 400, 600). Estilo serif elegante con interletraje amplio.
   - Body / UI: **Inter** (Google Fonts, pesos 300, 400, 500). Limpio y legible.

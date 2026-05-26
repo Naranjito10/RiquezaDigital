@@ -49,8 +49,7 @@
         "type": "regex_check",
         "file": "styles.css",
         "rules": [
-            "transition\\s*:",
-            "@keyframes|animation\\s*:"
+            "transition\\s*:|@keyframes|animation\\s*:"
         ]
     }
 ]

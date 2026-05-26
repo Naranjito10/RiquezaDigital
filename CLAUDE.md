@@ -134,8 +134,29 @@ RD-TEAM/
 12. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
 13. **Commits internos con Vibiz activo**: Añadir `[skip-vibiz]` al mensaje de commit cuando el cambio sea de infraestructura interna (configuración, memoria, SOPs, refactors de sistema) y no deba generar contenido de marketing automático por el hook de Vibiz.
 
+## GESTIÓN DE SESIONES
+
+### Al ABRIR sesión
+1. Leer `.remember/sessions/INDEX.md` para ver la sesión más reciente
+2. Si existe contexto reciente (< 3 días), preguntar:
+   *"Hay contexto de la sesión anterior sobre [tema]. ¿Continuamos desde ahí o empezamos con algo nuevo?"*
+3. Si el usuario quiere continuar → leer el archivo de sesión correspondiente
+4. Si hay varias sesiones activas en paralelo → preguntar cuál aplica
+5. Si el usuario quiere empezar nuevo → ignorar contexto anterior
+
+### Al CERRAR sesión (cuando el usuario lo pida)
+1. **Tareas pendientes del usuario** → crear en Notion DB de tareas (nunca en archivos locales)
+2. **Contexto / estado técnico** → crear `.remember/sessions/YYYY-MM-DD_HHMM.md` (nuevo archivo, nunca sobreescribir)
+3. **Actualizar INDEX**: añadir una línea en `.remember/sessions/INDEX.md` con fecha, archivo y resumen de una línea
+4. El archivo de sesión tiene siempre estas 3 secciones: `## Estado al cerrar` / `## Siguiente sesión (prioridad)` / `## Contexto no obvio`
+
+### Sesiones paralelas
+- Cada sesión usa su propio timestamp en el nombre de archivo → sin conflictos entre Andrés y el Fundador
+- Si detectas que hay otra sesión abierta en paralelo (por el INDEX), mencionarlo al usuario
+
 ## INICIO DE SESIÓN
 
-Si el usuario no especifica cliente ni tarea, pregunta:
-1. ¿Con qué cliente o servicio trabajamos hoy?
-2. ¿Qué necesitas: crear, analizar, optimizar, automatizar o reportar?
+Si el usuario no especifica cliente ni tarea:
+1. Revisar `.remember/sessions/INDEX.md` y mencionar contexto reciente si existe
+2. Preguntar: ¿Con qué cliente o servicio trabajamos hoy?
+3. Preguntar: ¿Qué necesitas: crear, analizar, optimizar, automatizar o reportar?

@@ -11,11 +11,16 @@
     --color-dark-navy-text: #1A1A2E; /* Dark Navy para texto principal */
     --color-black: #000000;
 
+    /* RGB para gradients / rgba */
+    --color-primary-rgb: 105, 56, 117;
+    --color-malva-suave-rgb: 205, 171, 206;
+
     /* Tipografías */
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
     /* Espaciado */
+    --spacing-xxs: 0.25rem; /* 4px */
     --spacing-xs: 0.5rem;   /* 8px */
     --spacing-sm: 1rem;     /* 16px */
     --spacing-md: 1.5rem;   /* 24px */
@@ -29,12 +34,21 @@
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.08);
     --shadow-strong: 0 12px 36px rgba(0, 0, 0, 0.15);
+    --shadow-premium: 0 15px 45px rgba(0, 0, 0, 0.25); /* For featured elements */
 
     /* Transiciones */
     --transition-ease: all 0.3s ease-in-out;
     --transition-fast: all 0.2s ease-out;
+
+    /* Fluid Typography (Desktop to Mobile) */
+    --h1-fluid: clamp(2.5rem, 6vw + 1rem, 4.5rem); 
+    --h2-fluid: clamp(2rem, 4.5vw + 1rem, 3.5rem);
+    --h3-fluid: clamp(1.4rem, 3vw + 0.5rem, 2.2rem);
+    --p-fluid: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+    --subtitle-fluid: clamp(1rem, 2vw + 0.5rem, 1.3rem);
+    --quote-fluid: clamp(1.8rem, 4.5vw + 1rem, 3rem);
 }
 
 /* --- Base Styles & Reset --- */
@@ -57,6 +71,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* No scroll when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     line-height: 1.2;
@@ -66,10 +85,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-dark-navy-text); /* Default for titles */
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.8rem; }
-p { margin-bottom: var(--spacing-sm); }
+h1 { font-size: var(--h1-fluid); }
+h2 { font-size: var(--h2-fluid); }
+h3 { font-size: var(--h3-fluid); }
+p { font-size: var(--p-fluid); margin-bottom: var(--spacing-sm); }
 
 a {
     color: var(--color-primary);
@@ -112,8 +131,8 @@ img {
     transition: var(--transition-ease);
     text-align: center;
     white-space: nowrap;
-    position: relative; /* For potential hover effects */
-    overflow: hidden; /* For background reveal effects */
+    position: relative;
+    overflow: hidden;
 }
 
 .btn--primary {
@@ -127,6 +146,7 @@ img {
     border-color: var(--color-dark-navy-text);
     transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
+    filter: brightness(1.1); /* Subtle hover effect */
 }
 
 .btn--secondary {
@@ -141,6 +161,7 @@ img {
     border-color: var(--color-primary);
     transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
+    filter: brightness(1.1); /* Subtle hover effect */
 }
 
 .btn--outline {
@@ -156,6 +177,7 @@ img {
     border-color: var(--color-primary);
     transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
+    filter: brightness(1.1); /* Subtle hover effect */
 }
 
 .btn--white {
@@ -170,6 +192,7 @@ img {
     border-color: var(--color-malva-suave);
     transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
+    filter: brightness(1.1); /* Subtle hover effect */
 }
 
 .btn--text-link {
@@ -182,6 +205,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 0.5em; /* Space for the arrow */
+    cursor: pointer;
 }
 
 .btn--text-link:hover {
@@ -219,13 +243,17 @@ img {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    color: var(--color-dark-navy-text);
+    color: var(--color-dark-navy-text); /* Color para texto y SVG */
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.2rem;
     letter-spacing: 0.05em;
     white-space: nowrap;
 }
+.navbar__logo svg path { /* Ensure SVG paths inherit color correctly */
+    fill: currentColor;
+}
+
 
 .navbar__logo-text {
     text-transform: uppercase;
@@ -237,7 +265,7 @@ img {
     letter-spacing: 0.1em;
     color: var(--color-gris-medio);
     white-space: nowrap;
-    display: none;
+    display: none; /* Hidden by default, shown on tablet+ */
 }
 
 .navbar__menu {
@@ -325,7 +353,7 @@ img {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(var(--color-blanco-premium), 0.98);
+    background-color: rgba(var(--color-blanco-premium-rgb), 0.98); /* Using var for color-blanco-premium */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
@@ -376,7 +404,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-navy-oscuro) 0%, var(--color-primary) 100%);
+    background: radial-gradient(ellipse at 80% 20%, var(--color-primary) 0%, var(--color-navy-oscuro) 60%, var(--color-dark-navy-text) 100%);
     color: var(--color-blanco-premium);
     text-align: center;
     padding: var(--spacing-hero) 0;
@@ -385,19 +413,24 @@ img {
 
 .hero-section__content {
     max-width: 900px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-section h1 {
-    font-size: 4.5rem;
+    font-size: var(--h1-fluid); /* Use fluid value */
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     letter-spacing: 0.01em;
     color: var(--color-blanco-premium); /* Override default title color */
+    max-width: 90%; /* Control line length */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-section__subtitle {
     font-family: var(--font-body);
-    font-size: 1.3rem;
+    font-size: var(--subtitle-fluid); /* Use fluid value */
     line-height: 1.5;
     max-width: 700px;
     margin: 0 auto var(--spacing-xl) auto;
@@ -416,13 +449,33 @@ img {
 .problem-section {
     background-color: var(--color-rosa-claro);
     padding: var(--spacing-xxxl) 0;
-    text-align: center;
+    text-align: center; /* Unified alignment */
+    position: relative;
+}
+
+/* Patrón de fondo sutil y consistente */
+.problem-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cdabce' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zm1 5v1H5zM6 0H5v1z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3; /* Opacidad para esta sección */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.problem-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .problem-section__title {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: 2.8rem;
+    font-size: var(--h2-fluid); /* Use fluid value */
     color: var(--color-dark-navy-text);
     margin-bottom: var(--spacing-xl);
     max-width: 700px;
@@ -431,21 +484,27 @@ img {
 }
 
 .problem-section__text {
-    font-size: 1.2rem;
+    font-size: var(--p-fluid); /* Use fluid value */
     line-height: 1.8;
     color: var(--color-gris-medio);
     margin-bottom: var(--spacing-md);
-    max-width: 700px;
+    max-width: 700px; /* Control line length via CSS */
     margin-left: auto;
     margin-right: auto;
+    text-align: center; /* Unified alignment for problem section */
 }
 
 .problem-section__text--highlight {
     color: var(--color-primary);
     font-weight: 500;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw + 1rem, 1.5rem); /* Adjusted fluid for highlight */
     margin-top: var(--spacing-lg);
+    font-weight: 400; /* Subtle elegance */
+    max-width: 700px; /* Control line length via CSS */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Unified alignment for problem section */
 }
 
 /* --- Posicionamiento (Quién es Valentina/Keller) --- */
@@ -454,18 +513,21 @@ img {
     padding: var(--spacing-xxxl) 0;
 }
 
-.positioning-section__grid {
+.positioning-section__container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Default for mobile */
     gap: var(--spacing-xxxl);
     align-items: center;
 }
 
 .positioning-section__image-wrapper {
     position: relative;
-    padding-bottom: 75%; /* Aspect ratio 4:3 */
-    max-width: 600px;
+    padding-bottom: 125%; /* Aspect ratio 4:5 for a more editorial portrait */
+    max-width: 400px; /* Max width for the image */
     margin: 0 auto;
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--border-radius-md);
+    overflow: hidden; /* Ensure image doesn't spill */
 }
 
 .positioning-section__image {
@@ -474,38 +536,27 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-azul-lavanda); /* Placeholder color */
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--color-gris-medio);
-    text-align: center;
+    object-fit: cover; /* Ensure image covers the wrapper */
     filter: grayscale(10%);
-    box-shadow: var(--shadow-medium);
-    /* For a truly premium feel, this could be a hero image of Valentina */
-    background-image: url('https://via.placeholder.com/600x450/D8E2ED/606060?text=Valentina+Cuadrado'); /* Example placeholder image */
-    background-size: cover;
-    background-position: center;
+    transition: var(--transition-ease);
 }
 
-.positioning-section__image span {
-    display: none; /* Hide text if image placeholder is good */
+.positioning-section__image:hover {
+    filter: grayscale(0%) brightness(1.05);
+    transform: scale(1.02); /* Subtle scale */
 }
 
 .positioning-section__content h2 {
-    font-size: 2.5rem;
+    font-size: var(--h2-fluid); /* Use fluid value */
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
 }
 
 .positioning-section__content p {
-    font-size: 1.1rem;
+    font-size: var(--p-fluid); /* Use fluid value */
     color: var(--color-gris-medio);
     margin-bottom: var(--spacing-lg);
+    max-width: 600px; /* Control line length for readability */
 }
 
 /* --- Catálogo de Servicios --- */
@@ -518,22 +569,22 @@ img {
 
 .services-section__title {
     color: var(--color-blanco-premium);
-    font-size: 3rem;
+    font-size: var(--h2-fluid); /* Use fluid value */
     margin-bottom: var(--spacing-xxl);
     font-weight: 600;
 }
 
 .services-section__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .service-card {
-    background-color: var(--color-navy-oscuro); /* Mismo color de fondo */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.03); /* Slightly lighter than navy for definition */
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: var(--spacing-xxl) var(--spacing-lg);
     border-radius: var(--border-radius-md);
     text-align: left;
@@ -541,18 +592,37 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 50%, rgba(var(--color-malva-suave-rgb), 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-card:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-5px) scale(1.02);
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px) scale(1.01); /* Subtle scale and lift */
     box-shadow: var(--shadow-medium);
     border-color: var(--color-malva-suave);
 }
 
 .service-card h3 {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: var(--h3-fluid); /* Use fluid value */
     color: var(--color-malva-suave);
     margin-bottom: var(--spacing-lg);
     font-weight: 400;
@@ -574,11 +644,13 @@ img {
 }
 
 .service-card li::before {
-    content: '→'; /* Sutil flecha o rombo */
+    content: '\2022'; /* Sutil punto como bullet */
     color: var(--color-malva-suave);
     position: absolute;
     left: 0;
     font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 .service-card .btn--text-link {
@@ -596,10 +668,17 @@ img {
     background: linear-gradient(180deg, var(--color-azul-lavanda) 0%, var(--color-rosa-claro) 100%);
     padding: var(--spacing-xxxl) 0;
     text-align: center;
+    position: relative;
+    /* Eliminado patrón de fondo inconsistente */
+}
+
+.pricing-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .pricing-section__title {
-    font-size: 3rem;
+    font-size: var(--h2-fluid); /* Use fluid value */
     margin-bottom: var(--spacing-xxl);
     font-weight: 600;
     color: var(--color-dark-navy-text);
@@ -607,7 +686,7 @@ img {
 
 .pricing-section__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     max-width: 1100px;
     margin: 0 auto;
@@ -626,7 +705,7 @@ img {
 }
 
 .pricing-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px) scale(1.01); /* Subtle lift */
     box-shadow: var(--shadow-medium);
 }
 
@@ -641,7 +720,7 @@ img {
 
 .pricing-card__title {
     font-family: var(--font-display);
-    font-size: 1.8rem;
+    font-size: var(--h3-fluid); /* Use fluid value */
     font-weight: 600;
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
@@ -681,21 +760,23 @@ img {
     align-self: flex-start;
 }
 
+/* Featured Card specific styling */
 .pricing-card--featured {
     background-color: var(--color-primary);
-    color: var(--color-blanco-premium);
-    box-shadow: var(--shadow-strong);
-    transform: scale(1.05); /* Destacado */
+    color: var(--color-blanco-premium); /* Default text color for featured card */
+    box-shadow: var(--shadow-premium);
+    transform: translateY(-8px); /* Lifted but not scaled */
     z-index: 1;
 }
 
 .pricing-card--featured:hover {
-    transform: translateY(-8px) scale(1.06);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    transform: translateY(-12px); /* More pronounced lift on hover */
+    box-shadow: var(--shadow-premium); /* Keep shadow strong */
 }
 
+/* WCAG FIX: Ensure all text in featured card has sufficient contrast */
 .pricing-card--featured .pricing-card__package-name {
-    color: var(--color-malva-suave);
+    color: var(--color-blanco-premium); /* Changed for contrast */
 }
 
 .pricing-card--featured .pricing-card__title {
@@ -703,7 +784,7 @@ img {
 }
 
 .pricing-card--featured .pricing-card__description {
-    color: var(--color-azul-lavanda);
+    color: var(--color-blanco-premium); /* Changed for contrast */
 }
 
 .pricing-card--featured .pricing-card__features li {
@@ -711,7 +792,11 @@ img {
 }
 
 .pricing-card--featured .pricing-card__features li::before {
-    color: var(--color-malva-suave);
+    content: '✓';
+    color: var(--color-blanco-premium); /* Changed for WCAG 3:1 non-text contrast */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
 
 /* --- Sección Cita / Reflexión --- */
@@ -724,11 +809,13 @@ img {
 .quote-section__text {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 3rem;
+    font-size: var(--quote-fluid); /* Use fluid value */
     font-weight: 400;
     color: var(--color-malva-suave);
     line-height: 1.4;
     letter-spacing: 0.02em;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* --- CTA Final --- */
@@ -736,17 +823,38 @@ img {
     background-color: var(--color-rosa-claro);
     padding: var(--spacing-xxxl) 0;
     text-align: center;
+    position: relative;
+}
+
+/* Patrón de fondo sutil (mismo que problema, pero con diferente opacidad/tamaño) */
+.cta-final-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cdabce' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zm1 5v1H5zM6 0H5v1z'/%3E%3C/g%3E%3C/svg%3E"); 
+    opacity: 0.2; /* Ligeramente menos opaco que la sección de problema */
+    background-size: 8px 8px; /* Ligeramente más grande */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cta-final-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .cta-final-section__title {
-    font-size: 2.8rem;
+    font-size: var(--h2-fluid); /* Use fluid value */
     font-weight: 600;
     color: var(--color-dark-navy-text);
     margin-bottom: var(--spacing-md);
 }
 
 .cta-final-section__subtitle {
-    font-size: 1.2rem;
+    font-size: var(--p-fluid); /* Use fluid value */
     color: var(--color-gris-medio);
     margin-bottom: var(--spacing-xl);
     max-width: 600px;
@@ -770,8 +878,8 @@ img {
 
 .footer__container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr; /* Default to single column for mobile */
+    gap: var(--spacing-xxl);
     text-align: center;
 }
 
@@ -786,12 +894,15 @@ img {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    color: var(--color-malva-suave);
+    color: var(--color-malva-suave); /* Color para texto y SVG */
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.3rem;
     letter-spacing: 0.05em;
     margin-bottom: var(--spacing-sm);
+}
+.footer__logo svg path { /* Ensure SVG paths inherit color correctly */
+    fill: currentColor;
 }
 
 .footer__logo-text {
@@ -814,6 +925,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg); /* Add spacing for mobile */
 }
 
 .footer__links a {
@@ -822,6 +934,10 @@ img {
 
 .footer__links a:hover {
     color: var(--color-blanco-premium);
+}
+
+.footer__contact {
+    margin-top: var(--spacing-lg); /* Add spacing for mobile */
 }
 
 .footer__contact p {
@@ -856,9 +972,7 @@ img {
         padding: 0 var(--spacing-md);
     }
 
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
+    /* Fluid typography is already handled by clamp() */
 
     .navbar {
         padding: var(--spacing-md) 0;
@@ -897,13 +1011,9 @@ img {
         padding-top: calc(var(--spacing-xxl) + 60px);
     }
 
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
     .hero-section__subtitle {
-        font-size: 1rem;
         letter-spacing: 0.03em;
+        max-width: 90%;
     }
 
     .hero-section .btn--primary {
@@ -911,18 +1021,18 @@ img {
         font-size: 1rem;
     }
 
-    .problem-section__title {
-        font-size: 2rem;
-    }
-
+    /* Unified alignment and max-width for problem section text on mobile */
     .problem-section__text, .problem-section__text--highlight {
-        font-size: 1rem;
+        text-align: center;
+        max-width: 90%; /* Ensure readability on small screens */
+        margin-left: auto;
+        margin-right: auto;
     }
-
-    .positioning-section__grid {
+    
+    .positioning-section__container {
         grid-template-columns: 1fr; /* Stack vertically */
         gap: var(--spacing-lg);
-        text-align: center;
+        text-align: center; /* Center content */
     }
 
     .positioning-section__image-wrapper {
@@ -930,45 +1040,25 @@ img {
         padding-bottom: 100%; /* Square image on mobile */
         max-width: 300px;
     }
+    
+    .positioning-section__content p {
+        max-width: none; /* Allow full width for paragraphs */
+    }
 
     .positioning-section__content .btn--text-link {
         margin: var(--spacing-md) auto 0;
-    }
-
-    .services-section__title {
-        font-size: 2.2rem;
     }
 
     .service-card {
         padding: var(--spacing-lg) var(--spacing-md);
     }
 
-    .service-card h3 {
-        font-size: 1.6rem;
-    }
-
-    .pricing-section__title {
-        font-size: 2.2rem;
-    }
-
     .pricing-card--featured {
-        transform: scale(1.02); /* Less aggressive scale on mobile */
+        transform: translateY(-4px); /* Less aggressive lift on mobile */
     }
 
     .pricing-card--featured:hover {
-        transform: translateY(-3px) scale(1.03);
-    }
-
-    .quote-section__text {
-        font-size: 1.8rem;
-    }
-
-    .cta-final-section__title {
-        font-size: 2rem;
-    }
-
-    .cta-final-section__subtitle {
-        font-size: 1rem;
+        transform: translateY(-6px);
     }
 
     .cta-final-section .btn--primary {
@@ -982,17 +1072,21 @@ img {
         text-align: center;
     }
 
+    .footer__brand {
+        align-items: center;
+    }
+
     .footer__links nav {
         align-items: center;
+        margin-top: 0; /* Reset margin for mobile */
+    }
+    .footer__contact {
+        margin-top: 0; /* Reset margin for mobile */
     }
 }
 
 /* Tablet (768px) */
 @media (min-width: 768px) {
-    h1 { font-size: 3.8rem; }
-    h2 { font-size: 2.8rem; }
-    h3 { font-size: 2rem; }
-
     .navbar__logo {
         font-size: 1.3rem;
     }
@@ -1013,31 +1107,21 @@ img {
         display: flex; /* Show CTA button */
     }
 
-    .hero-section h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero-section__subtitle {
-        font-size: 1.1rem;
-    }
-
-    .problem-section__title {
-        font-size: 2.5rem;
-    }
-
     .problem-section__text, .problem-section__text--highlight {
-        font-size: 1.1rem;
+        text-align: center; /* Restore centering for larger screens */
+        max-width: 700px; /* Restore max-width */
     }
 
-    .positioning-section__grid {
+    .positioning-section__container {
         grid-template-columns: 1fr 1.2fr; /* Asymmetric layout for tablet */
         gap: var(--spacing-xxl);
         text-align: left;
     }
 
     .positioning-section__image-wrapper {
-        margin: 0;
-        padding-bottom: 75%; /* Revert to 4:3 */
+        margin: 0; /* Reset margin */
+        padding-bottom: 75%; /* Revert to 4:3 or other aspect ratio */
+        max-width: none; /* Allow grid to define width */
     }
 
     .positioning-section__content .btn--text-link {
@@ -1045,28 +1129,8 @@ img {
         margin-right: auto;
     }
 
-    .services-section__title {
-        font-size: 2.8rem;
-    }
-
     .services-section__grid {
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pricing-section__title {
-        font-size: 2.8rem;
-    }
-
-    .quote-section__text {
-        font-size: 2.5rem;
-    }
-
-    .cta-final-section__title {
-        font-size: 2.5rem;
-    }
-
-    .cta-final-section__subtitle {
-        font-size: 1.1rem;
     }
 
     .footer__container {
@@ -1089,53 +1153,9 @@ img {
         max-width: 1400px;
         padding: 0 var(--spacing-xxl);
     }
-
-    h1 { font-size: 4.5rem; }
-    h2 { font-size: 3.5rem; }
-    h3 { font-size: 2.2rem; }
-
-    .hero-section h1 {
-        font-size: 4.5rem;
-    }
-
-    .hero-section__subtitle {
-        font-size: 1.3rem;
-    }
-
-    .problem-section__title {
-        font-size: 3rem;
-    }
-
-    .problem-section__text, .problem-section__text--highlight {
-        font-size: 1.2rem;
-    }
-
-    .positioning-section__grid {
+    
+    .positioning-section__container {
         grid-template-columns: 1fr 1.5fr; /* More pronounced asymmetry */
         gap: var(--spacing-xxxl);
-    }
-
-    .services-section__title {
-        font-size: 3.5rem;
-    }
-
-    .pricing-section__title {
-        font-size: 3.5rem;
-    }
-
-    .quote-section__text {
-        font-size: 3rem;
-    }
-
-    .cta-final-section__title {
-        font-size: 3rem;
-    }
-
-    .cta-final-section__subtitle {
-        font-size: 1.2rem;
-    }
-
-    .footer__container {
-        grid-template-columns: 2fr 1fr 1fr;
     }
 }
