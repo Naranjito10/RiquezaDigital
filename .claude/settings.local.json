@@ -88,7 +88,12 @@
       "Bash(New-Item -ItemType File -Path \"c:\\\\Users\\\\kein-\\\\OneDrive\\\\Desktop\\\\Riqueza Digital\\\\.remember\\\\remember.md\" -Force)",
       "Bash(Out-Null)",
       "mcp__plugin_vibiz_vibiz__list_vibiz",
-      "mcp__claude_ai_Notion__notion-create-database"
+      "mcp__claude_ai_Notion__notion-create-database",
+      "mcp__claude_ai_Notion__notion-update-data-source",
+      "Bash(ls edit/)",
+      "Bash(cat edit/watcher_processed.json)",
+      "Skill(commit-commands:commit)",
+      "Skill(commit-commands:commit:*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\kein-\\OneDrive\\Desktop\\Riqueza Digital\\RD-TEAM\\.claude"

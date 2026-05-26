@@ -50,12 +50,13 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de creación:** 2026-05-26
 
 ### F-011 — Sistema de Cierre de Sesión Inteligente
-- **Estado:** 🌱 PoC (construcción en sesión dedicada — fecha por confirmar)
-- **Ubicación prevista:** skill `/cierre-sesion` en `.claude/skills/agencia/`; regla en memoria `feedback-cierre-sesion-proactivo` (ya creada); hook opcional `context-monitor` en `.claude/hooks/` (v2).
-- **Qué hace:** 4 capas integradas. (1) Skill ejecutable que cierra sesión correctamente: actualiza imputación de horas, crea tareas Notion de seguimiento, extrae aprendizajes, propone updates a memorias y AGENCIA-AGENTICA.md. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP:** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/` — conocimiento institucional acumulable y transferible a nuevas personas. (4) Hook futuro que da el % real de contexto en lugar de estimación.
+- **Estado:** 🔧 Interno-estable
+- **Ubicación:** skill `/cierre-sesion` en `.claude/commands/cierre-sesion.md`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
+- **Qué hace:** 4 capas integradas. (1) Skill ejecutable `/cierre-sesion`: 7 pasos — recopilar contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema, resumen. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP (integrada con F-014):** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/`. (4) Hook futuro que da el % real de contexto en lugar de estimación (pendiente v2).
 - **Clientes aplicables:** universal — todo usuario serio de Claude Code se beneficia. Vendible como módulo de Tier 1 o como add-on.
-- **Próximos pasos:** sesión dedicada para construir skill + validar mensajes + integrar capa SOP + decidir si hook v1 o v2.
+- **Próximos pasos:** (1) Validar con uso real en las próximas sesiones. (2) Hook v2 para % real de contexto.
 - **Fecha de creación:** 2026-05-26
+- **Fecha de implementación:** 2026-05-26
 
 ### F-012 — Skill `/registrar-feature` (auto-inventario)
 - **Estado:** 🌱 PoC (construcción en sesión dedicada — fecha por confirmar)
@@ -130,6 +131,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-05-26 (sesión F-011) — **F-011 implementada** como 🔧 Interno-estable. Skill `/cierre-sesion` construida en `.claude/commands/cierre-sesion.md` con 7 pasos: contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema y resumen. Integrada con F-014 (SOPs) y protocolos de `CLAUDE.md`.
 
 2026-05-26 (cierre tarde) — Añadida **F-014 (Sistema de Biblioteca de SOPs)**. Renumerada desde F-013 por conflicto con Autopilot. Primer SOP verificado: `gestion-claves-api-windows.md`. CLAUDE.md actualizado con regla 3 (secretos) y regla 13 (`[skip-vibiz]`).
 
