@@ -156,7 +156,7 @@ No incluyas textos explicativos fuera de los delimitadores de archivos. Ve direc
         try:
             generator_response = CredentialVault.request(
                 provider="gemini",
-                model="gemini-1.5-flash",
+                model="gemini-2.5-flash",
                 system_prompt=GENERATOR_SYSTEM_PROMPT,
                 prompt=gen_prompt,
                 json_mode=False
