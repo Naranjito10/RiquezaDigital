@@ -221,14 +221,26 @@ Recuerda que debes devolver un JSON estructurado con la puntuación de cada crit
                 prompt=eval_prompt,
                 json_mode=True
             )
+            eval_cost = estimate_cost("anthropic", eval_prompt, eval_response)
         except Exception as e:
-            error_msg = f"Error en evaluacion: {str(e)}"
-            print(f"[ERROR] {error_msg}")
-            logger.log_event("error", {"iteration": i, "step": "evaluator", "error": error_msg})
-            break
+            print(f"[WARN] Error llamando a Claude Sonnet: {e}")
+            print("[LLM] Activando fallback: Evaluando con Gemini Pro (gemini-2.5-pro)...")
+            try:
+                eval_response = CredentialVault.request(
+                    provider="gemini",
+                    model="gemini-2.5-pro",
+                    system_prompt=EVALUATOR_SYSTEM_PROMPT,
+                    prompt=eval_prompt,
+                    json_mode=True
+                )
+                eval_cost = estimate_cost("gemini", eval_prompt, eval_response)
+            except Exception as ex:
+                error_msg = f"Error en evaluacion (Claude y Gemini Pro): {str(ex)}"
+                print(f"[ERROR] {error_msg}")
+                logger.log_event("error", {"iteration": i, "step": "evaluator", "error": error_msg})
+                break
             
         # Calcular coste del Evaluador
-        eval_cost = estimate_cost("anthropic", eval_prompt, eval_response)
         budget_manager.add_cost(eval_cost)
         
         # Intentar parsear JSON de la evaluación
