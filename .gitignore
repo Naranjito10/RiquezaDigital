@@ -77,3 +77,15 @@ build/
 
 *.log
 logs/
+
+# ============================================================
+# SERVICIO DE EDICIÓN DE VÍDEO (Archivos pesados / temporales)
+# ============================================================
+
+services/edicion-video/node_modules/
+services/edicion-video/.venv/
+services/edicion-video/input/
+services/edicion-video/edit/
+services/edicion-video/output/
+services/edicion-video/transcripts/
+

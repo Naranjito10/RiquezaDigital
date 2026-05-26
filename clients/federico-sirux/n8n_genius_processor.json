@@ -1,0 +1,246 @@
+{
+    "name": "CRM - 01 - Processor - Genius Feedback",
+    "nodes": [
+        {
+            "parameters": {},
+            "type": "n8n-nodes-base.executeWorkflowTrigger",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "trigger-exec",
+            "name": "Execute Trigger"
+        },
+        {
+            "parameters": {
+                "mode": "raw",
+                "jsonOutput": "={\n  \"raw_name\": \"{{ $json.Nombre }} {{ $json.Apellidos }}\",\n  \"telefono_clean\": \"{{ ($json['Número de contacto (en el que tienes whatsapp)'] || $json['Numero de contacto'] || '').toString().replace(/\\D/g, '') }}\",\n  \"email\": \"{{ $json.Correo || $json['Dirección de correo electrónico'] }}\"\n}"
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                200,
+                0
+            ],
+            "id": "normalize-data",
+            "name": "Normalize Data"
+        },
+        {
+            "parameters": {
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "filtersUI": {
+                    "values": [
+                        {
+                            "lookupColumn": "Email",
+                            "lookupValue": "={{ $json.email.toLowerCase().trim() }}"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+                400,
+                0
+            ],
+            "id": "search-contact",
+            "name": "Search Contact by Phone",
+            "alwaysOutputData": true
+        },
+        {
+            "parameters": {
+                "mode": "raw",
+                "jsonOutput": "={\n  \"calculated_status_genius\": \"{{ (() => {\n    const haHecho = ($item(0, 'Execute Trigger').json['Has hecho el curso para:'] || '').toLowerCase();\n    if (haHecho.includes('conseguir')) return '✅ REALIZADO';\n    if (haHecho.includes('acompañar')) return '🦮 ACOMPAÑANTE';\n    if (haHecho.includes('aprender idiomas')) return '🌎 X IDIOMA';\n    return '🚪 VENDIBLE';\n  })() }}\",\n  \"calculated_status_30dias\": \"{{ (() => {\n    const score = parseInt($item(0, 'Execute Trigger').json['¿Qué área te interesa más? [Aprender un idioma en 30 días]'] || '0');\n    if (score >= 5) return '💡🔥 CALIENTE';\n    if (score >= 4) return '💡 TEMPLADO';\n    if (score >= 3) return '🚪 VENDIBLE';\n    if (score >= 1) return '🥱 NO INTERESADO';\n    return '❌ RECHAZADO';\n  })() }}\"\n}"
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                600,
+                0
+            ],
+            "id": "calculate-logic",
+            "name": "Calculate Logic"
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                    },
+                    "conditions": [
+                        {
+                            "id": "cond-found",
+                            "leftValue": "={{ $item(0, 'Search Contact by Phone').json.Email }}",
+                            "operator": {
+                                "type": "string",
+                                "operation": "notEmpty",
+                                "singleValue": true
+                            }
+                        }
+                    ],
+                    "combinator": "and"
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+                800,
+                0
+            ],
+            "id": "if-found",
+            "name": "Contact Found?"
+        },
+        {
+            "parameters": {
+                "operation": "update",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Status_Genius": "={{ $json.calculated_status_genius }}",
+                        "Status_30Dias": "={{ $json.calculated_status_30dias }}",
+                        "Email": "={{ $item(0, 'Normalize Data').json.email }}"
+                    },
+                    "matchingColumns": [
+                        "Email"
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+                1000,
+                -100
+            ],
+            "id": "update-crm",
+            "name": "Update CRM"
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Telefono": "={{ $item(0, 'Normalize Data').json.telefono_clean }}",
+                        "Nombre_Completo": "={{ $item(0, 'Normalize Data').json.raw_name }}",
+                        "Email": "={{ $item(0, 'Normalize Data').json.email }}",
+                        "Status_Genius": "={{ $json.calculated_status_genius }}",
+                        "Status_30Dias": "={{ $json.calculated_status_30dias }}",
+                        "STATUS_General": "🚪 VENDIBLE"
+                    }
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+                1000,
+                100
+            ],
+            "id": "append-crm",
+            "name": "Add to CRM"
+        }
+    ],
+    "connections": {
+        "Execute Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Normalize Data",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Normalize Data": {
+            "main": [
+                [
+                    {
+                        "node": "Search Contact by Phone",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Search Contact by Phone": {
+            "main": [
+                [
+                    {
+                        "node": "Calculate Logic",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Calculate Logic": {
+            "main": [
+                [
+                    {
+                        "node": "Contact Found?",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Contact Found?": {
+            "main": [
+                [
+                    {
+                        "node": "Update CRM",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Add to CRM",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    }
+}

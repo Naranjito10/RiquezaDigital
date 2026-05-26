@@ -1,0 +1,45 @@
+{
+  "_comentario": "Edita este fichero para definir tu montaje. Renómbralo a edl.json y ejecuta: uv run editar.py renderizar edit/edl.json",
+
+  "sources": {
+    "clip1": "input/mi_grabacion.mp4",
+    "clip2": "input/otra_toma.mp4"
+  },
+
+  "ranges": [
+    {
+      "source": "clip1",
+      "start": 2.5,
+      "end": 15.0,
+      "grade": "warm_cinematic",
+      "_nota": "Elimina los primeros 2.5s de ruido/preparación"
+    },
+    {
+      "source": "clip1",
+      "start": 18.0,
+      "end": 35.5,
+      "grade": "warm_cinematic",
+      "_nota": "Segunda parte, sin la muletilla del minuto 0:17"
+    },
+    {
+      "source": "clip2",
+      "start": 0.0,
+      "end": 12.0,
+      "grade": "cool_modern",
+      "_nota": "Cierre desde la segunda toma con grade diferente"
+    }
+  ],
+
+  "overlays": [
+    {
+      "file": "animations/intro/output.mp4",
+      "start_in_output": 0.0,
+      "duration": 4.0,
+      "_nota": "Intro animada de Riqueza Digital sobre el primer clip"
+    }
+  ],
+
+  "subtitles": true,
+
+  "_grades_disponibles": ["warm_cinematic", "cool_modern", "bw_contrast", "auto"]
+}

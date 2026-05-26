@@ -1,0 +1,219 @@
+{
+    "name": "CRM - 01 - Processor - Genius Feedback (v2)",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "test-genius-logic",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "trigger",
+            "name": "Test Webhook"
+        },
+        {
+            "parameters": {
+                "jsCode": "/**\n * High-Fidelity Logic Processor for Sirux CRM\n * Ported from legacy \"Cristian\" workflow with 80+ fields.\n */\n\nconst item = items[0].json;\nconst body = item.body || item; // Robustness for dispatcher/direct\n\nconst results = {};\n\n// --- 1. CORE IDENTITY & PROFILE ---\nresults['NOMBRE'] = body.Nombre || '';\nresults['APELLIDOS_NOMBRE'] = [body.Apellidos, body.Nombre].filter(Boolean).join(', ');\nresults['EMAIL'] = (body.Correo || body['Direcci\u00f3n de correo electr\u00f3nico'] || '').toLowerCase().trim();\nresults['CONTACTO'] = String(body['Numero de contacto'] || body['N\u00famero Contacto (en que tienes whatsapp)'] || body['N\u00famero de contacto (en el que tienes whatsapp)'] || '').replace(/\\D+/g, '');\n\n// --- 2. MERCURY & INSTRUCTOR LOGIC ---\nconst instructorResponses = [\n    body['\u00bfCon qu\u00e9 centro o instructor realizaste tu primer curso?'],\n    body['\u00bfEn qu\u00e9 ciudad has hecho el curso?'],\n    body['\u00bfCon qu\u00e9 centro o instructor realizaste tu primer curso ONE?']\n];\n\nconst mapaCiudades = {\n    'Zaragoza (Laura Revilla)': 'Zaragoza Laura',\n    'Barcelona (Marco Bevanati)': 'Barcelona Marco',\n    \"Barcelona (Michele D'Antino)\": 'Barcelona Michele',\n    'Palma de mallorca (Magdalena Meli\u00e1)': 'Mallorca Magdalena',\n    'Palma de Mallorca (Giulia Barci)': 'Mallorca Giulia',\n    'M\u00e1laga (Margherita Vattimo)': 'Malaga Margherita',\n    'Sevilla (Alessandro Fornelli)': 'Sevilla Alessandro',\n    'Valencia (Filippo Bruni)': 'Valencia Filippo',\n    'Valencia (Beatriz Castro)': 'Valencia Beatriz',\n    'Madrid (Theo Scacchi / Natalia Salto)': 'Madrid Theo Natalia',\n    'Madrid (Valerio Sepe)': 'Madrid Valerio',\n    'Madrid (Lucrezia Vattimo)': 'Madrid Lucrezia',\n    'Alicante (Emilia Valero)': 'Alicante Emilia',\n    'Granada (F\u00e1tima Cano)': 'Granada F\u00e1tima',\n    'Bilbao (Mar\u00eda Calero)': 'Bilbao Mar\u00eda',\n    'San Sebasti\u00e1n (Naiara Parra)': 'San Sebasti\u00e1n Naiara',\n    'Pamplona (Elisabeth Tornos)': 'Pamplona Elisabeth'\n};\n\nconst respInst = instructorResponses.find(r => r && mapaCiudades[r.trim()]);\nresults['INSTRUCTOR'] = mapaCiudades[respInst] || '';\n\nconst primerCursoStr = (body['\u00bfCu\u00e1l es el primer curso que has hecho con nosotros?'] || '').toLowerCase();\nconst esCursoValido = primerCursoStr.includes('genial business') || primerCursoStr.includes('30 dias 1 idioma');\nresults['MERCURY'] = (respInst || esCursoValido) ? '\u2705' : '\u274c';\n\n// --- 3. AGE & METADATA ---\nconst fechaNac = body['Fecha de nacimiento'] || '';\nif (fechaNac && fechaNac.includes('/')) {\n    const parts = fechaNac.split('/');\n    if (parts.length === 3) {\n        const nacimiento = new Date(parts[2], parts[1] - 1, parts[0]);\n        const hoy = new Date();\n        let edad = hoy.getFullYear() - nacimiento.getFullYear();\n        const m = hoy.getMonth() - nacimiento.getMonth();\n        if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) edad--;\n        results['EDAD'] = edad;\n    }\n}\nresults['MES'] = new Date().toLocaleString('es-ES', { month: 'long' });\nresults['A\u00d1O'] = new Date().getFullYear().toString();\nresults['MODALIDAD'] = body['Has conocido el curso por'] || '';\nresults['TERMINAL ESTABLE'] = body['\u00bfQui\u00e9n es tu TUTOR?'] || body['\u00bfQui\u00e9n es el TUTOR de tu hijo/hija?'] || '';\nresults['CIUDAD'] = body['\u00bfEn qu\u00e9 ciudad vives?'] || body['\u00bfEn qu\u00e9 ciudad vives? (si es un pueblo indica la ciudad grande m\u00e1s cercana)'] || '';\nresults['PROFESI\u00d3N'] = body['\u00bfA qu\u00e9 te dedicas actualmente?'] || '';\n\n// --- 4. PRODUCT STATUSES (The Heart of the CRM) ---\nconst cursosDone = String(body['\u00bfCu\u00e1les son los cursos que has hecho o vas a hacer con nosotros?'] || '');\nconst haHechoRaw = body['Has hecho el curso para'] || body['Has hecho el curso para:'] || '';\nconst haHecho = (haHechoRaw || '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').trim().toLowerCase();\n\n// GENIUS\nif (haHecho === 'conseguir objetivos de estudio') results['GENIUS'] = '\u2705 REALIZADO';\nelse if (haHecho === 'acompanar a mi hijo/hija') results['GENIUS'] = '\ud83e\uddae ACOMPA\u00d1ANTE';\nelse if (haHecho.includes('acompanar a mi hijo/hija y')) results['GENIUS'] = '\ud83e\uddae\ud83d\udca1 ACOMPA\u00d1ANTE INTERESADO';\nelse if (haHecho === 'aprender idiomas') results['GENIUS'] = '\ud83c\udf0e X IDIOMA';\nelse if (cursosDone.includes('He hecho el curso Genius como ALUMNO')) results['GENIUS'] = '\u2705 REALIZADO';\nelse if (cursosDone.toLowerCase().includes('apuntado al curso genius')) results['GENIUS'] = '\u270d\ufe0f';\nelse {\n    const metInt = body['\u00c1rea inter\u00e9s m\u00e9todo aprendizaje'] || '';\n    if (metInt.includes('4') || metInt.includes('5')) results['GENIUS'] = '\ud83d\udca1';\n    else results['GENIUS'] = '\ud83d\udeaa VENDIBLE';\n}\n\n// 30 DIAS\nconst interest30 = body['\u00c1rea inter\u00e9s idioma en 30 d\u00edas'] || '';\nconst pending30 = body['\u00bfTienes pendiente aprender un idioma?'] || '';\nif (haHecho === 'aprender idiomas') results['30_dias_1_idioma'] = '\ud83e\udde0 X GENIUS';\nelse if (cursosDone.toLowerCase().includes('finalizado el protocolo de 30 dias')) results['30_dias_1_idioma'] = '\u2705 REALIZADO';\nelse if (cursosDone.toLowerCase().includes('siguiendo el protocolo de 30 dias')) results['30_dias_1_idioma'] = '\u270d\ufe0f EN CURSO';\nelse if (pending30 === 'Si' || pending30 === 'S\u00ed') results['30_dias_1_idioma'] = '\ud83d\udeaa VENDIBLE';\nelse if (interest30.includes('5') || interest30.includes('4')) results['30_dias_1_idioma'] = '\ud83d\udccc INTERESADO';\nelse results['30_dias_1_idioma'] = '\ud83d\udeab NO EN TARGET';\n\n// GENIAL BUSINESS\nconst situacion = (body['\u00bfEstudias o trabajas?'] || '').toLowerCase();\nif (situacion.includes('solo estudio') || situacion.includes('ni estudio ni trabajo')) {\n    results['Genial_Business'] = '\ud83d\udeab NO EN TARGET';\n} else if (cursosDone.toLowerCase().includes('he hecho el curso genial business')) {\n    results['Genial_Business'] = '\u2705 REALIZADO';\n} else {\n    results['Genial_Business'] = '\ud83d\udeaa VENDIBLE';\n}\n\n// SSA\nconst edadVal = parseInt(results['EDAD']) || 0;\nif (cursosDone.toLowerCase().includes('he hecho la soft skills academy')) results['SSA'] = '\ud83c\udfc1 Acabado';\nelse if (cursosDone.toLowerCase().includes('estoy haciendo la soft skills academy')) results['SSA'] = '\ud83c\udf93 Actualmente Skiller';\nelse if (edadVal >= 18 && edadVal <= 25) results['SSA'] = '\ud83d\udeaa Vendible';\nelse results['SSA'] = 'NoInTarget';\n\n// --- 5. ONE SHOT & TARGET ---\nconst r1One = body['\u00bfCu\u00e1ntas veces has hecho el One hasta ahora?'] || body['\u00bfCu\u00e1ntas veces has hecho ONE?'] || 0;\nresults['One Echos'] = (Number(r1One) + (cursosDone.toLowerCase().includes('he hecho el curso one') ? 1 : 0)).toString();\n\nconst proximoOne = body['\u00bfVas a participar al pr\u00f3ximo One (Febrero 2026)'] || '';\nif (cursosDone.toLowerCase().includes('estoy apuntado al curso one')) results['Proximo One'] = '\u270d\ufe0f APUNTADO';\nelse if (proximoOne.toLowerCase().includes('apuntado')) results['Proximo One'] = '\u270d\ufe0f FIRMA';\nelse results['Proximo One'] = '';\n\n// --- 6. SATISFACTION & REFERRALS ---\nconst satisfactionMapping = {\n    'Satisfacci\u00f3n material del curso': 'E.MATERIAL DEL CURSO',\n    'Satisfacci\u00f3n staff': 'E.STAFF',\n    'Satisfacci\u00f3n instructor': 'E.INSTRUCTOR',\n    'Satisfacci\u00f3n motivaci\u00f3n': 'E.MOTIVACI\u00d3N',\n    'Satisfacci\u00f3n relajaci\u00f3n': 'E.RELAJACI\u00d3N',\n    'Satisfacci\u00f3n lectura r\u00e1pida': 'E.LECTURA RAPIDA',\n    'Satisfacci\u00f3n mapas mentales': 'E.MAPAS MENTALES',\n    'Satisfacci\u00f3n t\u00e9cnicas de memoria': 'E.TECNICAS DE MEMORIA',\n    'Satisfacci\u00f3n m\u00e9todo de estudio': 'E.METODO DE ESTUDIO',\n    'Satisfacci\u00f3n idiomas extranjeros': 'E.IDIOMAS EXTRANJEROS'\n};\nfor (const [key, col] of Object.entries(satisfactionMapping)) {\n    results[col] = body[key] || '';\n}\n\nfor (let i = 1; i <= 5; i++) {\n    results[`NOMBRE ${i}`] = body[`Persona recomendaci\u00f3n ${i}`] || '';\n}\n\n// --- 7. OBJECTIVE EXTRACTION ---\nconst objCampos = [\n    'DESCRIBE TU OBJETIVO CON EL CURSO:',\n    'Describe tu objetivo con el curso',\n    '\u00bfCual era tu objetivo con el curso?',\n    '\u00bfTienes alg\u00fan objetivo de estudio?',\n    '\u00bfCu\u00e1l es la principal mejora que deseabas para tu hijo/hija?'\n];\nresults['OBJETIVO DEL CURSO'] = objCampos.map(c => body[c]).find(v => v && v !== 'undefined' && v.trim() !== '') || '';\n\nreturn results;\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                250,
+                0
+            ],
+            "id": "mapping",
+            "name": "Calculate Mappings"
+        },
+        {
+            "parameters": {
+                "operation": "search",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "filtersUI": {
+                    "values": [
+                        {
+                            "lookupColumn": "Email",
+                            "lookupValue": "={{ $json.EMAIL }}"
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.5,
+            "position": [
+                500,
+                0
+            ],
+            "id": "search",
+            "name": "Search Contact"
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                    },
+                    "conditions": [
+                        {
+                            "id": "found",
+                            "leftValue": "={{ $json.Email }}",
+                            "operator": {
+                                "type": "string",
+                                "operation": "notEmpty",
+                                "singleValue": true
+                            }
+                        }
+                    ],
+                    "combinator": "and"
+                }
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2,
+            "position": [
+                750,
+                0
+            ],
+            "id": "if-found",
+            "name": "Found?"
+        },
+        {
+            "parameters": {
+                "operation": "update",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Nombre": "={{ $item(0, 'Calculate Mappings').json.NOMBRE }}",
+                        "Apellidos": "={{ $item(0, 'Calculate Mappings').json.APELLIDOS_NOMBRE }}",
+                        "Telefono": "={{ $item(0, 'Calculate Mappings').json.CONTACTO }}",
+                        "GENIUS": "={{ $item(0, 'Calculate Mappings').json.GENIUS }}",
+                        "OBJETIVO DEL CURSO": "={{ $item(0, 'Calculate Mappings').json.OBJETIVO }}"
+                    },
+                    "matchingColumns": [
+                        "Email"
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.5,
+            "position": [
+                1000,
+                -100
+            ],
+            "id": "update",
+            "name": "Update Data"
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1QIVDOfV8lxB_QNnGtAuCjRj8bGb0dxGOBTZhlBfOFM8",
+                    "mode": "id"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Master_CRM",
+                    "mode": "name"
+                },
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Email": "={{ $item(0, 'Calculate Mappings').json.EMAIL }}",
+                        "Nombre": "={{ $item(0, 'Calculate Mappings').json.NOMBRE }}",
+                        "Apellidos": "={{ $item(0, 'Calculate Mappings').json.APELLIDOS_NOMBRE }}",
+                        "Telefono": "={{ $item(0, 'Calculate Mappings').json.CONTACTO }}",
+                        "GENIUS": "={{ $item(0, 'Calculate Mappings').json.GENIUS }}",
+                        "Status": "Lead"
+                    }
+                }
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.5,
+            "position": [
+                1000,
+                100
+            ],
+            "id": "create",
+            "name": "Create Contact"
+        }
+    ],
+    "connections": {
+        "Execute Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Calculate Mappings",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Calculate Mappings": {
+            "main": [
+                [
+                    {
+                        "node": "Search Contact",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Search Contact": {
+            "main": [
+                [
+                    {
+                        "node": "Found?",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Found?": {
+            "main": [
+                [
+                    {
+                        "node": "Update Data",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Create Contact",
+                        "type": "main",
+                        "index": 1
+                    }
+                ]
+            ]
+        }
+    }
+}

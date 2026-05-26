@@ -1,0 +1,117 @@
+{
+    "name": "CRM - 00 - Dispatcher",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "crm-form-dispatcher",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "webhook-dispatcher",
+            "name": "Form Webhook"
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                    },
+                    "conditions": [
+                        {
+                            "id": "cond-genius",
+                            "leftValue": "={{ ($json.body.Source || $json.body.source || '').toLowerCase() }}",
+                            "rightValue": "genius",
+                            "operator": {
+                                "type": "string",
+                                "operation": "contains"
+                            }
+                        }
+                    ],
+                    "combinator": "and"
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+                250,
+                0
+            ],
+            "id": "if-source",
+            "name": "Check Source"
+        },
+        {
+            "parameters": {
+                "workflowId": "toiK9Axg5zoEuvK9",
+                "mode": "all",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.executeWorkflow",
+            "typeVersion": 1.1,
+            "position": [
+                500,
+                -100
+            ],
+            "id": "exec-genius",
+            "name": "Genius Processor"
+        },
+        {
+            "parameters": {
+                "workflowId": "DVHYIfQ04siyel4P",
+                "mode": "all",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.executeWorkflow",
+            "typeVersion": 1.1,
+            "position": [
+                500,
+                100
+            ],
+            "id": "exec-update",
+            "name": "Update Processor"
+        }
+    ],
+    "connections": {
+        "Form Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Check Source",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Check Source": {
+            "main": [
+                [
+                    {
+                        "node": "Genius Processor",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Update Processor",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    }
+}

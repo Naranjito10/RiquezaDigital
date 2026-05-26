@@ -1,0 +1,12 @@
+.env
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+edit/segments/
+edit/base.mp4
+edit/with_overlay.mp4
+edit/_concat.txt
+transcripts/
+input/
+output/

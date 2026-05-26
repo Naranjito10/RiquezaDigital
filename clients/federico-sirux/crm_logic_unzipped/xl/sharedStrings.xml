@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="892" uniqueCount="411"><si><t>INSTRUCTOR</t></si><si><t>APELLIDOS Y NOMBRE</t></si><si><t>NOMBRE</t></si><si><t>CONTACTO</t></si><si><t>EDAD</t></si><si><t>CORREO</t></si><si><t>Prossimi Eventi</t></si><si><t>1* CURSO</t></si><si><t>MES</t></si><si><t xml:space="preserve">AÑO </t></si><si><t>MODALIDAD</t></si><si><t>TERMINAL ESTABLE</t></si><si><t>CIUDAD</t></si><si><t>PROFESIÓN</t></si><si><t>Nivel</t></si><si><t>Tipo</t></si><si><t>Año</t></si><si><t>STATUS 🚦</t></si><si><t xml:space="preserve">16K </t></si><si><t>SSA</t></si><si><t>🧠 GENIUS</t></si><si><t>30 dias 1 idioma</t></si><si><t>Genial Business</t></si><si><t>One Echos</t></si><si><t>Proximo One</t></si><si><t>Domina tu discurso</t></si><si><t>Genius Kids</t></si><si><t>L. Rapida</t></si><si><t>G. Tiempo</t></si><si><t>Estress + IA</t></si><si><t>Estudiantes</t></si><si><t>Idiomas</t></si><si><t>Profesionales</t></si><si><t>OBJETIVO DEL CURSO</t></si><si><t>MATERIAL DEL CURSO</t></si><si><t>STAFF</t></si><si><t>MOTIVACIÓN</t></si><si><t>RELAJACIÓN</t></si><si><t>LECTURA RAPIDA</t></si><si><t>MAPAS MENTALES</t></si><si><t>TECNICAS DE MEMORIA</t></si><si><t>METODO DE ESTUDIO</t></si><si><t>IDIOMAS EXTRANJEROS</t></si><si><t>Comunicación</t></si><si><t>NOMBRE 1</t></si><si><t>NOMBRE 2</t></si><si><t>NOMBRE 3</t></si><si><t>NOMBRE 4</t></si><si><t>NOMBRE 5</t></si><si><t>NOTAS</t></si><si><t>formulario [pregunta (en qué ciudad) de sección 4]</t></si><si><t>formulario</t></si><si><t>¿Cómo prefieres que te llamemos si te contactamos?</t></si><si><t xml:space="preserve">diferencia entre fecha actual y fecha de nacimiento </t></si><si><t>formulario [respuesta a la pregunta &quot;¿Quieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo?&quot; de la sección 12]</t></si><si><t>actual</t></si><si><t xml:space="preserve">actual </t></si><si><t>Has conocido el curso por:</t></si><si><t xml:space="preserve">formulario (pregunta: quién es tu tutor de la sección 5, 6 y 7 en esta seccion la pregunta es un poco diferente) </t></si><si><t>Respuesta texto breve</t></si><si><t xml:space="preserve">formulario (pregunta: ¿Qué estudias? 2, y 3) </t></si><si><t>a esta respuesta aparece de base: 🚪VENDIBLE en el listado de las posibles</t></si><si><t>Se queda vacia</t></si><si><t>se queda vacia</t></si><si><t>formulario 
+
+(pregunta: Has hecho el curso para: 
+
+Seccion 4 - posibles respuestas &quot; conseguir objetivos de estudio, -&gt; ✅ REALIZADO, 
+
+acompañar mi hijo/hija -&gt;🦮 ACOMPAÑANTE
+
+ Acompañar a mi hijo/hija y aprender algo también -&gt; 🦮💡ACOMPAÑANTE INTERESADO
+
+Aprender Idiomas -&gt;🌎 X IDIOMA</t></si><si><t>Formulario SECCION 12: ¿Qué área te interesa más? si en la opcion: gestión economica el valor es 0 la respuesta es : ❌ RECHAZADO - 1 o 2 :🥱NO INTERESADO - 3 🚪VENDIBLE - 4 - 💡TEMPLADO - 5💡🔥CALIENTE.  SI EN formulario 
+
+(pregunta: Has hecho el curso para: 
+
+Seccion 4 - 
+
+Aprender Idiomas -&gt;🌎 X IDIOMA  ENTONCES SALE 🧠 X GENIUS</t></si><si><t>si en la sección 3 o 8 a la pregunta &quot;gestiónas un grupo de personas&quot;  contesta &quot;si&quot; o Si &quot;y muchas mas&quot; tiene que aparecer 🚪VENDIBLE  si no 🚫NO EN TARGET</t></si><si><t>Formulario SECCION 12: ¿Qué área te interesa más? si en la opcion: hablar en publico el valor es 0 la respuesta es : ❌ RECHAZADO - 1 o 2 :🥱NO INTERESADO - 3 🚪VENDIBLE - 4 - 💡TEMPLADO - 5💡🔥CALIENTE</t></si><si><t>Formulario SECCION 9: En tu nucleo familiar si en la opcion: Tienes hijos de 8 a 12 años? y  Tienes hijos de 13 a 15 años?- 🚪VENDIBLE - Los de mas 🚫NO EN TARGET</t></si><si><t xml:space="preserve">formulario (pregunta: Has hecho el curso para: Seccion 4 - posibles respuestas &quot; conseguir objetivos de estudio, en este caso en el formulario aparece🚪VENDIBLE - acompañar mi hijo/hija, en este caso aparece 🚫NO EN TARGET- Acompañar a mi hijo/hija y aprender algo también, 🚫NO EN TARGET, Aprender Idiomas en este caso aparece, 🚪VENDIBLE </t></si><si><t>formulario (pregunta: Has hecho el curso para: Seccion 4 - posibles respuestas &quot; conseguir objetivos de estudio, en este caso en el formulario aparece💡INTERESADO - acompañar mi hijo/hija, en este caso aparece 🚫NO EN TARGET- Acompañar a mi hijo/hija y aprender algo también, 🚫NO EN TARGET, Aprender Idiomas en este caso aparece, 🚪VENDIBLE --- SI AL MISMO TIEMPO en la seccion 1del formulario ha escrito &quot;solo trabajo&quot; entonces se convierte en 🚫NO EN TARGET ESTA CONDICIÓN PREVALE SOBRE LA ANTERIOR</t></si><si><t xml:space="preserve">formulario (pregunta: Has hecho el curso para: Seccion 4 - posibles respuestas &quot; conseguir objetivos de estudio, en este caso en el formulario aparece🚪VENDIBLE - acompañar mi hijo/hija, en este caso aparece 🚫NO EN TARGET- Acompañar a mi hijo/hija y aprender algo también, 🚫NO EN TARGET, Aprender Idiomas en este caso aparece, 💡INTERESADO </t></si><si><t>formulario (pregunta: Has hecho el curso para: Seccion 4 - posibles respuestas &quot; conseguir objetivos de estudio, en este caso en el formulario aparece🚪VENDIBLE - acompañar mi hijo/hija, en este caso aparece 🚪VENDIBLE - Acompañar a mi hijo/hija y aprender algo también, 🚪VENDIBLE , Aprender Idiomas en este caso aparece, 🚪VENDIBLE --- SI AL MISMO TIEMPO en la seccion 1 del formulario ha escrito &quot;solo estudio&quot; entonces se convierte en 🚫NO EN TARGET ESTA CONDICIÓN PREVALE SOBRE LA ANTERIOR -- si en la seccion 7 a la pregunta&quot;¿Has agendado el follow up de los profesionales?&quot; hubiese contestado: &quot;no y no me interesa&quot; entonces se convierte en 🥱NO INTERESADO - ESTA CONDICIÓN PREVALE SOBRE LAS ANTERIORES</t></si><si><t>Formulario seccion 5 Y 6- pregunta: DESCRIBE TU OBJETIVO CON EL CURSO - en la seccion 7 &quot;cual es la principal mejora que deseas para tu hijo/ hija</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción MATERIAL DEL CURSO: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción STAFF: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción INSTRUCTOR: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción MOTIVACIÓN: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción RELAJACIÓN: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción LECTURA RAPIDA: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción MAPAS MENTALES: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción TECNICAS DE MEMORIA: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción METODO DE ESTUDIO: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario SECCION 9: ¿MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA AREA? si en la opción IDIOMAS EXTRANJEROS: el valor es bajo la respuesta es : BAJO - MEDIOCRE - SUFICIENTE - BUENO - OPTIMO, - escribe el valor correspondiente</t></si><si><t>Formulario seccion 12- pregunta: ¿Hay algo que te gustaría comunicarnos?</t></si><si><t>SECCIÓN 10 - 1 NOMBRE Y APELLIDO - reproducir texto</t></si><si><t>SECCIÓN 10 - 2 NOMBRE Y APELLIDO - texto</t></si><si><t>SECCIÓN 10 - 3 NOMBRE Y APELLIDO - texto</t></si><si><t>SECCIÓN 10 - 4 NOMBRE Y APELLIDO - texto</t></si><si><t>SECCIÓN 10 - 5 NOMBRE Y APELLIDO - texto</t></si><si><t>Apellidos, Nombre</t></si><si><t>Fede</t></si><si><t xml:space="preserve">info@riquezadigital.es </t></si><si><t>Sí/No</t></si><si><t>septiembre</t></si><si><t>Tik Tok</t></si><si><t>Federico Martinucci</t></si><si><t>Barcelona</t></si><si><t>lo primero que venga es</t></si><si><t xml:space="preserve">Realizado </t></si><si><t>Formulario SECCIÓN 2 y 3 / 11: ¿Con qué centro o instructor realizaste tu primer curso?
+        •        Si en la SECCIÓN 2 responden Genius → pasan a la SECCIÓN 3 y la columna Instructor se completa con la respuesta a la primera pregunta de esa sección:
+¿En qué ciudad hiciste el curso?
+        •        Si en la SECCIÓN 2 responden Genial Business → la columna Instructor se completa automáticamente con: Genial Business.
+        •        Si en la SECCIÓN 2 responden 30 días 1 idioma → la columna Instructor se completa automáticamente con: Marco 30.
+        •        Si en la SECCIÓN 2 responden ONE → pasan a la SECCIÓN 11 y la columna Instructor se completa con la respuesta a la pregunta:
+¿Con qué centro o instructor realizaste tu primer curso ONE?</t></si><si><t>formulario [respuesta a la pregunta &quot;¿Quieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo?&quot; de la sección 13]</t></si><si><t>Formulario SECCIÓN 2: ¿Cuál es el primer curso que has hecho con nosotros?
+	•	Si la opción es Genius → la columna Primer Curso se completa con: 🧠 (icono del cerebro)
+	•	Si la opción es 30 días 1 idioma → la columna Primer Curso se completa con: 30 🌍 (número 30 + icono del globo terráqueo)
+	•	Si la opción es Genial Business → la columna Primer Curso se completa con: 💼 (icono de la maleta)
+	•	Si la opción es ONE → la columna Primer Curso se completa con: 🔥✅ (icono de fuego + tick verde)</t></si><si><t>Según la respuesta de la SECCIÓN 2 (Primer Curso), la información de las columnas Mes y Año se obtiene de las siguientes secciones del formulario:
+	•	Si en la SECCIÓN 2 respondieron Genius → Mes y Año se completan con las respuestas de la SECCIÓN 3.
+	•	Si en la SECCIÓN 2 respondieron Genial Business → Mes y Año se completan con las respuestas de la SECCIÓN 9.
+	•	Si en la SECCIÓN 2 respondieron 30 días 1 idioma → Mes y Año se completan con las respuestas de la SECCIÓN 12.
+	•	Si en la SECCIÓN 2 respondieron ONE → Mes y Año se completan con las respuestas de la SECCIÓN 11.</t></si><si><t>Formulario SECCIÓN 1: ¿Has conocido el curso por…?
+	•	Si la opción es Instagram o Página web → la columna Modalidad se completa con: Internet
+	•	Si la opción es Me lo ha recomendado alguien que estaba a punto de hacerlo / que lo había hecho → la columna Modalidad se completa con: Referral
+	•	Si la opción es TikTok → la columna Modalidad se completa con: TikTok
+	•	Si la opción es BNI → la columna Modalidad se completa con: BNI
+	•	Si la opción es He conocido a una persona del staff → la columna Modalidad se completa con: Promo</t></si><si><t>Formulario SECCIÓN 2: ¿Cuál es el primer curso que has hecho con nosotros?
+	•	Si la opción es ONE → la columna Terminal estable se completa con el instructor responsable del centro (ejemplo: Zaragoza → Laura Reviglia, Mallorca → Magdalena Melià, etc.).
+⚠️ Nota: en las opciones de respuesta ya aparece indicado junto a la ciudad el nombre del instructor correspondiente.
+	•	Si la opción es 30 días 1 idioma → la columna Terminal estable se completa con la respuesta a la SECCIÓN 12:
+¿Quién es el instructor?
+	•	Si la opción es Genius → existe una ramificación en la SECCIÓN 3 (Pre-Genius):
+	•	Si la respuesta es Para aprender lenguas extranjeras → la columna Terminal estable se completa con la respuesta de la SECCIÓN 6:
+¿Quién es el instructor?
+	•	Si la respuesta es Para conseguir objetivos de estudio → la columna Terminal estable se completa con la respuesta de la SECCIÓN 8:
+¿Quién es el instructor?
+	•	Si la respuesta es Para acompañar a tu hijo/a → la columna Terminal estable se completa con la respuesta de la SECCIÓN 6:
+¿Quién es el instructor?
+	•	Si la opción es Genial Business → la columna Terminal estable se completa automáticamente con: Federico Martinucci.</t></si><si><t>Formulario SECCIONES 5 y 7:
+	•	La columna N se completa con la respuesta de SECCIÓN 5 (texto breve).
+	•	La columna N se completa también con la respuesta de SECCIÓN 7 (texto breve).
+
+👉 Nota: en ambos casos se trata de respuestas de tipo texto breve.</t></si><si><t>Formulario SECCIONES 4 y 5:
+
+Pregunta: ¿Qué estudias?
+
+Opciones posibles:
+	•	ESO / Subacelerado
+	•	Grado medio
+	•	Grado superior
+	•	Carrera
+	•	Máster
+	•	Curso ajeno
+	•	Recorrido escolar
+
+La columna O se completa con la respuesta a esta pregunta en:
+	•	SECCIÓN 4
+	•	SECCIÓN 5</t></si><si><t>Formulario SECCIONES 4 y 5:
+
+Pregunta: ¿Qué especialidad haces?
+	•	La columna P se completa con la respuesta en texto breve de la SECCIÓN 4.
+	•	La columna P se completa también con la respuesta en texto breve de la SECCIÓN 5.</t></si><si><t>Formulario SECCIONES 4 y 5:
+
+Pregunta: ¿En qué año estás?
+	•	La columna Q se completa con la respuesta en texto breve de la SECCIÓN 4.
+	•	La columna Q se completa también con la respuesta en texto breve de la SECCIÓN 5.</t></si><si><t xml:space="preserve">Formulario – Secciones donde aparece la pregunta
+	•	General Business (SECCIÓN 9)
+	•	Genius (SECCIÓN 4 / 8 según ramificación)
+	•	Curso de Idiomas (30 días 1 idioma – SECCIÓN 12)
+	•	ONE (SECCIÓN 11)
+
+Pregunta: “¿Has conseguido tu objetivo con el curso?”
+
+Respuestas posibles:
+	•	Sí, totalmente → 🏆 CONSEGUIDO
+	•	No del todo → 🟡 ALARMA
+	•	Estoy en el proceso → 🚪 VENDIBLE
+</t></si><si><t xml:space="preserve">	•	No se toca (sin cambios vía formulario).</t></si><si><t xml:space="preserve"> Formulario SECCIÓN 13: “¿Qué cursos has hecho o vas a hacer con nosotros?”
+(Opciones tipo casillas múltiples + campo de texto)
+        •        Si está marcada “He hecho la SoftSkill Academy” → 🏁 Acabado.
+        •        Si está marcada “Estoy cursando la SoftSkill Academy” → 🎓 Actualmente Skiller.
+        •        Si no está marcada ninguna de las dos y la edad NO está entre 18 y 25 años (inclusive) → NoInTarget.
+        •        Si no está marcada ninguna de las dos y la edad SÍ está entre 18 y 25 años (inclusive) → 🚪 Vendible.</t></si><si><t xml:space="preserve">Formulario SECCIÓN 4: Pregunta “¿Has hecho el curso para…?”
+	•	Si la opción es Conseguir objetivos de estudio → ✅ REALIZADO
+	•	Si la opción es Acompañar a mi hijo/hija → 🦮 ACOMPAÑANTE
+	•	Si la opción es Acompañar a mi hijo/hija y aprender algo también → 🦮💡 ACOMPAÑANTE INTERESADO
+	•	Si la opción es Aprender idiomas → 🌎 X IDIOMA
+	•	Si no selecciona ninguna de estas → 🚪 VENDIBLE
+
+⸻
+
+Formulario SECCIÓN 13: Pregunta “¿Qué cursos has hecho o vas a hacer con nosotros?”
+
+⚠️ Solo se aplica si la columna Curso Genius aún no está completada por SECCIÓN 4.
+	•	Si marca “He hecho el curso como alumno” → ✅ REALIZADO
+	•	Si marca “He hecho el curso como padre/madre acompañante” → 🦮 ACOMPAÑANTE
+	•	Si marca “Estoy apuntado al curso Genius” → ✍️ (icono de firma)
+
+⸻
+
+Caso adicional – Interés alto (SECCIÓN 13, área “Método de estudio”)
+	•	Si no marca ninguna de las opciones anteriores pero responde 4 o 5 en el área “Método de estudio” → 💡 (icono bombilla)
+	•	En cualquier otro caso → 🚪 VENDIBLE
+</t></si><si><t>Formulario SECCIÓN 4: Pregunta “¿Has hecho el curso para…?”
+	•	Si la opción es Aprender Idiomas → mostrar: 🌎 X IDIOMA y 🧠 X GENIUS.
+
+⚠️ Esta respuesta de la SECCIÓN 4 tiene prioridad sobre lo que pueda salir en SECCIÓN 13.
+
+⸻
+
+Formulario SECCIÓN 13: Pregunta “¿Qué cursos has hecho o vas a hacer con nosotros?”
+	•	Si marca “He finalizado el protocolo de 30 días 1 idioma” → ✅ REALIZADO (30 días 1 idioma).
+	•	Si marca “Estoy siguiendo el protocolo de 30 días 1 idioma” → 👨‍🎓 EN CURSO (30 días 1 idioma).
+
+⚠️ Solo se aplican estas opciones si en SECCIÓN 2 no dijo que el primer curso fue 30 días 1 idioma y en SECCIÓN 4 no dijo que hizo Genius para aprender idiomas.
+
+⸻
+
+Formulario SECCIÓN 13: Pregunta “¿Qué área te interesa más?” (subárea aprender un idioma en un mes)
+(se usa solo si no hay respuestas en SECCIÓN 2 ni en SECCIÓN 4 ni en la parte de cursos de SECCIÓN 13)
+
+Si en la opción gestión económica el valor es:
+	•	0 → ❌ RECHAZADO
+	•	1 o 2 → 🥱 NO INTERESADO
+	•	3 → 🚪 VENDIBLE
+	•	4 → 💡 TEMPLADO
+	•	5 → 💡🔥 CALIENTE
+
+⸻
+
+👉 En sintesis:
+	1.	Prioridad 1 → SECCIÓN 4 (Aprender Idiomas).
+	2.	Prioridad 2 → SECCIÓN 13 (cursos hechos o en curso, 30 días 1 idioma).
+	3.	Prioridad 3 → SECCIÓN 13 (área de interés gestión económica, valores 0–5).</t></si><si><t>Formulario SECCIÓN 2: “¿Cuál es el primer curso que has hecho con nosotros?”
+	•	Si la opción es General Business → ✅ REALIZADO
+(esta respuesta prevalece sobre todas las demás)
+
+⸻
+
+Formulario SECCIÓN 13: “¿Qué cursos has hecho o vas a hacer con nosotros?”
+	•	Si marca “He hecho el curso General Business” → ✅ REALIZADO
+(esta respuesta prevalece sobre todas las demás, salvo SECCIÓN 2)
+	•	Si marca “Estoy apuntado al curso General Business” → ✍️ FIRMA
+
+⸻
+
+Formulario SECCIONES 5 (Estudiante–Trabajador) o 7 (Trabajador):
+Pregunta: “En tu trabajo, ¿tienes que coordinar un grupo de al menos 3 personas?”
+	•	Si la respuesta es Sí → 🚪 VENDIBLE
+	•	Si la respuesta es No (recibo tareas e indicaciones) → ❌ NO IN TARGET
+
+⸻
+
+Formulario SECCIÓN 13: “¿Qué área te interesa más?” – Subárea Gestión de equipo
+(solo se aplica si no hay respuesta en SECCIÓN 2 ni en SECCIÓN 13 – cursos)
+	•	0 → ❌ RECHAZADO
+	•	1 o 2 → 🥱 NO INTERESADO
+	•	3 → 🚪 VENDIBLE
+	•	4 → 💡 TEMPLADO
+	•	5 → 💡🔥 CALIENTE
+
+⸻
+
+👉 Jerarquía de prioridad (de mayor a menor):
+	1.	SECCIÓN 2 (primer curso = General Business → ✅ REALIZADO)
+	2.	SECCIÓN 13 (cursos hechos/apuntado → ✅ REALIZADO o ✍️ FIRMA)
+	3.	SECCIONES 5 / 7 (pregunta de coordinación en el trabajo → 🚪 VENDIBLE o ❌ NO IN TARGET)
+	4.	SECCIÓN 13 (área de interés “Gestión de equipo” → valores 0–5 con iconos).</t></si><si><t>(ONE: nº de veces)
+Formulario SECCIÓN 11: “¿Cuántas veces has hecho ONE?”
+	•	Respuestas posibles: Una / Dos / Tres / Más de tres → el valor de la columna es exactamente la respuesta del formulario.</t></si><si><t>(Próximo ONE)
+Formulario SECCIÓN 11: “¿Vas a participar en el próximo ONE?”
+	•	Estoy apuntado → ✍️ FIRMA
+	•	No me interesa → 🥱 NO INTERESADO
+	•	Lo estoy valorando → 🤔 VALORANDO</t></si><si><t>(Interés: Hablar en público)
+Formulario SECCIÓN 13: “¿Qué área te interesa más?” → subárea Hablar en público
+        •        0 → ❌ RECHAZADO
+        •        1 o 2 → 🥱 NO INTERESADO
+        •        3 → 🚪 VENDIBLE
+        •        4 → 💡 TEMPLADO
+        •        5 → 💡🔥 CALIENTE</t></si><si><t>Formulario SECCION 13: En tu nucleo familiar si en la opcion: Tienes hijos de 8 a 12 años? y  Tienes hijos de 13 a 15 años?- 🚪VENDIBLE - Los de mas 🚫NO EN TARGET</t></si><si><t xml:space="preserve"> Columnas AB/AC/AD (Clases de profundización GENIUS y caso General Business)
+
+Caso GENIUS (SECCIÓN 4 + SECCIÓN 8)
+        •        Si en SECCIÓN 4 indicó que hizo GENIUS (Idiomas u Objetivos de estudio) → por defecto AB/AC/AD = 🚪 VENDIBLE.
+        •        Asignación por participación (SECCIÓN 8: “¿Has participado en la clase de profundización?”):
+        •        Lectura rápida → AB = ✅ REALIZADO
+        •        Gestión del tiempo → AC = ✅ REALIZADO
+        •        Gestión del estrés o Inteligencia Artificial → AD = ✅ REALIZADO
+        •        Ninguna → AB/AC/AD = 🚪 VENDIBLE (se mantienen como base)
+        •        Soy padre/madre acompañante → AB/AC/AD = ❌ NoInTarget
+
+Casos sin GENIUS
+        •        Si en SECCIÓN 2 el primer curso no es GENIUS y en SECCIÓN 13 no marca “He hecho el curso GENIUS como alumno” → AB/AC/AD = ❌ NoInTarget.
+        •        Si en SECCIÓN 13 marca “He realizado el curso GENIUS” pero no hay casillas de profundización seleccionadas → AB/AC/AD = 🚪 VENDIBLE.
+
+⸻
+
+Caso GENERAL BUSINESS (SECCIÓN 2 + SECCIÓN 9)
+        •        Si en SECCIÓN 2 la respuesta es General Business → en lugar de aplicar la lógica GENIUS, se asigna automáticamente: 💼 (valigeta) en AB/AC/AD.
+        •        Luego, en SECCIÓN 9: “¿A cuántos follow-up has asistido?”
+        •        1 de 3 → mostrar ✅💼 en una columna
+        •        2 de 3 → mostrar ✅💼 en dos columnas
+        •        3 de 3 → mostrar ✅💼 en las tres columnas
+        •        Pregunta siguiente en SECCIÓN 9: “¿Quieres participar en próximos follow-up cuando se repitan?”
+        •        Sí → mantener solo 💼 (como si no hubiera realizado aún ningún follow-up).
+        •        No:
+        •        Si ya tenía ✅💼 (en una o más columnas) → se conserva el icono existente.
+        •        Si tenía solo 💼 (sin follow-up realizado) → se cambia a ❌ RECHAZADO.
+</t></si><si><t xml:space="preserve"> Columnas AB/AC/AD (Clases de profundización GENIUS y caso General Business)
+
+Caso GENIUS (SECCIÓN 4 + SECCIÓN 8)
+	•	Si en SECCIÓN 4 indicó que hizo GENIUS (Idiomas u Objetivos de estudio) → por defecto AB/AC/AD = 🚪 VENDIBLE.
+	•	Asignación por participación (SECCIÓN 8: “¿Has participado en la clase de profundización?”):
+	•	Lectura rápida → AB = ✅ REALIZADO
+	•	Gestión del tiempo → AC = ✅ REALIZADO
+	•	Gestión del estrés o Inteligencia Artificial → AD = ✅ REALIZADO
+	•	Ninguna → AB/AC/AD = 🚪 VENDIBLE (se mantienen como base)
+	•	Soy padre/madre acompañante → AB/AC/AD = ❌ NoInTarget
+
+Casos sin GENIUS
+	•	Si en SECCIÓN 2 el primer curso no es GENIUS y en SECCIÓN 13 no marca “He hecho el curso GENIUS como alumno” → AB/AC/AD = ❌ NoInTarget.
+	•	Si en SECCIÓN 13 marca “He realizado el curso GENIUS” pero no hay casillas de profundización seleccionadas → AB/AC/AD = 🚪 VENDIBLE.
+
+⸻
+
+Caso GENERAL BUSINESS (SECCIÓN 2 + SECCIÓN 9)
+	•	Si en SECCIÓN 2 la respuesta es General Business → en lugar de aplicar la lógica GENIUS, se asigna automáticamente: 💼 (valigeta) en AB/AC/AD.
+	•	Luego, en SECCIÓN 9: “¿A cuántos follow-up has asistido?”
+	•	1 de 3 → mostrar ✅💼 en una columna
+	•	2 de 3 → mostrar ✅💼 en dos columnas
+	•	3 de 3 → mostrar ✅💼 en las tres columnas
+	•	Pregunta siguiente en SECCIÓN 9: “¿Quieres participar en próximos follow-up cuando se repitan?”
+	•	Sí → mantener solo 💼 (como si no hubiera realizado aún ningún follow-up).
+	•	No:
+	•	Si ya tenía ✅💼 (en una o más columnas) → se conserva el icono existente.
+	•	Si tenía solo 💼 (sin follow-up realizado) → se cambia a ❌ RECHAZADO.
+</t></si><si><t>Formulario SECCIÓN 4: “¿Has hecho el curso para…?”
+	•	Conseguir objetivos de estudio → AE = 💡 (interés/foco de estudio)
+	•	Aprender idiomas → AF = 💡 (interés/foco de idiomas)
+	•	En cualquier otro caso → AE/AF = 🚪 VENDIBLE
+
+Sin GENIUS
+	•	Si no consta GENIUS (SECCIÓN 2 ≠ GENIUS y SECCIÓN 13 no marca GENIUS) → AE/AF = ❌ NoInTarget.</t></si><si><t xml:space="preserve">	•	Protocolo Idiomas (30 días 1 idioma) – SECCIÓN 12
+Pregunta: “¿Cuál es el alto objetivo del curso?”
+→ La columna se completa con el texto breve respondido a esta pregunta.
+	•	Genius – Acompañante – SECCIÓN 6
+Pregunta: “¿Cuál es la principal cosa que deseas para tu hijo/a?”
+→ La columna se completa con el texto breve respondido a esta pregunta.
+	•	General Business – SECCIÓN 9
+Pregunta: “¿Cuál es el alto objetivo del curso?”
+→ La columna se completa con el texto breve respondido a esta pregunta.
+	•	ONE – SECCIÓN 11
+Pregunta: “¿Cuál es el alto objetivo del curso?”
+→ La columna se completa con el texto breve respondido a esta pregunta.
+
+Notas de coherencia
+	•	Por diseño del formulario, solo aparece una de estas preguntas por alumno (ramificación), así que no se pueden rellenar dos veces.
+	•	Si por error hubiera más de una respuesta, usar la primera respuesta no vacía siguiendo este orden de prioridad:
+Protocolo Idiomas (S12) → Genius Acompañante (S6) → General Business (S9) → ONE (S11).</t></si><si><t>Formulario seccion 13- pregunta: ¿Hay algo que te gustaría comunicarnos?</t></si><si><t>PROXIMOS EVENTOS</t></si><si><t>16K</t></si><si><t>E.MATERIAL DEL CURSO</t></si><si><t>E.STAFF</t></si><si><t>E.INSTRUCTOR</t></si><si><t>E.MOTIVACIÓN</t></si><si><t>E.RELAJACIÓN</t></si><si><t>E.LECTURA RAPIDA</t></si><si><t>E.MAPAS MENTALES</t></si><si><t>E.TECNICAS DE MEMORIA</t></si><si><t>E.METODO DE ESTUDIO</t></si><si><t>E.IDIOMAS EXTRANJEROS</t></si><si><t>COMENTARIO PROFU Y FOLLOW UP</t></si><si><t>Pamplona</t></si><si><t>LOPEZ RUIZ</t></si><si><t>MARINA</t></si><si><t>marinalopezrui@gmail.com</t></si><si><t>✅ SI</t></si><si><t>🧠</t></si><si><t>Elisabeth Tornos</t></si><si><t>CRETA, GRECIA</t></si><si><t>/</t></si><si><t>CARRERA</t></si><si><t>🚪VENDIBLE</t></si><si><t>❌ NO</t></si><si><t>🏁 ACABADO</t></si><si><t>✅ REALIZADO</t></si><si><t>🤷 NO VENDIDO</t></si><si><t>🚫NO EN TARGET</t></si><si><t>🚪 VENDIBLE</t></si><si><t>Categoría</t></si><si><t>Pregunta unificada</t></si><si><t>Variantes agrupadas</t></si><si><t>Respuesta 1</t></si><si><t>Respuesta 2</t></si><si><t>Datos personales</t></si><si><t>Timestamp / Marca temporal</t></si><si><t>Timestamp · Marca temporal · Informazioni cronologiche</t></si><si><t>Nombre</t></si><si><t>Apellidos</t></si><si><t>¿Cómo prefieres que te llamemos?</t></si><si><t>Número de contacto (en el que tienes whatsapp)</t></si><si><t xml:space="preserve">Correo </t></si><si><t>Correo</t></si><si><t>Fecha de nacimiento</t></si><si><t>¿En qué ciudad vives (si es un pueblo indica la ciudad grande más cercana)?</t></si><si><t>En tu núcleo familiar (situación)</t></si><si><t>En tu nucleo familiar:</t></si><si><t>Estudios / Trabajo</t></si><si><t>¿Estudias o trabajas?</t></si><si><t>¿Estudias o trabajas? · Estudias o trabajas?</t></si><si><t>¿Qué estudias?</t></si><si><t>Qué estudias · Que curso estudias?</t></si><si><t>¿Qué especialidad es?</t></si><si><t>Qué especialidad es?</t></si><si><t>¿En qué año estas?</t></si><si><t>¿En qué año estás? · Que año y tipo de curso estás cursando?</t></si><si><t>Estas estudiando algo en este momento? Si la respuesta es sí, por favor especifica que estudias (todas las repeticiones)</t></si><si><t>¿A qué te dedicas actualmente? (especifica actividad y cargo)</t></si><si><t>Trabajas de algo (todas las variantes)</t></si><si><t>¿Coordinas personas en tu trabajo?</t></si><si><t>En tu trabajo tienes que coordinar un grupo de personas? (al menos 3) · (mínimo 3)</t></si><si><t>¿Quieres cambiar de profesión?</t></si><si><t>Tienes el deseo de cambiar de profesión?</t></si><si><t>¿Tienes pendiente aprender un idioma?</t></si><si><t>Tienes pendiente aprender un idioma? (todas las repeticiones)</t></si><si><t>¿Tienes algún objetivo de estudio?</t></si><si><t>¿Tienes pendiente mejorar algo a nivel de estudio o idiomas?</t></si><si><t>Tienes pendiente mejorar algo a nivel de estudio o idiomas?</t></si><si><t>¿Qué dirías de tu vida laboral a día de hoy?</t></si><si><t>Que dirías de tu vida laboral a día de hoy (todas las repeticiones)</t></si><si><t>Info del curso</t></si><si><t>¿En qué ciudad has hecho el curso?</t></si><si><t>Mes del curso</t></si><si><t>En qué mes? · En que Mes?</t></si><si><t>Año del curso</t></si><si><t>¿Es la primera vez que haces el curso o lo estás repitiendo?</t></si><si><t>¿Cuál es el primer curso que has hecho con nosotros?</t></si><si><t>Has hecho el curso para:</t></si><si><t>Has hecho el curso para: (todas las repeticiones)</t></si><si><t>¿Cuáles son los cursos que has hecho o vas a hacer con nosotros?</t></si><si><t>¿Has participado al follow up temático?</t></si><si><t>¿A qué follow up temático te gustaría participar?</t></si><si><t>¿A cuál de los otros follow up temáticos te GUSTARÍA participar?</t></si><si><t>¿Has participado a las clases de profundización?</t></si><si><t>¿Quieres que te avisemos para repetir clase de profundización?</t></si><si><t>¿Quieres que te avisemos para repetir esta clase de profundización?</t></si><si><t>¿Has participado a los follow up post curso?</t></si><si><t>¿Has participado a los follow up post Curso?</t></si><si><t>¿Vas a participar al próximo One?</t></si><si><t>¿Vas a participar al próximo One (Febrero 2026)?</t></si><si><t>¿Cuántas veces has hecho el One hasta ahora?</t></si><si><t>ONE SHOT / eventos concretos</t></si><si><t>ONE SHOT (Duración 2:30) · ESCANEA TU FAMILIA · TARGET (todas las fechas)</t></si><si><t>¿Qué centro/instructor realizó tu primer curso ONE?</t></si><si><t>¿Con qué centro o instructor realizaste tu primer curso ONE?</t></si><si><t>Tutor</t></si><si><t>¿Quién es tu TUTOR?</t></si><si><t>¿Quién es tu TUTOR? (todas las repeticiones idénticas)</t></si><si><t>¿Quién es el TUTOR de tu hijo/hija?</t></si><si><t>¿Quién es el TUTOR de tu hijo/hija? (todas las versiones)</t></si><si><t>¿Cuál es la principal mejora que deseas para tu hijo/hija?</t></si><si><t>Cual es la principal mejora que desea para tu hijo/hija?</t></si><si><t>¿Has agendado el follow up de los profesionales?</t></si><si><t>Conocimiento del curso</t></si><si><t>¿Has conocido el curso por?</t></si><si><t>Has conocido el curso por: (todas las repeticiones)</t></si><si><t>Nombre de la persona que te recomendó el curso</t></si><si><t>¿Te acuerdas del nombre de la primera persona que te lo ha recomendado? · Te acuerdas el nombre de la primera persona que te lo ha comentado? · Te acuerdas el nombre de la primera persona que te lo ha comentado (nombre y apellido)?</t></si><si><t>Objetivo</t></si><si><t>Describe tu objetivo con el curso</t></si><si><t>DESCRIBE TU OBJETIVO CON EL CURSO: (todas las repeticiones)</t></si><si><t>¿Cuál era tu objetivo con el curso?</t></si><si><t>¿Cual era tu objetivo del curso? · ¿Cual era tu objetivo con el curso? (todas las variaciones)</t></si><si><t>Has hecho el curso para… ¿con qué fin?</t></si><si><t>Resultados</t></si><si><t>¿Has conseguido el resultado que querías con el curso?</t></si><si><t>¿Has conseguido el resultado que querías con el curso? · ¿Has conseguido el resultado que querías con el Curso Genius? · ¿Has conseguido el resultado que querias con el curso? (todas las versiones)</t></si><si><t>¿Quieres repetir el curso en la próxima fecha disponible?</t></si><si><t>¿Quieres participar a los follow ups cuando se repitan?</t></si><si><t>¿Has agendado la cita en el enlace aquí arriba?</t></si><si><t>Satisfacción</t></si><si><t>Puntuación del material del curso</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [MATERIAL DEL CURSO]</t></si><si><t>Puntuación del staff</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [STAFF]</t></si><si><t>Puntuación del instructor</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [INSTRUCTOR]</t></si><si><t>Puntuación de la motivación</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [MOTIVACIÓN]</t></si><si><t>Puntuación de la relajación</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [RELAJACIÓN]</t></si><si><t>Puntuación de lectura rápida</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [LECTURA RÁPIDA]</t></si><si><t>Puntuación de mapas mentales</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [MAPAS MENTALES]</t></si><si><t>Puntuación de técnicas de memoria</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [TÉCNICAS DE MEMORIA]</t></si><si><t>Puntuación del método de estudio</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [MÉTODO DE ESTUDIO]</t></si><si><t>Puntuación de idiomas extranjeros</t></si><si><t>MARCA UNA PUNTUACIÓN DE SATISFACCIÓN EN CADA ÁREA [IDIOMAS EXTRANJEROS]</t></si><si><t>Evaluación tutoría</t></si><si><t>Cómo evaluarías hasta ahora: [Atención por parte del tutor]</t></si><si><t>Evaluación claridad</t></si><si><t>Cómo evaluarías hasta ahora: [Claridad en las pautas para seguir]</t></si><si><t>Evaluación gestión del tiempo</t></si><si><t>Cómo evaluarías hasta ahora: [Gestión del tiempo]</t></si><si><t>Evaluación percepción de mejora</t></si><si><t>Cómo evaluarías hasta ahora: [Percepción de mejora]</t></si><si><t>Nivel de satisfacción general</t></si><si><t>Cómo evaluarías hasta ahora: [Nivel satisfacción general]</t></si><si><t>Intereses</t></si><si><t>Gestión de equipos y personas</t></si><si><t>¿Qué área te interesa más? [Gestión de equipos y personas]</t></si><si><t>Crecimiento personal</t></si><si><t>¿Qué área te interesa más? [Crecimiento personal]</t></si><si><t>Aprender un idioma en 30 días</t></si><si><t>¿Qué área te interesa más? [Aprender un idioma en 30 días]</t></si><si><t>Gestión económica</t></si><si><t>¿Qué área te interesa más? [Gestión económica]</t></si><si><t>Hablar en público</t></si><si><t>¿Qué área te interesa más? [Hablar en público]</t></si><si><t>Ventas</t></si><si><t>¿Qué área te interesa más? [Ventas]</t></si><si><t>Comunicación y mediación</t></si><si><t>¿Qué área te interesa más? [Comunicación y Mediación]</t></si><si><t>Salud y bienestar</t></si><si><t>¿Qué área te interesa más? [Salud y bienestar]</t></si><si><t>Networking</t></si><si><t>¿Qué área te interesa más? [Networking]</t></si><si><t>Método de estudio</t></si><si><t>¿Qué área te interesa más? [Método de estudio]</t></si><si><t>Otros temas que generan curiosidad</t></si><si><t>¿Qué otros temas te generan curiosidad? (puedes marcar varios)</t></si><si><t>Eventos</t></si><si><t>¿Quieres que te vayamos informando de eventos?</t></si><si><t>¿Quieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo? (todas las repeticiones)</t></si><si><t>¿Te ha llamado la atención el evento mencionado?</t></si><si><t>Durante el finde se ha comentado un evento… ¿te ha llamado la atención? · Durante esta clase se ha mencionado un evento… ¿Te ha llamado la atención?</t></si><si><t>ONE SHOT / ESCANEA TU FAMILIA / TARGET</t></si><si><t>ONE SHOT · ESCANEA TU FAMILIA · TARGET (todas las fechas y versiones)</t></si><si><t>Recomendaciones</t></si><si><t>¿Sabes qué es el networking?</t></si><si><t>¿Sabes que es el networking? · ¿Sabes que es el &quot;networking&quot;?</t></si><si><t>Personas que podrían estar interesadas (1)</t></si><si><t>¿Hay alguien en que has pensado durante este fin de semana y crees que le gustaría conocer el curso?</t></si><si><t>Persona recomendada 1</t></si><si><t>1. Nombre, apellido - quién es esta persona para ti</t></si><si><t>Persona recomendada 2</t></si><si><t>2. Nombre, apellido - quién es esta persona para ti</t></si><si><t>Persona recomendada 3</t></si><si><t>3. Nombre, apellido - quién es esta persona para ti</t></si><si><t>Persona recomendada 4</t></si><si><t>4. Nombre, apellido - quién es esta persona para ti</t></si><si><t>Persona recomendada 5</t></si><si><t>5. Nombre, apellido - quién es esta persona para ti</t></si><si><t>¿Hay algo que te gustaría comunicarnos?</t></si><si><t>¿Hay algo que te gustaría comunicarnos? (todas las repeticiones)</t></si><si><t>¿Hay algún tema que te gustaría profundizar más?</t></si><si><t>¿Cuál ha sido la cosa que te ha gustado más de esta clase?</t></si><si><t>¿Cuál ha sido la cosa que te ha gustado más de esta clase hasta ahora?</t></si><si><t>¿A qué profundización acabas de asistir?</t></si><si><t>ESCANEA TU FAMILIA / ONE SHOT / TARGET</t></si><si><t>(Repetido en eventos, pero aquí aparece como bloque de selección)</t></si><si><t>Otros</t></si><si><t>¿A qué te dedicas actualmente? (variante repetida)</t></si><si><t>(Ya agrupado, pero aparece fuera)</t></si><si><t>En tu vida actual, ¿es necesaria la habilidad de hablar en público?</t></si><si><t>En este momento de tu vida sientes que la habilidad de hablar en público es una necesidad para ti?</t></si><si><t>¿Quieres que agendemos una cita para profundizar en algún tema de Genial Business?</t></si><si><t>Column 115</t></si><si><t>Campo suelto del formulario original que no tiene texto descriptivo.</t></si><si><t>¿Has hecho alguna vez experiencias de…?</t></si><si><t>Has hecho alguna vez experiencias de cre (campo incompleto tal cual aparece).</t></si><si><t>Riga 9</t></si><si><t>“¿Qué área te interesa más? [Riga 9]” (probable error del formulario original, lo mantengo como campo).</t></si><si><t>Formulario 1</t></si><si><t>Formulario 2</t></si><si><t>Formulario 3</t></si><si><t>Fecha de Nacimiento</t></si><si><t>¿En qué ciudad vives? (si es un pueblo indica la ciudad grande más cercana)</t></si><si><t>¿Quieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo?</t></si><si><t>Te acuerdas el nombre de la primera persona que te lo ha comentado? (posiblemente indica nombre y apellido</t></si><si><t>¿Te acuerdas del nombre de la primera persona que te lo ha recomendado?</t></si><si><t>En qué mes?</t></si><si><t>Que curso estudias?</t></si><si><t>¿En tu trabajo tienes que coordinar un grupo de personas? (almenos 3)</t></si><si><t>Que año y tipo de curso estas cursando?</t></si><si><t>¿En tu trabajo tienes que coordinar un grupo de personas? (mínimo 3)</t></si><si><t>Quien es tu TUTOR?</t></si><si><t>Que dirías de tu vida laboral a dia de hoy?</t></si><si><t>¿Te gustaría cambiar de profesión?</t></si><si><t>¿A cuál de los otros follow up temático te GUSTARÍA participar?</t></si><si><t>¿Has conseguido el resultado que querías con el Curso Genius?</t></si><si><t>Trabajas de algo</t></si><si><t>DESCRIBE TU OBJETIVO CON EL CURSO:</t></si><si><t>Quien es el TUTOR de tu hijo/hija?</t></si><si><t>Has Participado al follow up dedicado a los profesionales?</t></si><si><t>Estas estudiando algo en este momento? Si la respuesta es si, por favor especifica que estudias</t></si><si><t>Trabajas de algo?</t></si><si><t>A que te dedicas actualmente? (especifica actividad y cargo)</t></si><si><t>¿En cuál de los follow up temáticos te GUSTARÍA participar?</t></si><si><t>En tu trabajo tienes que coordinar un grupo de personas? (almenos 3)</t></si><si><t>¿En cuál de los otros follow up temáticos te GUSTARÍA mas participar?</t></si><si><t>Te acuerdas el nombre de la primera persona que te lo has comentado?</t></si><si><t>En que Mes?</t></si><si><t>En tu núcleo familiar:</t></si><si><t>Durante el finde se ha comentado un evento que haremos en las próximas semanas, ¿consideras que te ha llamado la atención?</t></si><si><t>¿Vas a participar al próximo One (Febrero 2026)</t></si><si><t>Te acuerdas el nombre de la primera persona que te lo ha comentado?</t></si><si><t>ONE SHOT - (Duración 2:30) - 21/09/2025</t></si><si><t>ESCANEA TU FAMILIA (24, 25 Y 26 OCTUBRE)</t></si><si><t>TARGET (14 DICIEMBRE)</t></si><si><t>Has conseguido el resultado que querias con el curso?</t></si><si><t>¿Qué área te interesa más? [Método de aprendizaje]</t></si><si><t>Indirizzo email</t></si><si><t>En este momento de tu vida sientes que la habilidad de hablar en publico es una necesidad para ti?</t></si><si><t>En ese momento hay algún tema que te gustaría profundizar?</t></si><si><t>1. Nombre, apellido - quien es esta persona para ti</t></si><si><t>2. Nombre, apellido - quien es esta persona para ti</t></si><si><t>Que tipo de curso estudias</t></si><si><t>3. Nombre, apellido - quien es esta persona para ti</t></si><si><t>Que tipo de curso es?</t></si><si><t>4. Nombre, apellido - quien es esta persona para ti</t></si><si><t>En que año estas?</t></si><si><t>5. Nombre, apellido - quien es esta persona para ti</t></si><si><t>¿En cuál de los otros follow up temáticos te GUSTARÍA MAS participar?</t></si><si><t>Que dirías de tu vida laboral a dia de hoy</t></si><si><t>Estudias o trabajas?</t></si><si><t>¿Sabes que es el networking?</t></si><si><t>¿Sabes que es el &quot;networking&quot;?</t></si><si><t>Dirección de correo electrónico</t></si><si><t>¿Qué área te interesa más? [Riga 9]</t></si><si><t>Tienes pendiente aprender un idioma?</t></si><si><t>¿Cuál es la principal mejora que deseabas para tu hijo/hija?</t></si><si><t>¿Cual era tu objetivo del curso?</t></si><si><t>¿Cual era tu objetivo con el curso?</t></si><si><t>Email Address</t></si><si><t>Has hecho alguna vez experiencias de cre</t></si><si><t>Administrador</t></si><si><t>Instructor</t></si><si><t>todo</t></si><si><t>Lo que quiera dentro de sus alumnos</t></si><si><t xml:space="preserve">Pueden ver los alumnos que le han sido asignados porque lo ha dicho el alumno. </t></si><si><t xml:space="preserve">Ciudad </t></si></sst>

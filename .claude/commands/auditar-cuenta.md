@@ -5,4 +5,4 @@ Ejecuta una auditoría completa de la cuenta publicitaria del cliente.
 3. Para **Google Ads**: revisa Quality Score, wasted spend, estructura de campañas, negative keywords, extensiones
 4. Identifica los 5 problemas más críticos con impacto estimado en gasto/rendimiento
 5. Genera plan de acción priorizado
-6. Guarda auditoría en `output/reports/YYYY-MM-DD_<cliente>_auditoria-<plataforma>.md`
+6. Guarda la auditoría en `clients/<cliente>/reports/YYYY-MM-DD_auditoria-<plataforma>.md`

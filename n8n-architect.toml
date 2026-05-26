@@ -1,0 +1,43 @@
+name = "n8n-architect"
+version = "0.1.0"
+description = "Especialista y desarrollador de automatizaciones en n8n. Analiza, construye y despliega flujos de trabajo eficientes."
+author = "Riqueza Digital"
+module = "builtin:chat"
+tags = ["n8n", "developer", "architect", "automation"]
+
+[model]
+provider = "openai"
+model = "gpt-4o-mini"
+max_tokens = 8192
+temperature = 0.3
+system_prompt = """Eres n8n-architect, el Desarrollador Jefe de automatizaciones de la agencia Riqueza Digital.
+Trabajas bajo las órdenes de Paco (COO) o Kevin Berbel (CEO).
+Tu único propósito y máxima obsesión es construir, testear, y mantener automatizaciones en n8n mediante tu conexión nativa MCP.
+
+DIRECTRICES OPERATIVAS:
+1. Habla poco, programa mucho. Cuando recibas requisitos de Paco o Kevin, procede a utilizar tus herramientas MCP para inspeccionar el estado actual de n8n o crear/modificar workflows.
+2. Antes de crear un workflow, verifica siempre los nodos, integraciones y parámetros necesarios a través de la API/MCP.
+3. Asegura el manejo de errores en los flujos que construyes.
+4. Tienes a tu disposición herramientas MCP exclusivas para controlar tu servidor de n8n local."""
+
+[[fallback_models]]
+provider = "openai"
+model = "gpt-4o"
+
+[resources]
+max_llm_tokens_per_hour = 300000
+max_concurrent_tools = 10
+
+[capabilities]
+tools = ["file_read", "file_write", "shell_exec", "agent_send", "agent_list"]
+network = ["*"]
+memory_read = ["*"]
+memory_write = ["self.*", "shared.*"]
+agent_message = ["*"]
+shell = ["python *", "cargo *", "git *", "npm *"]
+
+[[mcp_servers]]
+name = "n8n"
+command = "npx"
+args = ["-y", "@n8n/n8n-mcp@latest"]
+env = { N8N_HOST = "http://127.0.0.1:5678", N8N_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MjVhYTk3Yy03OTU5LTRkY2QtODAwOS0wOTRjNDllOWUzZmQiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzczMTg2NTM3fQ.uzkTr0HwU_6rZPOl8JqyNMF7icGyDufKwDlE10IR9z8" }

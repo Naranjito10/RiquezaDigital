@@ -1,0 +1,1093 @@
+{
+  "updatedAt": "2025-09-13T14:20:58.000Z",
+  "createdAt": "2025-09-13T14:20:18.974Z",
+  "id": "c0PvOAByBAK3k9TM",
+  "name": "Formulario FEEDBACK CURSO GENIUS (Cristian)",
+  "description": null,
+  "active": false,
+  "isArchived": true,
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"Marca temporal\": \"{{ $json.body['Marca temporal'] }}\",\n  \"Apellidos\": \"{{ $json.body['Apellidos'] }}\",\n  \"Nombre\": \"{{ $json.body['Nombre'] }}\",\n  \"Fecha de nacimiento\": \"{{ $json.body['Fecha de nacimiento'] }}\",\n  \"N\u00famero de contacto\": \"{{ ($json.body['N\u00famero de contacto (en el que tienes whatsapp)'] || '').toString().replace(/\\D+/g, '') }}\",\n  \"\u00bfEn qu\u00e9 ciudad vives?\": \"{{ $json.body['\u00bfEn qu\u00e9 ciudad vives (si es un pueblo indica la ciudad grande m\u00e1s cercana)?'] }}\",\n  \"\u00bfEstudias o trabajas?\": \"{{ $json.body['\u00bfEstudias o trabajas?'] }}\",\n  \"Has conocido el curso por\": \"{{ $json.body['Has conocido el curso por:'] }}\",\n  \"\u00bfTe acuerdas del nombre de la primera persona que te lo ha recomendado?\": \"{{ $json.body['\u00bfTe acuerdas del nombre de la primera persona que te lo ha recomendado?'] }}\",\n  \"\u00bfQu\u00e9 tipo de curso estudias? (1)\": \"{{ $json.body['\u00bfQu\u00e9 tipo de curso estudias?'] }}\",\n  \"\u00bfQu\u00e9 tipo de curso es? (1)\": \"{{ $json.body['\u00bfQu\u00e9 tipo de curso es?'] }}\",\n  \"\u00bfEn qu\u00e9 a\u00f1o estas? (1)\": \"{{ $json.body['\u00bfEn qu\u00e9 a\u00f1o estas?'] }}\",\n  \"\u00bfQu\u00e9 tipo de curso estudias? (2)\": \"{{ $json.body['\u00bfQu\u00e9 tipo de curso estudias? (2)'] }}\",\n  \"\u00bfQu\u00e9 tipo de curso es? (2)\": \"{{ $json.body['\u00bfQu\u00e9 tipo de curso es? (2)'] }}\",\n  \"\u00bfEn qu\u00e9 a\u00f1o estas? (2)\": \"{{ $json.body['\u00bfEn qu\u00e9 a\u00f1o estas? (2)'] }}\",\n  \"\u00bfA qu\u00e9 te dedicas actualmente? (1)\": \"{{ $json.body['\u00bfA qu\u00e9 te dedicas actualmente? (especifica actividad y cargo)'] }}\",\n  \"\u00bfA qu\u00e9 te dedicas actualmente? (2)\": \"{{ $json.body['\u00bfA qu\u00e9 te dedicas actualmente? (especifica actividad y cargo) (2)'] }}\",\n  \"\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (m\u00ednimo 3)\": \"{{ $json.body['\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (m\u00ednimo 3)'] }}\",\n  \"\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (almenos 3)\": \"{{ $json.body['\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (almenos 3)'] }}\",\n  \"\u00bfTe gustar\u00eda cambiar de profesi\u00f3n? (1)\": \"{{ $json.body['\u00bfTe gustar\u00eda cambiar de profesi\u00f3n?'] }}\",\n  \"\u00bfTe gustar\u00eda cambiar de profesi\u00f3n? (2)\": \"{{ $json.body['\u00bfTe gustar\u00eda cambiar de profesi\u00f3n? (2)'] }}\",\n  \"\u00bfEn qu\u00e9 ciudad has hecho el curso?\": \"{{ $json.body['\u00bfEn qu\u00e9 ciudad has hecho el curso?'] }}\",\n  \"Has hecho el curso para\": \"{{ $json.body['Has hecho el curso para:'] }}\",\n  \"\u00bfQui\u00e9n es tu TUTOR? (1)\": \"{{ $json.body['\u00bfQui\u00e9n es tu TUTOR?'] }}\",\n  \"\u00bfQui\u00e9n es tu TUTOR? (2)\": \"{{ $json.body['\u00bfQui\u00e9n es tu TUTOR? (2)'] }}\",\n  \"\u00bfEn cu\u00e1l de los follow up tem\u00e1ticos te gustar\u00eda participar?\": \"{{ $json.body['\u00bfEn cu\u00e1l de los follow up tem\u00e1ticos te GUSTAR\u00cdA participar?'] }}\",\n  \"Describe tu objetivo con el curso\": \"{{ $json.body['DESCRIBE TU OBJETIVO CON EL CURSO:'] }}\",\n  \"\u00bfEn cu\u00e1l de los otros up tem\u00e1ticos te gustar\u00eda participar?\": \"{{ $json.body['\u00bfEn cu\u00e1l de los otros up tem\u00e1ticos te GUSTAR\u00cdA participar?'] }}\",\n  \"\u00bfTienes pendiente aprender un idioma? (1)\": \"{{ $json.body['\u00bfTienes pendiente aprender un idioma?'] }}\",\n  \"\u00bfTienes pendiente aprender un idioma? (2)\": \"{{ $json.body['\u00bfTienes pendiente aprender un idioma? (2)'] }}\",\n  \"\u00bfQui\u00e9n es el tutor de tu hijo/hija?\": \"{{ $json.body['\u00bfQui\u00e9n es el TUTOR de tu hijo/hija?'] }}\",\n  \"\u00bfHas agendado el follow up de los profesionales?\": \"{{ $json.body['\u00bfHas agendado el follow up de los profesionales?'] }}\",\n  \"\u00bfTienes alg\u00fan objetivo de estudio?\": \"{{ $json.body['\u00bfTienes alg\u00fan objetivo de estudio?'] }}\",\n  \"Autorizaci\u00f3n tratamiento datos\": \"{{ $json.body['Autorizo el tratamiento de mis datos personales y sensibles de acuerdo con el Decreto Legislativo del 30 de junio del 2003, n. 196 - C\u00f3digo en materia de protecci\u00f3n de los datos personales.'] }}\",\n  \"Satisfacci\u00f3n material del curso\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MATERIAL DEL CURSO]'] }}\",\n  \"Satisfacci\u00f3n staff\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [STAFF]'] }}\",\n  \"Satisfacci\u00f3n instructor\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [INSTRUCTOR]'] }}\",\n  \"Satisfacci\u00f3n motivaci\u00f3n\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MOTIVACI\u00d3N]'] }}\",\n  \"Satisfacci\u00f3n relajaci\u00f3n\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [RELAJACI\u00d3N]'] }}\",\n  \"Satisfacci\u00f3n lectura r\u00e1pida\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [LECTURA R\u00c1PIDA]'] }}\",\n  \"Satisfacci\u00f3n mapas mentales\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MAPAS MENTALES]'] }}\",\n  \"Satisfacci\u00f3n t\u00e9cnicas de memoria\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [T\u00c9CNICAS DE MEMORIA]'] }}\",\n  \"Satisfacci\u00f3n m\u00e9todo de estudio\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [M\u00c9TODO DE ESTUDIO]'] }}\",\n  \"Satisfacci\u00f3n idiomas extranjeros\": \"{{ $json.body['MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [IDIOMAS EXTRANJEROS]'] }}\",\n  \"En tu n\u00facleo familiar\": \"{{ $json.body['En tu nucleo familiar:'] }}\",\n  \"Evento finde atenci\u00f3n\": \"{{ $json.body['Durante el finde se ha comentado un evento que haremos en las pr\u00f3ximas semanas, \u00bfconsideras que te ha llamado la atenci\u00f3n?'] }}\",\n  \"One Shot 21/09/2025\": \"{{ $json.body['ONE SHOT - (Duraci\u00f3n 2:30) - 21/09/2025'] }}\",\n  \"Escanea tu familia\": \"{{ $json.body['ESCANEA TU FAMILIA (24, 25 Y 26 OCTUBRE)'] }}\",\n  \"Target 14 diciembre\": \"{{ $json.body['TARGET (14 DICIEMBRE)'] }}\",\n  \"\u00c1rea inter\u00e9s m\u00e9todo aprendizaje\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [M\u00e9todo de aprendizaje]'] }}\",\n  \"\u00c1rea inter\u00e9s gesti\u00f3n equipos\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [Gesti\u00f3n de equipos y personas]'] }}\",\n  \"\u00c1rea inter\u00e9s crecimiento personal\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [Crecimiento personal]'] }}\",\n  \"\u00c1rea inter\u00e9s idioma en 30 d\u00edas\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [Aprender un idioma en 30 d\u00edas]'] }}\",\n  \"\u00c1rea inter\u00e9s gesti\u00f3n econ\u00f3mica\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [Gesti\u00f3n econ\u00f3mica]'] }}\",\n  \"\u00c1rea inter\u00e9s hablar en p\u00fablico\": \"{{ $json.body['\u00bfQu\u00e9 area te interesa m\u00e1s? [Hablar en p\u00fablico]'] }}\",\n  \"Otros temas curiosidad\": \"{{ $json.body['\u00bfQu\u00e9 otros temas te generan curiosidad? (puedes marcar varios)'] }}\",\n  \"\u00bfQuieres que te informemos de eventos?\": \"{{ $json.body['\u00bfQuieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo?'] }}\",\n  \"\u00bfHay algo que quieras comunicarnos?\": \"{{ $json.body['\u00bfHay algo que te gustar\u00eda comunicarnos?'] }}\",\n  \"Persona 1 recomendaci\u00f3n\": \"{{ $json.body['1. Nombre, apellido - quien es esta persona para ti'] }}\",\n  \"Persona 2 recomendaci\u00f3n\": \"{{ $json.body['2. Nombre, apellido - quien es esta persona para ti'] }}\",\n  \"Persona 3 recomendaci\u00f3n\": \"{{ $json.body['3. Nombre, apellido - quien es esta persona para ti'] }}\",\n  \"Persona 4 recomendaci\u00f3n\": \"{{ $json.body['4. Nombre, apellido - quien es esta persona para ti'] }}\",\n  \"Persona 5 recomendaci\u00f3n\": \"{{ $json.body['5. Nombre, apellido - quien es esta persona para ti'] }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        368,
+        -16
+      ],
+      "id": "4b84ce02-558e-414e-930b-ee5014964b16",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "77ce31a6-a8e5-4e2a-9c30-92f4e1c55009",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        144,
+        -16
+      ],
+      "id": "13d210b7-89bb-4f23-80b0-6104b99a6a94",
+      "name": "Webhook",
+      "webhookId": "77ce31a6-a8e5-4e2a-9c30-92f4e1c55009"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g",
+          "mode": "list",
+          "cachedResultName": "Cross Selling Nazionale Sirux",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 786988166,
+          "mode": "list",
+          "cachedResultName": " Laborable",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit#gid=786988166"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "CONTACTO",
+              "lookupValue": "={{ $json[\"N\u00famero de contacto\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        576,
+        -16
+      ],
+      "id": "b17fa234-3b46-498e-bada-90847d67fca8",
+      "name": "Get Rows Excel 2",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "cxOdZ9yRpG8wBrJa",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g",
+          "mode": "list",
+          "cachedResultName": "Cross Selling Nazionale Sirux",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 786988166,
+          "mode": "list",
+          "cachedResultName": " Laborable",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit#gid=786988166"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "CONTACTO": "={{ ($item(0,'Etiquetas').$json.CONTACTO || '').toString().replace(/\\D+/g,'').trim() }}",
+            "INSTRUCTOR": "={{ $json.INSTRUCTOR }}",
+            "APELLIDOS Y NOMBRE": "={{ $json['APELLIDOS Y NOMBRE'] }}",
+            "NOMBRE": "={{ $json.NOMBRE }}",
+            "EDAD": "={{ $json.EDAD }}",
+            "CORREO": "={{ $json.CORREO }}",
+            "Prossimi Eventi": "={{ $json['Prossimi Eventi'] }}",
+            "1* CURSO": "={{ $json['1* CURSO'] }}",
+            "FECHA": "={{ $json.FECHA }}",
+            "CURSO": "={{ $json.CURSO }}",
+            "INVITADO POR": "={{ $json['INVITADO POR'] }}",
+            "MODALIDAD": "={{ $json.MODALIDAD }}",
+            "TERMINAL ESTABLE": "={{ $json['TERMINAL ESTABLE'] }}",
+            "CIUDAD": "={{ $json.CIUDAD }}",
+            "PROFESI\u00d3N": "={{ $json['PROFESI\u00d3N'] }}",
+            "Estudio": "={{ $json.Estudio }}",
+            "PRODUCTO": "={{ $json.PRODUCTO }}",
+            "PROFUS": "={{ $json.PROFUS }}",
+            "FOLLOW UP": "={{ $json['FOLLOW UP'] }}",
+            "EVENTOS 2025": "={{ $json['EVENTOS 2025'] }}",
+            "NOTAS": "={{ $json.NOTAS }}",
+            "TEMA INTERES": "={{ $json['TEMA INTERES'] }}"
+          },
+          "matchingColumns": [
+            "CONTACTO"
+          ],
+          "schema": [
+            {
+              "id": "INSTRUCTOR",
+              "displayName": "INSTRUCTOR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "APELLIDOS Y NOMBRE",
+              "displayName": "APELLIDOS Y NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CONTACTO",
+              "displayName": "CONTACTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "EDAD",
+              "displayName": "EDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Prossimi Eventi",
+              "displayName": "Prossimi Eventi",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "1* CURSO",
+              "displayName": "1* CURSO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FECHA",
+              "displayName": "FECHA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CURSO",
+              "displayName": "CURSO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INVITADO POR",
+              "displayName": "INVITADO POR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "MODALIDAD",
+              "displayName": "MODALIDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TERMINAL ESTABLE",
+              "displayName": "TERMINAL ESTABLE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CIUDAD",
+              "displayName": "CIUDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROFESI\u00d3N",
+              "displayName": "PROFESI\u00d3N",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estudio",
+              "displayName": "Estudio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PRODUCTO",
+              "displayName": "PRODUCTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROFUS",
+              "displayName": "PROFUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FOLLOW UP",
+              "displayName": "FOLLOW UP",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "EVENTOS 2025",
+              "displayName": "EVENTOS 2025",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NOTAS",
+              "displayName": "NOTAS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TEMA INTERES",
+              "displayName": "TEMA INTERES",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1328,
+        -160
+      ],
+      "id": "2781e356-97af-4ef8-9923-eaa88dab5bef",
+      "name": "Update Rows Excel 2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "cxOdZ9yRpG8wBrJa",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1dbafbf1-0620-4b17-b837-df204bcba321",
+              "leftValue": "={{ $json }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        768,
+        -16
+      ],
+      "id": "86b5866f-3e94-4774-9860-87b753b33ab3",
+      "name": "If 2"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g",
+          "mode": "list",
+          "cachedResultName": "Cross Selling Nazionale Sirux",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 786988166,
+          "mode": "list",
+          "cachedResultName": " Laborable",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T3oebDX-CZ0HUzHXi5YJvy4sFTbHn6PPbZrg7nbyw7g/edit#gid=786988166"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "CONTACTO": "={{ ($('Edit Fields').item.json[\"N\u00famero de contacto\"] || '').toString().replace(/\\D+/g,'').trim() }}",
+            "INSTRUCTOR": "={{ $('Edit Fields').item.json[\"\u00bfQui\u00e9n es tu TUTOR? (1)\"] || $('Edit Fields').item.json[\"\u00bfQui\u00e9n es tu TUTOR? (2)\"] }}",
+            "APELLIDOS Y NOMBRE": "={{ [ $('Edit Fields').item.json.Apellidos, $('Edit Fields').item.json.Nombre ].filter(Boolean).join(', ') }}",
+            "NOMBRE": "={{ $('Edit Fields').item.json.Nombre }}",
+            "EDAD": "={{\n  (() => {\n    const fecha = $('Edit Fields').item.json[\"Fecha de nacimiento\"] || \"\";\n    if (!fecha) return \"\";\n    const parts = fecha.split(\"/\");\n    if (parts.length !== 3) return \"\";\n    const nacimiento = new Date(parts[2], parts[1] - 1, parts[0]); \n    const hoy = new Date();\n    let edad = hoy.getFullYear() - nacimiento.getFullYear();\n    const m = hoy.getMonth() - nacimiento.getMonth();\n    if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {\n      edad--;\n    }\n    return edad;\n  })()\n}}\n",
+            "CORREO": "=",
+            "Prossimi Eventi": "=",
+            "1* CURSO": "=",
+            "INVITADO POR": "={{ $('Edit Fields').item.json[\"\u00bfTe acuerdas del nombre de la primera persona que te lo ha recomendado?\"] }}",
+            "MODALIDAD": "={{ $('Edit Fields').item.json[\"Has conocido el curso por\"] }}",
+            "TERMINAL ESTABLE": "={{ $('Edit Fields').item.json[\"\u00bfQui\u00e9n es tu TUTOR? (1)\"] || $('Edit Fields').item.json[\"\u00bfQui\u00e9n es tu TUTOR? (2)\"] }}",
+            "CIUDAD": "={{ $item(0,\"Etiquetas\").$json.CIUDAD || \"\" }}",
+            "PROFESI\u00d3N": "={{ $item(0,\"Etiquetas\").$json[\"PROFESI\u00d3N\"] || \"\" }}",
+            "MES": "={{ new Date().toLocaleString('es-ES', { month: 'long' }) }}",
+            "A\u00d1O ": "={{ new Date().getFullYear() }}"
+          },
+          "matchingColumns": [
+            "CONTACTO"
+          ],
+          "schema": [
+            {
+              "id": "INSTRUCTOR",
+              "displayName": "INSTRUCTOR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "APELLIDOS Y NOMBRE",
+              "displayName": "APELLIDOS Y NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CONTACTO",
+              "displayName": "CONTACTO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "EDAD",
+              "displayName": "EDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Prossimi Eventi",
+              "displayName": "Prossimi Eventi",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "1* CURSO",
+              "displayName": "1* CURSO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "MES",
+              "displayName": "MES",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "A\u00d1O ",
+              "displayName": "A\u00d1O ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "INVITADO POR",
+              "displayName": "INVITADO POR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "MODALIDAD",
+              "displayName": "MODALIDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TERMINAL ESTABLE",
+              "displayName": "TERMINAL ESTABLE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CIUDAD",
+              "displayName": "CIUDAD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROFESI\u00d3N",
+              "displayName": "PROFESI\u00d3N",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nivel",
+              "displayName": "Nivel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "A\u00f1o",
+              "displayName": "A\u00f1o",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "STATUS \ud83d\udea6",
+              "displayName": "STATUS \ud83d\udea6",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "REPETIR",
+              "displayName": "REPETIR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "\ud83e\udde0 GENIUS",
+              "displayName": "\ud83e\udde0 GENIUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SSA",
+              "displayName": "SSA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "30 dias 1 idioma",
+              "displayName": "30 dias 1 idioma",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Genial Business",
+              "displayName": "Genial Business",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "One Echos",
+              "displayName": "One Echos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Proximo One",
+              "displayName": "Proximo One",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Domina tu discurso",
+              "displayName": "Domina tu discurso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Genius Kids",
+              "displayName": "Genius Kids",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "L. Rapida",
+              "displayName": "L. Rapida",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "G. Tiempo",
+              "displayName": "G. Tiempo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estress + IA",
+              "displayName": "Estress + IA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estudiantes",
+              "displayName": "Estudiantes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Idiomas",
+              "displayName": "Idiomas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Profesionales",
+              "displayName": "Profesionales",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "One Shot 21/09",
+              "displayName": "One Shot 21/09",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Escanea Tu Familia",
+              "displayName": "Escanea Tu Familia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Comunic- Arte",
+              "displayName": "Comunic- Arte",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Riqueza sin limites",
+              "displayName": "Riqueza sin limites",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Hackea tu cuerpo",
+              "displayName": "Hackea tu cuerpo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Target",
+              "displayName": "Target",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Venta",
+              "displayName": "Venta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "I.A.",
+              "displayName": "I.A.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Networking",
+              "displayName": "Networking",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1072,
+        144
+      ],
+      "id": "2d5d07e9-be01-43b5-af91-fa4c35085a09",
+      "name": "Append Rows Excel 2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "cxOdZ9yRpG8wBrJa",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Get Rows Excel 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Rows Excel 2": {
+      "main": [
+        [
+          {
+            "node": "If 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If 2": {
+      "main": [
+        [
+          {
+            "node": "Update Rows Excel 2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append Rows Excel 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.srv1004677.hstgr.cloud",
+            "user-agent": "Mozilla/5.0 (compatible; Google-Apps-Script; beanserver; +https://script.google.com; id: UAEmdDd9c_OAK384Qglz4d4Z6xtM18njMG1Q)",
+            "content-length": "4240",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "107.178.224.129",
+            "x-forwarded-host": "n8n.srv1004677.hstgr.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "23e0ec297f11",
+            "x-real-ip": "107.178.224.129"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MOTIVACI\u00d3N]": "BUENO",
+            "DESCRIBE TU OBJETIVO CON EL CURSO:": "KEvvv",
+            "\u00bfQu\u00e9 tipo de curso es?": "KEvvv",
+            "\u00bfQu\u00e9 tipo de curso es? (2)": "KEvvv",
+            "\u00bfTienes pendiente aprender un idioma?": "Si",
+            "\u00bfTienes pendiente aprender un idioma? (2)": "",
+            "\u00bfA qu\u00e9 te dedicas actualmente? (especifica actividad y cargo)": "KEvvv",
+            "\u00bfA qu\u00e9 te dedicas actualmente? (especifica actividad y cargo) (2)": "",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [RELAJACI\u00d3N]": "\u00d3PTIMO",
+            "Has hecho el curso para:": "Conseguir objetivos de estudio",
+            "1. Nombre, apellido - quien es esta persona para ti": "KEvvv",
+            "Has conocido el curso por:": "KEvvv",
+            "\u00bfHay alguien en que has pensado durante este fin de semana y crees que le gustar\u00eda conocer el curso?": "SI",
+            "\u00bfTienes alg\u00fan objetivo de estudio?": "",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MAPAS MENTALES]": "SUFICIENTE",
+            "Autorizo el tratamiento de mis datos personales y sensibles de acuerdo con el Decreto Legislativo del 30 de junio del 2003, n. 196 - C\u00f3digo en materia de protecci\u00f3n de los datos personales.": "S\u00ed",
+            "\u00bfQui\u00e9n es tu TUTOR?": "",
+            "\u00bfQui\u00e9n es tu TUTOR? (2)": "KEvvv",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [Aprender un idioma en 30 d\u00edas]": "3 \u2013 Podr\u00eda interesarme",
+            "En tu nucleo familiar:": "Tienes hijos de 26 a\u00f1os o m\u00e1s?",
+            "\u00bfHas agendado el follow up de los profesionales?": "",
+            "\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (almenos 3)": "",
+            "Apellidos": "KEvvvKEvvv",
+            "Durante el finde se ha comentado un evento que haremos en las pr\u00f3ximas semanas, \u00bfconsideras que te ha llamado la atenci\u00f3n?": "No",
+            "4. Nombre, apellido - quien es esta persona para ti": "KEvvv",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [M\u00c9TODO DE ESTUDIO]": "BAJO",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [Crecimiento personal]": "2 \u2013 Poco",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [Gesti\u00f3n de equipos y personas]": "1 \u2013 Muy poco",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [IDIOMAS EXTRANJEROS]": "BAJO",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [T\u00c9CNICAS DE MEMORIA]": "MEDIOCRE",
+            "TARGET (14 DICIEMBRE)": "",
+            "\u00bfEn tu trabajo tienes que coordinar un grupo de personas? (m\u00ednimo 3)": "S\u00ed",
+            "2. Nombre, apellido - quien es esta persona para ti": "KEvvv",
+            "Marca temporal": "13/09/2025 14:42:17",
+            "\u00bfEn cu\u00e1l de los follow up tem\u00e1ticos te GUSTAR\u00cdA participar?": "",
+            "\u00bfHay algo que te gustar\u00eda comunicarnos?": "KEvvv",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [LECTURA R\u00c1PIDA]": "BUENO",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [MATERIAL DEL CURSO]": "BAJO",
+            "N\u00famero de contacto (en el que tienes whatsapp)": "3",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [Hablar en p\u00fablico]": "5 \u2013 Me interesa mucho",
+            "\u00bfQuieres que te vayamos informando de eventos que vamos haciendo a lo largo del tiempo?": "S\u00ed",
+            "\u00bfTe gustar\u00eda cambiar de profesi\u00f3n?": "S\u00ed, es un trabajo temporal, me estoy preparando para hacer otra cosa",
+            "\u00bfTe gustar\u00eda cambiar de profesi\u00f3n? (2)": "",
+            "\u00bfEn cu\u00e1l de los otros up tem\u00e1ticos te GUSTAR\u00cdA participar?": "Estudiantes",
+            "\u00bfTe acuerdas del nombre de la primera persona que te lo ha recomendado?": "KEvvv",
+            "5. Nombre, apellido - quien es esta persona para ti": "KEvvv",
+            "\u00bfEn qu\u00e9 ciudad vives (si es un pueblo indica la ciudad grande m\u00e1s cercana)?": "KEvvv",
+            "\u00bfQu\u00e9 tipo de curso estudias?": "ESO",
+            "\u00bfQu\u00e9 tipo de curso estudias? (2)": "ESO",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [M\u00e9todo de aprendizaje]": "0 \u2013 Nada de inter\u00e9s",
+            "ONE SHOT - (Duraci\u00f3n 2:30) - 21/09/2025": "",
+            "ESCANEA TU FAMILIA (24, 25 Y 26 OCTUBRE)": "",
+            "Nombre": "KEvvv",
+            "\u00bfEn qu\u00e9 a\u00f1o estas?": "3",
+            "\u00bfEn qu\u00e9 a\u00f1o estas? (2)": "3",
+            "\u00bfQu\u00e9 area te interesa m\u00e1s? [Gesti\u00f3n econ\u00f3mica]": "4 \u2013 Me interesa",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [INSTRUCTOR]": "SUFICIENTE",
+            "\u00bfQu\u00e9 otros temas te generan curiosidad? (puedes marcar varios)": "Ventas, Inteligencia Artificial, Networking, Salud y bienestar, Gesti\u00f3n Econ\u00f3mica",
+            "\u00bfEstudias o trabajas?": "Solo estudio.",
+            "Fecha de nacimiento": "24/09/2025",
+            "\u00bfEn qu\u00e9 ciudad has hecho el curso?": "Bilbao (Mar\u00eda Calero)",
+            "3. Nombre, apellido - quien es esta persona para ti": "KEvvv",
+            "MARCA UNA PUNTUACI\u00d3N DE SATISFACCI\u00d3N EN CADA \u00c1REA [STAFF]": "MEDIOCRE",
+            "\u00bfQui\u00e9n es el TUTOR de tu hijo/hija?": ""
+          },
+          "webhookUrl": "https://n8n.srv1004677.hstgr.cloud/webhook-test/form-sirux",
+          "executionMode": "test"
+        }
+      }
+    ]
+  },
+  "versionId": "e0e63c5b-699b-4b02-9f0d-49ff7c38d617",
+  "activeVersionId": null,
+  "versionCounter": 1,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-09-13T14:20:18.980Z",
+      "createdAt": "2025-09-13T14:20:18.980Z",
+      "role": "workflow:owner",
+      "workflowId": "c0PvOAByBAK3k9TM",
+      "projectId": "PiPZwBUp7Q61FHP7",
+      "project": {
+        "updatedAt": "2025-09-11T14:34:03.741Z",
+        "createdAt": "2025-09-11T14:32:59.070Z",
+        "id": "PiPZwBUp7Q61FHP7",
+        "name": "Kevin Berbel <info@riquezadigital.es>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "425aa97c-7959-4dcd-8009-094c49e9e3fd",
+        "projectRelations": [
+          {
+            "updatedAt": "2025-09-11T14:32:59.070Z",
+            "createdAt": "2025-09-11T14:32:59.070Z",
+            "userId": "425aa97c-7959-4dcd-8009-094c49e9e3fd",
+            "projectId": "PiPZwBUp7Q61FHP7",
+            "user": {
+              "updatedAt": "2026-02-25T17:57:36.000Z",
+              "createdAt": "2025-09-11T14:32:58.592Z",
+              "id": "425aa97c-7959-4dcd-8009-094c49e9e3fd",
+              "email": "info@riquezadigital.es",
+              "firstName": "Kevin",
+              "lastName": "Berbel",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-09-11T14:34:15.550Z",
+                "personalization_survey_n8n_version": "1.110.1",
+                "companySize": "personalUser",
+                "companyType": "saas",
+                "role": "business-owner",
+                "reportedSource": "podcast"
+              },
+              "settings": {
+                "userActivated": true,
+                "firstSuccessfulWorkflowId": "UOn3KahcYf0Kv4JK",
+                "userActivatedAt": 1757813078320,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1759851517276
+                },
+                "easyAIWorkflowOnboarded": true
+              },
+              "disabled": false,
+              "mfaEnabled": false,
+              "lastActiveAt": "2026-02-24",
+              "isPending": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
+}

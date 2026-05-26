@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(ffmpeg -version)",
+      "Bash(uv --version)",
+      "Bash(winget --version)",
+      "Bash(winget install *)",
+      "Bash(curl -LsSf https://astral.sh/uv/install.sh)",
+      "Bash(sh)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); p.name='riqueza-digital-video-studio'; require\\('fs'\\).writeFileSync\\('package.json', JSON.stringify\\(p,null,2\\)\\)\")",
+      "WebFetch(domain:api.github.com)",
+      "Bash(~/.local/bin/uv sync *)",
+      "Bash(mkdir -p \"/c/Users/kein-/OneDrive/Desktop/Riqueza Digital/Edición Video RD/.claude/commands\" && echo \"OK\")",
+      "Bash('~/.local/bin/uv' run python -c ' *)",
+      "Bash(~/.local/bin/uv run *)",
+      "Bash(where ffmpeg *)",
+      "Read(//c/Users/kein-/**)"
+    ]
+  }
+}

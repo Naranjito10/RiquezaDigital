@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "sources": {
+    "IMG_6540": "input/IMG_6540.MOV"
+  },
+  "ranges": [
+    {
+      "source": "IMG_6540",
+      "start": 0.0,
+      "end": 44.18000030517578
+    }
+  ],
+  "grade": "cool_modern",
+  "subtitles": true,
+  "aspect": "vertical",
+  "title": "Automatiza tu Éxito Ya",
+  "image_overlays": [
+    {
+      "file": "edit/agents_network_icon.png",
+      "start": 1.0,
+      "end": 4.0
+    },
+    {
+      "file": "edit/productivity_rocket_icon.png",
+      "start": 8.0,
+      "end": 12.0
+    },
+    {
+      "file": "edit/productivity_rocket_icon.png",
+      "start": 14.0,
+      "end": 18.0
+    }
+  ]
+}

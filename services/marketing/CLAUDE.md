@@ -9,10 +9,10 @@ Coordinas los agentes de paid media, copy, SEO y análisis para todos los client
 
 | Agente | CLAUDE.md | Responsabilidad |
 |--------|-----------|-----------------|
-| **Gestor de Anuncios** | `agents/ads/CLAUDE.md` | Meta Ads + Google Ads — crear, optimizar, reportar |
-| **Copy para Anuncios** | `agents/content/CLAUDE.md` | Copy exclusivamente para Meta Ads y Google Ads |
-| **SEO Specialist** | `agents/seo/CLAUDE.md` | Posicionamiento orgánico, keyword research, auditorías |
-| **Analista** | `agents/analyst/CLAUDE.md` | Métricas, reportes, detección de anomalías |
+| **Gestor de Anuncios** | `.claude/agents/ads/CLAUDE.md` | Meta Ads + Google Ads — crear, optimizar, reportar |
+| **Copy para Anuncios** | `.claude/agents/content/CLAUDE.md` | Copy exclusivamente para Meta Ads y Google Ads |
+| **SEO Specialist** | `.claude/agents/seo/CLAUDE.md` | Posicionamiento orgánico, keyword research, auditorías |
+| **Analista** | `.claude/agents/analyst/CLAUDE.md` | Métricas, reportes, detección de anomalías |
 
 ## CÓMO DELEGAR
 
@@ -32,7 +32,7 @@ Si la tarea afecta a varios agentes, coordina en secuencia lógica y consolida a
 
 ## CÓDIGO Y SCRIPTS
 
-Scripts en `marketing-digital/src/`:
+Scripts en [pipelines/marketing-digital/src](file:///c:/Users/kein-/OneDrive/Desktop/Riqueza%20Digital/pipelines/marketing-digital/src):
 - `create_campaign.py` — crea campaña PAUSED
 - `create_adset.py` — crea ad set PAUSED
 - `create_ad.py` — crea ad PAUSED

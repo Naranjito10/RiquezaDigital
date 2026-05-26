@@ -13,7 +13,8 @@ y detectar oportunidades de crecimiento con cada cliente.
 |----------|-----------|--------|-----------------|
 | **Marketing Digital** | `services/marketing/CLAUDE.md` | ✅ Activo | Meta Ads, Google Ads, copy, creativos, SEO |
 | **Automatizaciones** | `services/automatizaciones/CLAUDE.md` | ✅ Activo | n8n, integraciones, bots, flujos automáticos |
-| **Consultoría / Desarrollo** | `services/desarrollo/CLAUDE.md` | ✅ Activo | CRM, webs, proyectos tech, estrategia digital |
+| **Desarrollo Web** | `services/desarrollo-web/CLAUDE.md` | ✅ Activo | WordPress, Vercel, layouts, landing pages |
+| **Desarrollo de Software** | `services/desarrollo-software/CLAUDE.md` | ✅ Activo | APIs, CRM a medida, scripts Python/JS |
 | **Formación** | `services/formacion/CLAUDE.md` | 🔜 Próximo | Cursos, mentoring, talleres |
 
 ## CÓMO DELEGAR
@@ -22,7 +23,8 @@ Identifica el servicio principal según la petición:
 
 - **Campañas, Meta, Google, copy publicitario, SEO** → Marketing Digital
 - **n8n, webhooks, integraciones, bots, automatizar procesos** → Automatizaciones (Andrés)
-- **Webs, CRM, proyectos tech, estrategia** → Consultoría / Desarrollo (Andrés)
+- **Webs, maquetación, WordPress, landing pages, Claude Design** → Desarrollo Web (Andrés)
+- **Proyectos tech a medida, scripts de automatización, APIs, bases de datos** → Desarrollo de Software (Andrés)
 - **Cursos, formación, contenido educativo** → Formación
 
 Si la tarea afecta a varios servicios, coordina en secuencia lógica y consolida antes de presentar.
@@ -40,7 +42,11 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 |---------|--------|-------------------|-----------|
 | **Veganashi** | Alimentación vegana/healthy | Marketing | Alta |
 | **Tecniclima** | Reparación electrodomésticos | Marketing | Media |
-| **Riqueza Digital** | Agencia (propia) | Marketing, Automatizaciones | Interna |
+| **Selarom Jordi** | (por completar) | (por completar) | (por definir) |
+| **Federico Sirux** | (por completar) | (por completar) | (por definir) |
+| **Keller (Valentina Cuadrado)** | Firma legal boutique | Desarrollo Web (WordPress) | Alta |
+
+> **Nota:** Riqueza Digital NO es cliente. Como entidad propia vive en `agencia/`, no en `clients/`. Ver `ARQUITECTURA.md`.
 
 ## EQUIPO
 
@@ -57,6 +63,8 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | `/auditar-cuenta` | Auditoría completa Meta y/o Google |
 | `/crear-campaña` | Nueva campaña guiada paso a paso |
 | `/generar-copy` | Copy publicitario con 3 variantes |
+| `/generar-prompt-web` | Genera prompt para Claude Design a partir del perfil del cliente |
+| `/autopilot-diseno` | Ejecuta el bucle autónomo Generador-Evaluador para maquetación web con guardrails |
 | `/nuevo-cliente` | Incorporar nuevo cliente al sistema |
 
 ## HERRAMIENTAS MCP DISPONIBLES
@@ -72,40 +80,42 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 
 ## ESTRUCTURA DE ARCHIVOS
 
+Ver `ARQUITECTURA.md` para el detalle completo y las decisiones de diseño. Resumen:
+
 ```
 RD-TEAM/
 ├── CLAUDE.md                        ← Orquestador (este archivo)
-├── clients/                         ← Perfiles compartidos entre todos los servicios
-│   ├── _template/profile.md
+├── ARQUITECTURA.md                  ← Documentación de arquitectura
+├── .claude/                         ← Capa ejecutable (commands, agents, settings)
+├── agencia/                         ← Riqueza Digital como empresa propia
+│   ├── AGENCIA-AGENTICA.md          ← Inventario del producto comercial
+│   ├── perfil.md                    ← Identidad de RD
+│   ├── inteligencia-competitiva/    ← Dossiers de competidores (ej: Vibiz)
+│   ├── marketing/strategy/          ← Outputs onboarding aplicado a RD
+│   ├── producto/                    ← "Agencia Agéntica" como SKU vendible
+│   └── reportes-internos/           ← P&L, salud agencia
+├── clients/                         ← Clientes que pagan a RD
+│   ├── _template/
 │   ├── veganashi/
-│   │   ├── profile.md
-│   │   ├── reports/                 ← Reportes de rendimiento (YYYY-MM-DD_tipo.md)
-│   │   └── proposals/               ← Propuestas enviadas al cliente
 │   ├── tecniclima/
-│   │   ├── profile.md
-│   │   ├── reports/
-│   │   └── proposals/
-│   └── riqueza-digital/
-│       ├── profile.md
-│       └── reports/
-├── services/
+│   ├── selarom-jordi/
+│   ├── federico-sirux/
+│   └── keller-valentina/
+├── services/                        ← Catálogo de capacidades (docs, no ejecutable)
 │   ├── marketing/
-│   │   ├── CLAUDE.md
-│   │   ├── agents/                  ← ads, content, seo, analyst
-│   │   └── marketing-digital/       ← Código Python + configs plataformas
 │   ├── automatizaciones/
-│   │   └── CLAUDE.md
 │   ├── desarrollo/
-│   │   └── CLAUDE.md
-│   └── formacion/
-│       └── CLAUDE.md
-├── shared/
-│   ├── assets/                      ← Logos y brand assets de RD
-│   ├── templates/                   ← Plantillas de reportes
-│   ├── prompts/                     ← Prompts reutilizables
-│   └── sops/                        ← Procedimientos estándar
-└── output/
-    └── agency/                      ← Reportes internos (pipeline, salud agencia, P&L)
+│   ├── formacion/
+│   └── edicion-video/
+├── pipelines/                       ← Motores de software y código ejecutable
+│   ├── edicion-video/               ← Pipeline de video (Python, watcher, helpers)
+│   └── marketing-digital/           ← Pipeline de marketing (Python, API clients)
+├── shared/                          ← Reutilizables cross-cutting
+│   ├── prompts/onboarding-estrategico/
+│   ├── templates/
+│   ├── sops/
+│   └── assets/
+└── output/                          ← Working files temporales
 ```
 
 ## REGLAS GENERALES
@@ -118,6 +128,10 @@ RD-TEAM/
 6. **Reportes internos de agencia** → `output/agency/YYYY-MM-DD_<tipo>.md`
 7. **Leer el perfil del cliente** antes de cualquier acción creativa o estratégica
 8. **Idioma por defecto**: español
+9. **Tareas del usuario**: Deben enviarse a Notion (el usuario las gestiona allí). No se trackean en el workspace local.
+10. **Tareas del agente (Claude)**: Se gestionan y visualizan en el archivo global `tasks.md` en la raíz del proyecto, clasificadas por prioridad (Alta, Media, Baja) y estado (Pendiente, En Proceso, Completado).
+11. **Activos reutilizables**: Si durante el trabajo en un cliente detectas que el activo en construcción (prompt, plantilla, script, flujo) podría aplicarse a otros clientes, avisar **antes de continuar** con el formato: *"Esto que estamos construyendo para {{CLIENTE}} podría aplicarse a {{OTROS}}. ¿Lo integramos también ahora?"* — no implementar sin confirmación.
+12. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
 
 ## INICIO DE SESIÓN
 
