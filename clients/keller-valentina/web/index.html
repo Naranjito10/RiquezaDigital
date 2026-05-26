@@ -14,8 +14,7 @@
 <body>
     <header class="navbar" id="navbar">
         <div class="navbar__container container">
-            <a href="/" class="navbar__logo">
-                <!-- Rosa estilizada en SVG -->
+            <a href="#home" class="navbar__logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-.5-13h1V7h-1v-2zm0 2h1v8h-1V7zm0 8h1v2h-1v-2z" fill="var(--color-primary)"/>
                 </svg>
@@ -31,12 +30,26 @@
                 <a href="#contacto" class="navbar__link">Contacto</a>
             </nav>
             <a href="https://wa.me/573058811119?text=Hola%20Valentina.%20Quiero%20un%20diagn%C3%B3stico%20gratuito%20para%20ayudarme%20en..." target="_blank" class="btn btn--secondary">Diagnóstico Gratuito</a>
+            <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="navbar__toggle-icon"></span>
+            </button>
+        </div>
+        <div class="navbar__mobile-menu">
+            <nav>
+                <a href="#home" class="navbar__link navbar__link--active">Home</a>
+                <a href="#tramites" class="navbar__link">Trámites</a>
+                <a href="#consultoria" class="navbar__link">Consultoría</a>
+                <a href="#marketing" class="navbar__link">Marketing</a>
+                <a href="#blog" class="navbar__link">Blog</a>
+                <a href="#contacto" class="navbar__link">Contacto</a>
+            </nav>
+            <a href="https://wa.me/573058811119?text=Hola%20Valentina.%20Quiero%20un%20diagn%C3%B3stico%20gratuito%20para%20ayudarme%20en..." target="_blank" class="btn btn--secondary">Diagnóstico Gratuito</a>
         </div>
     </header>
 
     <main>
         <!-- 2. Hero Section -->
-        <section class="hero-section reveal-on-scroll">
+        <section class="hero-section reveal-on-scroll" id="home">
             <div class="hero-section__content container">
                 <h1>Construimos legados. <br>Protegemos imperios.</h1>
                 <p class="hero-section__subtitle">El verdadero poder se cultiva en el silencio de una estrategia legal impecable. <br>Para los que saben que crecer es construir, no solo sumar.</p>
@@ -65,7 +78,6 @@
                 <div class="positioning-section__grid">
                     <div class="positioning-section__image-wrapper">
                         <div class="positioning-section__image">
-                            <!-- Placeholder para la foto de Valentina -->
                             <span>Valentina Cuadrado</span>
                         </div>
                     </div>
@@ -80,7 +92,7 @@
         </section>
 
         <!-- 5. Catálogo de Servicios -->
-        <section class="services-section reveal-on-scroll">
+        <section class="services-section reveal-on-scroll" id="tramites">
             <div class="container">
                 <h2 class="services-section__title">Nuestros pilares para tu expansión.</h2>
                 <div class="services-section__grid">
@@ -94,7 +106,7 @@
                         </ul>
                         <a href="#tramites" class="btn btn--text-link">Conocer más →</a>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card" id="consultoria">
                         <h3>Consultoría</h3>
                         <ul>
                             <li>Derechos de autor</li>
@@ -104,7 +116,7 @@
                         </ul>
                         <a href="#consultoria" class="btn btn--text-link">Conocer más →</a>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card" id="marketing">
                         <h3>Marketing Legal</h3>
                         <ul>
                             <li>Legalidad en Meta Ads</li>
@@ -172,7 +184,7 @@
         </section>
 
         <!-- 8. CTA Final -->
-        <section class="cta-final-section reveal-on-scroll">
+        <section class="cta-final-section reveal-on-scroll" id="contacto">
             <div class="container container--narrow">
                 <h2 class="cta-final-section__title">Tu empresa merece algo más que improvisación.</h2>
                 <p class="cta-final-section__subtitle">Es hora de transformar la incertidumbre en una ventaja competitiva. Con Keller, tu estrategia legal es tan ambiciosa como tu visión.</p>
@@ -185,7 +197,7 @@
     <footer class="footer">
         <div class="footer__container container">
             <div class="footer__brand">
-                <a href="/" class="footer__logo">
+                <a href="#home" class="footer__logo">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-.5-13h1V7h-1v-2zm0 2h1v8h-1V7zm0 8h1v2h-1v-2z" fill="var(--color-malva-suave)"/>
                     </svg>

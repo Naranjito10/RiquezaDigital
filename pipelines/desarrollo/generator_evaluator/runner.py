@@ -58,6 +58,10 @@ def estimate_cost(provider: str, input_text: str, output_text: str) -> float:
     return 0.0
 
 def main():
+    # Evitar errores de codificación Unicode en la terminal de Windows
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
+        
     parser = argparse.ArgumentParser(description="Runner del bucle agéntico Generador-Evaluador para Riqueza Digital.")
     parser.add_argument("--client", required=True, help="Nombre de la carpeta del cliente (ej. keller-valentina)")
     args = parser.parse_args()

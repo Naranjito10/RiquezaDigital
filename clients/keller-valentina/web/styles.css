@@ -30,6 +30,7 @@
     --border-radius-md: 8px;
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 12px 36px rgba(0, 0, 0, 0.15);
 
     /* Transiciones */
     --transition-ease: all 0.3s ease-in-out;
@@ -62,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--spacing-md);
     font-weight: 600;
     letter-spacing: 0.02em;
+    color: var(--color-dark-navy-text); /* Default for titles */
 }
 
 h1 { font-size: 3.5rem; }
@@ -110,6 +112,8 @@ img {
     transition: var(--transition-ease);
     text-align: center;
     white-space: nowrap;
+    position: relative; /* For potential hover effects */
+    overflow: hidden; /* For background reveal effects */
 }
 
 .btn--primary {
@@ -121,7 +125,7 @@ img {
 .btn--primary:hover {
     background-color: var(--color-dark-navy-text);
     border-color: var(--color-dark-navy-text);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
 }
 
@@ -135,7 +139,7 @@ img {
     background-color: var(--color-primary);
     color: var(--color-blanco-premium);
     border-color: var(--color-primary);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
 }
 
@@ -143,14 +147,14 @@ img {
     background-color: transparent;
     color: var(--color-primary);
     border-color: var(--color-malva-suave);
-    padding: calc(var(--spacing-sm) - 2px) calc(var(--spacing-lg) - 2px); /* Adjust for border */
+    padding: calc(var(--spacing-sm) - 1px) calc(var(--spacing-lg) - 1px); /* Adjust for border */
 }
 
 .btn--outline:hover {
     background-color: var(--color-primary);
     color: var(--color-blanco-premium);
     border-color: var(--color-primary);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
 }
 
@@ -164,7 +168,7 @@ img {
     background-color: var(--color-malva-suave);
     color: var(--color-blanco-premium);
     border-color: var(--color-malva-suave);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
     box-shadow: var(--shadow-subtle);
 }
 
@@ -177,6 +181,7 @@ img {
     font-size: 1rem;
     display: inline-flex;
     align-items: center;
+    gap: 0.5em; /* Space for the arrow */
 }
 
 .btn--text-link:hover {
@@ -193,7 +198,7 @@ img {
     z-index: 1000;
     padding: var(--spacing-sm) 0;
     background-color: transparent;
-    transition: var(--transition-ease);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .navbar--scrolled {
@@ -232,7 +237,7 @@ img {
     letter-spacing: 0.1em;
     color: var(--color-gris-medio);
     white-space: nowrap;
-    display: none; /* Hidden on mobile by default, shown on desktop */
+    display: none;
 }
 
 .navbar__menu {
@@ -265,6 +270,106 @@ img {
     width: 100%;
 }
 
+.navbar__toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    z-index: 1100; /* Above mobile menu */
+}
+
+.navbar__toggle-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark-navy-text);
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar__toggle-icon::before,
+.navbar__toggle-icon::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-dark-navy-text);
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar__toggle-icon::before {
+    top: -8px;
+}
+
+.navbar__toggle-icon::after {
+    top: 8px;
+}
+
+.navbar__toggle.is-active .navbar__toggle-icon {
+    background-color: transparent;
+}
+
+.navbar__toggle.is-active .navbar__toggle-icon::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar__toggle.is-active .navbar__toggle-icon::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(var(--color-blanco-premium), 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
+    z-index: 999;
+    padding: var(--spacing-xl);
+}
+
+.navbar__mobile-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.navbar__mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.navbar__mobile-menu .navbar__link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-dark-navy-text);
+}
+
+.navbar__mobile-menu .navbar__link:hover {
+    color: var(--color-primary);
+}
+
+.navbar__mobile-menu .btn--secondary {
+    padding: var(--spacing-md) var(--spacing-xxl);
+    font-size: 1.1rem;
+}
+
+
 /* --- Hero Section --- */
 .hero-section {
     min-height: 100vh;
@@ -287,6 +392,7 @@ img {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     letter-spacing: 0.01em;
+    color: var(--color-blanco-premium); /* Override default title color */
 }
 
 .hero-section__subtitle {
@@ -357,8 +463,8 @@ img {
 
 .positioning-section__image-wrapper {
     position: relative;
-    padding-bottom: 75%; /* Aspect ratio 4:3, for example */
-    max-width: 600px; /* Max width for the image */
+    padding-bottom: 75%; /* Aspect ratio 4:3 */
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -380,6 +486,14 @@ img {
     text-align: center;
     filter: grayscale(10%);
     box-shadow: var(--shadow-medium);
+    /* For a truly premium feel, this could be a hero image of Valentina */
+    background-image: url('https://via.placeholder.com/600x450/D8E2ED/606060?text=Valentina+Cuadrado'); /* Example placeholder image */
+    background-size: cover;
+    background-position: center;
+}
+
+.positioning-section__image span {
+    display: none; /* Hide text if image placeholder is good */
 }
 
 .positioning-section__content h2 {
@@ -431,7 +545,7 @@ img {
 
 .service-card:hover {
     background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-medium);
     border-color: var(--color-malva-suave);
 }
@@ -570,7 +684,7 @@ img {
 .pricing-card--featured {
     background-color: var(--color-primary);
     color: var(--color-blanco-premium);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-strong);
     transform: scale(1.05); /* Destacado */
     z-index: 1;
 }
@@ -751,14 +865,14 @@ img {
     }
 
     .navbar__container {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
     .navbar__logo {
-        flex-basis: 100%;
-        justify-content: center;
-        margin-bottom: var(--spacing-sm);
+        flex-basis: auto;
+        justify-content: flex-start;
+        margin-bottom: 0;
         font-size: 1.1rem;
     }
 
@@ -771,8 +885,11 @@ img {
     }
 
     .navbar .btn--secondary {
-        flex-basis: 100%;
-        order: 3; /* Move CTA below logo on mobile */
+        display: none; /* Hide CTA button from main navbar on mobile */
+    }
+
+    .navbar__toggle {
+        display: block; /* Show hamburger menu toggle */
     }
 
     .hero-section {
@@ -806,6 +923,12 @@ img {
         grid-template-columns: 1fr; /* Stack vertically */
         gap: var(--spacing-lg);
         text-align: center;
+    }
+
+    .positioning-section__image-wrapper {
+        margin: 0 auto;
+        padding-bottom: 100%; /* Square image on mobile */
+        max-width: 300px;
     }
 
     .positioning-section__content .btn--text-link {
@@ -882,14 +1005,12 @@ img {
         display: flex; /* Ensure menu is visible */
     }
 
-    .navbar__container {
-        justify-content: space-between;
-        flex-wrap: nowrap;
+    .navbar__toggle, .navbar__mobile-menu {
+        display: none; /* Hide hamburger menu on tablet and up */
     }
 
     .navbar .btn--secondary {
-        flex-basis: auto;
-        order: initial;
+        display: flex; /* Show CTA button */
     }
 
     .hero-section h1 {
@@ -916,6 +1037,7 @@ img {
 
     .positioning-section__image-wrapper {
         margin: 0;
+        padding-bottom: 75%; /* Revert to 4:3 */
     }
 
     .positioning-section__content .btn--text-link {

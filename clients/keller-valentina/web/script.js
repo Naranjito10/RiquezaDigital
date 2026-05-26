@@ -11,8 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile Menu Toggle
+    const navbarToggle = document.querySelector('.navbar__toggle');
+    const mobileMenu = document.querySelector('.navbar__mobile-menu');
+    const navbarLinks = document.querySelectorAll('.navbar__mobile-menu a');
+
+    if (navbarToggle && mobileMenu) {
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('is-active');
+            mobileMenu.classList.toggle('is-active');
+            document.body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
+        });
+
+        // Close mobile menu when a link is clicked
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarToggle.classList.remove('is-active');
+                mobileMenu.classList.remove('is-active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    }
+
+
     // Smooth Scrolling for Navbar Links
-    document.querySelectorAll('.navbar__menu a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.navbar__menu a[href^="#"], .navbar__mobile-menu a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
@@ -24,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth'
                 });
 
-                // Update active link class
+                // Update active link class for desktop menu
                 document.querySelectorAll('.navbar__link').forEach(link => link.classList.remove('navbar__link--active'));
                 this.classList.add('navbar__link--active');
             }
@@ -62,7 +85,45 @@ document.addEventListener('DOMContentLoaded', () => {
             activeLink.classList.add('navbar__link--active');
         }
     } else {
-        // Default to Home if no hash
-        document.querySelector('.navbar__link[href="#home"]').classList.add('navbar__link--active');
+        // Default to Home if no hash and on desktop view
+        const homeLink = document.querySelector('.navbar__link[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('navbar__link--active');
+        }
     }
+
+    // Observer to update active navigation link on scroll
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.navbar__menu .navbar__link');
+    const mobileNavLinks = document.querySelectorAll('.navbar__mobile-menu .navbar__link');
+
+    const sectionObserverOptions = {
+        root: null,
+        rootMargin: '-50% 0px -49% 0px', // When section midpoint is in view
+        threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.forEach(link => {
+                    link.classList.remove('navbar__link--active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('navbar__link--active');
+                    }
+                });
+                mobileNavLinks.forEach(link => {
+                    link.classList.remove('navbar__link--active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('navbar__link--active');
+                    }
+                });
+            }
+        });
+    }, sectionObserverOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 });
