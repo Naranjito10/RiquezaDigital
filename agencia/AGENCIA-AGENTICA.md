@@ -84,6 +84,18 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Nota de numeración:** tarea Notion creada originalmente como F-013 el 2026-05-26 mañana; renumerada a F-014 al detectar conflicto con F-013 (Autopilot).
 - **Fecha de creación:** 2026-05-26
 
+### F-015 — Integración WordPress REST API desde Claude Code
+- **Estado:** 🔧 Interno-estable
+- **Ubicación:** `shared/sops/wordpress-rest-api-claude.md` (patrón + SOP); credenciales en Windows Registry (`HKCU\Environment`)
+- **Qué hace:** Permite a Claude Code leer y escribir contenido en sitios WordPress (posts, páginas, media) usando la REST API con Application Passwords. El shell Bash de Claude Code no hereda variables de entorno de Windows, por lo que el patrón usa `powershell.exe` como proxy para leer las credenciales directamente del Registry y construir el header `Authorization: Basic` dinámicamente. No requiere MCP adicional.
+- **Clientes aplicables:** Keller (Valentina Cuadrado — sitio WP activo), Riqueza Digital (propio site); extensible a cualquier cliente con WordPress.
+- **Próximos pasos:**
+  - Verificar permisos del usuario actual (`demo`) — confirmar si tiene rol Editor/Admin o crear usuario API dedicado
+  - Crear SOP completo en `shared/sops/wordpress-rest-api-claude.md` con el patrón de autenticación y ejemplos de uso
+  - Replicar para Keller: variables `WP_KELLER_URL`, `WP_KELLER_USER`, `WP_KELLER_APP_PASSWORD` en Registry
+  - Helper script Python que encapsule la autenticación para usar en pipelines
+- **Fecha de creación:** 2026-05-26
+
 ---
 
 ## Funcionalidades Pendientes / Backlog
@@ -131,6 +143,10 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-05-26 (sesión F-015) — Añadida **F-015 (Integración WordPress REST API desde Claude Code)** como 🔧 Interno-estable. Patrón de autenticación vía `powershell.exe` proxy sin MCP; permite operar cualquier sitio WordPress de clientes directamente desde el agente.
+
+2026-05-26 (sesión F-012) — Añadida **F-012 (Skill `/registrar-feature`)** como 🔧 Interno-estable. Skill híbrida (descripción libre → borrador → confirmación → inserción) para estandarizar el registro de nuevas features en el inventario.
 
 2026-05-26 (sesión F-011) — **F-011 implementada** como 🔧 Interno-estable. Skill `/cierre-sesion` construida en `.claude/commands/cierre-sesion.md` con 7 pasos: contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema y resumen. Integrada con F-014 (SOPs) y protocolos de `CLAUDE.md`.
 
