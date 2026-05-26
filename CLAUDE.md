@@ -78,6 +78,24 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | Notion MCP | CRM + base de conocimiento del equipo |
 | Google Drive MCP | Almacenamiento de reportes y assets |
 
+## ACCESO DIRECTO A WORDPRESS (REST API)
+
+WordPress no usa MCP — se conecta directamente vía REST API usando variables de entorno de Windows.
+
+| Variable de entorno | Qué contiene | Sitio |
+|---------------------|--------------|-------|
+| `WP_RD_URL` | URL base del sitio | Riqueza Digital |
+| `WP_RD_USER` | Usuario admin | Riqueza Digital |
+| `WP_RD_APP_PASSWORD` | Application Password (sin espacios) | Riqueza Digital |
+
+**Cómo usar en Bash:**
+```bash
+curl -u "$WP_RD_USER:$WP_RD_APP_PASSWORD" "$WP_RD_URL/wp-json/wp/v2/pages"
+```
+
+Para añadir credenciales de otros clientes, seguir el SOP: `shared/sops/gestion-claves-api-windows.md`
+Convenio de nombres: `WP_<CLIENTE>_URL`, `WP_<CLIENTE>_USER`, `WP_<CLIENTE>_APP_PASSWORD`
+
 ## ESTRUCTURA DE ARCHIVOS
 
 Ver `ARQUITECTURA.md` para el detalle completo y las decisiones de diseño. Resumen:

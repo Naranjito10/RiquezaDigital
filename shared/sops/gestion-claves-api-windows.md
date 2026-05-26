@@ -65,6 +65,9 @@ Por cada clave, ejecutar una línea:
 | n8n | `N8N_API_KEY` |
 | MailerLite | `MAILERLITE_API_KEY` |
 | Klaviyo | `KLAVIYO_API_KEY` |
+| WordPress — URL del sitio | `WP_RD_URL` |
+| WordPress — usuario admin | `WP_RD_USER` |
+| WordPress — Application Password | `WP_RD_APP_PASSWORD` |
 
 Ejecutar una línea por cada servicio. Si no hay error, está guardado.
 
