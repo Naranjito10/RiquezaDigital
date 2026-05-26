@@ -1,0 +1,56 @@
+[
+    {
+        "id": "TC-001",
+        "description": "Verificar estructura básica de HTML5 y carga de fuentes de marca",
+        "type": "regex_check",
+        "file": "index.html",
+        "rules": [
+            "<!DOCTYPE html>",
+            "<html",
+            "<head>",
+            "<body",
+            "fonts.googleapis.com",
+            "Cormorant\\+Garamond",
+            "Inter"
+        ]
+    },
+    {
+        "id": "TC-002",
+        "description": "Verificar presencia de las secciones mínimas requeridas de la Home",
+        "type": "regex_check",
+        "file": "index.html",
+        "rules": [
+            "class=\".*?navbar.*?\"|<nav",
+            "class=\".*?hero.*?\"|<section[^>]*id=\".*?hero.*?\"",
+            "class=\".*?servicios.*?\"|class=\".*?services.*?\"",
+            "class=\".*?paquetes.*?\"|class=\".*?pricing.*?\"",
+            "class=\".*?contacto.*?\"|class=\".*?contact.*?\"|<form",
+            "<footer"
+        ]
+    },
+    {
+        "id": "TC-003",
+        "description": "Verificar tokens de color del manual de marca de Keller en CSS",
+        "type": "regex_check",
+        "file": "styles.css",
+        "rules": [
+            "--keller-plum",
+            "--keller-mauve",
+            "--keller-navy",
+            "--keller-blush",
+            "--keller-lavender",
+            "--keller-white",
+            "--keller-dark"
+        ]
+    },
+    {
+        "id": "TC-004",
+        "description": "Verificar interactividad y animaciones CSS",
+        "type": "regex_check",
+        "file": "styles.css",
+        "rules": [
+            "transition\\s*:",
+            "@keyframes|animation\\s*:"
+        ]
+    }
+]

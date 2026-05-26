@@ -122,7 +122,7 @@ RD-TEAM/
 
 1. **Nunca tomar decisiones de gasto** sin confirmación explícita
 2. **Siempre resumir el plan** antes de ejecutar acciones con efecto real
-3. **Nunca leer ni mostrar** contenido de `.env` ni credenciales
+3. **Nunca leer ni mostrar** contenido de `.env`, `.mcp.json` ni credenciales — si es imprescindible leer alguno de estos archivos, avisar primero a Kevin y extraer solo nombres de servicios, nunca volcar claves al chat
 4. **Reportes de cliente** → `clients/<nombre>/reports/YYYY-MM-DD_<tipo>.md`
 5. **Propuestas de cliente** → `clients/<nombre>/proposals/YYYY-MM-DD_<tipo>.md`
 6. **Reportes internos de agencia** → `output/agency/YYYY-MM-DD_<tipo>.md`
@@ -132,6 +132,7 @@ RD-TEAM/
 10. **Tareas del agente (Claude)**: Se gestionan y visualizan en el archivo global `tasks.md` en la raíz del proyecto, clasificadas por prioridad (Alta, Media, Baja) y estado (Pendiente, En Proceso, Completado).
 11. **Activos reutilizables**: Si durante el trabajo en un cliente detectas que el activo en construcción (prompt, plantilla, script, flujo) podría aplicarse a otros clientes, avisar **antes de continuar** con el formato: *"Esto que estamos construyendo para {{CLIENTE}} podría aplicarse a {{OTROS}}. ¿Lo integramos también ahora?"* — no implementar sin confirmación.
 12. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
+13. **Commits internos con Vibiz activo**: Añadir `[skip-vibiz]` al mensaje de commit cuando el cambio sea de infraestructura interna (configuración, memoria, SOPs, refactors de sistema) y no deba generar contenido de marketing automático por el hook de Vibiz.
 
 ## INICIO DE SESIÓN
 

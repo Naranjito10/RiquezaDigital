@@ -40,7 +40,7 @@ class GitGuard:
         commit_msg = f"[agent-checkpoint] {name}"
         
         # Buscar el hash del commit por su mensaje
-        log = self._run_git(["log", "--grep", commit_msg, "-n", "1", "--format=%H"])
+        log = self._run_git(["log", "--fixed-strings", "--grep", commit_msg, "-n", "1", "--format=%H"])
         if not log:
             raise ValueError(f"No se encontró ningún checkpoint con el nombre: {name}")
             
@@ -59,7 +59,7 @@ class GitGuard:
     def discard_checkpoint(self, name: str) -> str:
         """Elimina el checkpoint de Git dejando los cambios en el directorio de trabajo."""
         commit_msg = f"[agent-checkpoint] {name}"
-        log = self._run_git(["log", "--grep", commit_msg, "-n", "1", "--format=%H"])
+        log = self._run_git(["log", "--fixed-strings", "--grep", commit_msg, "-n", "1", "--format=%H"])
         if not log:
             return "No se encontró el checkpoint para descartar."
             

@@ -73,6 +73,16 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Próximos pasos:** Crear la base en Python para checkpoints de Git y límites de presupuesto, y definir prompts de evaluación estéticos.
 - **Fecha de creación:** 2026-05-26
 
+### F-014 — Sistema de Biblioteca de SOPs
+- **Estado:** 🌱 PoC (estructura creada, primeros SOPs documentados)
+- **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`
+- **Qué hace:** biblioteca de procesos repetibles accesible por el equipo y por Claude Code. Cada SOP documenta pasos, problemas comunes y decisiones clave de un proceso operativo. Claude lo actualiza al cerrar sesión si se ejecutó un proceso nuevo o se resolvió un problema no documentado.
+- **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `manychat-n8n-integration.md` (draft), `seo-onpage-guidelines.md` (draft).
+- **Clientes aplicables:** universal — transferible a cualquier agencia o equipo que use Claude Code. Vendible como parte de Tier 2 del producto (onboarding incluye traspaso del SOP inicial).
+- **Próximos pasos:** indexar procesos ya ejecutados sin SOP (onboarding cliente, setup WordPress, setup Meta Ads) → construir 3-5 SOPs maduros → integrar en F-011 como capa de cierre automático.
+- **Nota de numeración:** tarea Notion creada originalmente como F-013 el 2026-05-26 mañana; renumerada a F-014 al detectar conflicto con F-013 (Autopilot).
+- **Fecha de creación:** 2026-05-26
+
 ---
 
 ## Funcionalidades Pendientes / Backlog
@@ -120,6 +130,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-05-26 (cierre tarde) — Añadida **F-014 (Sistema de Biblioteca de SOPs)**. Renumerada desde F-013 por conflicto con Autopilot. Primer SOP verificado: `gestion-claves-api-windows.md`. CLAUDE.md actualizado con regla 3 (secretos) y regla 13 (`[skip-vibiz]`).
 
 2026-05-26 — Añadida **F-013 (Autopilot Generador-Evaluador de Diseño y Calidad)** como funcionalidad en PoC tras la aprobación del plan híbrido (n8n + scripts Python).
 

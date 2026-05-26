@@ -1,0 +1,10 @@
+[
+    {
+        "timestamp": "2026-05-26T18:16:25.497072",
+        "event_type": "session_started",
+        "details": {
+            "client": "keller-valentina",
+            "web_dir": "C:\\Users\\kein-\\OneDrive\\Desktop\\Riqueza Digital\\clients\\keller-valentina\\web"
+        }
+    }
+]
