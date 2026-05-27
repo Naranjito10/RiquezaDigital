@@ -16,7 +16,6 @@
     <header class="navbar" id="navbar">
         <div class="navbar__container container">
             <a href="#home" class="navbar__logo">
-                <!-- Nuevo logo SVG: rosa estilizada -->
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C9.243 2 7 4.243 7 7C7 9.757 12 16 12 16C12 16 17 9.757 17 7C17 4.243 14.757 2 12 2Z" fill-opacity="0.8"/>
                     <path d="M12 5C10.343 5 9 6.343 9 8C9 9.657 12 13 12 13C12 13 15 9.657 15 8C15 6.343 13.657 5 12 5Z" fill-opacity="0.5"/>
@@ -27,12 +26,10 @@
             </a>
             <nav class="navbar__menu">
                 <a href="#home" class="navbar__link navbar__link--active">Home</a>
-                <!-- Enlaces de servicio ahora apuntan a las cards específicas dentro de la sección de servicios -->
                 <a href="#services-tramites" class="navbar__link">Trámites</a>
                 <a href="#services-consultoria" class="navbar__link">Consultoría</a>
                 <a href="#services-marketing" class="navbar__link">Marketing</a>
-                <a href="#contacto" class="navbar__link">Contacto</a>
-                <!-- El enlace a Blog ha sido eliminado, ya que no existe en el scope del diseño actual -->
+                <a href="#contact-us" class="navbar__link">Contacto</a>
             </nav>
             <a href="https://wa.me/573058811119?text=Hola%20Valentina.%20Quiero%20un%20diagn%C3%B3stico%20gratuito%20para%20ayudarme%20en..." target="_blank" class="btn btn--secondary">Diagnóstico Gratuito</a>
             <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
@@ -45,8 +42,7 @@
                 <a href="#services-tramites" class="navbar__link">Trámites</a>
                 <a href="#services-consultoria" class="navbar__link">Consultoría</a>
                 <a href="#services-marketing" class="navbar__link">Marketing</a>
-                <a href="#contacto" class="navbar__link">Contacto</a>
-                <!-- El enlace a Blog ha sido eliminado de la versión móvil también -->
+                <a href="#contact-us" class="navbar__link">Contacto</a>
             </nav>
             <a href="https://wa.me/573058811119?text=Hola%20Valentina.%20Quiero%20un%20diagn%C3%B3stico%20gratuito%20para%20ayudarme%20en..." target="_blank" class="btn btn--secondary">Diagnóstico Gratuito</a>
         </div>
@@ -90,17 +86,16 @@
                     <h2>El poder silencioso de la estrategia legal a tu servicio.</h2>
                     <p>En un mundo donde el ruido lo es todo, el verdadero poder rara vez necesita alardear. Valentina Cuadrado y Keller representan esa distinción: una firma legal boutique donde la estrategia y la sofisticación se fusionan para proteger a los visionarios de hoy.</p>
                     <p>No somos una oficina jurídica más. Somos el socio estratégico que traduce la complejidad legal en la claridad que tu negocio necesita para escalar sin riesgos, para innovar con seguridad y para construir un legado que perdure. Aquí, cada conversación es una inversión en tu futuro.</p>
-                    <a href="#contacto" class="btn btn--text-link">Conoce más sobre Keller <span aria-hidden="true">→</span></a>
+                    <a href="#" class="btn btn--text-link">Conoce más sobre Keller <span aria-hidden="true">→</span></a>
                 </div>
             </div>
         </section>
 
         <!-- 5. Catálogo de Servicios -->
-        <section class="services-section reveal-on-scroll" id="services"> <!-- ID general para la sección de servicios -->
+        <section class="services-section reveal-on-scroll" id="services">
             <div class="container">
                 <h2 class="services-section__title">Nuestros pilares para tu expansión.</h2>
                 <div class="services-section__grid">
-                    <!-- Cards con IDs únicos para la navegación directa -->
                     <div class="service-card" id="services-tramites">
                         <h3>Trámites</h3>
                         <ul>
@@ -109,8 +104,7 @@
                             <li>Patentes</li>
                             <li>SIC (Superintendencia de Industria y Comercio)</li>
                         </ul>
-                        <a href="javascript:void(0);" class="btn btn--text-link" aria-label="Conocer más sobre Trámites">Conocer más <span aria-hidden="true">→</span></a>
-                        <!-- Estos enlaces 'Conocer más' se mantienen como javascript:void(0) para evitar enlaces muertos o redundantes, asumiendo que en una implementación real llevarían a páginas de detalle o modales. -->
+                        <a href="#" class="btn btn--text-link" aria-label="Conocer más sobre Trámites">Conocer más <span aria-hidden="true">→</span></a>
                     </div>
                     <div class="service-card" id="services-consultoria">
                         <h3>Consultoría</h3>
@@ -120,7 +114,7 @@
                             <li>Contratos estratégicos</li>
                             <li>Blindaje corporativo</li>
                         </ul>
-                        <a href="javascript:void(0);" class="btn btn--text-link" aria-label="Conocer más sobre Consultoría">Conocer más <span aria-hidden="true">→</span></a>
+                        <a href="#" class="btn btn--text-link" aria-label="Conocer más sobre Consultoría">Conocer más <span aria-hidden="true">→</span></a>
                     </div>
                     <div class="service-card" id="services-marketing">
                         <h3>Marketing Legal</h3>
@@ -130,7 +124,7 @@
                             <li>Finanzas empresariales</li>
                             <li>Naming y Branding legal</li>
                         </ul>
-                        <a href="javascript:void(0);" class="btn btn--text-link" aria-label="Conocer más sobre Marketing Legal">Conocer más <span aria-hidden="true">→</span></a>
+                        <a href="#" class="btn btn--text-link" aria-label="Conocer más sobre Marketing Legal">Conocer más <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>
@@ -190,7 +184,7 @@
         </section>
 
         <!-- 8. CTA Final -->
-        <section class="cta-final-section reveal-on-scroll" id="contacto">
+        <section class="cta-final-section reveal-on-scroll" id="contact-us">
             <div class="container container--narrow">
                 <h2 class="cta-final-section__title">Tu empresa merece algo más que improvisación.</h2>
                 <p class="cta-final-section__subtitle">Es hora de transformar la incertidumbre en una ventaja competitiva. Con Keller, tu estrategia legal es tan ambiciosa como tu visión.</p>
@@ -204,7 +198,6 @@
         <div class="footer__container container">
             <div class="footer__brand">
                 <a href="#home" class="footer__logo">
-                    <!-- Nuevo logo SVG para footer -->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2C9.243 2 7 4.243 7 7C7 9.757 12 16 12 16C12 16 17 9.757 17 7C17 4.243 14.757 2 12 2Z" fill-opacity="0.8"/>
                         <path d="M12 5C10.343 5 9 6.343 9 8C9 9.657 12 13 12 13C12 13 15 9.657 15 8C15 6.343 13.657 5 12 5Z" fill-opacity="0.5"/>
@@ -218,7 +211,6 @@
             <div class="footer__links">
                 <nav aria-label="Enlaces rápidos del pie de página">
                     <a href="#home">Home</a>
-                    <!-- Enlaces de servicio actualizados, Blog eliminado -->
                     <a href="#services-tramites">Trámites</a>
                     <a href="#services-consultoria">Consultoría</a>
                     <a href="#services-marketing">Marketing</a>
