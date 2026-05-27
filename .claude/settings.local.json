@@ -93,7 +93,22 @@
       "Bash(ls edit/)",
       "Bash(cat edit/watcher_processed.json)",
       "Skill(commit-commands:commit)",
-      "Skill(commit-commands:commit:*)"
+      "Skill(commit-commands:commit:*)",
+      "Bash(cd \"/c/Users/kein-/OneDrive/Desktop/Riqueza Digital\" *)",
+      "Bash(env)",
+      "Bash(npx skills *)",
+      "Bash(studio site *)",
+      "Bash(ls \"/c/Users/kein-/AppData/Local/\" | grep -i studio 2>/dev/null *)",
+      "Read(//c/Users/kein-/AppData/Local//**)",
+      "mcp__claude_ai_Notion__notion-move-pages",
+      "mcp__plugin_vibiz_vibiz__vibiz_time_now",
+      "Bash(powershell.exe -Command \"Get-ItemProperty HKCU:\\\\Environment | Select-Object WP_RD_URL, WP_RD_USER\")",
+      "Bash(powershell.exe -Command ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'feat: F-012 + F-015 registradas — /registrar-feature skill + WP REST API integration [skip-vibiz] *)",
+      "Bash(powershell.exe -Command \"Get-ItemProperty HKCU:\\\\Environment | Select-Object WP_RD_URL, WP_RD_USER, WP_RD_APP_PASSWORD\")",
+      "Bash(powershell.exe -Command \"\\(Get-ItemProperty HKCU:\\\\Environment\\).WP_RD_URL\")",
+      "Bash(powershell.exe -NonInteractive -Command ' *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\kein-\\OneDrive\\Desktop\\Riqueza Digital\\RD-TEAM\\.claude"

@@ -1,0 +1,327 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.rd-taller-ia {
+  --rd-dark: #21123D; --rd-dark-2: #2B174D; --rd-purple: #8000FC;
+  --rd-blue: #0530FA; --rd-pink: #E300FF; --rd-white: #ffffff;
+  --rd-text: #1f1f2e; --rd-text-2: #514b5f; --rd-muted: #6f6f80;
+  --rd-border: #e8e4f0; --rd-soft: #f7f4fb; --rd-soft-2: #faf8fd;
+  --rd-card-dark: #24123f;
+  --rd-font-display: 'Fraunces', 'Times New Roman', serif;
+  --rd-font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --rd-font-mono: 'JetBrains Mono', "SFMono-Regular", Consolas, monospace;
+  width: 100vw !important; max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important;
+  background: #ffffff !important; color: var(--rd-text) !important;
+  font-family: var(--rd-font-body) !important; overflow: hidden; position: relative;
+}
+.rd-taller-ia, .rd-taller-ia * { box-sizing: border-box; }
+.rd-taller-ia h1,.rd-taller-ia h2,.rd-taller-ia h3,.rd-taller-ia p,.rd-taller-ia span,.rd-taller-ia a,.rd-taller-ia li,.rd-taller-ia strong,.rd-taller-ia small { font-family: var(--rd-font-body); }
+.rd-course-container { width: min(1320px, calc(100% - 48px)); margin: 0 auto; }
+
+/* HERO */
+.rd-course-hero {
+  background: radial-gradient(circle at 8% 20%, rgba(255,255,255,0.08), transparent 18%),
+    radial-gradient(circle at 92% 18%, rgba(255,255,255,0.08), transparent 20%),
+    linear-gradient(135deg, #21123D 0%, #35115f 48%, #4b0b68 100%) !important;
+  color: white; padding: 32px 0 72px; position: relative; overflow: hidden;
+}
+.rd-hero-inner { display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; }
+.rd-hero-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 500; margin-bottom: 32px; }
+.rd-hero-badge { display: inline-flex; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; }
+.rd-hero-title { font-family: var(--rd-font-display) !important; font-size: clamp(36px,5vw,58px); font-weight: 400; line-height: 1.1; color: white; margin: 0 0 24px; }
+.rd-hero-title em { font-style: italic; color: var(--rd-pink); }
+.rd-hero-desc { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.75); margin: 0 0 40px; max-width: 540px; }
+.rd-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.rd-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--rd-pink); color: white; text-decoration: none; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; }
+.rd-btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; }
+.rd-hero-aside { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 36px; }
+.rd-hero-aside-img { width: 100%; border-radius: 12px; margin-bottom: 28px; height: 180px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 64px; }
+.rd-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.rd-meta-item label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 4px; }
+.rd-meta-item strong { display: block; font-size: 14px; font-weight: 700; color: white; }
+
+/* PROMISE */
+.rd-section-promise { padding: 96px 0; background: var(--rd-soft-2); }
+.rd-section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rd-purple); margin-bottom: 16px; }
+.rd-section-title { font-family: var(--rd-font-display) !important; font-size: clamp(28px,3.5vw,42px); font-weight: 400; line-height: 1.2; color: var(--rd-dark); margin: 0 0 24px; }
+.rd-section-title em { font-style: italic; color: var(--rd-purple); }
+.rd-section-desc { font-size: 17px; line-height: 1.7; color: var(--rd-text-2); max-width: 640px; margin: 0 0 56px; }
+.rd-promise-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.rd-promise-card { background: white; border: 1px solid var(--rd-border); border-radius: 16px; padding: 32px; }
+.rd-promise-card-icon { width: 48px; height: 48px; background: var(--rd-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+.rd-promise-card h3 { font-size: 16px; font-weight: 700; color: var(--rd-dark); margin: 0 0 8px; }
+.rd-promise-card p { font-size: 14px; line-height: 1.6; color: var(--rd-text-2); margin: 0; }
+
+/* PRICE BAND */
+.rd-section-price { padding: 72px 0; background: linear-gradient(135deg, var(--rd-dark) 0%, #3a1268 100%); color: white; }
+.rd-price-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+.rd-price-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rd-pink); margin-bottom: 16px; }
+.rd-price-title { font-family: var(--rd-font-display) !important; font-size: clamp(24px,3vw,36px); font-weight: 400; line-height: 1.2; color: white; margin: 0 0 16px; }
+.rd-price-title em { font-style: italic; color: var(--rd-pink); }
+.rd-price-desc { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.7); margin: 0; max-width: 520px; }
+.rd-price-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 40px; text-align: center; min-width: 280px; }
+.rd-price-box-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.rd-price-amount { font-size: 48px; font-weight: 800; color: white; line-height: 1; margin-bottom: 8px; }
+.rd-price-discount { font-size: 13px; color: var(--rd-pink); font-weight: 600; margin-bottom: 12px; }
+.rd-price-code { background: rgba(255,255,255,0.08); border: 1px dashed rgba(255,255,255,0.2); border-radius: 8px; padding: 8px 16px; font-family: var(--rd-font-mono); font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+.rd-price-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px; }
+
+/* PROGRAMA */
+.rd-section-programa { padding: 96px 0; }
+.rd-programa-header { max-width: 640px; margin-bottom: 64px; }
+.rd-modulos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.rd-modulo { background: white; border: 1px solid var(--rd-border); border-radius: 20px; padding: 36px; position: relative; overflow: hidden; }
+.rd-modulo-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.rd-modulo-num { font-size: 13px; font-weight: 800; color: var(--rd-purple); letter-spacing: 0.05em; font-family: var(--rd-font-mono); }
+.rd-modulo-dur { font-size: 12px; font-weight: 600; color: var(--rd-muted); background: var(--rd-soft); padding: 4px 10px; border-radius: 100px; }
+.rd-modulo h3 { font-family: var(--rd-font-display) !important; font-size: 20px; font-weight: 400; line-height: 1.3; color: var(--rd-dark); margin: 0 0 12px; }
+.rd-modulo h3 em { font-style: italic; color: var(--rd-purple); }
+.rd-modulo p { font-size: 14px; line-height: 1.65; color: var(--rd-text-2); margin: 0 0 20px; }
+.rd-modulo ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.rd-modulo ul li { font-size: 13px; color: var(--rd-text-2); padding-left: 20px; position: relative; }
+.rd-modulo ul li::before { content: "->"; position: absolute; left: 0; color: var(--rd-purple); font-weight: 700; }
+
+/* STACK */
+.rd-section-stack { padding: 96px 0; background: var(--rd-soft); }
+.rd-stack-header { max-width: 640px; margin-bottom: 64px; }
+.rd-stack-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.rd-stack-card { background: white; border: 1px solid var(--rd-border); border-radius: 16px; padding: 32px; }
+.rd-stack-card h3 { font-size: 15px; font-weight: 700; color: var(--rd-dark); margin: 0 0 10px; }
+.rd-stack-card h3 em { font-style: italic; color: var(--rd-purple); }
+.rd-stack-card p { font-size: 13px; line-height: 1.6; color: var(--rd-text-2); margin: 0 0 20px; }
+.rd-stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.rd-stack-tag { font-size: 12px; font-weight: 600; color: var(--rd-purple); background: var(--rd-soft); padding: 4px 10px; border-radius: 6px; font-family: var(--rd-font-mono); }
+
+/* AUDIENCE */
+.rd-section-audience { padding: 96px 0; background: var(--rd-dark); color: white; }
+.rd-audience-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.rd-audience-title { font-family: var(--rd-font-display) !important; font-size: clamp(28px,3vw,38px); font-weight: 400; line-height: 1.2; color: white; margin: 0 0 24px; }
+.rd-audience-title em { font-style: italic; color: var(--rd-pink); }
+.rd-audience-desc { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.65); margin: 0; }
+.rd-audience-list { display: flex; flex-direction: column; gap: 16px; }
+.rd-audience-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px; }
+.rd-audience-item h4 { font-size: 15px; font-weight: 700; color: white; margin: 0 0 6px; }
+.rd-audience-item p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.55); margin: 0; }
+
+/* CTA FINAL */
+.rd-section-cta { padding: 96px 0; text-align: center; }
+.rd-cta-title { font-family: var(--rd-font-display) !important; font-size: clamp(28px,3.5vw,44px); font-weight: 400; line-height: 1.2; color: var(--rd-dark); margin: 0 0 20px; }
+.rd-cta-title em { font-style: italic; color: var(--rd-purple); }
+.rd-cta-desc { font-size: 17px; line-height: 1.65; color: var(--rd-text-2); max-width: 520px; margin: 0 auto 40px; }
+.rd-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.rd-btn-soft { display: inline-flex; align-items: center; gap: 8px; background: var(--rd-soft); border: 1px solid var(--rd-border); color: var(--rd-dark); text-decoration: none; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; }
+</style>
+
+<section class="rd-taller-ia">
+
+  <!-- HERO -->
+  <header class="rd-course-hero">
+    <div class="rd-course-container">
+      <a href="/cursos/" class="rd-hero-back">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 8H3M7 12L3 8l4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Volver a cursos
+      </a>
+      <div class="rd-hero-inner">
+        <div>
+          <div class="rd-hero-badge">Nivel avanzado &middot; Automatizaci&oacute;n &middot; Negocio digital</div>
+          <h1 class="rd-hero-title">Construye tu propia <em>Agencia Ag&eacute;ntica.</em></h1>
+          <p class="rd-hero-desc">El sistema operativo completo de una agencia de marketing digital moderna: coordina agentes de IA, gestiona clientes, genera contenido y cierra proyectos &mdash; todo desde Claude Code, sin contratar antes de tiempo.</p>
+          <div class="rd-hero-ctas">
+            <a href="/contacto/" class="rd-btn-primary">
+              Solicitar formaci&oacute;n
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#programa" class="rd-btn-ghost">Ver programa</a>
+          </div>
+        </div>
+        <aside class="rd-hero-aside">
+          <div class="rd-hero-aside-img">&#x1F916;</div>
+          <div class="rd-meta-grid">
+            <div class="rd-meta-item"><label>Duraci&oacute;n</label><strong>12 horas</strong></div>
+            <div class="rd-meta-item"><label>Sesiones</label><strong>3 intensivas</strong></div>
+            <div class="rd-meta-item"><label>Modalidad</label><strong>Online o presencial</strong></div>
+            <div class="rd-meta-item"><label>Perfil</label><strong>Fundadores y consultores</strong></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROMISE -->
+  <section class="rd-section-promise">
+    <div class="rd-course-container">
+      <div class="rd-section-label">Descripci&oacute;n general</div>
+      <h2 class="rd-section-title">No se trata de usar ChatGPT.<br>Se trata de construir un <em>sistema que trabaja solo.</em></h2>
+      <p class="rd-section-desc">Este curso ense&ntilde;a a fundadores de agencias, consultores y emprendedores digitales a construir el mismo sistema que opera Riqueza Digital: un orquestador de agentes que coordina marketing, desarrollo web, automatizaciones y gesti&oacute;n de clientes desde una sola interfaz. La base es t&eacute;cnica, pero el resultado es operativo.</p>
+      <div class="rd-promise-grid">
+        <div class="rd-promise-card">
+          <div class="rd-promise-card-icon">&#x1F3D7;&#xFE0F;</div>
+          <h3>Sistema desde cero</h3>
+          <p>Construir&aacute;s tu propio orquestador, tus propios comandos y tu propia biblioteca de SOPs. No instalas una plantilla &mdash; entiendes c&oacute;mo funciona.</p>
+        </div>
+        <div class="rd-promise-card">
+          <div class="rd-promise-card-icon">&#x26A1;</div>
+          <h3>Operativo al finalizar</h3>
+          <p>Al terminar el curso tendr&aacute;s el sistema funcionando en tu agencia: perfil de clientes, skills de campa&ntilde;a, reportes autom&aacute;ticos y gesti&oacute;n de sesiones.</p>
+        </div>
+        <div class="rd-promise-card">
+          <div class="rd-promise-card-icon">&#x1F4C8;</div>
+          <h3>Dise&ntilde;ado para escalar</h3>
+          <p>El mismo stack que permite a un operador &uacute;nico gestionar 5 clientes puede gestionar 20. Las decisiones de arquitectura est&aacute;n tomadas para que crecer no signifique contratar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE BAND -->
+  <section class="rd-section-price">
+    <div class="rd-course-container">
+      <div class="rd-price-inner">
+        <div>
+          <div class="rd-price-label">Inversi&oacute;n</div>
+          <h2 class="rd-price-title">Forma a tu equipo para operar con <em>IA de verdad.</em></h2>
+          <p class="rd-price-desc">Un programa intensivo para que fundadores y consultores entiendan c&oacute;mo orquestar agentes de IA, gestionar clientes de forma sistem&aacute;tica y construir flujos que se repiten solos.</p>
+        </div>
+        <div class="rd-price-box">
+          <div class="rd-price-box-label">Precio del curso</div>
+          <div class="rd-price-amount"><span style="font-size:20px;font-weight:400">&euro;</span>2.800</div>
+          <div class="rd-price-discount">30% dto. primera vez</div>
+          <div class="rd-price-code">PRIMERAVEZ</div>
+          <a href="/contacto/" class="rd-btn-primary" style="width:100%;justify-content:center;">
+            Solicitar formaci&oacute;n
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <p class="rd-price-note">Ll&aacute;manos indicando el c&oacute;digo para aplicar el descuento de primera vez.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section class="rd-section-programa" id="programa">
+    <div class="rd-course-container">
+      <div class="rd-programa-header">
+        <div class="rd-section-label">Programa resumido</div>
+        <h2 class="rd-section-title">Tres sesiones para construir el sistema <em>completo.</em></h2>
+        <p class="rd-section-desc">Cada sesi&oacute;n combina arquitectura con implementaci&oacute;n real sobre tu propio proyecto. Sales con c&oacute;digo funcionando, no con apuntes.</p>
+      </div>
+      <div class="rd-modulos">
+        <article class="rd-modulo">
+          <div class="rd-modulo-meta"><span class="rd-modulo-num">01</span><span class="rd-modulo-dur">4 h</span></div>
+          <h3>El orquestador: <em>CLAUDE.md y la capa de comandos.</em></h3>
+          <p>C&oacute;mo funciona un orquestador de agentes y por qu&eacute; CLAUDE.md es el centro de todo. Construyes el tuyo desde cero: servicios, clientes, delegaci&oacute;n y reglas de operaci&oacute;n.</p>
+          <ul>
+            <li>Arquitectura de un sistema ag&eacute;ntico para agencias.</li>
+            <li>Dise&ntilde;o del CLAUDE.md orquestador y estructura de carpetas.</li>
+            <li>Construcci&oacute;n de skills (slash commands) para operaci&oacute;n diaria.</li>
+            <li>Sistema de perfiles de cliente y regla de upsell autom&aacute;tico.</li>
+          </ul>
+        </article>
+        <article class="rd-modulo">
+          <div class="rd-modulo-meta"><span class="rd-modulo-num">02</span><span class="rd-modulo-dur">4 h</span></div>
+          <h3>MCPs, automatizaciones <em>e integraciones.</em></h3>
+          <p>Conecta tu orquestador con el mundo real: Notion como CRM, Meta Ads, Google Ads, Canva, n8n para automatizaciones.</p>
+          <ul>
+            <li>Instalaci&oacute;n y configuraci&oacute;n de MCPs (Notion, Meta, Ahrefs, n8n).</li>
+            <li>REST APIs directas: WordPress sin MCP v&iacute;a Registry de Windows.</li>
+            <li>Flujos n8n conectados a Claude Code: trigger &rarr; agente &rarr; resultado.</li>
+            <li>Gesti&oacute;n de credenciales sin riesgos (SOP de claves API).</li>
+          </ul>
+        </article>
+        <article class="rd-modulo">
+          <div class="rd-modulo-meta"><span class="rd-modulo-num">03</span><span class="rd-modulo-dur">4 h</span></div>
+          <h3>Sesiones, SOPs <em>y memoria del sistema.</em></h3>
+          <p>El sistema que no recuerda no escala. Dise&ntilde;a la memoria del agente: cierre estructurado, biblioteca de SOPs y flujo de inventario de funcionalidades.</p>
+          <ul>
+            <li>Sistema de sesiones: apertura, cierre y continuidad entre conversaciones.</li>
+            <li>Biblioteca de SOPs: estructura, plantillas y actualizaci&oacute;n autom&aacute;tica.</li>
+            <li>Inventario de funcionalidades como producto vendible.</li>
+            <li>Flujo completo: cliente nuevo &rarr; primer resultado entregado.</li>
+          </ul>
+        </article>
+        <article class="rd-modulo">
+          <div class="rd-modulo-meta"><span class="rd-modulo-num">BONUS</span><span class="rd-modulo-dur">Async</span></div>
+          <h3>Contenido, campa&ntilde;as <em>y publicaci&oacute;n automatizada.</em></h3>
+          <p>El sistema en modo publicaci&oacute;n: genera copies, carruseles y campa&ntilde;as Meta desde el orquestador. Integraci&oacute;n con Vibiz para publicar en redes con un comando.</p>
+          <ul>
+            <li>Skills de campa&ntilde;a, copy y auditor&iacute;a de cuentas publicitarias.</li>
+            <li>Integraci&oacute;n Vibiz: publicaci&oacute;n social desde Claude Code.</li>
+            <li>Pipeline de contenido: viral detectado &rarr; adaptado &rarr; publicado.</li>
+            <li>Reportes semanales automatizados por cliente.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="rd-section-stack">
+    <div class="rd-course-container">
+      <div class="rd-stack-header">
+        <div class="rd-section-label">Tecnolog&iacute;a y herramientas</div>
+        <h2 class="rd-section-title">El stack que ya <em>funciona en producci&oacute;n.</em></h2>
+        <p class="rd-section-desc">No es un curso te&oacute;rico sobre herramientas futuras. Es el stack exacto que opera Riqueza Digital hoy, documentado y transferible.</p>
+      </div>
+      <div class="rd-stack-grid">
+        <div class="rd-stack-card">
+          <h3>Agente <em>central.</em></h3>
+          <p>El cerebro del sistema: el IDE ag&eacute;ntico que orquesta todo desde una sola interfaz conversacional.</p>
+          <div class="rd-stack-tags"><span class="rd-stack-tag">Claude Code</span><span class="rd-stack-tag">CLAUDE.md</span><span class="rd-stack-tag">Skills</span></div>
+        </div>
+        <div class="rd-stack-card">
+          <h3>Integraciones <em>MCP.</em></h3>
+          <p>Protocolos nativos de Claude para conectar con servicios externos sin c&oacute;digo personalizado.</p>
+          <div class="rd-stack-tags"><span class="rd-stack-tag">Notion</span><span class="rd-stack-tag">Meta Ads</span><span class="rd-stack-tag">Ahrefs</span><span class="rd-stack-tag">n8n</span></div>
+        </div>
+        <div class="rd-stack-card">
+          <h3>Automatizaciones <em>y flujos.</em></h3>
+          <p>Orquestaci&oacute;n de tareas repetibles que corren solas una vez configuradas.</p>
+          <div class="rd-stack-tags"><span class="rd-stack-tag">n8n</span><span class="rd-stack-tag">REST APIs</span><span class="rd-stack-tag">WordPress</span><span class="rd-stack-tag">Vibiz</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="rd-section-audience">
+    <div class="rd-course-container">
+      <div class="rd-audience-inner">
+        <div>
+          <h2 class="rd-audience-title">Para qui&eacute;n es <em>este curso.</em></h2>
+          <p class="rd-audience-desc">Dirigido a personas que ya operan o quieren operar una agencia digital, una consultor&iacute;a o un negocio de servicios. No es para perfiles t&eacute;cnicos que quieren aprender a programar &mdash; es para operadores que quieren que la IA trabaje por ellos.</p>
+        </div>
+        <div class="rd-audience-list">
+          <div class="rd-audience-item">
+            <h4>Fundadores de agencias digitales</h4>
+            <p>Tienes clientes, tienes equipo peque&ntilde;o y necesitas escalar sin que los costes crezcan proporcionalmente.</p>
+          </div>
+          <div class="rd-audience-item">
+            <h4>Consultores y solopreneurs</h4>
+            <p>Operas solo o con apoyo puntual y quieres el leverage de un equipo de 5 personas sin el coste de contratar.</p>
+          </div>
+          <div class="rd-audience-item">
+            <h4>Equipos de marketing que quieren automatizar</h4>
+            <p>Ya us&aacute;is IA de forma aislada y quer&eacute;is construir un sistema cohesionado que conecte todo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="rd-section-cta">
+    <div class="rd-course-container">
+      <h2 class="rd-cta-title">&iquest;Listo para construir tu <em>Agencia Ag&eacute;ntica?</em></h2>
+      <p class="rd-cta-desc">Esch&iacute;benos y dise&ntilde;amos juntos el formato que mejor se adapta a tu situaci&oacute;n &mdash; grupo reducido, formato empresa o sesi&oacute;n individual.</p>
+      <div class="rd-cta-btns">
+        <a href="/contacto/" class="rd-btn-primary">
+          Solicitar informaci&oacute;n
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/cursos/" class="rd-btn-soft">Ver otros cursos</a>
+      </div>
+    </div>
+  </section>
+
+</section>

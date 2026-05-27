@@ -23,7 +23,7 @@
         "mode": "manual",
         "assignments": {
           "assignments": [
-            { "id": "a1", "name": "META_TOKEN", "value": "EAANuMdnDe3MBRcekqU1PCbwhvT6aD8iKQVclf74TDWXkvoZCStrt216BFfrhaX7A61cHuCfyilhfzZCZC6uGWhb0x6CcoIJvS60OBdMCSET8uZA8WKh28sVAZClz1XPxHN1SCW9KkWZAkXLmB5JtDoCMl4nc0V3RNwtBIFjmqXe0ZAl5eqi7ORZCyZBMMQyfK7zD5Wm0ADs5VGMK8Bb3GPTZBwhNbgQcNXOUiA", "type": "string" },
+            { "id": "a1", "name": "META_TOKEN", "value": "ROTAR_TOKEN_META_VEGANASHI_EN_META_BUSINESS_MANAGER", "type": "string" },
             { "id": "a2", "name": "AD_ACCOUNT_ID", "value": "act_928041200992402", "type": "string" },
             { "id": "a3", "name": "ANTHROPIC_KEY", "value": "PONER_AQUI_API_KEY_ANTHROPIC", "type": "string" },
             { "id": "a4", "name": "VIRAL_MIN_VIEWS", "value": 3000, "type": "number" },
