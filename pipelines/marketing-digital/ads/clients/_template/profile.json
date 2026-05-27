@@ -1,0 +1,25 @@
+{
+  "client": "nombre-cliente",
+  "industry": "sector",
+  "monthly_spend_eur": 0,
+  "platforms": {
+    "meta": {
+      "enabled": false,
+      "access_token": "",
+      "ad_account_id": "act_XXXXXXXXX",
+      "app_id": "",
+      "app_secret": ""
+    },
+    "google": {
+      "enabled": false,
+      "developer_token": "",
+      "client_id": "",
+      "client_secret": "",
+      "refresh_token": "",
+      "customer_id": "XXX-XXX-XXXX"
+    },
+    "tiktok": {
+      "enabled": false
+    }
+  }
+}
