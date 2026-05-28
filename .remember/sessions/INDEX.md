@@ -12,4 +12,5 @@ Cada fila es una sesión cerrada. Al abrir sesión nueva, leer la más reciente 
 | 2026-05-27 21:18 | [2026-05-27_2118.md](2026-05-27_2118.md) | Auditoría sesiones abiertas: WP REST API testeada ✓, commits Keller web + infraestructura, token Meta Veganashi sanitizado. |
 | 2026-05-27 22:32 | [2026-05-27_2232.md](2026-05-27_2232.md) | WP REST API verificada, F-012 (/registrar-feature) construida, F-015 registrada, borrador curso Agencia Agéntica subido a WP (ID 6820). |
 | 2026-05-28 03:33 | [2026-05-28_0333.md](2026-05-28_0333.md) | Notion F-010 Fases A (inventario) y B (triage) completadas. Tareas creadas en Notion. |
+| 2026-05-28 03:34 | [2026-05-28_0334.md](2026-05-28_0334.md) | Pipeline Google Ads reescrito (multi-cliente, ROAS/CPA). Página /servicios-google-ads/ creada en WP (ID 6822, draft) — SEO+GEO+schema. |
 
