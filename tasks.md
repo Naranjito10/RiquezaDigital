@@ -37,6 +37,8 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 ## 📅 Historial de Tareas Completadas
 
 * **Riqueza Digital (Edición Video):** Optimizar pipeline (posicionar overlays abajo, Imagen 3 API, fallbacks semánticos y sonidos pop/swoosh).
+* **Riqueza Digital (Auditoría Notion - F-010):** Fases A (inventario) y B (triage) completadas. Conexión de raíces y archivado de páginas legacy ejecutado. Tareas enviadas a Notion.
 
 ---
-*Última actualización: 2026-05-26*
+*Última actualización: 2026-05-28*
+
