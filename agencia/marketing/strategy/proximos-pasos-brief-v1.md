@@ -14,20 +14,24 @@ Agenda priorizada en 5 niveles. Hacer en orden — no saltar P0 antes que el res
 
 Las 6 claves quedaron en el contexto de un chat de Claude. Aunque `.mcp.json` está protegido por gitignore, la mejor higiene es rotarlas. Acción manual desde cada consola web:
 
-- [ ] **ANTHROPIC_API_KEY** → console.anthropic.com → Settings → API Keys → revoke + generate new
-- [ ] **META_ACCESS_TOKEN** → developers.facebook.com → Graph API Explorer / Business Settings → regenerar
-- [ ] **META_APP_SECRET** → developers.facebook.com → App Settings → Basic → Reset secret
-- [ ] **GEMINI_API_KEY** → aistudio.google.com → API Keys → revoke + create new
-- [ ] **NOTION_API_KEY** → notion.so/my-integrations → revoke + create new integration
-- [ ] **N8N_API_KEY** → tu instancia n8n hstgr.cloud → Settings → API → regenerate
+- [x] **ANTHROPIC_API_KEY** → console.anthropic.com → Settings → API Keys → revoke + generate new
+- [x] **META_ACCESS_TOKEN** → developers.facebook.com → Graph API Explorer / Business Settings → regenerar *(⚠️ Token Veganashi expuesto en git 2026-05-27 — verificar rotación, tarea Notion creada)*
+- [x] **META_APP_SECRET** → developers.facebook.com → App Settings → Basic → Reset secret
+- [x] **GEMINI_API_KEY** → aistudio.google.com → API Keys → revoke + create new
+- [x] **NOTION_API_KEY** → notion.so/my-integrations → revoke + create new integration
+- [x] **N8N_API_KEY** → tu instancia n8n hstgr.cloud → Settings → API → regenerate
 
 **Tiempo total estimado:** 30-45 min.
 
 **Importante:** NO actualizar `.mcp.json` con las nuevas claves todavía — eso se hace en P1 directamente como variables de entorno. Hasta entonces, tus MCPs no funcionarán. Si necesitas que sigan funcionando MIENTRAS migras, haz P0 + P1 en la misma sesión.
 
+> ✅ **Completado 2026-05-26.** (Ref: INDEX sesión tarde + sesión 2026-05-27_2118)
+
 ---
 
 ## 🟠 P1 — Sesión técnica inmediata con Claude Code (~2h)
+
+> ⚠️ **Parcialmente completado.** Variables WP en Registry ✅. MCPs funcionando ✅. Pendiente verificar migración `.mcp.json` a `${env:VAR}` (no se puede leer sin avisar) y auditoría completa de secretos. (Ref: sesiones 2026-05-26_1958, 2026-05-27_2118)
 
 Abre nueva sesión y dile: *"Sesión técnica de migración de secretos a variables de entorno + auditoría repo"*.
 

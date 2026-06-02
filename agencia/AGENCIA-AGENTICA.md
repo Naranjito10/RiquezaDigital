@@ -42,11 +42,11 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de creación:** 2026-05-25
 
 ### F-010 — Auditoría y Reorganización de Workspace Operativo
-- **Estado:** 🌱 PoC (piloto interno con Notion de RD arrancando 2026-05-27)
+- **Estado:** 🔧 Interno-estable (Fases A+B completadas en Notion RD — 2026-05-28; Fases C y D pendientes)
 - **Ubicación prevista:** `agencia/producto/notion-audit/` para los outputs del piloto; futura skill `/audit-workspace` en `.claude/skills/agencia/`.
 - **Qué hace:** proceso estructurado en 4 fases (Mapeo top-level → Triage por área → Ejecución → Mantenimiento continuo) para auditar y reorganizar workspaces operativos (Notion, ClickUp, Asana) que han evolucionado caóticamente. Reordena, archiva obsoleto, propone nueva estructura y crea las skills de mantenimiento periódico.
 - **Clientes aplicables:** universalmente vendible — casi toda PYME B2B tiene un Notion/equivalente con drift acumulado. Servicio one-shot o como módulo de Tier 2 del producto.
-- **Próximos pasos:** Fase A (mapeo top-level del Notion de RD) en sesión dedicada el 2026-05-27. Documentar el método en SOP reutilizable después del piloto.
+- **Próximos pasos:** Fases A+B completadas ✅. Pendiente: Fase C (ejecución limpieza drifts D-02/D-03/D-04 — requiere decisión Kevin sobre D-01) y Fase D (mantenimiento continuo). Documentar método completo en SOP reutilizable tras Fase C.
 - **Fecha de creación:** 2026-05-26
 
 ### F-011 — Sistema de Cierre de Sesión Inteligente
@@ -59,11 +59,11 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de implementación:** 2026-05-26
 
 ### F-012 — Skill `/registrar-feature` (auto-inventario)
-- **Estado:** 🌱 PoC (construcción en sesión dedicada — fecha por confirmar)
+- **Estado:** 🔧 Interno-estable (construida 2026-05-27)
 - **Ubicación prevista:** `.claude/skills/agencia/registrar-feature.md`.
 - **Qué hace:** toma una idea/funcionalidad nueva y automatiza el registro en `agencia/AGENCIA-AGENTICA.md`: asigna número F-###, sugiere estado (PoC/Interno/Vendible), ubicación, clientes aplicables, próximos pasos. Estandariza el patrón que se ha hecho manual con F-001 a F-011.
 - **Clientes aplicables:** uso interno + vendible como herramienta de mantenimiento del producto Agencia Agéntica.
-- **Próximos pasos:** sesión dedicada para construir skill, idealmente después o en paralelo con F-011.
+- **Próximos pasos:** ✅ Construida en sesión 2026-05-27. En uso activo para registrar nuevas features.
 - **Fecha de creación:** 2026-05-26
 
 ### F-013 — Autopilot Generador-Evaluador (Bucle de Diseño y Calidad)
@@ -143,6 +143,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-06-02 — Revisión de estado del inventario: F-010 actualizado a 🔧 Interno-estable (Fases A+B completadas en Notion RD); F-012 actualizado a 🔧 Interno-estable (skill construida 2026-05-27). Próximos pasos de F-010 y F-012 actualizados con estado real.
 
 2026-05-26 (sesión F-015) — Añadida **F-015 (Integración WordPress REST API desde Claude Code)** como 🔧 Interno-estable. Patrón de autenticación vía `powershell.exe` proxy sin MCP; permite operar cualquier sitio WordPress de clientes directamente desde el agente.
 

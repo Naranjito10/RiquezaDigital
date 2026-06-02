@@ -42,12 +42,30 @@ Si es trabajo de agencia o interno → saltar al Paso 3.
 
 ## Paso 4 — Tareas Notion de seguimiento
 
-1. Identificar todas las tareas que quedaron abiertas, surgieron durante la sesión o necesitan acción futura.
-2. Clasificar:
-   - **Tareas del usuario (Kevin / Andrés)** → crear en la Notion DB de tareas con estado **"Por hacer"** usando el MCP de Notion. Nunca en archivos locales.
-   - **Tareas para Claude (próxima sesión)** → incluir en el archivo de sesión del Paso 5, sección "Siguiente sesión".
-3. Crear las tareas del usuario en Notion. Para cada una: título claro + descripción breve si aplica.
-4. Confirmar cuántas tareas se crearon antes de continuar.
+**Toda tarea — del usuario o del agente — va a Notion. El asignatario indica quién la ejecuta.**
+
+1. Identificar todas las tareas que quedaron abiertas o surgieron en la sesión. Incluir:
+   - Tareas directas (algo que no se terminó o quedó pendiente)
+   - Cada paso ejecutable de cualquier **plan de implementación** creado en esta sesión (ver protocolo abajo)
+   - Decisiones que necesitan validación de Kevin, el cliente, o Andrés
+
+2. Clasificar cada tarea por asignatario:
+   - **Tarea de Kevin** → estado **"Por hacer"**, asignada a Kevin. Ejemplos: definir objetivos, aportar datos, validar diseño, tomar decisión estratégica.
+   - **Tarea de Claude** → estado **"Por hacer"**, **sin asignatario**. Ejemplos: construir mockup, escribir código, crear página WP, redactar copy.
+   - **Tarea de Andrés u otro** → **comentar con Kevin antes de crear**. No crear sin confirmar disponibilidad y contexto.
+
+3. **Protocolo para planes de implementación:**
+   Si en la sesión se creó un plan (spec, fases, sprints, pasos numerados):
+   - Cada paso **accionable y no bloqueado** del plan → 1 tarea Notion (no crear tareas bloqueadas por otras)
+   - Descripción: referencia al plan en el repo + qué se hace exactamente
+   - Aplicar lógica de asignatario de arriba
+   - Los pasos bloqueados por dependencias se crean cuando el paso previo esté en "Revisar" o "Hecho"
+
+4. Crear todas las tareas en Notion usando el MCP. Para cada una: título claro + descripción breve.
+5. Actualizar `tasks.md` con el estado resultante (snapshot de referencia para Claude entre sesiones).
+6. Confirmar cuántas tareas se crearon antes de continuar.
+
+> **Por qué importa:** Claude no tiene visibilidad de lo que Kevin hace fuera de sesiones. Con las tareas de Kevin en Notion con asignatario, Claude puede consultar el estado al abrir sesión y saber qué cambió. Las tareas de Claude sin asignar permiten ver el trabajo total pendiente en un solo lugar.
 
 ---
 
@@ -65,6 +83,18 @@ Si es trabajo de agencia o interno → saltar al Paso 3.
 
 ## Contexto no obvio
 [Lo que NO está en el código, en Notion ni en el historial de commits: decisiones de diseño con razón implícita, alertas, dependencias entre tareas, acuerdos verbales con el cliente, cosas que se decidieron descartar y por qué.]
+
+## Prompt de arranque
+[Prompt listo para pegar al inicio de la próxima sesión. Formato: párrafo corto que sitúa el contexto + lista numerada de tareas por orden de prioridad. Ejemplo:
+
+"Continuamos trabajo en [cliente/área]. En la sesión anterior [1 frase de qué se hizo].
+
+Prioridades para hoy:
+1. [tarea más urgente — con suficiente detalle para que Claude retome sin leer el historial]
+2. [segunda tarea]
+3. [tercera tarea si aplica]
+
+Archivos clave: [rutas relevantes si las hay]"]
 ```
 
 3. Añadir una línea al final de `.remember/sessions/INDEX.md`:
@@ -109,6 +139,11 @@ SOPs actualizados: [N o "ninguno"]
 Sesión guardada: .remember/sessions/YYYY-MM-DD_HHMM.md
 
 🔜 Próxima sesión: [primera prioridad de la lista]
+
+---
+📋 **Prompt de arranque** (copia y pega al inicio de la próxima sesión):
+
+[insertar aquí el prompt de arranque generado en el Paso 5]
 ```
 
 ---

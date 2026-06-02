@@ -146,11 +146,12 @@ RD-TEAM/
 6. **Reportes internos de agencia** → `output/agency/YYYY-MM-DD_<tipo>.md`
 7. **Leer el perfil del cliente** antes de cualquier acción creativa o estratégica
 8. **Idioma por defecto**: español
-9. **Tareas del usuario**: Deben enviarse a Notion (el usuario las gestiona allí). No se trackean en el workspace local.
-10. **Tareas del agente (Claude)**: Se gestionan y visualizan en el archivo global `tasks.md` en la raíz del proyecto, clasificadas por prioridad (Alta, Media, Baja) y estado (Pendiente, En Proceso, Completado).
-11. **Activos reutilizables**: Si durante el trabajo en un cliente detectas que el activo en construcción (prompt, plantilla, script, flujo) podría aplicarse a otros clientes, avisar **antes de continuar** con el formato: *"Esto que estamos construyendo para {{CLIENTE}} podría aplicarse a {{OTROS}}. ¿Lo integramos también ahora?"* — no implementar sin confirmación.
-12. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
-13. **Commits internos con Vibiz activo**: Añadir `[skip-vibiz]` al mensaje de commit cuando el cambio sea de infraestructura interna (configuración, memoria, SOPs, refactors de sistema) y no deba generar contenido de marketing automático por el hook de Vibiz.
+9. **Tareas del usuario (Kevin / Andrés)**: Se crean en Notion con estado "Por hacer" y asignatario correspondiente. No se trackean en archivos locales.
+10. **Tareas del agente (Claude)**: También van a Notion, **sin asignatario**. `tasks.md` es un snapshot de referencia generado al cerrar sesión — no es el tracker principal. El estado real está en Notion.
+11. **Planes de implementación → Notion**: Al crear cualquier plan (spec, fases, sprints, pasos), cada paso ejecutable y no bloqueado se convierte en tarea Notion en ese momento siguiendo el protocolo de `/cierre-sesion` Paso 4. Kevin asignado / Claude sin asignatario / Andrés: consultar antes de crear.
+12. **Activos reutilizables**: Si durante el trabajo en un cliente detectas que el activo en construcción (prompt, plantilla, script, flujo) podría aplicarse a otros clientes, avisar **antes de continuar** con el formato: *"Esto que estamos construyendo para {{CLIENTE}} podría aplicarse a {{OTROS}}. ¿Lo integramos también ahora?"* — no implementar sin confirmación.
+13. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
+14. **Commits internos con Vibiz activo**: Añadir `[skip-vibiz]` al mensaje de commit cuando el cambio sea de infraestructura interna (configuración, memoria, SOPs, refactors de sistema) y no deba generar contenido de marketing automático por el hook de Vibiz.
 
 ## GESTIÓN DE SESIONES
 
