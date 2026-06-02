@@ -12,12 +12,19 @@ El sitio tiene una base sólida (Elementor, Yoast SEO, GTM, WP Fastest Cache) pe
 
 ---
 
-## ✅ Ya corregido (2026-06-02)
+## ✅ Ya corregido
 
-| Fix | ID/Slug | Notas |
-|-----|---------|-------|
-| Aviso Legal: finalidad "Restaurante" → descripción correcta | ID 6450 | Era un texto de plantilla genérica |
-| Página Términos y Condiciones creada | ID 6826 / `/terminos-y-condiciones/` | Requerida para Google Ads API + buenas prácticas legales |
+| Fix | ID/Slug | Fecha | Notas |
+|-----|---------|-------|-------|
+| Aviso Legal: finalidad "Restaurante" → descripción correcta | ID 6450 | 2026-06-02 | Era un texto de plantilla genérica |
+| Página Términos y Condiciones creada | ID 6826 / `/terminos-y-condiciones/` | 2026-06-02 | Requerida para Google Ads API |
+| T&C añadido al footer | — | 2026-06-03 | Kevin lo hizo manualmente en Elementor |
+| Blog off-brand eliminado (6 posts + página /blog) | IDs 6355-6360, 6405 | 2026-06-03 | Posts de consultoría industrial sin tráfico |
+| Páginas draft de prueba eliminadas | 5664, 5940, 6817, 6818 | 2026-06-03 | Kevin limpió manualmente |
+| Menú actualizado: Servicios dropdown + Bóveda | Menu ID 8 | 2026-06-03 | 3 hijos bajo Servicios; Manual NbLM quitado del menú |
+| Bóveda creada: hub de recursos y manuales | ID 6835 / `/boveda/` | 2026-06-03 | Design system RD, Elementor HTML widget |
+| Página /servicios-web-ia/ creada | ID 6836 | 2026-06-03 | Web con IA Agéntica — service page |
+| Página /posicionamiento-ia/ creada | ID 6837 | 2026-06-03 | GEO — service page |
 
 ---
 

@@ -191,4 +191,88 @@ req = urllib.request.Request(
 
 ---
 
-*Última sesión que actualizó este SOP: 2026-05-27 — Creado tras verificar conexión completa con riquezadigital.es. Patrón Registry + powershell.exe + Python validado en producción.*
+---
+
+## Patrón avanzado: páginas Elementor con widget HTML
+
+Descubierto el 2026-06-03. El meta `_elementor_data` **es accesible vía REST API** en esta instalación (Elementor lo registra con `show_in_rest: true`). Esto permite crear páginas que se abren como "Editar HTML" en Elementor en lugar del Text Editor básico.
+
+### Por qué importa
+
+- Las páginas creadas con `content` normal aparecen como **Text Editor widget** en Elementor — limitado
+- Las páginas con `_elementor_data` configurado aparecen como **HTML widget** — editable como código completo con CSS, JS y el design system RD
+
+### Patrón Python
+
+```python
+import json, random, string
+
+def make_id():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=7))
+
+def elementor_html_widget(html_content):
+    # IMPORTANTE: corregir dobles llaves residuales de templates Python
+    html_content = html_content.replace('{{', '{').replace('}}', '}')
+    return json.dumps([{
+        "id": make_id(), "elType": "section",
+        "settings": {
+            "stretch_section": "section-stretched",
+            "layout": "full_width", "gap": "no",
+            "padding": {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
+        },
+        "elements": [{
+            "id": make_id(), "elType": "column",
+            "settings": {"_column_size": 100, "_inline_size": None},
+            "elements": [{
+                "id": make_id(), "elType": "widget", "widgetType": "html",
+                "settings": {"html": html_content}, "elements": []
+            }],
+            "isInner": False
+        }],
+        "isInner": False
+    }], ensure_ascii=False)
+
+# En el payload, dejar content vacío y poner el _elementor_data en meta:
+payload = {
+    "title": "Título",
+    "slug": "slug",
+    "status": "draft",
+    "content": "",   # Elementor ignora esto cuando _elementor_data está presente
+    "meta": {
+        "_elementor_edit_mode": "builder",
+        "_elementor_template_type": "wp-page",
+        "_elementor_data": elementor_html_widget(FULL_HTML_CONTENT),
+        "yoast_wpseo_title": "SEO Title | Marca",
+        "yoast_wpseo_metadesc": "Meta descripción.",
+        "yoast_wpseo_focuskw": "keyword",
+    }
+}
+```
+
+### Bug frecuente: CSS con dobles llaves
+
+Si el CSS se generó en un Python f-string o con `.format()`, puede contener `{{` y `}}` como escape de `{` y `}`. Estos son **inválidos en CSS** y rompen todos los estilos.
+
+La función `elementor_html_widget` ya aplica el fix automáticamente. Si se necesita corregir páginas ya publicadas:
+
+```python
+# Script de fix: output/agency/wp_fix_service_css.py
+# Lee el _elementor_data actual, aplica replace('{{', '{'), actualiza.
+```
+
+### Páginas RD que usan este patrón
+
+| Página | ID | Clase CSS wrapper |
+|--------|----|-------------------|
+| La Bóveda | 6835 | `rd-bv` |
+| Web con IA Agéntica | 6836 | `rd-web-ia` |
+| Posicionamiento en IAs | 6837 | `rd-pos-ia` |
+| Manual Notebook LM | 6759 | (estructura propia) |
+| Manual de Claudia | 6805 | `rd-manual-claudia` |
+| Programar de forma agéntica | 6546 | `rd-taller-ia` |
+
+Ver el design system completo en `.claude/commands/wp-page-rd.md`.
+
+---
+
+*Última sesión que actualizó este SOP: 2026-06-03 — Añadido patrón Elementor HTML widget descubierto al crear páginas de servicio con design system RD.*
