@@ -23,6 +23,7 @@
 | [seo-onpage-guidelines.md](seo-onpage-guidelines.md) | Marketing / SEO | 🌱 Draft | Directrices de SEO on-page para webs de clientes |
 | [construir-skill-claude-code.md](construir-skill-claude-code.md) | Desarrollo / Producto | 🔧 Verificado | Crear un nuevo slash command (`/nombre`) para Claude Code en `.claude/commands/` |
 | [wordpress-rest-api-claude.md](wordpress-rest-api-claude.md) | Desarrollo Web | 🔧 Verificado | Acceso a WordPress REST API desde Claude Code vía Registry de Windows + Python. Patrón sin MCP. |
+| [wp-edit (skill)](../../.claude/commands/wp-edit.md) | Desarrollo Web | 🔧 Verificado | Skill `/wp-edit`: flujo completo leer → editar quirúrgico → validar → publicar página WP. Incluye Yoast SEO, Playwright visual y errores comunes. |
 
 ---
 
