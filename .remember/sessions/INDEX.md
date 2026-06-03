@@ -20,4 +20,5 @@ Cada fila es una sesión cerrada. Al abrir sesión nueva, leer la más reciente 
 | 2026-06-03 05:14 | [2026-06-03_0514.md](2026-06-03_0514.md) | Fix ad set Veganashi WITH_ISSUES via Meta Graph API (Lookalike eliminado + ad set 2021 expirado). Diagnóstico navegador en blanco = problema browser, no cuentas. |
 | 2026-06-03 05:20 | [2026-06-03_0520.md](2026-06-03_0520.md) | Sprint 3: Campaign Optimizer (n8n HOI5Qkfu2FCTSv5j, lunes 09:03) + Feedback Updater (9wbJOSrBIAoYwaO8, diario 08:05) creados. Corrección customer_ids. Inactivos: falta API key Anthropic. |
 | 2026-06-03 15:40 | [2026-06-03_1540.md](2026-06-03_1540.md) | Infraestructura: 14 commands migrados a namespaces (`marketing:`, `web:`, `sistema:`, `contenido:`, `agencia:`, `clientes:`). ~10 docs actualizados. Bug F-012 path corregido. |
+| 2026-06-04 00:26 | [2026-06-04_0026.md](2026-06-04_0026.md) | Skill guion-instagram creada (competencia+ICP+dual IG/LinkedIn+Notion). Guión "agobia IA" reescrito x3. Lead magnet bóveda WP draft 6868. Git limpio + 33 commits pusheados. |
 

@@ -31,6 +31,11 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
+| **Riqueza Digital** | Contenido | Crear 2º guión IG/LinkedIn con `/contenido:guion-instagram` (pilar: caso real o tutorial) | `[ ]` | Skill lista. Primer guión fue "agobia IA". Siguiente debe ser pilar distinto. |
+| **Riqueza Digital** | Marketing | Automatizar envío lead magnet por DM al comentar AGENCIA/SISTEMA/INFORME (n8n) | `[ ]` | Bloqueado: primero publicar artículo WP 6868. Luego sprint con Andrés. |
+
+| Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
+| :--- | :--- | :--- | :---: | :--- |
 | **Riqueza Digital** | Infraestructura | P3.1: Setup GA4 + GSC + GTM + UTM tracking en riquezadigital.es | `[ ]` | Habilita medición del plan inbound desde día 1. |
 | **Riqueza Digital** | Infraestructura | P3.2: Deploy Postiz self-hosted en servidor | `[ ]` | Para publicación multi-plataforma automatizada sin SaaS. |
 | **Riqueza Digital** | Automatización | Outbound: Crear flujo n8n para conectar exportación de Ampleleads (Apollo) con API de Instantly | `[ ]` | Automatización de carga de prospectos. |
