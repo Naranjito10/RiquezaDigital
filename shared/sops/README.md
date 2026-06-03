@@ -26,6 +26,7 @@
 | [wp-edit (skill)](../../.claude/commands/wp-edit.md) | Desarrollo Web | 🔧 Verificado | Skill `/wp-edit`: flujo completo leer → editar quirúrgico → validar → publicar página WP. Incluye Yoast SEO, Playwright visual y errores comunes. |
 | [campaign-monitor-n8n.md](campaign-monitor-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Crear workflow n8n de monitoreo diario Meta Ads: schedule → API → detección anomalías → alerta Gmail. Token Meta, umbrales configurables. |
 | [campaign-optimizer-n8n.md](campaign-optimizer-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Workflow n8n semanal: Meta API (semana + ad sets) → Claude API → propuestas numeradas → Gmail. Incluye Feedback Updater (bucle aprendizaje 7 días). |
+| [meta-ads-error-fix-api.md](meta-ads-error-fix-api.md) | Marketing | 🔧 Verificado | Fix de ad sets WITH_ISSUES via Graph API: audiencia eliminada, ad set expirado, extensión end_time. Sin necesidad de Ads Manager UI. |
 
 ---
 
