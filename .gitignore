@@ -89,3 +89,15 @@ services/edicion-video/edit/
 services/edicion-video/output/
 services/edicion-video/transcripts/
 
+
+# Archivos binarios grandes — no subir a GitHub
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+*.rar
+output/*.png
+output/*.jpg
+output/*.jpeg
+scratch/
