@@ -146,12 +146,12 @@ def check_notion_tasks() -> list:
     tasks_db_id = "b5c6d3aa-d462-4989-962e-8fc7034de3a9" # ID Tareas DB de RD
     
     url = f"https://api.notion.com/v1/databases/{tasks_db_id}/query"
-    # Filtrar por tareas cuyo estado no sea "Completada" o "Archivada"
+    # Filtrar por tareas cuyo estado no sea "Hecho"
     query_body = {
         "filter": {
             "property": "Estado",
             "status": {
-                "does_not_equal": "Completada"
+                "does_not_equal": "Hecho"
             }
         },
         "page_size": 20

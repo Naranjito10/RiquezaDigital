@@ -31,7 +31,7 @@ RD-TEAM/
 │
 ├── .claude/                        ← CAPA EJECUTABLE
 │   ├── settings.local.json         ← Permisos locales
-│   ├── commands/                   ← Slash commands (/nuevo-cliente, /reporte-semanal, etc.)
+│   ├── commands/                   ← Slash commands con namespace (/marketing:reporte-semanal, /clientes:nuevo-cliente, etc.)
 │   └── agents/                     ← Subagentes paralelizables (ads, analyst, content, seo)
 │
 ├── agencia/                        ← RIQUEZA DIGITAL como empresa propia
@@ -126,7 +126,7 @@ Ver memoria `feedback-imputacion-horas`.
 ## Cómo añadir cosas
 
 ### Cliente nuevo
-1. Ejecutar skill `/nuevo-cliente` (o copiar `clients/_template/` → `clients/<nuevo>/`)
+1. Ejecutar skill `/clientes:nuevo-cliente` (o copiar `clients/_template/` → `clients/<nuevo>/`)
 2. Rellenar `profile.md`
 3. Ejecutar pack `shared/prompts/onboarding-estrategico/` → outputs van a `clients/<nuevo>/strategy/`
 4. Crear `clients/<nuevo>/imputacion-horas.md` con plantilla

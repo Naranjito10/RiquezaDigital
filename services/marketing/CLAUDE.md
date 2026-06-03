@@ -42,10 +42,10 @@ Scripts en [pipelines/marketing-digital/src](file:///c:/Users/kein-/OneDrive/Des
 
 | Comando | Qué hace |
 |---------|----------|
-| `/reporte-semanal` | Reporte de rendimiento semanal del cliente activo |
-| `/auditar-cuenta` | Auditoría completa Meta y/o Google |
-| `/crear-campaña` | Nueva campaña guiada paso a paso |
-| `/generar-copy` | Copy publicitario con 3 variantes |
+| `/marketing:reporte-semanal` | Reporte de rendimiento semanal del cliente activo |
+| `/marketing:auditar-cuenta` | Auditoría completa Meta y/o Google |
+| `/marketing:crear-campaña` | Nueva campaña guiada paso a paso |
+| `/marketing:generar-copy` | Copy publicitario con 3 variantes |
 
 ## REGLAS
 

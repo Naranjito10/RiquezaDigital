@@ -2,7 +2,7 @@
 
 **Creado:** 2026-06-02  
 **Basado en:** auditoría técnica + inventario de páginas + plugins activos  
-**Ejecutor:** Claude Code vía `/wp-edit` + Kevin (decisiones estratégicas)
+**Ejecutor:** Claude Code vía `/web:wp-edit` + Kevin (decisiones estratégicas)
 
 ---
 
@@ -50,7 +50,7 @@ Los drafts sin usar contaminan el CMS y pueden indexarse accidentalmente.
 | 5796 | pagina-registro | Revisar con Kevin antes de eliminar |
 | 6817 | (sin slug - "Aviso Legal") | Eliminar — duplicado |
 | 6818 | (sin slug - "Aviso Legal") | Eliminar — duplicado |
-- **Responsable:** Kevin confirma → Claude ejecuta vía `/wp-edit`
+- **Responsable:** Kevin confirma → Claude ejecuta vía `/web:wp-edit`
 
 ---
 
@@ -94,7 +94,7 @@ La Home carece de `LocalBusiness` + `Organization` schema. Añadir via Yoast (Se
   "serviceType": ["Marketing Digital", "Google Ads", "Meta Ads", "Desarrollo Web", "Formación IA"]
 }
 ```
-- **Responsable:** Claude añade vía `/wp-edit` en la Home (ID de la Home: 6676)
+- **Responsable:** Claude añade vía `/web:wp-edit` en la Home (ID de la Home: 6676)
 
 ### 8. GTM + Site Kit: verificar no hay doble tracking
 Ambos plugins están activos. Si Site Kit está enviando eventos a GA4 Y GTM también tiene el tag de GA4, los conversiones se pueden contar doble.
@@ -187,7 +187,7 @@ Para automatizar la publicación de contenido en redes sociales desde el sistema
 
 ## Cómo ejecutar este plan
 
-1. **Claude ejecuta:** Puntos 2 (cuando Kevin da datos), 6 (audit SEO), 7 (schema markup Home), mediante `/wp-edit`
+1. **Claude ejecuta:** Puntos 2 (cuando Kevin da datos), 6 (audit SEO), 7 (schema markup Home), mediante `/web:wp-edit`
 2. **Kevin ejecuta desde WP Admin:** Puntos 1 (footer menú), 3 (eliminar drafts tras confirmar), 8 (GTM audit), 13-14-15
 3. **Kevin decide + Claude ejecuta:** Puntos 4 (File Manager), 5 (pro-elements)
 4. **Sesión dedicada:** Puntos 9-12 (Core Web Vitals + performance audit)

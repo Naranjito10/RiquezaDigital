@@ -157,7 +157,7 @@ Usar el diseño system de la bóveda. Template base:
 
 ## Paso 5 — Publicar en WordPress como widget HTML de Elementor
 
-Usar `/wp-page-rd` para el patrón completo de Elementor HTML widget. El artículo debe usar el design system RD y publicarse con `_elementor_data`:
+Usar `/web:wp-page-rd` para el patrón completo de Elementor HTML widget. El artículo debe usar el design system RD y publicarse con `_elementor_data`:
 
 ```python
 import json, random, string

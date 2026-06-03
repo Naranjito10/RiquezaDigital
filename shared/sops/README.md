@@ -23,7 +23,7 @@
 | [seo-onpage-guidelines.md](seo-onpage-guidelines.md) | Marketing / SEO | 🌱 Draft | Directrices de SEO on-page para webs de clientes |
 | [construir-skill-claude-code.md](construir-skill-claude-code.md) | Desarrollo / Producto | 🔧 Verificado | Crear un nuevo slash command (`/nombre`) para Claude Code en `.claude/commands/` |
 | [wordpress-rest-api-claude.md](wordpress-rest-api-claude.md) | Desarrollo Web | 🔧 Verificado | Acceso a WordPress REST API desde Claude Code vía Registry de Windows + Python. Patrón sin MCP. |
-| [wp-edit (skill)](../../.claude/commands/wp-edit.md) | Desarrollo Web | 🔧 Verificado | Skill `/wp-edit`: flujo completo leer → editar quirúrgico → validar → publicar página WP. Incluye Yoast SEO, Playwright visual y errores comunes. |
+| [wp-edit (skill)](../../.claude/commands/web/wp-edit.md) | Desarrollo Web | 🔧 Verificado | Skill `/web:wp-edit`: flujo completo leer → editar quirúrgico → validar → publicar página WP. Incluye Yoast SEO, Playwright visual y errores comunes. |
 | [campaign-monitor-n8n.md](campaign-monitor-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Crear workflow n8n de monitoreo diario Meta Ads: schedule → API → detección anomalías → alerta Gmail. Token Meta, umbrales configurables. |
 | [campaign-optimizer-n8n.md](campaign-optimizer-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Workflow n8n semanal: Meta API (semana + ad sets) → Claude API → propuestas numeradas → Gmail. Incluye Feedback Updater (bucle aprendizaje 7 días). |
 | [meta-ads-error-fix-api.md](meta-ads-error-fix-api.md) | Marketing | 🔧 Verificado | Fix de ad sets WITH_ISSUES via Graph API: audiencia eliminada, ad set expirado, extensión end_time. Sin necesidad de Ads Manager UI. |

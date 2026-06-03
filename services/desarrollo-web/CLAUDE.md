@@ -32,7 +32,7 @@ Eres el orquestador del servicio de desarrollo web, landings y maquetación de R
 
 1. Leer `clients/<cliente>/profile.md` (brief, identidad visual, manual de marca)
 2. Definir estructura de páginas y secciones de cada una
-3. **Generar prompt para Claude Design** usando `/generar-prompt-web` (un prompt por página, empezando por la Home)
+3. **Generar prompt para Claude Design** usando `/web:generar-prompt-web` (un prompt por página, empezando por la Home)
 4. Guardar prompt en `clients/<cliente>/web/prompt-claude-design.md`
 5. Enviar el prompt a Claude Design (manualmente si no hay conexión directa)
 6. Iterar diseño con el usuario hasta aprobación visual

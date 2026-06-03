@@ -110,7 +110,7 @@ git commit -m "feat: [F-###] skill /<nombre-skill> implementada [skip-vibiz]"
 
 ## Notas adicionales
 
-- El nombre del archivo = el slash command: `cierre-sesion.md` → `/cierre-sesion`
+- El nombre del archivo + carpeta = el slash command con namespace: `sistema/cierre-sesion.md` → `/sistema:cierre-sesion`
 - Skills de producto (F-###) deben estar vinculadas a su entrada en `AGENCIA-AGENTICA.md`
 - Siempre probar mentalmente la skill antes de commitear: ¿el agente podría seguir estos pasos sin contexto previo?
 

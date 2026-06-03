@@ -4,7 +4,7 @@ Ejecuta el bucle de diseño autónomo Generador-Evaluador compilado en Python pa
 
 1. **Obtener Cliente:** Pide el nombre del cliente (o lee el contexto actual).
 2. **Pre-requisitos:**
-   - Verifica que exista `clients/<cliente>/web/prompt-claude-design.md`. Si no existe, avisa al usuario de que debe ejecutar primero `/generar-prompt-web`.
+   - Verifica que exista `clients/<cliente>/web/prompt-claude-design.md`. Si no existe, avisa al usuario de que debe ejecutar primero `/web:generar-prompt-web`.
 3. **Ejecución del Bucle (Delegado a Python):**
    - Ejecuta el comando en terminal:
      ```powershell

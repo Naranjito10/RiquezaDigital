@@ -51,16 +51,16 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-011 — Sistema de Cierre de Sesión Inteligente
 - **Estado:** 🔧 Interno-estable
-- **Ubicación:** skill `/cierre-sesion` en `.claude/commands/cierre-sesion.md`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
-- **Qué hace:** 4 capas integradas. (1) Skill ejecutable `/cierre-sesion`: 7 pasos — recopilar contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema, resumen. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP (integrada con F-014):** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/`. (4) Hook futuro que da el % real de contexto en lugar de estimación (pendiente v2).
+- **Ubicación:** skill `/sistema:cierre-sesion` en `.claude/commands/sistema/cierre-sesion.md`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
+- **Qué hace:** 4 capas integradas. (1) Skill ejecutable `/sistema:cierre-sesion`: 7 pasos — recopilar contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema, resumen. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP (integrada con F-014):** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/`. (4) Hook futuro que da el % real de contexto en lugar de estimación (pendiente v2).
 - **Clientes aplicables:** universal — todo usuario serio de Claude Code se beneficia. Vendible como módulo de Tier 1 o como add-on.
 - **Próximos pasos:** (1) Validar con uso real en las próximas sesiones. (2) Hook v2 para % real de contexto.
 - **Fecha de creación:** 2026-05-26
 - **Fecha de implementación:** 2026-05-26
 
-### F-012 — Skill `/registrar-feature` (auto-inventario)
+### F-012 — Skill `/agencia:registrar-feature` (auto-inventario)
 - **Estado:** 🔧 Interno-estable (construida 2026-05-27)
-- **Ubicación prevista:** `.claude/skills/agencia/registrar-feature.md`.
+- **Ubicación:** `.claude/commands/agencia/registrar-feature.md`.
 - **Qué hace:** toma una idea/funcionalidad nueva y automatiza el registro en `agencia/AGENCIA-AGENTICA.md`: asigna número F-###, sugiere estado (PoC/Interno/Vendible), ubicación, clientes aplicables, próximos pasos. Estandariza el patrón que se ha hecho manual con F-001 a F-011.
 - **Clientes aplicables:** uso interno + vendible como herramienta de mantenimiento del producto Agencia Agéntica.
 - **Próximos pasos:** ✅ Construida en sesión 2026-05-27. En uso activo para registrar nuevas features.
@@ -98,8 +98,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-016 — Campaign Monitor (Agente de Monitorización Diaria)
 - **Estado:** 🔧 Interno-estable (Sprint 2 — 2026-06-03)
-- **Ubicación:** n8n workflow ID `ptEUP9SrRyl7nkoN` + SOP `shared/sops/campaign-monitor-n8n.md` + skill `/context-validator`
-- **Qué hace:** Dos componentes integrados: (1) workflow n8n que corre 08:07h, consulta Meta API por cliente activo, compara contra baseline y envía email de alerta solo si detecta anomalía (silencio = todo OK); (2) skill `/context-validator` que al abrir sesión valida perfiles, detecta gaps en intelligence/ y hace preguntas concretas — no informes genéricos.
+- **Ubicación:** n8n workflow ID `ptEUP9SrRyl7nkoN` + SOP `shared/sops/campaign-monitor-n8n.md` + skill `/sistema:context-validator`
+- **Qué hace:** Dos componentes integrados: (1) workflow n8n que corre 08:07h, consulta Meta API por cliente activo, compara contra baseline y envía email de alerta solo si detecta anomalía (silencio = todo OK); (2) skill `/sistema:context-validator` que al abrir sesión valida perfiles, detecta gaps en intelligence/ y hace preguntas concretas — no informes genéricos.
 - **Clientes aplicables:** activo en Veganashi (Meta Ads). Extensible a Tecniclima (Google Ads, pendiente developer token).
 - **Prerequisitos:** Meta Access Token (~60 días de vida), campaign-baseline.json con umbrales, Gmail OAuth configurado en n8n.
 - **Próximos pasos:** extender a Google Ads Tecniclima cuando haya developer token. Sprint 4: cambiar Gmail por Telegram.
@@ -121,7 +121,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 - [ ] **F-003 — Pipeline de creación de contenido** (de viral detectado → adaptación → producción → publicación) — _prioridad alta, alimentado por análisis Vibiz_
 - [ ] **F-004 — Sistema de captación de leads orgánico** (lead magnets, funnel, nurturing automatizado) — _alimentado por análisis Vibiz_
-- [ ] **F-005 — Sistema de reportes de cliente** (extensión del `/reporte-semanal` actual)
+- [ ] **F-005 — Sistema de reportes de cliente** (extensión del `/marketing:reporte-semanal` actual)
 - [ ] **F-006 — Sistema de upsell detectado por señales** (lead madura → señales de compra → trigger comercial)
 - [ ] **F-007 — Sistema de propuestas auto-generadas** (cliente entra → brief en 1 sesión → propuesta lista)
 - [ ] **F-008 — Publicación multi-plataforma orgánica** (LinkedIn prioritario, después TikTok orgánico si Vibiz lo gestiona bien) — _candidato derivado de Vibiz_
@@ -135,7 +135,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 |---|---|---|
 | CLAUDE.md orquestador | `/CLAUDE.md` | Enrutador de tareas por servicio |
 | Plantilla de perfil de cliente | `clients/_template/profile.md` | Onboarding administrativo |
-| Skills (slash commands) | `/reporte-semanal`, `/auditar-cuenta`, `/crear-campaña`, `/generar-copy`, `/nuevo-cliente` | Operación diaria |
+| Skills (slash commands) | `/marketing:reporte-semanal`, `/marketing:auditar-cuenta`, `/marketing:crear-campaña`, `/marketing:generar-copy`, `/clientes:nuevo-cliente` | Operación diaria |
 | MCPs integrados | Meta, Ahrefs, Canva, n8n, Notion, Google Drive | Acceso a datos y producción |
 
 ---
