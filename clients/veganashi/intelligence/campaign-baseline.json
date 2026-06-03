@@ -20,14 +20,18 @@
     "umbral_monitor_spend_min_eur": 5.0
   },
   "google_ads": {
-    "account_id": null,
-    "gasto_mensual_eur": null,
-    "nota": "datos pendientes"
+    "account_id": "512-424-2748",
+    "gasto_mensual_eur": 200,
+    "nota": "datos pendientes — integración API Google Ads requiere developer token"
   },
   "presupuesto_total_mensual_eur": 600,
   "split_actual": {
     "meta_eur": 400,
     "meta_pct": 67,
+    "meta_desglose": {
+      "prospecting_eur": 300,
+      "retargeting_eur": 100
+    },
     "google_eur": 200,
     "google_pct": 33
   },

@@ -96,6 +96,25 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
   - Helper script Python que encapsule la autenticación para usar en pipelines
 - **Fecha de creación:** 2026-05-26
 
+### F-016 — Campaign Monitor (Agente de Monitorización Diaria)
+- **Estado:** 🔧 Interno-estable (Sprint 2 — 2026-06-03)
+- **Ubicación:** n8n workflow ID `ptEUP9SrRyl7nkoN` + SOP `shared/sops/campaign-monitor-n8n.md` + skill `/context-validator`
+- **Qué hace:** Dos componentes integrados: (1) workflow n8n que corre 08:07h, consulta Meta API por cliente activo, compara contra baseline y envía email de alerta solo si detecta anomalía (silencio = todo OK); (2) skill `/context-validator` que al abrir sesión valida perfiles, detecta gaps en intelligence/ y hace preguntas concretas — no informes genéricos.
+- **Clientes aplicables:** activo en Veganashi (Meta Ads). Extensible a Tecniclima (Google Ads, pendiente developer token).
+- **Prerequisitos:** Meta Access Token (~60 días de vida), campaign-baseline.json con umbrales, Gmail OAuth configurado en n8n.
+- **Próximos pasos:** extender a Google Ads Tecniclima cuando haya developer token. Sprint 4: cambiar Gmail por Telegram.
+- **Fecha de creación:** 2026-06-03
+
+### F-017 — Campaign Optimizer + Feedback Loop (Agente de Optimización Semanal)
+- **Estado:** 🔧 Interno-estable (Sprint 3 — 2026-06-03)
+- **Ubicación:** n8n workflow ID `HOI5Qkfu2FCTSv5j` (Optimizer) + `9wbJOSrBIAoYwaO8` (Feedback Updater) + SOP `shared/sops/campaign-optimizer-n8n.md`
+- **Qué hace:** Dos workflows coordinados: (1) Campaign Optimizer corre cada lunes 09:03, consulta Meta API (semana completa + por ad set), llama a Claude API con métricas + baseline + feedback-log, genera lista de propuestas numeradas y las envía por email en formato "menú" (responde 1/2/3 para aprobar); (2) Feedback Updater corre diario 08:05, detecta acciones con 7+ días pendientes de evaluación y envía recordatorio a Kevin con instrucciones para registrar el aprendizaje.
+- **Bucle de aprendizaje:** El FEEDBACK_LOG en el Set Config del Optimizer acumula acciones tomadas y sus resultados a 7 días. Con el tiempo el agente deja de aplicar reglas genéricas y usa lo que funciona específicamente para cada cliente.
+- **Prerequisito crítico:** Anthropic API key en Set Config del Optimizer (campo `CLAUDE_API_KEY`). Sin ella el workflow falla en el paso Claude API.
+- **Clientes aplicables:** activo en Veganashi (Meta Ads). Tecniclima pendiente developer token Google Ads.
+- **Próximos pasos:** (1) Kevin añade API key Anthropic al Optimizer. (2) Activar ambos workflows. (3) Sprint 4: Telegram reemplaza Gmail, Feedback Updater evalúa métricas automáticamente via Meta API.
+- **Fecha de creación:** 2026-06-03
+
 ---
 
 ## Funcionalidades Pendientes / Backlog

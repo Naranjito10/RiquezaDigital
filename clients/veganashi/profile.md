@@ -7,6 +7,7 @@
 - **Web:** https://veganashi.es
 - **Prioridad:** Alta
 - **Meta Ad Account ID:** act_928041200992402 *(secretos en .env — no hardcodear)*
+- **Google Ads account_id:** `512-424-2748`
 - **Facturación agencia:** tarifa fija mensual
 
 ## Negocio
@@ -44,7 +45,8 @@ No se priorizan ventas directas.
 - **CPL objetivo:** a definir — conversiones no configuradas correctamente (bloqueante)
 - **Volumen leads/mes objetivo:** subir leads entre semana + llenar local los fines de semana
 - **Presupuesto mensual total (Meta + Google):** €600
-  - Split inicial: €400 Meta (67%) / €200 Google (33%) — revisar a 30 días con métricas
+  - Split: €400 Meta (67%) / €200 Google (33%)
+  - Meta desglose: €300 prospecting / €100 retargeting
 - **Campaña:** continua (sin fecha de fin)
 
 ## Plataformas Activas

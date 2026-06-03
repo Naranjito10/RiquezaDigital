@@ -7,7 +7,7 @@
 - **Sector:** Servicios — reparación, instalación y mantenimiento de electrodomésticos y climatización
 - **Prioridad:** Media
 - **Facturación agencia:** tarifa fija mensual
-- **Google Ads customer_id:** `500-211-8788`
+- **Google Ads customer_id:** `873-946-1088`
 
 ## Negocio
 

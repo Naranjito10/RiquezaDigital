@@ -12,7 +12,6 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
 | **Keller** | Desarrollo Web | Mockup Home HTML/CSS/JS completo (Fase 1) | `[ ]` | Plan 100% definido en [plan-web.md](clients/keller-valentina/plan-web.md). Sin bloqueos — listo para ejecutar. |
-| **Veganashi + Tecniclima** | Agencia Autónoma | Sprint 0.5: Definir objetivos en números (leads/mes, CPA máx, fecha objetivo) | `[ ]` | ⚠️ **Kevin define (30 min).** Bloqueante para todos los agentes autónomos. Spec: [agencia-autonoma-design.md](docs/superpowers/specs/2026-05-29-agencia-autonoma-design.md) |
 
 ---
 
@@ -60,6 +59,8 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 * **Riqueza Digital (Edición Video):** Pipeline optimizado — overlays abajo, Imagen 3 API, fallbacks semánticos. [2026-05-27]
 * **Spec Agencia Autónoma aprobada:** 5 agentes, matriz autoridad, dashboard Next.js, 6 sprints definidos. [2026-05-29]
 * **Riqueza Digital (Web):** Bóveda (ID 6835) + Web IA (ID 6836) + Posicionamiento IA (ID 6837) creadas con RD design system. Menú Servicios+Bóveda actualizado. Fix CSS 71 instancias doble-brace. [2026-06-03]
+* **Riqueza Digital (Notion Logs):** Creada base de datos de "Log de Acciones Agenticas" (ID `374d2fec-4b82-8148-bad1-c996c8b5f65e`), subpágina bajo "Gestión Interna" y enlaces en las fichas de los clientes. Integrados agentes Python para registrar logs automáticamente. [2026-06-03]
+* **Riqueza Digital (CORS Fix):** Resuelto error CORS de fuentes Poppins/Heebo en la Home mediante reescritura de URLs de Elementor y purga de caché de WP Fastest Cache, validado con Playwright. [2026-06-03]
 
 ---
 *Última actualización: 2026-06-03*
