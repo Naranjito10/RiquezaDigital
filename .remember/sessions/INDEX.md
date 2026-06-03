@@ -15,4 +15,5 @@ Cada fila es una sesión cerrada. Al abrir sesión nueva, leer la más reciente 
 | 2026-05-28 03:34 | [2026-05-28_0334.md](2026-05-28_0334.md) | Pipeline Google Ads reescrito (multi-cliente, ROAS/CPA). Página /servicios-google-ads/ creada en WP (ID 6822, draft) — SEO+GEO+schema. |
 | 2026-06-03 00:07 | [2026-06-03_0007.md](2026-06-03_0007.md) | Revisión planes + Notion task protocol + T&C WP + /wp-edit skill + plan mejora web + Playwright Chrome Profile 17 config. |
 | 2026-06-03 00:11 | [2026-06-03_0011.md](2026-06-03_0011.md) | Web RD: Bóveda + Web IA + Posicionamiento IA creadas con Elementor HTML widget. Menú Servicios+Bóveda. Skills wp-page-rd+boveda-post. Fix CSS 71 bugs/página. 5 tareas Notion. |
+| 2026-06-03 03:30 | [2026-06-03_0330.md](2026-06-03_0330.md) | Bóveda restaurada de 500 (WPCode DB fix). Tally form + workflow n8n Tally→MailerLite activo y testado. Schema LocalBusiness WPCode. Email bienvenida redactado. 9 tareas Notion. |
 
