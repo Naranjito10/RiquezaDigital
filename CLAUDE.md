@@ -69,6 +69,7 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | `/web:wp-page-rd` | Crear páginas con el design system de Riqueza Digital |
 | `/clientes:nuevo-cliente` | Incorporar nuevo cliente al sistema |
 | `/contenido:boveda-post` | Crear artículo SEO para La Bóveda y publicar en WordPress |
+| `/contenido:guion-instagram` | Guión viral IG+LinkedIn (3 versiones) + cápsulas de publicación + entrada Notion |
 | `/agencia:registrar-feature` | Registrar nueva funcionalidad en el inventario Agencia Agéntica |
 | `/sistema:cierre-sesion` | Cierre inteligente de sesión con tareas Notion y archivo de contexto |
 | `/sistema:context-validator` | Validar estado del sistema al abrir sesión |
