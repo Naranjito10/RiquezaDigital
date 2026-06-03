@@ -1,0 +1,22 @@
+[
+  {
+    "index": 2,
+    "client": "veganashi",
+    "platform": "Meta Ads",
+    "campaign": "T - Reservas",
+    "action": "PAUSE_UNDERPERFORMING",
+    "description": "Pausar anuncio o conjunto ineficiente en 'T - Reservas'",
+    "rationale": "El CPA (\u20ac34.94) supera en un 20% el CPA objetivo de \u20ac15.00.",
+    "estimated_impact": "Reducci\u00f3n de coste ineficiente y mejora del CPA medio."
+  },
+  {
+    "index": 3,
+    "client": "veganashi",
+    "platform": "Meta Ads",
+    "campaign": "CC - Reservas",
+    "action": "PAUSE_UNDERPERFORMING",
+    "description": "Pausar anuncio o conjunto ineficiente en 'CC - Reservas'",
+    "rationale": "El CPA (\u20ac18.28) supera en un 20% el CPA objetivo de \u20ac15.00.",
+    "estimated_impact": "Reducci\u00f3n de coste ineficiente y mejora del CPA medio."
+  }
+]

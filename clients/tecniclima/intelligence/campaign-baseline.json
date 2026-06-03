@@ -1,0 +1,26 @@
+{
+  "cliente": "tecniclima",
+  "fecha_baseline": "2026-06-03",
+  "fuente": "perfil cliente + n8n executions webhook Edgar",
+  "google_ads": {
+    "customer_id": "500-211-8788",
+    "presupuesto_diario_eur": 60,
+    "presupuesto_mensual_eur": 1800,
+    "cpa_actual_eur": 11.0,
+    "cpa_objetivo_junio_eur": 9.0,
+    "cpa_objetivo_julio_agosto_eur": 7.0,
+    "cpa_stretch_eur": 5.0,
+    "cpa_maximo_aceptable_eur": 10.0,
+    "umbral_pausa_cpa_eur": 12.0,
+    "leads_referencia_semana": 8,
+    "leads_referencia_periodo": "2026-05-20 a 2026-05-26",
+    "leads_mes_estimado": 34,
+    "nota_leads": "solo cuenta leads via webhook n8n (Edgar); llamadas directas no incluidas",
+    "foco_actual": "aire acondicionado (temporada alta jun-ago)"
+  },
+  "meta_ads": {
+    "account_id": null,
+    "estado": "no activo"
+  },
+  "campana": "continua"
+}

@@ -3,6 +3,10 @@ import sys
 import re
 import json
 from pathlib import Path
+import http.server
+import socketserver
+import threading
+from playwright.sync_api import sync_playwright
 
 # Agregar la raíz del proyecto al path para asegurar importaciones limpias
 workspace_root = Path(__file__).resolve().parents[3]
@@ -41,6 +45,77 @@ def parse_and_save_files(response_text: str, target_dir: Path) -> list:
             f.write(content)
         saved_files.append(filename)
     return saved_files
+
+def run_playwright_audit(web_dir: Path) -> dict:
+    """
+    Levanta un servidor temporal local, ejecuta Playwright Headless para 
+    auditar la página y diagnosticar logs de consola y fallos de carga (CORS).
+    """
+    print("[PLAYWRIGHT] Iniciando auditoria web automatizada...")
+    
+    # Clase handler personalizada para el servidor
+    class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, format, *args):
+            pass # Silenciar logs
+            
+        def end_headers(self):
+            self.send_header('Access-Control-Allow-Origin', '*')
+            super().end_headers()
+
+    PORT = 8089
+    
+    # Cambiar al directorio de trabajo temporalmente para el HTTP server
+    original_cwd = os.getcwd()
+    os.chdir(str(web_dir))
+    
+    # Levantar el servidor en un puerto libre
+    socketserver.TCPServer.allow_reuse_address = True
+    httpd = socketserver.TCPServer(("", PORT), CORSHTTPRequestHandler)
+    
+    server_thread = threading.Thread(target=httpd.serve_forever)
+    server_thread.daemon = True
+    server_thread.start()
+    
+    console_logs = []
+    network_errors = []
+    screenshot_path = web_dir.parent / "reports" / "visual_screenshot.png"
+    screenshot_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(viewport={"width": 1280, "height": 800})
+            page = context.new_page()
+            
+            # Registrar logs de la consola del navegador
+            page.on("console", lambda msg: console_logs.append(f"[{msg.type.upper()}] {msg.text}"))
+            
+            # Registrar fallos de red o de CORS
+            page.on("requestfailed", lambda req: network_errors.append(f"FAILED: {req.url} - {req.failure.error_text if req.failure else 'Error de red'}"))
+            
+            # Navegar a la página
+            print(f"[PLAYWRIGHT] Navegando a http://localhost:{PORT}/index.html")
+            page.goto(f"http://localhost:{PORT}/index.html", timeout=8000, wait_until="load")
+            page.wait_for_timeout(2000) # Esperar transiciones
+            
+            # Captura de pantalla
+            page.screenshot(path=str(screenshot_path))
+            print(f"[PLAYWRIGHT] Captura de pantalla guardada en {screenshot_path}")
+            browser.close()
+    except Exception as e:
+        print(f"[PLAYWRIGHT ERROR] Fallo en la ejecucion de la auditoria: {e}")
+        network_errors.append(f"Excepcion de Playwright: {str(e)}")
+    finally:
+        # Cerrar el servidor y volver a CWD original
+        httpd.shutdown()
+        httpd.server_close()
+        os.chdir(original_cwd)
+        
+    return {
+        "console_logs": console_logs,
+        "network_errors": network_errors,
+        "screenshot_path": str(screenshot_path)
+    }
 
 def estimate_cost(provider: str, input_text: str, output_text: str) -> float:
     """
@@ -199,6 +274,11 @@ No incluyas textos explicativos fuera de los delimitadores de archivos. Ve direc
             with open(web_dir / "script.js", "r", encoding="utf-8") as f:
                 js_content = f.read()
                 
+        # Ejecutar auditoría dinámica con Playwright
+        audit_results = run_playwright_audit(web_dir)
+        console_report = "\n".join(audit_results["console_logs"]) if audit_results["console_logs"] else "(Ningún log de error en consola)"
+        network_report = "\n".join(audit_results["network_errors"]) if audit_results["network_errors"] else "(Ningún fallo de carga de red o CORS)"
+
         # Construir Prompt del Evaluador
         eval_prompt = f"""
 Por favor, evalúa el diseño web generado para el cliente. Los archivos actuales en el workspace son:
@@ -211,6 +291,15 @@ Por favor, evalúa el diseño web generado para el cliente. Los archivos actuale
 
 --- script.js ---
 {js_content}
+
+### REPORTE TÉCNICO DE EJECUCIÓN DINÁMICA (Playwright):
+- Logs de Consola del Navegador:
+{console_report}
+
+- Errores de Carga de Red y CORS (Carga de Fuentes Heebo/Poppins):
+{network_report}
+
+- Captura de pantalla generada en: {audit_results["screenshot_path"]} (Usa este reporte para evaluar la coherencia visual).
 
 Evalúa estos archivos contra los 4 criterios de diseño (Design Quality, Originality, Craft, Functionality).
 Recuerda que debes devolver un JSON estructurado con la puntuación de cada criterio, un campo booleano 'passed' que sea true si y solo si todas las notas son >= 8, y una crítica detallada de los puntos débiles.

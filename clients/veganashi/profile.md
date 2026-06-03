@@ -41,16 +41,18 @@ Servicios — proceso de decisión medio/corto.
 No se priorizan ventas directas.
 
 ### KPIs objetivo
-- **CPL objetivo:** € <!-- PENDIENTE -->
-- **Volumen leads/mes objetivo:** <!-- PENDIENTE -->
-- **Presupuesto mensual Meta:** ~€1.000
+- **CPL objetivo:** a definir — conversiones no configuradas correctamente (bloqueante)
+- **Volumen leads/mes objetivo:** subir leads entre semana + llenar local los fines de semana
+- **Presupuesto mensual total (Meta + Google):** €600
+  - Split inicial: €400 Meta (67%) / €200 Google (33%) — revisar a 30 días con métricas
+- **Campaña:** continua (sin fecha de fin)
 
 ## Plataformas Activas
 
 | Plataforma | Activo | Budget mensual | Objetivo |
 |------------|--------|---------------|---------|
-| Meta Ads | ✅ | ~€1.000 | Leads + Awareness |
-| Google Ads | ✅ | € | <!-- PENDIENTE --> |
+| Meta Ads | ✅ | ~€400 | Leads + Awareness (llenar local fds) |
+| Google Ads | ✅ | ~€200 | Búsqueda de intención (leads semana) |
 | SEO | ☐ | — | |
 
 ## Creativos y Marca
@@ -78,5 +80,9 @@ Imágenes estáticas se generan con Nano Banana o Canva.
 - Presupuesto Meta activo ~€1.000/mes
 - El cliente recibe reporte mensual con estilo de su marca
 
+## Bloqueantes activos
+- ⚠️ **Conversiones no configuradas correctamente** — sin esto no se puede calcular CPL real ni optimizar correctamente
+- Prioridad: configurar eventos de conversión antes de escalar budget
+
 ## Última actualización
-2026-05-19
+2026-06-03

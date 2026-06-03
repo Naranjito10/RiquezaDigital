@@ -1,0 +1,96 @@
+- generic [active] [ref=e1]:
+  - link "Ir al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link [ref=e11] [cursor=pointer]:
+        - /url: https://www.riquezadigital.es
+        - img [ref=e12]
+      - generic [ref=e32]:
+        - navigation "Menu" [ref=e33]:
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - link "Cursos" [ref=e36] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/cursos/
+                - text: Cursos
+                - generic [ref=e37]:
+                  - generic: 
+            - listitem [ref=e38]:
+              - link "Quiénes somos" [ref=e39] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/empresa/
+            - listitem [ref=e40]:
+              - link "Contacto" [ref=e41] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/contacto/
+            - listitem [ref=e42]:
+              - link "Manual Notebook LM" [ref=e43] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/?page_id=6759
+        - text:   
+      - link "Solicitar Presupuesto" [ref=e48] [cursor=pointer]:
+        - /url: https://api.whatsapp.com/send/?phone=34654879091&text&type=phone_number&app_absent=0
+        - img [ref=e50]
+        - generic [ref=e52]: Solicitar Presupuesto
+  - generic [ref=e58]:
+    - heading "404" [level=1] [ref=e61]
+    - heading "Page Not Found" [level=3] [ref=e64]
+    - heading "The page you are looking for no longer exists. Perhaps you can return back to the site’s homepage and see if you can find what you are looking for." [level=5] [ref=e67]
+  - contentinfo [ref=e68]:
+    - generic [ref=e70]:
+      - generic [ref=e72]:
+        - img [ref=e77]
+        - list [ref=e96]:
+          - listitem [ref=e97]:
+            - link "Instagram" [ref=e98] [cursor=pointer]:
+              - /url: https://www.instagram.com/riquezadigital.automatizacion/
+              - generic [ref=e99]: Instagram
+              - generic [ref=e100]: 
+          - listitem [ref=e101]:
+            - link "Youtube" [ref=e102] [cursor=pointer]:
+              - /url: https://youtu.be/K0y04htvwCQ
+              - generic [ref=e103]: Youtube
+              - generic [ref=e104]: 
+          - listitem [ref=e105]:
+            - link "Linkedin" [ref=e106] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/riqueza-digital-agencia-automatizaciones/?viewAsMember=true
+              - generic [ref=e107]: Linkedin
+              - generic [ref=e108]: 
+      - generic [ref=e116]:
+        - paragraph [ref=e119]: LEGAL
+        - list [ref=e122]:
+          - listitem [ref=e123]:
+            - link "Aviso legal" [ref=e124] [cursor=pointer]:
+              - /url: /aviso-legal/
+              - generic [ref=e126]: 
+              - generic [ref=e127]: Aviso legal
+          - listitem [ref=e128]:
+            - link "Política de privacidad" [ref=e129] [cursor=pointer]:
+              - /url: /politica-de-privacidad/
+              - generic [ref=e131]: 
+              - generic [ref=e132]: Política de privacidad
+          - listitem [ref=e133]:
+            - link "Política de cookies" [ref=e134] [cursor=pointer]:
+              - /url: /politica-de-cookies/
+              - generic [ref=e136]: 
+              - generic [ref=e137]: Política de cookies
+      - generic [ref=e139]:
+        - paragraph [ref=e142]: CONTACTO
+        - list [ref=e145]:
+          - listitem [ref=e146]:
+            - link "info@riquezadigital.es" [ref=e147] [cursor=pointer]:
+              - /url: mailto:info@riquezadigital.es
+              - generic [ref=e149]: 
+              - generic [ref=e150]: info@riquezadigital.es
+          - listitem [ref=e151]:
+            - link "+34 654 87 90 91" [ref=e152] [cursor=pointer]:
+              - /url: tel:%20+34654879091
+              - generic [ref=e154]: 
+              - generic [ref=e155]: +34 654 87 90 91
+    - generic [ref=e166]: Copyright ©2025 Riqueza Digital | Todos los derechos reservados.
+  - generic [ref=e167]:
+    - generic [ref=e168]:
+      - text: Esta web utiliza cookies propias y de terceros para su correcto funcionamiento y para fines analíticos y para mostrarte publicidad relacionada con sus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Contiene enlaces a sitios web de terceros con políticas de privacidad ajenas que podrás aceptar o no cuando accedas a ellos. Al hacer clic en el botón Aceptar, acepta el uso de estas tecnologías y el procesamiento de tus datos para estos propósitos.
+      - link "Más información" [ref=e169] [cursor=pointer]:
+        - /url: https://www.riquezadigital.es/personalizar-cookies/
+    - generic [ref=e170]:
+      - button "Rechazar" [ref=e171] [cursor=pointer]
+      - button "Aceptar" [ref=e172] [cursor=pointer]
+  - generic [ref=e173]: desktop

@@ -162,6 +162,7 @@ RD-TEAM/
 3. Si el usuario quiere continuar → leer el archivo de sesión correspondiente
 4. Si hay varias sesiones activas en paralelo → preguntar cuál aplica
 5. Si el usuario quiere empezar nuevo → ignorar contexto anterior
+6. Si la sesión implica trabajo con campañas o el sistema agéntico → ejecutar `/context-validator` para detectar gaps antes de operar
 
 ### Al CERRAR sesión (cuando el usuario lo pida)
 1. **Tareas pendientes del usuario** → crear en Notion DB de tareas (nunca en archivos locales)

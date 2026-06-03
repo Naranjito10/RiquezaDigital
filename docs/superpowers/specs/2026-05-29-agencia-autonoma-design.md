@@ -1,4 +1,4 @@
-# Agencia Autónoma — Diseño del Sistema
+ # Agencia Autónoma — Diseño del Sistema
 **Fecha**: 2026-05-29  
 **Estado**: Aprobado por Kevin Berbel  
 **Objetivo**: Construir una agencia de marketing digital capaz de gestionar clientes (campañas Meta + Google Ads) de forma autónoma, con Kevin como validador estratégico, no como ejecutor operativo.

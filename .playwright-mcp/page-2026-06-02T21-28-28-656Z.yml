@@ -1,0 +1,365 @@
+- generic [active] [ref=e1]:
+  - link "Ir al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link [ref=e11] [cursor=pointer]:
+        - /url: https://www.riquezadigital.es
+        - img [ref=e12]
+      - generic [ref=e32]:
+        - navigation "Menu" [ref=e33]:
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - link "Cursos" [ref=e36] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/cursos/
+                - text: Cursos
+                - generic [ref=e37]:
+                  - generic: 
+            - listitem [ref=e38]:
+              - link "Servicios" [ref=e39] [cursor=pointer]:
+                - /url: "#"
+                - text: Servicios
+                - generic [ref=e40]:
+                  - generic: 
+            - listitem [ref=e41]:
+              - link "Bóveda" [ref=e42] [cursor=pointer]:
+                - /url: https://riquezadigital.es/boveda/
+            - listitem [ref=e43]:
+              - link "Quiénes somos" [ref=e44] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/empresa/
+            - listitem [ref=e45]:
+              - link "Contacto" [ref=e46] [cursor=pointer]:
+                - /url: https://www.riquezadigital.es/contacto/
+        - text:    
+      - link "Solicitar Presupuesto" [ref=e51] [cursor=pointer]:
+        - /url: https://api.whatsapp.com/send/?phone=34654879091&text&type=phone_number&app_absent=0
+        - img [ref=e53]
+        - generic [ref=e55]: Solicitar Presupuesto
+  - generic [ref=e63]:
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]: Arquitectura de IA · Empresas medianas · Madrid · Barcelona
+        - heading "No automatices tareas. Orquesta tu inteligencia." [level=1] [ref=e68]:
+          - text: No automatices tareas.
+          - emphasis [ref=e69]: Orquesta tu inteligencia.
+        - paragraph [ref=e70]: Convertimos la fragilidad operativa de tu empresa en un ecosistema de agentes que ejecutan tu estrategia, protegen tus datos y hacen a tu equipo cinco veces más eficiente. Pensado para CEOs y COOs de empresas medianas que quieren liderar la era de la IA corporativa.
+        - generic [ref=e71]:
+          - link "Solicita tu diagnóstico de IA" [ref=e72] [cursor=pointer]:
+            - /url: /contacto/
+            - generic [ref=e73]: Solicita tu diagnóstico de IA
+            - img [ref=e74]
+          - link "Manual de Claude para equipos" [ref=e76] [cursor=pointer]:
+            - /url: "#manual"
+            - img [ref=e77]
+            - generic [ref=e80]: Manual de Claude para equipos
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: −40%
+            - generic [ref=e84]: Carga operativa
+          - generic [ref=e85]:
+            - generic [ref=e86]: 5×
+            - generic [ref=e87]: Productividad por persona
+          - generic [ref=e88]:
+            - generic [ref=e89]: "+15"
+            - generic [ref=e90]: Años de experiencia
+          - generic [ref=e91]:
+            - generic [ref=e92]: EU
+            - generic [ref=e93]: Cumplimiento AI Act
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]: "01"
+          - paragraph [ref=e98]: "Formación in-company: alineamos a tu equipo"
+        - generic [ref=e99]:
+          - generic [ref=e100]: "02"
+          - paragraph [ref=e101]: "Consultoría: hoja de ruta con ROI medible"
+        - generic [ref=e102]:
+          - generic [ref=e103]: "03"
+          - paragraph [ref=e104]: "Desarrollo agéntico: tu cerebro corporativo"
+    - generic [ref=e106]:
+      - generic [ref=e107]: Equipos que ya orquestan con nosotros
+      - generic [ref=e108]:
+        - img "Carioca" [ref=e110]
+        - img "Inelca" [ref=e112]
+        - img "Calmell Group" [ref=e114]
+        - img "MetalFlow" [ref=e116]
+        - img "Riqueza Digital" [ref=e118]
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e123]: 01 — El riesgo silencioso
+          - heading "Tu empresa no colapsará por falta de ventas. Colapsará por falta de arquitectura." [level=2] [ref=e124]:
+            - text: Tu empresa no
+            - emphasis [ref=e125]: colapsará
+            - text: por falta de ventas. Colapsará por falta de arquitectura.
+        - paragraph [ref=e126]:
+          - text: Mientras ajustas hojas de cálculo, tus competidores ya tienen agentes que aprenden de sus propios datos. La pregunta ya no es
+          - emphasis [ref=e127]: si
+          - text: integrar IA, sino
+          - emphasis [ref=e128]: cuándo
+          - text: .
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - generic [ref=e132]: 89%
+            - generic [ref=e133]: Empresas en España
+          - generic [ref=e134]: Los directivos ya integran agentes de IA en su operativa diaria. Si no es tu caso, lo será de tu competencia.
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - generic [ref=e137]: Tu deuda técnica
+            - generic [ref=e138]:
+              - text: Si tu sistema no
+              - emphasis [ref=e139]: aprende
+              - text: de tus propios datos, estás perdiendo soberanía tecnológica cada día.
+            - generic [ref=e140]: Cada proceso manual es una fuga de margen. Cada decisión sin contexto es una oportunidad perdida. La fragilidad operativa no se ve en el balance hasta que es demasiado tarde.
+          - img [ref=e142]:
+            - generic [ref=e150]: "2022"
+            - generic [ref=e151]: "2024"
+            - generic [ref=e152]: "2026"
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - generic [ref=e155]: 3.2×
+            - generic [ref=e156]: Velocidad de ejecución
+          - generic [ref=e157]: Las empresas con arquitectura de IA toman decisiones tres veces más rápido que las que solo usan herramientas sueltas.
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: €0
+            - generic [ref=e161]: El coste de no actuar
+          - generic [ref=e162]: "No invertir en arquitectura no es ahorro: es deuda técnica. Y los intereses se pagan en cuota de mercado."
+        - generic [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]: ∞
+            - generic [ref=e166]: Bucles que se rompen
+          - generic [ref=e167]: Pasos repetitivos que tu equipo hace cada semana. Cada uno es una candidatura natural a un agente.
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e172]: 02 — Tres pilares, una escalera
+          - heading "De aprender a IA, a vivir en IA." [level=2] [ref=e173]:
+            - text: De aprender a IA,
+            - emphasis [ref=e174]: a vivir en IA.
+          - generic [ref=e175]:
+            - strong [ref=e176]: "01."
+            - text: Formación
+            - img [ref=e177]
+            - strong [ref=e179]: "02."
+            - text: Consultoría
+            - img [ref=e180]
+            - strong [ref=e182]: "03."
+            - text: Desarrollo
+        - paragraph [ref=e183]: No te pedimos que confíes a ciegas. Empezamos formando a tu equipo, demostramos valor con consultoría y construimos contigo cuando ya sabes lo que vale.
+      - generic [ref=e184]:
+        - 'link "01 — Entrada Formación Formación in-company Hábitos compartidos. Cultura AI-First. Capacitamos a tu equipo donde más importa: desde el comité de dirección hasta las áreas operativas. Talleres prácticos donde tu gente aprende a preguntarse «¿cómo lo haría con IA antes de hacerlo?». Un solo día. Resultados reales. Directivos Plantilla Avanzado Ver talleres" [ref=e185] [cursor=pointer]':
+          - /url: /cursos/
+          - generic [ref=e186]:
+            - generic [ref=e187]: 01 — Entrada
+            - generic [ref=e188]: Formación
+          - heading "Formación in-company Hábitos compartidos. Cultura AI-First." [level=3] [ref=e189]:
+            - text: Formación in-company
+            - emphasis [ref=e190]: Hábitos compartidos. Cultura AI-First.
+          - paragraph [ref=e191]: "Capacitamos a tu equipo donde más importa: desde el comité de dirección hasta las áreas operativas. Talleres prácticos donde tu gente aprende a preguntarse «¿cómo lo haría con IA antes de hacerlo?». Un solo día. Resultados reales."
+          - generic [ref=e192]:
+            - generic [ref=e193]: Directivos
+            - generic [ref=e194]: Plantilla
+            - generic [ref=e195]: Avanzado
+          - generic [ref=e196]:
+            - text: Ver talleres
+            - img [ref=e197]
+        - link "02 — Diagnóstico Consultoría Consultoría estratégica Hoja de ruta con ROI medible. Diseñamos tu hoja de ruta bajo el marco del AI Act de la UE. Convertimos tus objetivos en un plan de inversión priorizado por impacto y velocidad. Identificamos los tres procesos donde la IA pagará la inversión en menos de noventa días. EU AI Act ROI Quick wins Solicitar diagnóstico" [ref=e199] [cursor=pointer]:
+          - /url: /contacto/
+          - generic [ref=e200]:
+            - generic [ref=e201]: 02 — Diagnóstico
+            - generic [ref=e202]: Consultoría
+          - heading "Consultoría estratégica Hoja de ruta con ROI medible." [level=3] [ref=e203]:
+            - text: Consultoría estratégica
+            - emphasis [ref=e204]: Hoja de ruta con ROI medible.
+          - paragraph [ref=e205]: Diseñamos tu hoja de ruta bajo el marco del AI Act de la UE. Convertimos tus objetivos en un plan de inversión priorizado por impacto y velocidad. Identificamos los tres procesos donde la IA pagará la inversión en menos de noventa días.
+          - generic [ref=e206]:
+            - generic [ref=e207]: EU AI Act
+            - generic [ref=e208]: ROI
+            - generic [ref=e209]: Quick wins
+          - generic [ref=e210]:
+            - text: Solicitar diagnóstico
+            - img [ref=e211]
+        - link "03 — Construcción Desarrollo Desarrollo agéntico Tu cerebro corporativo, a medida. Construimos agentes internos que consultan tu documentación privada de forma segura y ejecutan procesos sin errores. Integramos con tu ERP, CRM y herramientas existentes. Sin cambios estructurales, sin perder soberanía sobre tus datos. RAG n8n + MCP Datos privados Hablemos de tu caso" [ref=e213] [cursor=pointer]:
+          - /url: /contacto/
+          - generic [ref=e214]:
+            - generic [ref=e215]: 03 — Construcción
+            - generic [ref=e216]: Desarrollo
+          - heading "Desarrollo agéntico Tu cerebro corporativo, a medida." [level=3] [ref=e217]:
+            - text: Desarrollo agéntico
+            - emphasis [ref=e218]: Tu cerebro corporativo, a medida.
+          - paragraph [ref=e219]: Construimos agentes internos que consultan tu documentación privada de forma segura y ejecutan procesos sin errores. Integramos con tu ERP, CRM y herramientas existentes. Sin cambios estructurales, sin perder soberanía sobre tus datos.
+          - generic [ref=e220]:
+            - generic [ref=e221]: RAG
+            - generic [ref=e222]: n8n + MCP
+            - generic [ref=e223]: Datos privados
+          - generic [ref=e224]:
+            - text: Hablemos de tu caso
+            - img [ref=e225]
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: 03 — Cómo trabajamos
+          - heading "El método LOAD 2.0." [level=2] [ref=e232]:
+            - text: El método
+            - emphasis [ref=e233]: LOAD 2.0.
+        - paragraph [ref=e234]: Nuestra metodología propietaria, evolucionada para la era agéntica. Cuatro fases que convierten tu caos operativo en un sistema que aprende.
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - generic [ref=e237]: L
+          - heading "Lógica" [level=3] [ref=e238]
+          - paragraph [ref=e239]: Mapeamos tus datos, procesos y la lógica de negocio que hoy vive en cabezas, hojas de cálculo y conversaciones de Slack. Sin esta foto, ninguna IA funciona.
+          - generic [ref=e240]: Auditoría · Process mining · Data inventory
+        - generic [ref=e241]:
+          - generic [ref=e242]: O
+          - heading "Optimización" [level=3] [ref=e243]
+          - paragraph [ref=e244]: Limpiamos y reordenamos tus procesos para que la IA sea eficiente desde el día uno. Eliminamos redundancias y definimos las fronteras donde el agente decide.
+          - generic [ref=e245]: Rediseño · Limpieza · Governance
+        - generic [ref=e246]:
+          - generic [ref=e247]: A
+          - heading "Agentes" [level=3] [ref=e248]
+          - paragraph [ref=e249]: "Desarrollamos y orquestamos tus agentes con n8n y MCP. Cada agente es una pieza con un propósito claro: ejecuta, consulta, decide o escala según el caso."
+          - generic [ref=e250]: RAG · n8n · MCP · Claude
+        - generic [ref=e251]:
+          - generic [ref=e252]: D
+          - heading "Despliegue" [level=3] [ref=e253]
+          - paragraph [ref=e254]: Formamos a tu equipo, aseguramos la gobernanza y definimos los KPIs que demuestran el ROI. La IA no se entrega, se adopta. Y eso requiere acompañamiento.
+          - generic [ref=e255]: Onboarding · KPIs · EU AI Act
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e260]: 04 — Resultados
+          - heading "Lo que pasa cuando una empresa se orquesta." [level=2] [ref=e261]:
+            - text: Lo que pasa cuando una empresa
+            - emphasis [ref=e262]: se
+            - text: orquesta.
+        - paragraph [ref=e263]: Hemos ayudado a empresas medianas a recuperar el control sobre su operativa, sin reescribir todo lo que ya funciona.
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - text: “
+          - generic [ref=e266]:
+            - text: Llevábamos años con la sensación de que la empresa
+            - emphasis [ref=e267]: nos llevaba a nosotros
+            - text: . Después del proyecto, el equipo dejó de apagar fuegos y empezó a tomar decisiones con datos. Recuperamos el doble de tiempo en dirección.
+          - generic [ref=e268]:
+            - generic [ref=e269]: M
+            - generic [ref=e270]:
+              - strong [ref=e271]: CEO · Empresa industrial mediana
+              - generic [ref=e272]: Manufactura · 180 empleados
+        - generic [ref=e273]:
+          - generic [ref=e274]:
+            - generic [ref=e275]: −40%
+            - generic [ref=e276]: de carga operativa media tras seis meses con arquitectura de IA
+          - generic [ref=e277]:
+            - generic [ref=e278]: 90 d
+            - generic [ref=e279]: desde el primer diagnóstico al primer agente productivo
+          - generic [ref=e280]:
+            - generic [ref=e281]: 100%
+            - generic [ref=e282]: datos en tu infraestructura. Soberanía total. Cumplimiento EU AI Act
+    - generic [ref=e285]:
+      - generic [ref=e286]:
+        - generic [ref=e287]: 05 — Filosofía
+        - heading "De usar herramientas, a construir criterio." [level=3] [ref=e288]:
+          - text: De usar herramientas,
+          - emphasis [ref=e289]: a construir criterio.
+        - paragraph [ref=e290]: No vendemos software. Construimos sistemas que piensan, actúan y aprenden con la lógica de tu negocio. Cada agente que diseñamos contigo es una decisión menos que tu equipo tiene que tomar de memoria.
+        - generic [ref=e291]:
+          - generic [ref=e292]:
+            - strong [ref=e293]: Detectar
+            - generic [ref=e294]: Dónde la IA tiene impacto real, no decorativo.
+          - generic [ref=e295]:
+            - strong [ref=e296]: Aplicar
+            - generic [ref=e297]: Casos prácticos con ROI en 90 días.
+          - generic [ref=e298]:
+            - strong [ref=e299]: Mejorar
+            - generic [ref=e300]: Hábitos nuevos que escalan con tu equipo.
+      - generic [ref=e302]:
+        - generic [ref=e303]: // tu cerebro corporativo
+        - generic [ref=e304]: <agent>
+        - generic [ref=e306]: think()
+        - generic [ref=e308]: act()
+        - generic [ref=e310]: learn()
+        - generic [ref=e311]: </agent>
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]: Empieza aquí · Sin compromiso
+        - heading "Tu empresa ya tiene los datos. Falta darles arquitectura." [level=2] [ref=e317]:
+          - text: Tu empresa ya tiene
+          - emphasis [ref=e318]: los datos.
+          - text: Falta darles arquitectura.
+        - paragraph [ref=e319]: Una sesión de noventa minutos contigo y tu equipo directivo. Salimos con tres procesos identificados, una estimación de impacto y un plan claro.
+      - generic [ref=e320]:
+        - link "Reserva tu diagnóstico" [ref=e321] [cursor=pointer]:
+          - /url: /contacto/
+          - generic [ref=e322]: Reserva tu diagnóstico
+          - img [ref=e323]
+        - generic [ref=e325]:
+          - generic [ref=e326]: Respuesta en 24h
+          - generic [ref=e327]: Sesión sin coste
+          - generic [ref=e328]: NDA disponible
+  - contentinfo [ref=e329]:
+    - generic [ref=e331]:
+      - generic [ref=e333]:
+        - img [ref=e338]
+        - list [ref=e357]:
+          - listitem [ref=e358]:
+            - link "Instagram" [ref=e359] [cursor=pointer]:
+              - /url: https://www.instagram.com/riquezadigital.automatizacion/
+              - generic [ref=e360]: Instagram
+              - generic [ref=e361]: 
+          - listitem [ref=e362]:
+            - link "Youtube" [ref=e363] [cursor=pointer]:
+              - /url: https://youtu.be/K0y04htvwCQ
+              - generic [ref=e364]: Youtube
+              - generic [ref=e365]: 
+          - listitem [ref=e366]:
+            - link "Linkedin" [ref=e367] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/riqueza-digital-agencia-automatizaciones/?viewAsMember=true
+              - generic [ref=e368]: Linkedin
+              - generic [ref=e369]: 
+      - generic [ref=e377]:
+        - paragraph [ref=e380]: LEGAL
+        - list [ref=e383]:
+          - listitem [ref=e384]:
+            - link "Aviso legal" [ref=e385] [cursor=pointer]:
+              - /url: /aviso-legal/
+              - generic [ref=e387]: 
+              - generic [ref=e388]: Aviso legal
+          - listitem [ref=e389]:
+            - link "Política de privacidad" [ref=e390] [cursor=pointer]:
+              - /url: /politica-de-privacidad/
+              - generic [ref=e392]: 
+              - generic [ref=e393]: Política de privacidad
+          - listitem [ref=e394]:
+            - link "Política de cookies" [ref=e395] [cursor=pointer]:
+              - /url: /politica-de-cookies/
+              - generic [ref=e397]: 
+              - generic [ref=e398]: Política de cookies
+          - listitem [ref=e399]:
+            - link "Términos y condiciones" [ref=e400] [cursor=pointer]:
+              - /url: /terminos-y-condiciones/
+              - generic [ref=e402]: 
+              - generic [ref=e403]: Términos y condiciones
+      - generic [ref=e405]:
+        - paragraph [ref=e408]: CONTACTO
+        - list [ref=e411]:
+          - listitem [ref=e412]:
+            - link "info@riquezadigital.es" [ref=e413] [cursor=pointer]:
+              - /url: mailto:info@riquezadigital.es
+              - generic [ref=e415]: 
+              - generic [ref=e416]: info@riquezadigital.es
+          - listitem [ref=e417]:
+            - link "+34 654 87 90 91" [ref=e418] [cursor=pointer]:
+              - /url: tel:%20+34654879091
+              - generic [ref=e420]: 
+              - generic [ref=e421]: +34 654 87 90 91
+    - generic [ref=e432]: Copyright ©2025 Riqueza Digital | Todos los derechos reservados.
+  - generic [ref=e433]:
+    - generic [ref=e434]:
+      - text: Esta web utiliza cookies propias y de terceros para su correcto funcionamiento y para fines analíticos y para mostrarte publicidad relacionada con sus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Contiene enlaces a sitios web de terceros con políticas de privacidad ajenas que podrás aceptar o no cuando accedas a ellos. Al hacer clic en el botón Aceptar, acepta el uso de estas tecnologías y el procesamiento de tus datos para estos propósitos.
+      - link "Más información" [ref=e435] [cursor=pointer]:
+        - /url: https://www.riquezadigital.es/personalizar-cookies/
+    - generic [ref=e436]:
+      - button "Rechazar" [ref=e437] [cursor=pointer]
+      - button "Aceptar" [ref=e438] [cursor=pointer]
+  - generic [ref=e439]: desktop

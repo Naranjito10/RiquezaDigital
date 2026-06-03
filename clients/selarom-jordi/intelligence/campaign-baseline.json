@@ -1,0 +1,14 @@
+{
+  "client": "selarom-jordi",
+  "meta_ads": {
+    "cpa_limit": 15.0,
+    "ctr_floor": 1.0,
+    "daily_budget_expected": 20.0
+  },
+  "google_ads": {
+    "cpc_limit": 2.0,
+    "ctr_floor": 1.5,
+    "daily_budget_expected": 15.0
+  },
+  "updated_at": "2026-06-03"
+}

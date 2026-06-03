@@ -7,6 +7,7 @@
 - **Sector:** Servicios — reparación, instalación y mantenimiento de electrodomésticos y climatización
 - **Prioridad:** Media
 - **Facturación agencia:** tarifa fija mensual
+- **Google Ads customer_id:** `500-211-8788`
 
 ## Negocio
 
@@ -56,16 +57,24 @@ Barcelona, Sitges, Manresa, Terrassa, Badalona, Sabadell y más de 15 municipios
 No hay venta online directa.
 
 ### KPIs objetivo
-- **CPL objetivo:** € <!-- PENDIENTE -->
-- **Volumen leads/mes objetivo:** <!-- PENDIENTE -->
-- **Presupuesto mensual:** € <!-- PENDIENTE — campañas activas en Google Ads -->
+- **CPA actual:** ~€10–12/lead
+- **CPA objetivo escalonado:**
+  - Junio 2026: ≤€9 (ganar datos AC, -20%)
+  - Julio–Agosto 2026: ≤€7 (pico demanda AC, mayor volumen → mejor optimización)
+  - Stretch goal peak: €5–6 (semanas de máxima demanda)
+  - Máximo aceptable fuera de temporada: ≤€10
+- **Volumen leads/mes actual (referencia n8n):** ~8 leads en la semana 20–26 may → ~34/mes (⚠️ solo cuenta leads via webhook; llamadas directas no incluidas)
+- **Volumen leads/mes objetivo:** superar esa referencia — fijar tras confirmar con Edgar el total real (incluyendo llamadas)
+- **Presupuesto mensual:** €60/día × ~30 = ~€1.800/mes
+- **Foco actual:** Aire acondicionado (temporada alta junio–agosto)
+- **Campaña:** continua (sin fecha de fin)
 
 ## Plataformas Activas
 
 | Plataforma | Activo | Budget mensual | Objetivo |
 |------------|--------|---------------|---------|
 | Meta Ads | ☐ | — | No activo |
-| Google Ads | ✅ | € | Leads (búsqueda activa de servicio) |
+| Google Ads | ✅ | €60/día (~€1.800/mes) | Leads (búsqueda activa) — foco AC verano |
 | SEO | ☐ | — | Pendiente análisis |
 
 **Nota:** Google Ads es la plataforma principal — los usuarios buscan activamente "reparación lavadora Barcelona", "urgencia caldera gas", etc.
@@ -93,8 +102,9 @@ Minimalista, moderno. Imágenes de técnicos en trabajo, aparatos, confianza.
 Sin fotos propias confirmadas → generar imágenes con Nano Banana o banco de imágenes.
 
 ## Contacto del cliente
-- WhatsApp: +34 640 641 819
-- Teléfono: 931 895 438
+- **Edgar (propietario):** +34 672 62 81 07 (WhatsApp — recibe leads los domingos)
+- **Secretaria:** +34 640 641 819 (WhatsApp — recibe leads lunes–sábado)
+- Teléfono fijo: 931 895 438
 - Email: info@tecniclima.es
 
 ## Competencia
@@ -110,4 +120,4 @@ Sin fotos propias confirmadas → generar imágenes con Nano Banana o banco de i
 - Recibe reporte mensual con estilo de su marca
 
 ## Última actualización
-2026-05-18
+2026-06-03

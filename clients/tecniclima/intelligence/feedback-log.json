@@ -1,0 +1,16 @@
+[
+  {
+    "_instrucciones": "Cada entrada registra una acción tomada por el agente y su resultado a 7 días. El Optimizer lee este log antes de proponer nuevas acciones.",
+    "_formato": {
+      "fecha": "YYYY-MM-DD",
+      "accion": "descripción concreta de qué se hizo",
+      "contexto": "por qué se tomó la decisión",
+      "resultado_7d": {
+        "cpa_delta_pct": "variación % del CPA",
+        "leads_delta_pct": "variación % de leads"
+      },
+      "aprendizaje": "regla extraída para uso futuro",
+      "aprobado_por": "kevin | agente"
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "_instrucciones": "Cada entrada registra una acci\u00f3n tomada por el agente y su resultado a 7 d\u00edas. El Optimizer lee este log antes de proponer nuevas acciones.",
+    "_formato": {
+      "fecha": "YYYY-MM-DD",
+      "accion": "descripci\u00f3n concreta de qu\u00e9 se hizo",
+      "contexto": "por qu\u00e9 se tom\u00f3 la decisi\u00f3n",
+      "resultado_7d": {
+        "cpa_delta_pct": "variaci\u00f3n % del CPL",
+        "leads_delta_pct": "variaci\u00f3n % de leads"
+      },
+      "aprendizaje": "regla extra\u00edda para uso futuro",
+      "aprobado_por": "kevin | agente"
+    }
+  },
+  {
+    "fecha": "2026-06-03",
+    "accion": "Lanzar campa\u00f1a de Retargeting enfocada a Conversi\u00f3n (Ventas)",
+    "contexto": "Capturar el tr\u00e1fico web templado de los \u00faltimos 30 d\u00edas e interactores de redes sociales (\u00faltimos 90 d\u00edas).",
+    "resultado_7d": {
+      "cpa_delta": 0,
+      "conversiones_delta": 0
+    },
+    "aprendizaje": "pendiente_evaluacion_7d"
+  },
+  {
+    "fecha": "2026-06-03",
+    "accion": "Pausar anuncio o conjunto ineficiente en 'CP - WEB Principal'",
+    "contexto": "El CPA (\u20ac34.19) supera en un 20% el CPA objetivo de \u20ac15.00.",
+    "resultado_7d": {
+      "cpa_delta": 0,
+      "conversiones_delta": 0
+    },
+    "aprendizaje": "pendiente_evaluacion_7d"
+  }
+]

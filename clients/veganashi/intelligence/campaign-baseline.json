@@ -1,0 +1,36 @@
+{
+  "cliente": "veganashi",
+  "fecha_baseline": "2026-06-03",
+  "fuente": "Meta API real — ejecución Campaign Monitor 2026-06-03",
+  "advertencia": "CPL sin datos — conversiones no configuradas correctamente (tarea Notion pendiente Kevin)",
+  "meta_ads": {
+    "account_id": "act_928041200992402",
+    "gasto_diario_eur": 14.93,
+    "gasto_mensual_estimado_eur": 448,
+    "ctr_real_pct": 3.24,
+    "cpc_real_eur": 0.073,
+    "impresiones_dia": 6330,
+    "alcance_dia": 5605,
+    "fecha_medicion": "2026-06-02",
+    "cpl_estimado_eur": null,
+    "cpl_objetivo_eur": null,
+    "nota_ctr_cpc": "CTR y CPC son métricas de todos los clics (incluye video plays). Para CPL real se necesita configurar conversiones.",
+    "umbral_monitor_ctr_floor_pct": 0.60,
+    "umbral_monitor_cpc_ceil_eur": 1.80,
+    "umbral_monitor_spend_min_eur": 5.0
+  },
+  "google_ads": {
+    "account_id": null,
+    "gasto_mensual_eur": null,
+    "nota": "datos pendientes"
+  },
+  "presupuesto_total_mensual_eur": 600,
+  "split_actual": {
+    "meta_eur": 400,
+    "meta_pct": 67,
+    "google_eur": 200,
+    "google_pct": 33
+  },
+  "objetivo": "subir leads entre semana + llenar local fines de semana",
+  "campana": "continua"
+}
