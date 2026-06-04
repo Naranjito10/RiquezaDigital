@@ -32,6 +32,7 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
 | **Riqueza Digital** | Contenido | Crear 2º guión IG/LinkedIn con `/contenido:guion-instagram` (pilar: caso real o tutorial) | `[ ]` | Skill lista. Primer guión fue "agobia IA". Siguiente debe ser pilar distinto. |
+| **Riqueza Digital** | Contenido | Integrar skill `/contenido:boveda-post` con `/contenido:guion-instagram` para generación multicanal | `[ ]` | Para derivar automáticamente guiones de redes (IG/LinkedIn) a partir de un post de la Bóveda de golpe. |
 | **Riqueza Digital** | Marketing | Automatizar envío lead magnet por DM al comentar AGENCIA/SISTEMA/INFORME (n8n) | `[ ]` | Bloqueado: primero publicar artículo WP 6868. Luego sprint con Andrés. |
 
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
