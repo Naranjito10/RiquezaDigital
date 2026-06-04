@@ -11,7 +11,7 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
-| **Keller** | Desarrollo Web | Mockup Home HTML/CSS/JS completo (Fase 1) | `[ ]` | Plan 100% definido en [plan-web.md](clients/keller-valentina/plan-web.md). Sin bloqueos — listo para ejecutar. |
+| **Keller** | Desarrollo Web | Mockup Home HTML/CSS/JS completo (Fase 1) | `[ ]` | Plan en [plan-web.md](clients/keller-valentina/plan-web.md). Programado para el fin de semana (2026-06-06). |
 
 ---
 
@@ -20,9 +20,9 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
 | **Riqueza Digital** | Marketing | Actualizar página /servicios-google-ads/ (WP ID 6822) con métricas reales Tecniclima y publicar | `[ ]` | Kevin trae leads/mes y CPL. Fuente local: [google-ads-page.html](output/agency/google-ads-page.html). ⚠️ No publicar con benchmarks genéricos actuales. |
+| **Veganashi** | Marketing | Validar el informe de Mayo 2026 y ejecutar decisiones estratégicas (CoverManager, pivotar campaña Meta) | `[ ]` | Enviar plantilla de correo a soporte de CoverManager. |
 | **Veganashi + Tecniclima** | Agencia Autónoma | Sprint 1: Completar profiles + authority-matrix + intelligence/ por cliente | `[ ]` | Bloqueado por Sprint 0.5. Spec completa en [agencia-autonoma-design.md](docs/superpowers/specs/2026-05-29-agencia-autonoma-design.md) |
-| **Tecniclima** | Google Ads | Crear `pipelines/marketing-digital/ads/clients/tecniclima/profile.json` con customer_id | `[ ]` | Kevin proporciona customer_id. Prerequisito para ejecutar pipeline Google Ads. |
-| **Riqueza Digital** | Desarrollo Software | F-013: Base Python del bucle Generador-Evaluador (checkpoints Git, límites presupuesto, prompts estéticos) | `[ ]` | Plan en [AGENCIA-AGENTICA.md](agencia/AGENCIA-AGENTICA.md). |
+| **Tecniclima** | Google Ads | Ejecutar setup de OAuth y obtener refresh_token con el developer token activo | `[ ]` | Requisito: que el developer token esté verificado en Google. Ejecutar `python pipelines/marketing-digital/ads/shared/google_client.py --setup tecniclima`. |
 | **Keller** | Desarrollo Web | Fase 2: Páginas interiores (Trámites, Consultoría, Marketing, Contacto, Blog) | `[ ]` | Bloqueado por Fase 1 (mockup Home). |
 
 ---
@@ -50,6 +50,7 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 
 ## 📅 Historial de Tareas Completadas
 
+* **F-013 Autopilot (Base Python):** Base del bucle Generador-Evaluador con checkpoints Git, límites de presupuesto, orquestador runner y prompts estéticos completada e integrada con Playwright (100% de evals exitosos). [2026-06-04]
 * **Riqueza Digital (Bóveda):** Página restaurada de HTTP 500 — `_elementor_data` corrompido reparado via WPCode con `$wpdb->update` directo a DB (bypass hooks Elementor/Yoast). [2026-06-03]
 * **Riqueza Digital (Bóveda):** Form Tally (ID: PdkJZ5) embebido. Workflow n8n "Bóveda — Suscripción Newsletter" (ID: wxMxwdVcwV3YoQdD) activo — Tally→MailerLite testado y funcionando. [2026-06-03]
 * **Riqueza Digital (SEO):** Schema LocalBusiness añadido via WPCode HTML snippet (pendiente Kevin verificar Header). [2026-06-03]
@@ -66,6 +67,8 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 * **Riqueza Digital (Web):** Bóveda (ID 6835) + Web IA (ID 6836) + Posicionamiento IA (ID 6837) creadas con RD design system. Menú Servicios+Bóveda actualizado. Fix CSS 71 instancias doble-brace. [2026-06-03]
 * **Riqueza Digital (Notion Logs):** Creada base de datos de "Log de Acciones Agenticas" (ID `374d2fec-4b82-8148-bad1-c996c8b5f65e`), subpágina bajo "Gestión Interna" y enlaces en las fichas de los clientes. Integrados agentes Python para registrar logs automáticamente. [2026-06-03]
 * **Riqueza Digital (CORS Fix):** Resuelto error CORS de fuentes Poppins/Heebo en la Home mediante reescritura de URLs de Elementor y purga de caché de WP Fastest Cache, validado con Playwright. [2026-06-03]
+* **Veganashi (Reporting):** Creada skill genérica y escalable de generación de informes mensuales (`/marketing:reporte-mensual`) y generado el informe de rendimiento y saneamiento de Mayo 2026. [2026-06-04]
+* **Tecniclima (Google Ads):** Creado y configurado `profile.json` de Google Ads con el `customer_id` y claves OAuth iniciales. [2026-06-04]
 
 ---
-*Última actualización: 2026-06-03*
+*Última actualización: 2026-06-04*

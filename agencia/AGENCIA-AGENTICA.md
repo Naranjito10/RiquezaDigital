@@ -67,11 +67,11 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de creación:** 2026-05-26
 
 ### F-013 — Autopilot Generador-Evaluador (Bucle de Diseño y Calidad)
-- **Estado:** 🌱 PoC
+- **Estado:** 🔧 Interno-estable (Base Python completada)
 - **Ubicación:** `pipelines/desarrollo/generator_evaluator/` (local) y flujos en n8n
 - **Qué hace:** Estructura un bucle multi-agente híbrido (n8n + local). El Generador (Gemini Flash / Claude Haiku) diseña copys o maquetas web y el Evaluador (Claude Sonnet / Opus) audita el resultado visualmente y técnicamente (usando Playwright/tests automáticos) hasta superar un umbral de calidad del 80% antes de requerir aprobación humana.
 - **Clientes aplicables:** Keller (desarrollo web), campañas de ads y flujos de n8n para cualquier cliente.
-- **Próximos pasos:** Crear la base en Python para checkpoints de Git y límites de presupuesto, y definir prompts de evaluación estéticos.
+- **Próximos pasos:** ✅ Base Python implementada con checkpoints Git (`git_guard.py`), presupuesto (`budget_manager.py`), prompts (`evaluator_prompts.py`) y orquestador (`runner.py`). Evals de regresión pasando al 100%. Integrar con flujos de producción.
 - **Fecha de creación:** 2026-05-26
 
 ### F-014 — Sistema de Biblioteca de SOPs
@@ -164,7 +164,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ## Última actualización
 
-2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema.
+2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema. F-013 promocionada a 🔧 Interno-estable tras verificar la base de checkpoints, límites de presupuesto, orquestador runner y prompts estéticos pasando 100% de los evals de regresión.
 
 2026-06-02 — Revisión de estado del inventario: F-010 actualizado a 🔧 Interno-estable (Fases A+B completadas en Notion RD); F-012 actualizado a 🔧 Interno-estable (skill construida 2026-05-27). Próximos pasos de F-010 y F-012 actualizados con estado real.
 
