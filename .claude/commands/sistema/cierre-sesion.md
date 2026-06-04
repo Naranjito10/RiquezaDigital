@@ -19,10 +19,34 @@ Si el cliente activo es un cliente facturado (no "agencia" ni trabajo interno):
 1. Abrir `clients/<cliente>/imputacion-horas.md`
 2. Añadir entrada:
    ```
-   | YYYY-MM-DD | [descripción breve de lo trabajado] | [horas estimadas]h |
+   | YYYY-MM-DD | [descripción breve de lo trabajado] | [horas humano equivalente]h |
    ```
-3. Si las horas no son evidentes, preguntar al usuario: *"¿Cuántas horas registramos para esta sesión?"*
+3. Si el archivo no existe, crearlo con estructura básica (tabla con columnas Fecha / Descripción / Horas).
 4. Si el archivo no existe, crearlo con estructura básica (tabla con columnas Fecha / Descripción / Horas).
+
+### Metodología de imputación: tiempo humano equivalente (sin IA)
+
+**Regla crítica:** Las horas se imputan como el tiempo que habría tardado un profesional humano competente en realizar el mismo trabajo **sin ayuda de IA**. No se registra el tiempo real de la sesión con Claude.
+
+**Por qué:** Este dato es el activo de negocio más valioso del sistema. Permite:
+- Calcular el ahorro real acumulado por cliente y en total
+- Demostrar ROI de la Agencia Agéntica a futuros clientes con datos reales
+- Justificar el coste del servicio frente a freelancers o agencias tradicionales
+
+**Cómo estimar:**
+
+| Tipo de trabajo | Multiplicador orientativo (sesión IA → humano) |
+|----------------|-----------------------------------------------|
+| Auditoría y análisis (ads, SEO, web) | 3–5x |
+| Redacción de informes y documentos | 3–4x |
+| Desarrollo web / edición WordPress | 2–4x |
+| Creación de copy publicitario | 2–3x |
+| Configuración técnica (APIs, webhooks) | 2–3x |
+| Investigación y recomendaciones estratégicas | 3–5x |
+
+Ejemplo: si una auditoría Google Ads tomó 45 min con IA, un analista humano tardaría ~4-6h → imputar 5h.
+
+Si las horas no son evidentes, estimar conservadoramente y anotar entre paréntesis que es estimación: `5h (est.)`.
 
 Si es trabajo de agencia o interno → saltar al Paso 3.
 
@@ -61,11 +85,12 @@ Si es trabajo de agencia o interno → saltar al Paso 3.
    - Aplicar lógica de asignatario de arriba
    - Los pasos bloqueados por dependencias se crean cuando el paso previo esté en "Revisar" o "Hecho"
 
-4. Crear todas las tareas en Notion usando el MCP. Para cada una: título claro + descripción breve.
-5. Actualizar `tasks.md` con el estado resultante (snapshot de referencia para Claude entre sesiones).
-6. Confirmar cuántas tareas se crearon antes de continuar.
+4. Preguntar explícitamente al usuario: *¿Deseas que creemos estas tareas en Notion o las dejamos registradas solo en `tasks.md` como referencia?* (Si el usuario ya las revisó durante la sesión y no desea añadirlas, saltar la creación en la base de datos).
+5. Crear las tareas aprobadas en Notion usando el MCP (si el usuario confirmó).
+6. Actualizar `tasks.md` con el estado resultante (snapshot de referencia para Claude entre sesiones).
+7. Confirmar el estado resultante de las tareas al usuario.
 
-> **Por qué importa:** Claude no tiene visibilidad de lo que Kevin hace fuera de sesiones. Con las tareas de Kevin en Notion con asignatario, Claude puede consultar el estado al abrir sesión y saber qué cambió. Las tareas de Claude sin asignar permiten ver el trabajo total pendiente en un solo lugar.
+> **Por qué importa:** Claude no tiene visibilidad de lo que Kevin hace fuera de sesiones. Con las tareas de Kevin en Notion con asignatario, Claude puede consultar el estado al abrir sesión y saber qué cambió. Las tareas de Claude sin asignar permiten ver el trabajo total pendiente en un solo lugar. Omitir la subida si ya se han alineado evita duplicidades y ruido en el tablero de Notion.
 
 ---
 
