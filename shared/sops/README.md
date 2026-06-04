@@ -23,10 +23,14 @@
 | [seo-onpage-guidelines.md](seo-onpage-guidelines.md) | Marketing / SEO | 🌱 Draft | Directrices de SEO on-page para webs de clientes |
 | [construir-skill-claude-code.md](construir-skill-claude-code.md) | Desarrollo / Producto | 🔧 Verificado | Crear un nuevo slash command (`/nombre`) para Claude Code en `.claude/commands/` |
 | [wordpress-rest-api-claude.md](wordpress-rest-api-claude.md) | Desarrollo Web | 🔧 Verificado | Acceso a WordPress REST API desde Claude Code vía Registry de Windows + Python. Patrón sin MCP. |
+| [wordpress-setup-nuevo-cliente.md](desarrollo-web/wordpress-setup-nuevo-cliente.md) | Desarrollo Web | 🔧 Verificado | Proceso base para configurar e instalar WordPress en nuevos clientes (DNS, plugins esenciales, APIs). |
 | [wp-edit (skill)](../../.claude/commands/web/wp-edit.md) | Desarrollo Web | 🔧 Verificado | Skill `/web:wp-edit`: flujo completo leer → editar quirúrgico → validar → publicar página WP. Incluye Yoast SEO, Playwright visual y errores comunes. |
 | [campaign-monitor-n8n.md](campaign-monitor-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Crear workflow n8n de monitoreo diario Meta Ads: schedule → API → detección anomalías → alerta Gmail. Token Meta, umbrales configurables. |
 | [campaign-optimizer-n8n.md](campaign-optimizer-n8n.md) | Automatizaciones / Marketing | 🔧 Verificado | Workflow n8n semanal: Meta API (semana + ad sets) → Claude API → propuestas numeradas → Gmail. Incluye Feedback Updater (bucle aprendizaje 7 días). |
 | [meta-ads-error-fix-api.md](meta-ads-error-fix-api.md) | Marketing | 🔧 Verificado | Fix de ad sets WITH_ISSUES via Graph API: audiencia eliminada, ad set expirado, extensión end_time. Sin necesidad de Ads Manager UI. |
+| [meta-ads-troubleshooting.md](marketing/meta-ads-troubleshooting.md) | Marketing | 🔧 Verificado | Resolución de incidencias en Meta Ads (píxeles, conjuntos con fallos, aprendizaje limitado, tokens). |
+| [alta-nuevo-cliente.md](onboarding-cliente/alta-nuevo-cliente.md) | Onboarding Cliente | 🔧 Verificado | Flujo administrativo y estratégico F-001 de alta para nuevos clientes en el sistema. |
+| [google-ads-mcc-sheets-export.md](marketing/google-ads-mcc-sheets-export.md) | Marketing | 🌱 Draft | Extracción y volcado automático de métricas de Google Ads MCC a Google Sheets con Cuenta de Servicio. |
 
 ---
 
@@ -36,6 +40,13 @@
 shared/sops/
 ├── README.md                          ← Este archivo (índice)
 ├── _plantilla-sop.md                  ← Plantilla base para nuevos SOPs
+├── desarrollo-web/
+│   └── wordpress-setup-nuevo-cliente.md
+├── marketing/
+│   ├── meta-ads-troubleshooting.md
+│   └── google-ads-mcc-sheets-export.md
+├── onboarding-cliente/
+│   └── alta-nuevo-cliente.md
 ├── gestion-claves-api-windows.md      ← Seguridad: variables de entorno + rotación de claves
 ├── manychat-n8n-integration.md        ← Automatizaciones: ManyChat + n8n
 └── seo-onpage-guidelines.md           ← Marketing: SEO on-page

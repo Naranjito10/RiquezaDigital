@@ -75,12 +75,12 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de creación:** 2026-05-26
 
 ### F-014 — Sistema de Biblioteca de SOPs
-- **Estado:** 🌱 PoC (estructura creada, primeros SOPs documentados)
-- **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`
-- **Qué hace:** biblioteca de procesos repetibles accesible por el equipo y por Claude Code. Cada SOP documenta pasos, problemas comunes y decisiones clave de un proceso operativo. Claude lo actualiza al cerrar sesión si se ejecutó un proceso nuevo o se resolvió un problema no documentado.
-- **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `manychat-n8n-integration.md` (draft), `seo-onpage-guidelines.md` (draft).
+- **Estado:** 🔧 Interno-estable
+- **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`, buscador en `.claude/commands/sistema/buscar-sop.md`
+- **Qué hace:** biblioteca de procesos repetibles accesible por el equipo y por Claude Code. Cada SOP documenta pasos, problemas comunes y decisiones clave de un proceso operativo. Integrado con F-011 (cierre-sesion) para detectar y proponer borradores interactivamente al cerrar sesión, y accesible en todo momento mediante `/sistema:buscar-sop`.
+- **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `wordpress-setup-nuevo-cliente.md` (verificado), `meta-ads-troubleshooting.md` (verificado), `alta-nuevo-cliente.md` (verificado), `google-ads-mcc-sheets-export.md` (draft), y otros.
 - **Clientes aplicables:** universal — transferible a cualquier agencia o equipo que use Claude Code. Vendible como parte de Tier 2 del producto (onboarding incluye traspaso del SOP inicial).
-- **Próximos pasos:** indexar procesos ya ejecutados sin SOP (onboarding cliente, setup WordPress, setup Meta Ads) → construir 3-5 SOPs maduros → integrar en F-011 como capa de cierre automático.
+- **Próximos pasos:** Añadir más SOPs maduros a medida que se operen nuevos clientes e integrar el buscador en la interfaz de usuario en el Tier 3.
 - **Nota de numeración:** tarea Notion creada originalmente como F-013 el 2026-05-26 mañana; renumerada a F-014 al detectar conflicto con F-013 (Autopilot).
 - **Fecha de creación:** 2026-05-26
 
@@ -171,6 +171,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-06-04 — Consolidación del Sistema de Biblioteca de SOPs (F-014). Creación de la skill `/sistema:buscar-sop`, integración interactiva con el cierre de sesión (`/sistema:cierre-sesion`), y redacción de los 4 SOPs operativos prioritarios (WordPress setup, Meta Ads troubleshooting, Onboarding de cliente y exportación Google Ads MCC). F-014 promovida a 🔧 Interno-estable.
 
 2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema. F-013 promocionada a 🔧 Interno-estable tras verificar la base de checkpoints, límites de presupuesto, orquestador runner y prompts estéticos pasando 100% de los evals de regresión. Implementación de F-018 (Sistema de Arranque de Sesión Inteligente) en su versión v1 manual (`/sistema:session-start` y protocolo en CLAUDE.md).
 

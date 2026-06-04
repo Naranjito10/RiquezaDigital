@@ -54,13 +54,14 @@ Si es trabajo de agencia o interno → saltar al Paso 3.
 
 ## Paso 3 — SOPs y aprendizajes
 
-1. Identificar procesos repetibles ejecutados en la sesión (ejemplos: configurar webhook, rotar API keys, crear campaña Meta, onboarding cliente, resolver error de despliegue).
-2. Para cada proceso detectado:
-   - Comprobar si existe SOP en `shared/sops/`
-   - **No existe** → crear borrador usando `shared/sops/_plantilla-sop.md` como plantilla
-   - **Existe** → revisar si hay pasos nuevos, mejoras o correcciones aprendidas hoy; actualizar si procede
-3. Si se creó o actualizó algún SOP → añadir/actualizar la entrada en `shared/sops/README.md`
-4. Si no se ejecutó ningún proceso repetible → saltar este paso sin mencionar.
+1. Preguntar explícitamente al usuario: **"¿Ejecutamos algún proceso repetible hoy?"**
+   - Si la respuesta es **"No"** (o no se identifica ninguno): saltar este paso.
+   - Si la respuesta es **"Sí"** (o el usuario indica el proceso):
+     - Identificar el proceso repetible y su área (ejemplos: configurar webhook, rotar API keys, crear campaña Meta, onboarding cliente, resolver error de despliegue).
+     - Comprobar si existe SOP correspondiente en `shared/sops/`.
+     - **No existe** → crear borrador usando `shared/sops/_plantilla-sop.md` como plantilla. Rellenar los campos básicos conocidos y presentarlo/abrirlo para que el usuario o tú añadáis los pasos.
+     - **Existe** → abrir el archivo existente, revisar qué aprendizajes/cambios de la sesión actual aplican, y proponer la actualización.
+2. Si se creó o actualizó algún SOP → añadir/actualizar la entrada en `shared/sops/README.md`.
 
 ---
 
