@@ -50,6 +50,8 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 
 ## 📅 Historial de Tareas Completadas
 
+* **F-014 Biblioteca de SOPs:** Consolidación de biblioteca de SOPs, skill `/sistema:buscar-sop` implementada, y creación de 8 SOPs base (setup WP, Meta troubleshoot, Google Ads MCC, onboarding, fix Elementor 500, Tally+MailerLite n8n, guiones Notion y CORS Font Fix). [2026-06-04]
+* **Agencia (WIP=1):** Activada política WIP=1 en inventario `AGENCIA-AGENTICA.md`. F-010 y F-012 pausados formalmente para priorizar la consolidación de F-011 como guardrail. [2026-06-04]
 * **F-013 Autopilot (Base Python):** Base del bucle Generador-Evaluador con checkpoints Git, límites de presupuesto, orquestador runner y prompts estéticos completada e integrada con Playwright (100% de evals exitosos). [2026-06-04]
 * **Riqueza Digital (Bóveda):** Página restaurada de HTTP 500 — `_elementor_data` corrompido reparado via WPCode con `$wpdb->update` directo a DB (bypass hooks Elementor/Yoast). [2026-06-03]
 * **Riqueza Digital (Bóveda):** Form Tally (ID: PdkJZ5) embebido. Workflow n8n "Bóveda — Suscripción Newsletter" (ID: wxMxwdVcwV3YoQdD) activo — Tally→MailerLite testado y funcionando. [2026-06-03]
