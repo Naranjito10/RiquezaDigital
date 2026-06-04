@@ -87,9 +87,10 @@ Si es trabajo de agencia o interno → saltar al Paso 3.
    - Los pasos bloqueados por dependencias se crean cuando el paso previo esté en "Revisar" o "Hecho"
 
 4. Preguntar explícitamente al usuario: *¿Deseas que creemos estas tareas en Notion o las dejamos registradas solo en `tasks.md` como referencia?* (Si el usuario ya las revisó durante la sesión y no desea añadirlas, saltar la creación en la base de datos).
-5. Crear las tareas aprobadas en Notion usando el MCP (si el usuario confirmó).
-6. Actualizar `tasks.md` con el estado resultante (snapshot de referencia para Claude entre sesiones).
-7. Confirmar el estado resultante de las tareas al usuario.
+5. **Regla de Proyecto/Cliente en Notion:** Al crear tareas en Notion para un cliente específico (ej: Veganashi, Tecniclima, Keller), es obligatorio añadir el nombre del cliente en la propiedad **'Proyecto'** (o vincular la tarea al ID del proyecto que contenga dicho cliente) para asegurar que la tarea se envíe a la tabla de clientes correspondiente y no a la general de Riqueza Digital.
+6. Crear las tareas aprobadas en Notion usando el MCP (si el usuario confirmó).
+7. Actualizar `tasks.md` con el estado resultante (snapshot de referencia para Claude entre sesiones).
+8. Confirmar el estado resultante de las tareas al usuario.
 
 > **Por qué importa:** Claude no tiene visibilidad de lo que Kevin hace fuera de sesiones. Con las tareas de Kevin en Notion con asignatario, Claude puede consultar el estado al abrir sesión y saber qué cambió. Las tareas de Claude sin asignar permiten ver el trabajo total pendiente en un solo lugar. Omitir la subida si ya se han alineado evita duplicidades y ruido en el tablero de Notion.
 

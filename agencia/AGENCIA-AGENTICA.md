@@ -78,7 +78,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Estado:** 🔧 Interno-estable
 - **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`, buscador en `.claude/commands/sistema/buscar-sop.md`
 - **Qué hace:** biblioteca de procesos repetibles accesible por el equipo y por Claude Code. Cada SOP documenta pasos, problemas comunes y decisiones clave de un proceso operativo. Integrado con F-011 (cierre-sesion) para detectar y proponer borradores interactivamente al cerrar sesión, y accesible en todo momento mediante `/sistema:buscar-sop`.
-- **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `wordpress-setup-nuevo-cliente.md` (verificado), `meta-ads-troubleshooting.md` (verificado), `alta-nuevo-cliente.md` (verificado), `google-ads-mcc-sheets-export.md` (draft), y otros.
+- **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `wordpress-setup-nuevo-cliente.md` (verificado), `wp-fix-http500-elementor-db.md` (verificado), `wp-fix-cors-fonts.md` (verificado), `meta-ads-troubleshooting.md` (verificado), `alta-nuevo-cliente.md` (verificado), `n8n-tally-mailerlite-integration.md` (verificado), `guiones-redes-mcp-notion.md` (verificado), `google-ads-mcc-sheets-export.md` (draft).
 - **Clientes aplicables:** universal — transferible a cualquier agencia o equipo que use Claude Code. Vendible como parte de Tier 2 del producto (onboarding incluye traspaso del SOP inicial).
 - **Próximos pasos:** Añadir más SOPs maduros a medida que se operen nuevos clientes e integrar el buscador en la interfaz de usuario en el Tier 3.
 - **Nota de numeración:** tarea Notion creada originalmente como F-013 el 2026-05-26 mañana; renumerada a F-014 al detectar conflicto con F-013 (Autopilot).
@@ -171,6 +171,8 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 ---
 
 ## Última actualización
+
+2026-06-04 — Reestructuración de tareas en `tasks.md` (unificación de plan SEO y plan de mejoras de sistema). Actualización del protocolo de Notion Tasks en `/sistema:cierre-sesion` y memoria para asociar el campo `Proyecto` de forma automática a clientes. Incorporación de los 4 SOPs que estaban en el tintero (reparación DB HTTP 500, integración Tally+MailerLite, guiones duales en Notion y CORS Font Fix).
 
 2026-06-04 — Consolidación del Sistema de Biblioteca de SOPs (F-014). Creación de la skill `/sistema:buscar-sop`, integración interactiva con el cierre de sesión (`/sistema:cierre-sesion`), y redacción de los 4 SOPs operativos prioritarios (WordPress setup, Meta Ads troubleshooting, Onboarding de cliente y exportación Google Ads MCC). F-014 promovida a 🔧 Interno-estable.
 

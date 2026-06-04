@@ -36,12 +36,12 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
-| **Riqueza Digital** | Infraestructura | P3.1: Setup GA4 + GSC + GTM + UTM tracking en riquezadigital.es | `[ ]` | Habilita medición del plan inbound desde día 1. |
+| **Riqueza Digital** | SEO | Plan de SEO de Riqueza Digital: Configuración de Medición y Contenido Pilar | `[ ]` | Plan unificado para experto SEO. Incluye: (1) Setup GA4+GSC+GTM+UTM tracking en riquezadigital.es, (2) Redactar primer artículo pilar "Gobernanza de IA y Claude Team para Agencias", (3) Verificar marcado Schema LocalBusiness inyectado en WPCode. Todo alineado con [seo-onpage-guidelines.md](shared/sops/seo-onpage-guidelines.md). |
+| **Riqueza Digital** | Infraestructura | Plan de Mejoras del Sistema Progresivo de SOPs y Automatizaciones (F-011/F-014) | `[ ]` | Incluye: (1) Hook de porcentaje real de contexto en skill `/cierre-sesion` (v2), (2) Integración del buscador de SOPs en UI del Dashboard (Tier 3), (3) Migración de notificaciones email a Telegram en workflows n8n (F-016/F-017). |
 | **Riqueza Digital** | Infraestructura | P3.2: Deploy Postiz self-hosted en servidor | `[ ]` | Para publicación multi-plataforma automatizada sin SaaS. |
-| **Riqueza Digital** | Automatización | Outbound: Crear flujo n8n para conectar exportación de Ampleleads (Apollo) con API de Instantly | `[ ]` | Automatización de carga de prospectos. |
+| **Riqueza Digital** | Automatización | Outbound: Crear flujo n8n para conectar exportación de Ampleleads (Apollo) with API de Instantly | `[ ]` | Automatización de carga de prospectos. |
 | **Riqueza Digital** | Marketing | Outbound: Configurar secuencia de 3 correos "CEO Forward" en Instantly | `[ ]` | Plantillas definidas en [ejecucion-inbound-y-outbound.md](agencia/marketing/strategy/ejecucion-inbound-y-outbound.md). |
 | **Riqueza Digital** | Contenido | Grabar el primer vídeo del "Caso Meta" (hablando a cámara) | `[ ]` | Guion estructurado en [ejecucion-inbound-y-outbound.md](agencia/marketing/strategy/ejecucion-inbound-y-outbound.md). |
-| **Riqueza Digital** | SEO | SEO: Redactar el primer artículo pilar sobre "Gobernanza de IA y Claude Team para Agencias" | `[ ]` | Estructura definida en [ejecucion-inbound-y-outbound.md](agencia/marketing/strategy/ejecucion-inbound-y-outbound.md). |
 | **Riqueza Digital** | Estrategia | P4.2: Decidir repurpose o cierre de generaleads.es | `[ ]` | Decisión Kevin. Opciones: landing alternativa RD / subproducto / cierre. |
 | **Riqueza Digital** | Inteligencia Competitiva | P4.1: Dossier referentes IA-automation (Nate Herk, Ben Cord) | `[ ]` | Aplicar protocolo de inteligencia competitiva (igual que Vibiz). |
 | **Keller** | Desarrollo Web | Fase 3: Migración y montaje en WordPress | `[ ]` | Bloqueado por Fases 1 y 2. |
