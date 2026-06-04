@@ -115,6 +115,14 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Próximos pasos:** (1) Kevin añade API key Anthropic al Optimizer. (2) Activar ambos workflows. (3) Sprint 4: Telegram reemplaza Gmail, Feedback Updater evalúa métricas automáticamente via Meta API.
 - **Fecha de creación:** 2026-06-03
 
+### F-018 — Sistema de Arranque de Sesión Inteligente (SessionStart)
+- **Estado:** 🔧 Interno-estable (v1 manual)
+- **Ubicación:** skill `/sistema:session-start` en `.claude/commands/sistema/session-start.md`; directrices en `CLAUDE.md`.
+- **Qué hace:** Reconstruye el contexto del agente al iniciar cada sesión. En lugar de partir de cero, lee el INDEX de sesiones para cargar el estado del último cierre, lee las tareas locales prioritarias (`tasks.md`), consulta las tareas en proceso asignadas en Notion y presenta un resumen de arranque ordenado para alineación.
+- **Clientes aplicables:** universal — optimiza el arranque de cualquier sesión de Claude Code.
+- **Próximos pasos:** Medir su utilidad en las siguientes sesiones. En v2, automatizarlo mediante un Hook de inicio real en OpenClaw/agente.
+- **Fecha de creación:** 2026-06-04
+
 ---
 
 ## Funcionalidades Pendientes / Backlog
@@ -164,7 +172,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ## Última actualización
 
-2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema. F-013 promocionada a 🔧 Interno-estable tras verificar la base de checkpoints, límites de presupuesto, orquestador runner y prompts estéticos pasando 100% de los evals de regresión.
+2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema. F-013 promocionada a 🔧 Interno-estable tras verificar la base de checkpoints, límites de presupuesto, orquestador runner y prompts estéticos pasando 100% de los evals de regresión. Implementación de F-018 (Sistema de Arranque de Sesión Inteligente) en su versión v1 manual (`/sistema:session-start` y protocolo en CLAUDE.md).
 
 2026-06-02 — Revisión de estado del inventario: F-010 actualizado a 🔧 Interno-estable (Fases A+B completadas en Notion RD); F-012 actualizado a 🔧 Interno-estable (skill construida 2026-05-27). Próximos pasos de F-010 y F-012 actualizados con estado real.
 

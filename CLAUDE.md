@@ -42,6 +42,7 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 |---------|--------|-------------------|-----------|
 | **Veganashi** | Alimentación vegana/healthy | Marketing | Alta |
 | **Tecniclima** | Reparación electrodomésticos | Marketing | Media |
+| **Anywr** | Headhunting / Mobility internacional | Marketing (Google Ads) | Media |
 | **Selarom Jordi** | (por completar) | (por completar) | (por definir) |
 | **Federico Sirux** | (por completar) | (por completar) | (por definir) |
 | **Keller (Valentina Cuadrado)** | Firma legal boutique | Desarrollo Web (WordPress) | Alta |
@@ -60,6 +61,7 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | Comando | Qué hace |
 |---------|----------|
 | `/marketing:reporte-semanal` | Reporte de rendimiento semanal del cliente activo |
+| `/marketing:reporte-mensual` | Reporte mensual premium e imprimible del cliente activo |
 | `/marketing:auditar-cuenta` | Auditoría completa Meta y/o Google |
 | `/marketing:crear-campaña` | Nueva campaña guiada paso a paso |
 | `/marketing:generar-copy` | Copy publicitario con 3 variantes |
@@ -72,6 +74,7 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | `/contenido:guion-instagram` | Guión viral IG+LinkedIn (3 versiones) + cápsulas de publicación + entrada Notion |
 | `/agencia:registrar-feature` | Registrar nueva funcionalidad en el inventario Agencia Agéntica |
 | `/sistema:cierre-sesion` | Cierre inteligente de sesión con tareas Notion y archivo de contexto |
+| `/sistema:session-start` | Arranque inteligente de sesión reconstruyendo prioridades y contexto |
 | `/sistema:context-validator` | Validar estado del sistema al abrir sesión |
 | `/sistema:Claudia` | Activar canal Telegram |
 
@@ -164,13 +167,10 @@ RD-TEAM/
 ## GESTIÓN DE SESIONES
 
 ### Al ABRIR sesión
-1. Leer `.remember/sessions/INDEX.md` para ver la sesión más reciente
-2. Si existe contexto reciente (< 3 días), preguntar:
-   *"Hay contexto de la sesión anterior sobre [tema]. ¿Continuamos desde ahí o empezamos con algo nuevo?"*
-3. Si el usuario quiere continuar → leer el archivo de sesión correspondiente
-4. Si hay varias sesiones activas en paralelo → preguntar cuál aplica
-5. Si el usuario quiere empezar nuevo → ignorar contexto anterior
-6. Si la sesión implica trabajo con campañas o el sistema agéntico → ejecutar `/sistema:context-validator` para detectar gaps antes de operar
+1. Ejecutar el comando `/sistema:session-start` para cargar y resumir el último archivo de sesión, tareas locales prioritarias y tareas de Notion.
+2. Si el usuario decide continuar con el contexto anterior → centrar la sesión en las tareas de máxima prioridad identificadas.
+3. Si el usuario prefiere iniciar algo nuevo → registrar la decisión y reajustar el foco de la sesión.
+4. Si se va a trabajar con campañas o sistemas agénticos → ejecutar adicionalmente `/sistema:context-validator` para auditar integraciones y perfiles de cliente.
 
 ### Al CERRAR sesión (cuando el usuario lo pida)
 1. **Tareas pendientes del usuario** → crear en Notion DB de tareas (nunca en archivos locales)
