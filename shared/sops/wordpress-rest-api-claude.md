@@ -275,4 +275,62 @@ Ver el design system completo en `.claude/commands/web/wp-page-rd.md`.
 
 ---
 
-*Última sesión que actualizó este SOP: 2026-06-03 — Añadido patrón Elementor HTML widget descubierto al crear páginas de servicio con design system RD.*
+---
+
+## Patrón avanzado: editar páginas Elementor existentes
+
+Descubierto el 2026-06-04. Para modificar el HTML de una página ya creada con el patrón Elementor anterior, hay que editar `_elementor_data` directamente.
+
+### Flujo PowerShell (edición quirúrgica)
+
+```powershell
+# 1. Descargar página con context=edit para acceder a meta
+curl -s -u "$WP_RD_USER:$WP_RD_APP_PASSWORD" \
+  "$WP_RD_URL/wp-json/wp/v2/pages/XXXX?context=edit" > "C:\Temp\page.json"
+
+# 2. Parsear en PowerShell — ConvertFrom-Json decodifica el JSON exterior
+$json = Get-Content "C:\Temp\page.json" -Raw | ConvertFrom-Json
+$ed = $json.meta._elementor_data   # string con el JSON interior de Elementor
+
+# 3. Hacer reemplazos directamente en la string decodificada
+# CRÍTICO: usar caracteres Unicode reales (ó, é, ú...) NO escapes ó
+$ed = $ed.Replace('<a href=\"/url-vieja/\">texto</a>', 'texto')
+# Las comillas en atributos HTML son literales \" (barra + comilla)
+# Las barras en URLs son literales \/ (barra + slash)
+# Verificar: $ed.IndexOf("url-vieja") debe devolver -1 tras el replace
+
+# 4. Construir body del PATCH y guardar en archivo
+$patchBody = @{ meta = @{ _elementor_data = $ed } } | ConvertTo-Json -Depth 10 -Compress
+$patchBody | Out-File "C:\Temp\patch.json" -Encoding UTF8 -NoNewline
+
+# 5. Enviar PATCH
+curl -s -X POST -u "$WP_RD_USER:$WP_RD_APP_PASSWORD" \
+  "$WP_RD_URL/wp-json/wp/v2/pages/XXXX" \
+  -H "Content-Type: application/json" \
+  --data-binary @"C:\Temp\patch.json" | grep -o '"status":"[^"]*"\|"modified":"[^"]*"'
+```
+
+### Encoding — la trampa más habitual
+
+| Lo que ves en el raw file JSON | Lo que obtienes tras ConvertFrom-Json | Lo que usar en Replace() |
+|---|---|---|
+| `formación` (6 chars ASCII) | `formación` (char Unicode ó) | `'formación'` (ó real) |
+| `<a href=\"\/url\/\">` | `<a href=\"/url/\">` | `'<a href=\"/url/\">'` |
+| `<\/div>` | `<\/div>` (\ conservado) | `'<\/div>'` |
+
+**Regla**: tras `ConvertFrom-Json`, los escapes unicode `\uXXXX` se convierten en caracteres reales. Los `\"` y `\/` del JSON interior de Elementor se conservan como literales de dos caracteres.
+
+### Por qué NO usar content.raw
+
+`content.raw` del endpoint `context=edit` es el `post_content` filtrado por WP kses — **pierde todas las etiquetas `<div>`, `<style>`, etc.** Para páginas Elementor, siempre trabajar con `meta._elementor_data`.
+
+### Páginas RD editadas con este patrón
+
+| Página | ID | Operación |
+|--------|----|-----------|
+| Artículo Bóveda IA agencias | 6868 | Corrección enlaces rotos (2026-06-04) |
+| Hub Bóveda | 6835 | Añadir card + cambio grid (2026-06-04) |
+
+---
+
+*Última sesión que actualizó este SOP: 2026-06-04 — Añadido patrón edición Elementor existente, tabla encoding PowerShell, y advertencia content.raw.*
