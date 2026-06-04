@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang3082
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\fmodern\fprq1\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;\red31\green73\blue125;\red68\green114\blue196;\red84\green130\blue53;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1
+\pard\sb240\sa120\b\f1\fs32\cf2 Riqueza Digital \endash  Google Ads API Tool Design Documentation\b0\fs20\par
+
+\pard\sb120\sa80\f1\fs18\cf1
+\b Version:\b0  1.0 \tab\b Date:\b0  June 2026 \tab\b Contact:\b0  info@riquezadigital.es\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 1. Company Overview\b0\fs20\par
+\pard\sb80\sa80\f1\fs20\cf1
+Riqueza Digital is a digital marketing agency based in Spain providing performance marketing services to small and medium-sized businesses. The agency manages Google Ads and Meta Ads accounts on behalf of clients on a monthly retainer basis, covering sectors including e-commerce, home services, and professional services.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 2. Tool Description\b0\fs20\par
+\pard\sb80\sa80\f1\fs20\cf1
+The tool is an internal Python-based reporting and campaign management pipeline called \b Riqueza Digital Marketing Pipeline\b0 . It enables the agency team to:\par
+\pard\li360\sb60\sa60\f1\fs20\cf1
+\bullet\tab Pull campaign performance metrics from multiple client Google Ads accounts via the API\par
+\bullet\tab Generate structured weekly and monthly performance reports for client delivery\par
+\bullet\tab Create and stage new campaigns for human review before any activation\par
+\bullet\tab Consolidate data across platforms (Google Ads + Meta Ads) into unified client dashboards\par
+\pard\sb80\sa80\f1\fs20\cf1
+The tool is used exclusively by internal agency staff. It is not a SaaS product and is not distributed to third parties.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 3. System Architecture\b0\fs20\par
+\pard\sb80\sa80\f2\fs18\cf1
+  [Google Ads Accounts]\par
+         |\par
+         |  OAuth2 (per-client refresh_token)\par
+         v\par
+  [Google Ads API v14+]\par
+         |\par
+         |  GAQL queries (read-only metrics)\par
+         v\par
+  [Python Client Layer]\par
+    google_client.py\par
+    get_google_insights.py\par
+         |\par
+         |  Structured JSON / console output\par
+         v\par
+  [Report Generation]\par
+    Weekly PDF / Notion integration\par
+         |\par
+         v\par
+  [Human Review (Agency Staff)]\par
+    Approves any campaign changes\par
+\pard\sb80\sa80\f1\fs20\cf1\par
+Authentication uses OAuth2 with per-client \b refresh_token\b0  stored in individual JSON profile files. Credentials are never hardcoded.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 4. API Usage\b0\fs20\par
+
+\pard\sb120\sa60\b\f1\fs20\cf3 4.1 Resources Accessed (Read)\b0\par
+\pard\sb60\sa60\f1\fs20\cf1
+The tool queries the following resources via \b GoogleAdsService.search()\b0  using GAQL:\par
+\pard\li360\sb60\sa60\f1\fs20\cf1
+\bullet\tab \b campaign\b0  \endash  name, id, status\par
+\bullet\tab \b campaign_budget\b0  \endash  amount_micros\par
+\bullet\tab \b ad_group\b0  \endash  name, id, status\par
+\bullet\tab \b metrics\b0  \endash  impressions, clicks, cost_micros, ctr, average_cpc, average_cpm, conversions, conversions_value, cost_per_conversion\par
+\bullet\tab \b segments.date\b0  \endash  for date range filtering\par
+
+\pard\sb120\sa60\b\f1\fs20\cf3 4.2 Example GAQL Query\b0\par
+\pard\sb60\sa60\f2\fs18\cf1
+SELECT\par
+  campaign.id, campaign.name, campaign.status,\par
+  campaign_budget.amount_micros,\par
+  metrics.impressions, metrics.clicks, metrics.cost_micros,\par
+  metrics.ctr, metrics.average_cpc, metrics.conversions,\par
+  metrics.conversions_value, metrics.cost_per_conversion\par
+FROM campaign\par
+WHERE segments.date DURING LAST_30_DAYS\par
+  AND campaign.status != 'REMOVED'\par
+ORDER BY metrics.cost_micros DESC\par
+
+\pard\sb120\sa60\b\f1\fs20\cf3 4.3 Write Operations\b0\par
+\pard\sb60\sa80\f1\fs20\cf1
+Campaign creation is supported but \b always requires explicit human approval\b0  before execution. All campaigns are created with \b status: PAUSED\b0  and activated manually by agency staff after review. Budget modifications above \cf1\b\f1 100\cf1\b0\f1  EUR/day require additional confirmation. These safeguards are enforced at the code level.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 5. Access Scope\b0\fs20\par
+\pard\sb80\sa80\f1\fs20\cf1
+OAuth2 scope requested: \b https://www.googleapis.com/auth/adwords\b0\par
+\par
+The tool accesses accounts where the agency has been granted explicit access by the client, either as a linked manager account or via direct OAuth2 authorization by the account owner.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 6. Data Handling\b0\fs20\par
+\pard\li360\sb60\sa60\f1\fs20\cf1
+\bullet\tab API responses are processed in memory and written to local report files\par
+\bullet\tab No data is stored in external databases or shared with third parties\par
+\bullet\tab Credentials (tokens, secrets) are stored in local profile files, never in source code\par
+\bullet\tab Logs record action timestamps and parameters for audit purposes\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 7. Estimated API Usage\b0\fs20\par
+\pard\sb80\sa80\f1\fs20\cf1
+Expected call volume: \b 50\endash200 API calls per day\b0  across all clients. Usage is primarily scheduled reporting runs (daily briefing, weekly reports) and on-demand queries by agency staff. No automated bidding or high-frequency polling.\par
+
+\pard\sb240\sa120\b\f1\fs24\cf2 8. Contact\b0\fs20\par
+\pard\sb80\sa80\f1\fs20\cf1
+\b Riqueza Digital\b0\par
+info@riquezadigital.es\par
+www.riquezadigital.es\par
+Spain\par
+}
