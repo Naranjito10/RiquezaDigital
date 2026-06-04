@@ -42,15 +42,15 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de creación:** 2026-05-25
 
 ### F-010 — Auditoría y Reorganización de Workspace Operativo
-- **Estado:** 🔧 Interno-estable (Fases A+B completadas en Notion RD — 2026-05-28; Fases C y D pendientes)
+- **Estado:** ⏸️ Pausada (Fases A+B completadas en Notion RD — 2026-05-28; Fases C y D pausadas por WIP=1)
 - **Ubicación prevista:** `agencia/producto/notion-audit/` para los outputs del piloto; futura skill `/audit-workspace` en `.claude/skills/agencia/`.
 - **Qué hace:** proceso estructurado en 4 fases (Mapeo top-level → Triage por área → Ejecución → Mantenimiento continuo) para auditar y reorganizar workspaces operativos (Notion, ClickUp, Asana) que han evolucionado caóticamente. Reordena, archiva obsoleto, propone nueva estructura y crea las skills de mantenimiento periódico.
 - **Clientes aplicables:** universalmente vendible — casi toda PYME B2B tiene un Notion/equivalente con drift acumulado. Servicio one-shot o como módulo de Tier 2 del producto.
-- **Próximos pasos:** Fases A+B completadas ✅. Pendiente: Fase C (ejecución limpieza drifts D-02/D-03/D-04 — requiere decisión Kevin sobre D-01) y Fase D (mantenimiento continuo). Documentar método completo en SOP reutilizable tras Fase C.
+- **Próximos pasos:** ⏸️ PAUSADO POR WIP=1. Retomar Fase C (limpieza drifts) y Fase D (mantenimiento continuo) una vez consolidada F-011.
 - **Fecha de creación:** 2026-05-26
 
 ### F-011 — Sistema de Cierre de Sesión Inteligente
-- **Estado:** 🔧 Interno-estable
+- **Estado:** 🔧 Interno-estable (Prioridad única de desarrollo bajo WIP=1)
 - **Ubicación:** skill `/sistema:cierre-sesion` en `.claude/commands/sistema/cierre-sesion.md`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
 - **Qué hace:** 4 capas integradas. (1) Skill ejecutable `/sistema:cierre-sesion`: 7 pasos — recopilar contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema, resumen. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP (integrada con F-014):** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/`. (4) Hook futuro que da el % real de contexto en lugar de estimación (pendiente v2).
 - **Clientes aplicables:** universal — todo usuario serio de Claude Code se beneficia. Vendible como módulo de Tier 1 o como add-on.
@@ -59,11 +59,11 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 - **Fecha de implementación:** 2026-05-26
 
 ### F-012 — Skill `/agencia:registrar-feature` (auto-inventario)
-- **Estado:** 🔧 Interno-estable (construida 2026-05-27)
+- **Estado:** ⏸️ Pausada (Desarrollo de mejoras suspendido por WIP=1 para priorizar F-011)
 - **Ubicación:** `.claude/commands/agencia/registrar-feature.md`.
 - **Qué hace:** toma una idea/funcionalidad nueva y automatiza el registro en `agencia/AGENCIA-AGENTICA.md`: asigna número F-###, sugiere estado (PoC/Interno/Vendible), ubicación, clientes aplicables, próximos pasos. Estandariza el patrón que se ha hecho manual con F-001 a F-011.
 - **Clientes aplicables:** uso interno + vendible como herramienta de mantenimiento del producto Agencia Agéntica.
-- **Próximos pasos:** ✅ Construida en sesión 2026-05-27. En uso activo para registrar nuevas features.
+- **Próximos pasos:** ✅ Construida en sesión 2026-05-27. En uso activo para registrar nuevas features. Las mejoras adicionales están pausadas temporalmente.
 - **Fecha de creación:** 2026-05-26
 
 ### F-013 — Autopilot Generador-Evaluador (Bucle de Diseño y Calidad)
@@ -158,10 +158,13 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 2. **Cambios sustanciales** en funcionalidades existentes → actualizar la entrada.
 3. **Si un activo de un cliente se generaliza** → mover a `shared/` y registrar aquí como funcionalidad reutilizable.
 4. **Cada entrada con `Fecha de creación`** para tracking histórico.
+5. **Política WIP=1 (Work In Progress):** Para evitar la dispersión y asegurar que las funcionalidades lleguen a ser estables, solo se permite **una única funcionalidad (F-###) en desarrollo activo o PoC simultáneamente**. Las demás deben estar completadas o explícitamente marcadas como `⏸️ Pausada`.
 
 ---
 
 ## Última actualización
+
+2026-06-04 — Implementación de política WIP=1. F-010 y F-012 marcadas como pausadas temporalmente para priorizar la consolidación de F-011 como guardrail principal del sistema.
 
 2026-06-02 — Revisión de estado del inventario: F-010 actualizado a 🔧 Interno-estable (Fases A+B completadas en Notion RD); F-012 actualizado a 🔧 Interno-estable (skill construida 2026-05-27). Próximos pasos de F-010 y F-012 actualizados con estado real.
 
