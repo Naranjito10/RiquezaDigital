@@ -36,6 +36,7 @@
 | [google-ads-mcc-sheets-export.md](marketing/google-ads-mcc-sheets-export.md) | Marketing | 🌱 Draft | Extracción y volcado automático de métricas de Google Ads MCC a Google Sheets con Cuenta de Servicio. |
 | [guiones-redes-mcp-notion.md](produccion-contenido/guiones-redes-mcp-notion.md) | Producción de Contenido | 🔧 Verificado | Generación automatizada de guiones de video e hilos duales y almacenamiento directo en la base de datos de Notion. |
 | [video-ads-cinematicos-ia.md](video-ads-cinematicos-ia.md) | Producción de Contenido | 🌱 Draft | Crear spots publicitarios completos (imágenes, animación, voz, música, montaje) desde fotos de producto vía Claude Code + Higgsfield + ElevenLabs + FFmpeg. Para clientes con producto físico. |
+| [prospeccion-cliente-ads.md](prospeccion-cliente-ads.md) | Marketing / Ventas | 🌱 Draft | Investigar web de prospect + cualificación en llamada + propuesta de 3 niveles de presupuesto para servicios de ads (Meta + Google). |
 
 ---
 
