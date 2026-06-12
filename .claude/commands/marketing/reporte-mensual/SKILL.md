@@ -7,5 +7,5 @@ Genera el informe mensual premium de rendimiento y saneamiento para el cliente a
    ```powershell
    python pipelines/marketing-digital/reports/monthly_report_generator.py --client <cliente> --month <mes>
    ```
-5. Muestra un resumen ejecutivo del reporte y los KPIs consolidados (Inversión, Leads, CPL medio) formateados en Markdown en el chat.
+5. Muestra un resumen ejecutivo del reporte y los KPIs consolidados (Inversión, Leads, CPL medio) formateados en Markdown en el chat. Para la narrativa ejecutiva y contextualizar los KPIs contra benchmarks de industria, usa el skill `reporting-client` (`.claude/skills/reporting-client/`).
 6. Entrega el enlace directo al archivo HTML generado en `clients/<cliente>/reports/` para su apertura e impresión a PDF.

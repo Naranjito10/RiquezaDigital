@@ -51,7 +51,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-011 — Sistema de Cierre de Sesión Inteligente
 - **Estado:** 🔧 Interno-estable (Prioridad única de desarrollo bajo WIP=1)
-- **Ubicación:** skill `/sistema:cierre-sesion` en `.claude/commands/sistema/cierre-sesion.md`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
+- **Ubicación:** skill `/sistema:cierre-sesion`; regla en memoria `feedback-cierre-sesion-proactivo`; protocol en `CLAUDE.md` sección `GESTIÓN DE SESIONES`; hook `context-monitor` en `.claude/hooks/` (v2 — pendiente).
 - **Qué hace:** 4 capas integradas. (1) Skill ejecutable `/sistema:cierre-sesion`: 7 pasos — recopilar contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema, resumen. (2) Regla en memoria que detecta cuándo proponer cierre activamente (5 disparadores: fin de tarea, salto de tema, umbrales 60/75/85% de contexto). (3) **Capa SOP (integrada con F-014):** identifica procesos repetibles ejecutados en la sesión y crea/actualiza el SOP correspondiente en `shared/sops/`. (4) Hook futuro que da el % real de contexto en lugar de estimación (pendiente v2).
 - **Clientes aplicables:** universal — todo usuario serio de Claude Code se beneficia. Vendible como módulo de Tier 1 o como add-on.
 - **Próximos pasos:** (1) Validar con uso real en las próximas sesiones. (2) Hook v2 para % real de contexto.
@@ -60,7 +60,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-012 — Skill `/agencia:registrar-feature` (auto-inventario)
 - **Estado:** ⏸️ Pausada (Desarrollo de mejoras suspendido por WIP=1 para priorizar F-011)
-- **Ubicación:** `.claude/commands/agencia/registrar-feature.md`.
+- **Ubicación:** skill `/agencia:registrar-feature`.
 - **Qué hace:** toma una idea/funcionalidad nueva y automatiza el registro en `agencia/AGENCIA-AGENTICA.md`: asigna número F-###, sugiere estado (PoC/Interno/Vendible), ubicación, clientes aplicables, próximos pasos. Estandariza el patrón que se ha hecho manual con F-001 a F-011.
 - **Clientes aplicables:** uso interno + vendible como herramienta de mantenimiento del producto Agencia Agéntica.
 - **Próximos pasos:** ✅ Construida en sesión 2026-05-27. En uso activo para registrar nuevas features. Las mejoras adicionales están pausadas temporalmente.
@@ -76,7 +76,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-014 — Sistema de Biblioteca de SOPs
 - **Estado:** 🔧 Interno-estable
-- **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`, buscador en `.claude/commands/sistema/buscar-sop.md`
+- **Ubicación:** `shared/sops/` — índice en `shared/sops/README.md`, plantilla en `_plantilla-sop.md`, buscador invocable con `/sistema:buscar-sop`
 - **Qué hace:** biblioteca de procesos repetibles accesible por el equipo y por Claude Code. Cada SOP documenta pasos, problemas comunes y decisiones clave de un proceso operativo. Integrado con F-011 (cierre-sesion) para detectar y proponer borradores interactivamente al cerrar sesión, y accesible en todo momento mediante `/sistema:buscar-sop`.
 - **SOPs activos:** `gestion-claves-api-windows.md` (verificado), `wordpress-setup-nuevo-cliente.md` (verificado), `wp-fix-http500-elementor-db.md` (verificado), `wp-fix-cors-fonts.md` (verificado), `meta-ads-troubleshooting.md` (verificado), `alta-nuevo-cliente.md` (verificado), `n8n-tally-mailerlite-integration.md` (verificado), `guiones-redes-mcp-notion.md` (verificado), `google-ads-mcc-sheets-export.md` (draft).
 - **Clientes aplicables:** universal — transferible a cualquier agencia o equipo que use Claude Code. Vendible como parte de Tier 2 del producto (onboarding incluye traspaso del SOP inicial).
@@ -117,11 +117,35 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ### F-018 — Sistema de Arranque de Sesión Inteligente (SessionStart)
 - **Estado:** 🔧 Interno-estable (v1 manual)
-- **Ubicación:** skill `/sistema:session-start` en `.claude/commands/sistema/session-start.md`; directrices en `CLAUDE.md`.
+- **Ubicación:** skill `/sistema:session-start`; directrices en `CLAUDE.md`.
 - **Qué hace:** Reconstruye el contexto del agente al iniciar cada sesión. En lugar de partir de cero, lee el INDEX de sesiones para cargar el estado del último cierre, lee las tareas locales prioritarias (`tasks.md`), consulta las tareas en proceso asignadas en Notion y presenta un resumen de arranque ordenado para alineación.
 - **Clientes aplicables:** universal — optimiza el arranque de cualquier sesión de Claude Code.
 - **Próximos pasos:** Medir su utilidad en las siguientes sesiones. En v2, automatizarlo mediante un Hook de inicio real en OpenClaw/agente.
 - **Fecha de creación:** 2026-06-04
+
+### F-019 — Programa de Partners / Canal de Resellers
+- **Estado:** 🌱 PoC (estructura diseñada, pendiente de lanzar)
+- **Ubicación:** `agencia/producto/partners.md`
+- **Qué hace:** Canal de captación indirecta donde consultores, freelancers y agencias pequeñas refieren clientes a Riqueza Digital a cambio de comisión recurrente. Modelo "20/10": 20% del primer mes como bonus de cierre + 10% recurrente mientras el cliente siga activo (15% para Partners Pro que gestionan la relación). Dos tiers de partner: básico (captación pura) y Pro (gestión de relación con el cliente).
+- **Clientes aplicables:** no aplica a clientes — es canal de crecimiento para RD y para Agencia Agéntica como producto.
+- **Motivación:** análisis de VibeTasking (competidor español, Xplosion AI SL) reveló que usan canal de partners con 20% recurrente como principal motor de crecimiento. RD mejora el modelo para ser sostenible en un negocio de servicios vs. SaaS.
+- **Próximos pasos:**
+  - Kevin confirma precios definitivos de los 3 tiers de Agencia Agéntica
+  - Identificar 3 candidatos a primer partner en red de contactos del fundador
+  - Crear formulario de referral (Tally o Notion form)
+  - Redactar deck de ventas de 8 slides para que el partner pueda explicar el producto
+- **Fecha de creación:** 2026-06-11
+
+### F-020 — Capa de Skills de Conocimiento (Marketing, Ventas, Legal y Operaciones)
+- **Estado:** 🔧 Interno-estable (v1 importada y adaptada, pendiente validación de triggers en uso real)
+- **Ubicación:** `.claude/skills/` — 16 skills en dos tandas:
+  - *Marketing/Operaciones (export agencia):* `ad-copy`, `email-marketing`, `landing-page-copy`, `notion-workspace`, `prompt-library`, `proposal-generator`, `reporting-client`, `seo-content`, `social-media-calendar`
+  - *Ventas/Legal/Competencia (plugins Anthropic adaptados):* `account-research`, `call-prep`, `draft-outreach`, `review-contract`, `triage-nda`, `competitive-brief`, `seo-audit`
+- **Qué hace:** Capa de conocimiento auto-activable que complementa los slash commands existentes. Los commands son los workflows (preguntan cliente, ejecutan pipeline, guardan archivos); estas skills aportan el conocimiento experto que se carga automáticamente por contexto: límites de caracteres por plataforma, fórmulas de hooks, benchmarks de métricas, estructuras CRO, psicología de pricing en propuestas, diseño de bases Notion. Adaptadas a las convenciones RD (rutas de guardado de reglas 4-5, política repo-vs-Notion, stack WordPress, checkpoint de precios).
+- **Clientes aplicables:** universal — cualquier cliente con servicios de marketing; `proposal-generator` y `notion-workspace` aplican también a captación y onboarding.
+- **Relación con backlog:** avanza parcialmente F-005 (sistema de reportes — capa narrativa/benchmarks) y F-007 (propuestas auto-generadas — estructura y pricing framing).
+- **Próximos pasos:** validar que los triggers de descripción activan bien en sesiones reales; valorar añadir skills de carpeta 03 del export (legal, sales outreach, competitive brief) según recomendaciones de la sesión 2026-06-12.
+- **Fecha de creación:** 2026-06-12
 
 ---
 
@@ -172,6 +196,10 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 ## Última actualización
 
+2026-06-12 — Alta de F-020 (Capa de Skills de Conocimiento): importación y adaptación de 9 skills de marketing/operaciones desde `skills_export/02-tuyas-agencia/` a `.claude/skills/`, con cross-referencias desde `/marketing:generar-copy`, `/marketing:reporte-semanal` y `/marketing:reporte-mensual`.
+
+2026-06-12 (2ª tanda) — Ampliación de F-020 con 7 skills de los plugins Anthropic (carpeta 03 del export): `review-contract` y `triage-nda` (legal — precedente contratos CEREBELLUS), `account-research`, `call-prep` y `draft-outreach` (ventas/prospección — Notion como CRM, RGPD/LSSI), `competitive-brief` (alimenta inteligencia competitiva) y `seo-audit` (Ahrefs MCP). Descartadas por baja afinidad: apollo-*, engineering-*, finance-*, enterprise-search-*, productivity-* y los examples de consumo de carpeta 04 (las útiles ya están vía plugin document-skills). Carpeta `skills_export/` eliminada tras la integración.
+
 2026-06-04 — Reestructuración de tareas en `tasks.md` (unificación de plan SEO y plan de mejoras de sistema). Actualización del protocolo de Notion Tasks en `/sistema:cierre-sesion` y memoria para asociar el campo `Proyecto` de forma automática a clientes. Incorporación de los 4 SOPs que estaban en el tintero (reparación DB HTTP 500, integración Tally+MailerLite, guiones duales en Notion y CORS Font Fix).
 
 2026-06-04 — Consolidación del Sistema de Biblioteca de SOPs (F-014). Creación de la skill `/sistema:buscar-sop`, integración interactiva con el cierre de sesión (`/sistema:cierre-sesion`), y redacción de los 4 SOPs operativos prioritarios (WordPress setup, Meta Ads troubleshooting, Onboarding de cliente y exportación Google Ads MCC). F-014 promovida a 🔧 Interno-estable.
@@ -184,7 +212,7 @@ Estado: 🌱 PoC · 🔧 Interno-estable · 💰 Vendible
 
 2026-05-26 (sesión F-012) — Añadida **F-012 (Skill `/registrar-feature`)** como 🔧 Interno-estable. Skill híbrida (descripción libre → borrador → confirmación → inserción) para estandarizar el registro de nuevas features en el inventario.
 
-2026-05-26 (sesión F-011) — **F-011 implementada** como 🔧 Interno-estable. Skill `/cierre-sesion` construida en `.claude/commands/cierre-sesion.md` con 7 pasos: contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema y resumen. Integrada con F-014 (SOPs) y protocolos de `CLAUDE.md`.
+2026-05-26 (sesión F-011) — **F-011 implementada** como 🔧 Interno-estable. Skill `/sistema:cierre-sesion` construida con 7 pasos: contexto, imputación de horas, SOPs, tareas Notion, archivo de sesión, propuestas de sistema y resumen. Integrada con F-014 (SOPs) y protocolos de `CLAUDE.md`.
 
 2026-05-26 (cierre tarde) — Añadida **F-014 (Sistema de Biblioteca de SOPs)**. Renumerada desde F-013 por conflicto con Autopilot. Primer SOP verificado: `gestion-claves-api-windows.md`. CLAUDE.md actualizado con regla 3 (secretos) y regla 13 (`[skip-vibiz]`).
 
