@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campo Directo — Fruta y Verdura del Agricultor a Tu Mesa</title>
+  <style>
+    :root {
+      --verde:    #2d6a2d;
+      --verde-l:  #4a9c4a;
+      --naranja:  #e8722a;
+      --crema:    #fdf6ec;
+      --tierra:   #6b4c2a;
+      --gris:     #4a4a4a;
+      --blanco:   #ffffff;
+      --sombra:   0 4px 24px rgba(0,0,0,.10);
+      --radio:    14px;
+      --font:     'Segoe UI', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--crema);
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--verde);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.18);
+    }
+    .nav-logo {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--blanco); letter-spacing: -.3px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo span { font-size: 1.6rem; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: rgba(255,255,255,.85); text-decoration: none;
+      font-size: .92rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blanco); }
+    .nav-cta {
+      background: var(--naranja); color: var(--blanco);
+      border: none; border-radius: 8px;
+      padding: 9px 20px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: background .2s, transform .15s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .nav-cta:hover { background: #d4611e; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--verde) 0%, #1a4a1a 100%);
+      color: var(--blanco);
+      padding: 90px 32px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: 6px 18px; font-size: .82rem; font-weight: 600;
+      letter-spacing: .5px; text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800; line-height: 1.12;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+    .hero h1 em { color: #f9c74f; font-style: normal; }
+    .hero p {
+      font-size: 1.15rem; max-width: 560px; margin: 0 auto 36px;
+      opacity: .88;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--naranja); color: var(--blanco);
+      border: none; border-radius: 10px;
+      padding: 15px 32px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 18px rgba(232,114,42,.4);
+    }
+    .btn-primary:hover { background: #d4611e; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--blanco);
+      border: 2px solid rgba(255,255,255,.5); border-radius: 10px;
+      padding: 13px 28px; font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--blanco); background: rgba(255,255,255,.08); }
+    .hero-stats {
+      display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+      margin-top: 56px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 2rem; font-weight: 800; color: #f9c74f; }
+    .hero-stat span { font-size: .85rem; opacity: .75; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--blanco);
+      display: flex; gap: 0; justify-content: center; flex-wrap: wrap;
+      border-bottom: 2px solid #f0e8da;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 32px;
+      border-right: 1px solid #f0e8da;
+      font-size: .88rem; font-weight: 500; color: var(--gris);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { font-size: 1.3rem; }
+
+    /* ── SECTION COMÚN ── */
+    section { padding: 72px 32px; }
+    .section-tag {
+      display: inline-block;
+      color: var(--naranja); font-weight: 700; font-size: .8rem;
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--verde);
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 1rem; color: #777; max-width: 540px;
+    }
+    .section-head { margin-bottom: 48px; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    /* ── PRODUCTOS ── */
+    .productos { background: var(--crema); }
+    .filtros {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .filtro {
+      padding: 8px 20px; border-radius: 50px;
+      border: 2px solid #ddd; background: var(--blanco);
+      cursor: pointer; font-size: .88rem; font-weight: 600;
+      color: var(--gris); transition: all .2s;
+    }
+    .filtro.active, .filtro:hover {
+      border-color: var(--verde); background: var(--verde); color: var(--blanco);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--blanco); border-radius: var(--radio);
+      box-shadow: var(--sombra); overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.13); }
+    .card-img {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, #f5f0e8, #ede5d3);
+      position: relative;
+    }
+    .card-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--naranja); color: var(--blanco);
+      border-radius: 6px; padding: 3px 10px;
+      font-size: .75rem; font-weight: 700;
+    }
+    .card-badge.verde { background: var(--verde); }
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-title {
+      font-size: 1.1rem; font-weight: 700;
+      color: #1a1a1a; margin-bottom: 6px;
+    }
+    .card-desc { font-size: .88rem; color: #888; margin-bottom: 16px; flex: 1; }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; border-top: 1px solid #f0ebe0;
+    }
+    .precio { font-size: 1.3rem; font-weight: 800; color: var(--verde); }
+    .precio-unit { font-size: .75rem; color: #aaa; font-weight: 400; }
+    .btn-pedir {
+      background: var(--verde); color: var(--blanco);
+      border: none; border-radius: 8px;
+      padding: 9px 18px; font-size: .88rem; font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      transition: background .2s;
+    }
+    .btn-pedir:hover { background: var(--verde-l); }
+
+    /* ── TEMPORALIDAD ── */
+    .temporada { background: var(--blanco); }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .mes-card {
+      border-radius: var(--radio); padding: 20px;
+      border: 2px solid #f0ebe0;
+    }
+    .mes-card.activo { border-color: var(--verde); background: #f0f8f0; }
+    .mes-nombre {
+      font-weight: 700; font-size: .9rem; color: var(--gris);
+      margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px;
+    }
+    .mes-card.activo .mes-nombre { color: var(--verde); }
+    .mes-frutas { display: flex; flex-wrap: wrap; gap: 6px; }
+    .mes-fruta {
+      background: #f5f0e8; border-radius: 50px;
+      padding: 3px 10px; font-size: .78rem; color: var(--tierra);
+    }
+    .mes-card.activo .mes-fruta { background: var(--verde); color: var(--blanco); }
+
+    /* ── CÓMO FUNCIONA ── */
+    .como { background: var(--crema); }
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .paso {
+      background: var(--blanco); border-radius: var(--radio);
+      padding: 32px 24px; text-align: center;
+      box-shadow: var(--sombra);
+    }
+    .paso-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--verde); color: var(--blanco);
+      font-size: 1.4rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .paso-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .paso h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #1a1a1a; }
+    .paso p { font-size: .87rem; color: #888; }
+
+    /* ── TESTIMONIO ── */
+    .testimonios { background: var(--verde); color: var(--blanco); }
+    .testimonios .section-title { color: var(--blanco); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radio); padding: 24px;
+    }
+    .testi-stars { color: #f9c74f; font-size: 1.1rem; margin-bottom: 12px; }
+    .testi-text { font-size: .92rem; opacity: .9; margin-bottom: 16px; font-style: italic; }
+    .testi-autor { font-weight: 700; font-size: .85rem; opacity: .75; }
+
+    /* ── PEDIDO CTA ── */
+    .pedir-cta {
+      background: linear-gradient(135deg, var(--naranja), #d4611e);
+      color: var(--blanco); text-align: center;
+      padding: 80px 32px;
+    }
+    .pedir-cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; margin-bottom: 14px;
+    }
+    .pedir-cta p { font-size: 1.05rem; opacity: .9; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366; color: var(--blanco);
+      text-decoration: none; border-radius: 12px;
+      padding: 16px 36px; font-size: 1.1rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transition: transform .2s, background .2s;
+    }
+    .wa-btn:hover { transform: translateY(-2px); background: #1ebe5d; }
+    .wa-icon { font-size: 1.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2a1a; color: rgba(255,255,255,.65);
+      padding: 40px 32px; text-align: center;
+      font-size: .88rem;
+    }
+    footer strong { color: rgba(255,255,255,.9); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 12px 16px; }
+      .nav-links { display: none; }
+      section { padding: 52px 16px; }
+      .hero { padding: 64px 16px 52px; }
+      .trust-item { padding: 12px 16px; font-size: .8rem; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <span>🌿</span> Campo Directo
+  </div>
+  <div class="nav-links">
+    <a href="#productos">Nuestras cajas</a>
+    <a href="#temporada">Temporada</a>
+    <a href="#como">Cómo funciona</a>
+  </div>
+  <a href="#pedir" class="nav-cta">📦 Pedir ahora</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">🌾 Del agricultor a tu mesa</div>
+  <h1>Fruta y verdura<br><em>sin intermediarios</em></h1>
+  <p>Recibe en casa lo que nosotros recogemos. Más fresco, más barato que el supermercado — directo desde nuestra finca.</p>
+  <div class="hero-btns">
+    <a href="#productos" class="btn-primary">🛒 Ver nuestras cajas</a>
+    <a href="#como" class="btn-outline">Cómo funciona →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>48h</strong>
+      <span>Del campo a tu puerta</span>
+    </div>
+    <div class="hero-stat">
+      <strong>-30%</strong>
+      <span>Frente al supermercado</span>
+    </div>
+    <div class="hero-stat">
+      <strong>0</strong>
+      <span>Intermediarios</span>
+    </div>
+    <div class="hero-stat">
+      <strong>+12</strong>
+      <span>Variedades de temporada</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🌱</span> Cultivo propio</div>
+  <div class="trust-item"><span class="trust-icon">🚚</span> Envío a domicilio</div>
+  <div class="trust-item"><span class="trust-icon">📦</span> Cajas desde 4 kg</div>
+  <div class="trust-item"><span class="trust-icon">💰</span> Sin comisiones de terceros</div>
+  <div class="trust-item"><span class="trust-icon">🔄</span> Pedido semanal o puntual</div>
+</div>
+
+<!-- ── PRODUCTOS ── -->
+<section class="productos" id="productos">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Nuestras cajas</div>
+      <h2 class="section-title">Escoge tu caja de temporada</h2>
+      <p class="section-sub">Cajas preparadas con lo mejor de la semana. Recogidas en punto de maduración óptimo.</p>
+    </div>
+
+    <div class="filtros">
+      <button class="filtro active">Todos</button>
+      <button class="filtro">🍑 Fruta</button>
+      <button class="filtro">🍅 Tomates</button>
+      <button class="filtro">🍊 Cítricos</button>
+      <button class="filtro">🥑 Tropicales</button>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img">🍑🍇🍈
+          <div class="card-badge verde">⭐ Más pedida</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Caja Variada Temporada</div>
+          <div class="card-desc">Melocotón, nectarina, paraguayos y uva de la semana. Selección diaria según maduración. 4-5 kg.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio">14,90€ <span class="precio-unit">/ caja 4-5 kg</span></div>
+            </div>
+            <button class="btn-pedir">🛒 Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">🍅🍅🍅
+          <div class="card-badge">🔥 Verano</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Caja Tomates Varios</div>
+          <div class="card-desc">Tomate rama, pera, cherry y corazón de buey. Madura en el campo, no en cámara. 5 kg.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio">12,50€ <span class="precio-unit">/ caja 5 kg</span></div>
+            </div>
+            <button class="btn-pedir">🛒 Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">🍊🍋🍈</div>
+        <div class="card-body">
+          <div class="card-title">Caja Cítricos Mix</div>
+          <div class="card-desc">Naranjas de zumo, mandarinas y pomelos. Sin cera, sin tratamientos postcosecha. 5 kg.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio">13,90€ <span class="precio-unit">/ caja 5 kg</span></div>
+            </div>
+            <button class="btn-pedir">🛒 Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">🥭🥑🍌
+          <div class="card-badge">✨ Especial</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Caja Tropical</div>
+          <div class="card-desc">Mangos, aguacates y más. Producto de productores de la zona sur. 4 kg.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio">18,90€ <span class="precio-unit">/ caja 4 kg</span></div>
+            </div>
+            <button class="btn-pedir">🛒 Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">🍑🍑🍑</div>
+        <div class="card-body">
+          <div class="card-title">Caja Melocotón y Nectarina</div>
+          <div class="card-desc">Solo melocotón y nectarina de temporada. Para los que quieren lo mejor del verano en cantidad. 5 kg.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio">13,50€ <span class="precio-unit">/ caja 5 kg</span></div>
+            </div>
+            <button class="btn-pedir">🛒 Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background: linear-gradient(135deg, #f5f0e8, #ede5d3); border: 2px dashed #c8b89a;">
+        <div class="card-img" style="background:transparent; font-size: 3rem;">🎨</div>
+        <div class="card-body">
+          <div class="card-title" style="color: var(--tierra);">Caja Personalizada</div>
+          <div class="card-desc">Dime qué quieres y te preparo la caja. Combina frutas, variedades, peso. Solo tienes que escribirme.</div>
+          <div class="card-footer">
+            <div>
+              <div class="precio" style="color:var(--tierra);">A consultar</div>
+            </div>
+            <button class="btn-pedir" style="background:var(--tierra);">💬 Consultar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TEMPORADA ── -->
+<section class="temporada" id="temporada">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Calendario</div>
+      <h2 class="section-title">¿Qué hay en cada época?</h2>
+      <p class="section-sub">Vendemos lo que tenemos, cuando lo tenemos. Sin forzar maduración.</p>
+    </div>
+    <div class="cal-grid">
+      <div class="mes-card">
+        <div class="mes-nombre">Ene – Feb</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍊 Naranja</span>
+          <span class="mes-fruta">🍋 Mandarina</span>
+          <span class="mes-fruta">🍈 Pomelo</span>
+        </div>
+      </div>
+      <div class="mes-card">
+        <div class="mes-nombre">Mar – May</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍓 Fresas</span>
+          <span class="mes-fruta">🍊 Naranja</span>
+          <span class="mes-fruta">🥭 Mango</span>
+        </div>
+      </div>
+      <div class="mes-card activo">
+        <div class="mes-nombre">Jun ← Ahora</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍑 Melocotón</span>
+          <span class="mes-fruta">🍈 Paraguayo</span>
+          <span class="mes-fruta">🍅 Tomate</span>
+          <span class="mes-fruta">🥭 Mango</span>
+        </div>
+      </div>
+      <div class="mes-card activo">
+        <div class="mes-nombre">Jul – Ago</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍑 Melocotón</span>
+          <span class="mes-fruta">🍇 Uva</span>
+          <span class="mes-fruta">🍅 Tomate</span>
+          <span class="mes-fruta">🥑 Aguacate</span>
+        </div>
+      </div>
+      <div class="mes-card">
+        <div class="mes-nombre">Sep – Oct</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍇 Uva</span>
+          <span class="mes-fruta">🍎 Manzana</span>
+          <span class="mes-fruta">🥑 Aguacate</span>
+          <span class="mes-fruta">🥭 Mango</span>
+        </div>
+      </div>
+      <div class="mes-card">
+        <div class="mes-nombre">Nov – Dic</div>
+        <div class="mes-frutas">
+          <span class="mes-fruta">🍊 Naranja</span>
+          <span class="mes-fruta">🍋 Mandarina</span>
+          <span class="mes-fruta">🥑 Aguacate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CÓMO FUNCIONA ── -->
+<section class="como" id="como">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">El proceso</div>
+      <h2 class="section-title">Pedir es así de fácil</h2>
+      <p class="section-sub">Sin registros complicados. Sin apps. Solo fruta buena.</p>
+    </div>
+    <div class="pasos">
+      <div class="paso">
+        <div class="paso-icon">📦</div>
+        <div class="paso-num">1</div>
+        <h3>Elige tu caja</h3>
+        <p>Selecciona la variedad y el tamaño que necesitas. O dime qué quieres y te la preparo.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-icon">💬</div>
+        <div class="paso-num">2</div>
+        <h3>Escríbeme por WhatsApp</h3>
+        <p>Confirmo disponibilidad y te doy el precio exacto con el envío incluido.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-icon">💳</div>
+        <div class="paso-num">3</div>
+        <h3>Paga y confirma</h3>
+        <p>Transferencia, Bizum o contrareembolso. Confirmamos fecha de entrega juntos.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-icon">🚚</div>
+        <div class="paso-num">4</div>
+        <h3>Lo recibes en casa</h3>
+        <p>Enviamos en 48h desde la recolección. Llega fresco porque no pasa por ningún almacén.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ── -->
+<section class="testimonios">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag" style="color:#f9c74f;">Lo que dicen nuestros clientes</div>
+      <h2 class="section-title">Familias que ya reciben cada semana</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Los melocotones llegaron perfectos, algo que no pasa nunca con los del supermercado. Repetiré seguro."</div>
+        <div class="testi-autor">— María G., Valencia</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Pedí la caja de tomates y fue una revelación. Llevo meses sin comprar tomates en ningún otro sitio."</div>
+        <div class="testi-autor">— Carlos M., Madrid</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"El precio no tiene comparación y encima el agricultor me explica exactamente qué hay en la caja. Esto es lo que buscaba."</div>
+        <div class="testi-autor">— Ana P., Barcelona</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA PEDIDO ── -->
+<section class="pedir-cta" id="pedir">
+  <h2>¿Listo para tu primera caja?</h2>
+  <p>Escríbeme y en menos de 24h tienes confirmado tu pedido. Sin compromiso de suscripción.</p>
+  <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20información%20sobre%20las%20cajas%20de%20fruta" class="wa-btn">
+    <span class="wa-icon">📱</span> Pedir por WhatsApp
+  </a>
+  <p style="margin-top:20px; font-size:.85rem; opacity:.75;">También puedes escribirnos al correo o llamar directamente</p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Campo Directo</strong> · Agricultor independiente · Valencia, España</p>
+  <p style="margin-top:8px;">Fruta y verdura de temporada, sin intermediarios · Envíos a toda la península</p>
+  <p style="margin-top:16px; font-size:.78rem; opacity:.5;">Demo desarrollada por Riqueza Digital · riquezadigital.es</p>
+</footer>
+
+<script>
+  // Filtros de producto (demo interactiva)
+  document.querySelectorAll('.filtro').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filtro').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Botones de pedir → scroll al CTA con WhatsApp
+  document.querySelectorAll('.btn-pedir').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.getElementById('pedir').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

@@ -15,19 +15,47 @@ load_dotenv()
 
 class WordPressClient:
     def __init__(self):
-        self.wp_url = os.getenv("WP_URL", "").rstrip("/")
-        self.username = os.getenv("WP_USERNAME")
-        self.app_password = os.getenv("WP_APP_PASSWORD")
+        wp_url = None
+        username = None
+        app_password = None
+        
+        # Intentar cargar desde el Registro de Windows primero (para variables específicas de Veganashi)
+        if sys.platform == "win32":
+            try:
+                import winreg
+                def get_registry_env(name: str) -> str:
+                    try:
+                        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment")
+                        val, _ = winreg.QueryValueEx(key, name)
+                        winreg.CloseKey(key)
+                        return val
+                    except:
+                        return None
+                
+                wp_url = get_registry_env("WP_VEGANASHI_URL")
+                username = get_registry_env("WP_VEGANASHI_USER")
+                app_password = get_registry_env("WP_VEGANASHI_APP_PASSWORD")
+            except Exception as e:
+                print(f"[WARN] Error al leer del registro de Windows: {e}")
+                
+        # Si no se encuentran en el registro, usar variables de entorno / .env
+        self.wp_url = (wp_url or os.getenv("WP_URL", "")).rstrip("/")
+        self.username = username or os.getenv("WP_USERNAME")
+        self.app_password = app_password or os.getenv("WP_APP_PASSWORD")
         
         # Eliminar espacios de la contraseña de aplicación si existen (WP acepta ambos, pero sin espacios es estándar)
         if self.app_password:
             self.app_password = self.app_password.replace(" ", "")
 
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+
     def _get_auth(self):
         if not all([self.wp_url, self.username, self.app_password]):
             raise ValueError(
-                "Faltan credenciales de WordPress en tu archivo .env.\n"
-                "Asegúrate de configurar WP_URL, WP_USERNAME y WP_APP_PASSWORD."
+                "Faltan credenciales de WordPress en tu archivo .env o en el Registro de Windows.\n"
+                "Asegúrate de configurar WP_VEGANASHI_URL, WP_VEGANASHI_USER y WP_VEGANASHI_APP_PASSWORD en el Registro."
             )
         return (self.username, self.app_password)
 
@@ -37,11 +65,11 @@ class WordPressClient:
             auth = self._get_auth()
             # Llamamos al endpoint de usuarios/me para verificar credenciales
             endpoint = f"{self.wp_url}/wp-json/wp/v2/users/me"
-            response = requests.get(endpoint, auth=auth)
+            response = requests.get(endpoint, auth=auth, headers=self.headers)
             
             if response.status_code == 200:
                 user_data = response.json()
-                print(f"[OK] Conexión establecida con éxito.")
+                print(f"[OK] Conexión establecida con éxito a {self.wp_url}.")
                 print(f"     Usuario autenticado: {user_data.get('name')} (Rol: {user_data.get('roles', ['N/A'])[0]})")
                 return True
             else:
@@ -59,7 +87,7 @@ class WordPressClient:
             endpoint = f"{self.wp_url}/wp-json/wp/v2/pages"
             # Solicitamos solo campos relevantes para velocidad
             params = {"_fields": "id,title,link,status", "per_page": 20}
-            response = requests.get(endpoint, auth=auth, params=params)
+            response = requests.get(endpoint, auth=auth, params=params, headers=self.headers)
             response.raise_for_status()
             
             pages = response.json()
@@ -84,7 +112,7 @@ class WordPressClient:
                 "status": status
             }
             
-            response = requests.post(endpoint, auth=auth, json=data)
+            response = requests.post(endpoint, auth=auth, json=data, headers=self.headers)
             response.raise_for_status()
             
             page = response.json()
@@ -118,7 +146,7 @@ class WordPressClient:
                 return False
                 
             data = {"meta": meta_data}
-            response = requests.post(endpoint, auth=auth, json=data)
+            response = requests.post(endpoint, auth=auth, json=data, headers=self.headers)
             
             if response.status_code == 200:
                 print(f"[OK] Metadatos SEO de la página {page_id} actualizados.")

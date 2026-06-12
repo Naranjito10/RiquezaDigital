@@ -1,0 +1,61 @@
+{
+  "month": "Mayo 2026",
+  "meta_ads": {
+    "account_id": "act_928041200992402",
+    "totals": {
+      "spend": 366.31,
+      "impressions": 142032,
+      "clicks": 5009,
+      "leads": 10,
+      "cpl": 36.63,
+      "ctr": 3.52,
+      "cpc": 0.073
+    },
+    "campaigns": [
+      {
+        "name": "CP - WEB Principal",
+        "status": "active",
+        "spend": 120.72,
+        "impressions": 44550,
+        "ctr": 2.38,
+        "cpc": 0.11,
+        "leads": 6,
+        "cpl": 20.12
+      },
+      {
+        "name": "T - Reservas",
+        "status": "active",
+        "spend": 124.00,
+        "impressions": 58065,
+        "ctr": 7.10,
+        "cpc": 0.03,
+        "leads": 1,
+        "cpl": 124.00
+      },
+      {
+        "name": "CC - Reservas",
+        "status": "active",
+        "spend": 121.59,
+        "impressions": 39417,
+        "ctr": 2.10,
+        "cpc": 0.15,
+        "leads": 3,
+        "cpl": 40.53
+      }
+    ]
+  },
+  "google_ads": {
+    "account_id": "512-424-2748",
+    "status": "pending_setup",
+    "totals": {
+      "spend": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "leads": 0,
+      "cpl": 0.0,
+      "ctr": 0.0,
+      "cpc": 0.0
+    },
+    "campaigns": []
+  }
+}

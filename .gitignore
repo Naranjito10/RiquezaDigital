@@ -28,9 +28,16 @@ clients/**/credentials.json
 clients/**/billing.json
 
 # IDs y tokens de plataformas publicitarias
+# (ruta antigua, pre-reorganización a pipelines/)
 marketing-digital/ads/clients/**/profile.json
 marketing-digital/ads/audits/
 marketing-digital/logs/
+# (ruta actual tras la reorganización — los profile.json contienen OAuth client_secret,
+#  refresh_token y developer_token reales; solo se versiona la plantilla con placeholders)
+pipelines/marketing-digital/ads/clients/**/profile.json
+!pipelines/marketing-digital/ads/clients/_template/profile.json
+pipelines/marketing-digital/ads/audits/
+pipelines/marketing-digital/logs/
 
 # ============================================================
 # OUTPUTS Y REPORTES (generados, no versionables)

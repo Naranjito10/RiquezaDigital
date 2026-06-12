@@ -1,0 +1,13 @@
+{
+  "client_name": "Veganashi",
+  "logo": "🌿 Veganashi",
+  "tagline": "Sushi sin azúcar & healthy food",
+  "colors": {
+    "primary": "#2E7D52",
+    "secondary": "#A8D5B5",
+    "accent": "#F4A828",
+    "dark": "#1A3C2A",
+    "bg_light": "#F7FAF8",
+    "border": "#DDE8E2"
+  }
+}

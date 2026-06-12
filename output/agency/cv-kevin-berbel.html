@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Sergio Kevin Berbel Rández | Consultor y Formador en IA</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Curriculum Vitae de Sergio Kevin Berbel Rández. Consultor en Inteligencia Artificial, Automatización de Procesos y Transformación Digital. Fundador de Riqueza Digital.">
+  <meta name="author" content="Sergio Kevin Berbel Rández">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #8000FC;
+      --primary-light: #C4A8FF;
+      --secondary: #0530FA;
+      --dark: #21123D;
+      --dark-text: #2D2040;
+      --light-bg: #F8F7FF;
+      --card-bg: #ffffff;
+      --border-color: #E2DCF5;
+      --text-muted: #7B6FA0;
+      --grad: linear-gradient(135deg, #0530FA, #8000FC);
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+    }
+
+    /* Dark Mode variables */
+    body.dark-mode {
+      --primary-light: #8000FC;
+      --dark: #F8F7FF;
+      --dark-text: #F0EDF8;
+      --light-bg: #120924;
+      --card-bg: #1a0f30;
+      --border-color: #2d1d4c;
+      --text-muted: #a59bbd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(128, 0, 252, 0.08);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    /* --- INTERACTIVE TOP BAR --- */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .btn {
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(128, 0, 252, 0.2);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle {
+      background: var(--border-color);
+      color: var(--dark-text);
+    }
+
+    /* --- HEADER SECTION --- */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 40px 50px;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--grad);
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-family: var(--font-title);
+      font-size: 18px;
+      color: var(--primary-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+    }
+
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--primary-light);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .badge-availability {
+      align-self: flex-start;
+      background: rgba(196, 168, 255, 0.15);
+      border: 1px solid rgba(196, 168, 255, 0.3);
+      color: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* --- LAYOUT BODY --- */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 40px 50px;
+      gap: 40px;
+    }
+
+    /* Sections styling */
+    section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .section-title svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--primary);
+      fill: none;
+      stroke-width: 2.5;
+    }
+
+    .profile-text {
+      font-size: 15px;
+      color: var(--dark-text);
+      line-height: 1.7;
+    }
+
+    /* Experience cards */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .exp-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--card-bg);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-family: var(--font-title);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark-text);
+    }
+
+    .exp-title span {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .exp-date {
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(128, 0, 252, 0.06);
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 14px;
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 5px;
+      color: var(--dark-text);
+    }
+
+    .exp-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skills-category {
+      background: rgba(128, 0, 252, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .skills-category h4 {
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .skills-list li {
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--dark-text);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* Education styling */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .edu-card {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .edu-title {
+      font-family: var(--font-title);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark-text);
+      margin-bottom: 4px;
+    }
+
+    .edu-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .edu-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(128, 0, 252, 0.06);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px 0;
+      }
+      .container {
+        border-radius: 0;
+        border: none;
+      }
+      header {
+        padding: 30px 20px;
+      }
+      .cv-body {
+        padding: 30px 20px;
+        gap: 30px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    /* --- PRINT STYLES (CRITICAL FOR PDF GENERATION) --- */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+
+      .container {
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .top-bar {
+        display: none !important; /* Hide interactive buttons */
+      }
+
+      header {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 20px 0 10px 0 !important;
+        border-bottom: 2px solid #000000 !important;
+      }
+
+      header::before {
+        display: none !important;
+      }
+
+      h1 {
+        color: #000000 !important;
+        font-size: 28px !important;
+      }
+
+      .subtitle {
+        color: #555555 !important;
+        font-size: 14px !important;
+      }
+
+      .badge-availability {
+        background: #ffffff !important;
+        border: 1px solid #777777 !important;
+        color: #000000 !important;
+        margin-top: 5px !important;
+        font-size: 10px !important;
+      }
+
+      .contact-grid {
+        border-top: 1px solid #dddddd !important;
+        padding-top: 10px !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+
+      .contact-item {
+        color: #333333 !important;
+        font-size: 11px !important;
+      }
+
+      .contact-item svg {
+        stroke: #333333 !important;
+        width: 12px !important;
+        height: 12px !important;
+      }
+
+      .cv-body {
+        padding: 20px 0 !important;
+        gap: 20px !important;
+      }
+
+      .section-title {
+        color: #000000 !important;
+        border-bottom: 1.5px solid #000000 !important;
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 4px !important;
+      }
+
+      .section-title svg {
+        stroke: #000000 !important;
+      }
+
+      .profile-text {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+      }
+
+      .exp-item {
+        padding-left: 15px !important;
+        border-left: 1px solid #999999 !important;
+      }
+
+      .exp-item::before {
+        left: -4px !important;
+        width: 7px !important;
+        height: 7px !important;
+        background: #000000 !important;
+      }
+
+      .exp-title {
+        font-size: 13px !important;
+      }
+
+      .exp-date {
+        font-size: 11px !important;
+        background: none !important;
+        color: #000000 !important;
+        border: 1px solid #999999 !important;
+        padding: 1px 6px !important;
+      }
+
+      .exp-desc {
+        font-size: 12px !important;
+        color: #555555 !important;
+      }
+
+      .exp-bullets li {
+        font-size: 12px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .exp-bullets li::before {
+        color: #000000 !important;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      .skills-category {
+        border: 1px solid #cccccc !important;
+        padding: 10px !important;
+      }
+
+      .skills-category h4 {
+        font-size: 11px !important;
+        color: #000000 !important;
+        margin-bottom: 6px !important;
+      }
+
+      .skills-list li {
+        font-size: 10px !important;
+        border: 1px solid #dddddd !important;
+        padding: 2px 6px !important;
+      }
+
+      .edu-card {
+        border: 1px solid #cccccc !important;
+        padding: 10px 15px !important;
+      }
+
+      .edu-title {
+        font-size: 12px !important;
+      }
+
+      .edu-meta {
+        font-size: 11px !important;
+      }
+
+      .edu-badge {
+        font-size: 9px !important;
+        background: none !important;
+        border: 1px solid #999999 !important;
+        color: #000000 !important;
+      }
+
+      /* Avoid awkward section breaks on pages */
+      section, .exp-item, .skills-category, .edu-card {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- INTERACTIVE TOP BAR (Hidden in print) -->
+    <div class="top-bar" id="uiBar">
+      <button class="btn theme-toggle" onclick="toggleTheme()" id="themeBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span id="themeText">Modo Oscuro</span>
+      </button>
+      
+      <button class="btn btn-primary" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Imprimir / Guardar PDF
+      </button>
+    </div>
+
+    <!-- CV HEADER -->
+    <header>
+      <div class="header-content">
+        <div class="badge-availability">Disponible para formación presencial y remota</div>
+        <h1 id="nameTitle">Sergio Kevin Berbel Rández</h1>
+        <div class="subtitle">Consultor y Formador en Inteligencia Artificial y Transformación Digital</div>
+        
+        <div class="contact-grid">
+          <a href="mailto:info@riquezadigital.es" class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            info@riquezadigital.es
+          </a>
+          <a href="https://riquezadigital.es" target="_blank" class="contact-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            riquezadigital.es
+          </a>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            España (Preferencia Presencial)
+          </div>
+          <a href="https://linkedin.com" target="_blank" class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            Perfil de LinkedIn
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CV BODY -->
+    <div class="cv-body">
+      
+      <!-- PERFIL -->
+      <section>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Resumen Profesional
+        </h2>
+        <p class="profile-text">
+          Consultor técnico y formador especializado en Inteligencia Artificial aplicada y automatización de operaciones. Como fundador de la agencia <strong>Riqueza Digital</strong>, diseño e implemento sistemas operativos digitales avanzados y arquitecturas de agentes autónomos que optimizan procesos y automatizan flujos de trabajo complejos para empresas. Con un sólido trasfondo en narrativa visual (Cine en ESCAC) y gestión de proyectos de alto impacto (Atomic Pixel Party), enfoco la formación corporativa desde un prisma pragmático y orientado a resultados: enseño de forma rigurosa y directa únicamente las herramientas, integraciones y flujos de IA que opero y valido diariamente en proyectos reales.
+        </p>
+      </section>
+
+      <!-- EXPERIENCIA -->
+      <section>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Experiencia Profesional
+        </h2>
+        <div class="experience-list">
+          
+          <div class="exp-item">
+            <div class="exp-header">
+              <h3 class="exp-title">Riqueza Digital — <span>Founder & Lead AI Consultant</span></h3>
+              <span class="exp-date">Nov 2024 - Presente</span>
+            </div>
+            <p class="exp-desc">Consultora y agencia especializada en transformación digital de operaciones B2B y performance marketing mediante IA y automatización.</p>
+            <ul class="exp-bullets">
+              <li><strong>Formación Técnica B2B:</strong> Diseño e impartición de cursos intensivos especializados, incluyendo un programa de 16 horas en "Programación Agéntica con IA e APIs" enfocado a la cualificación de desarrolladores en consultoras tecnológicas.</li>
+              <li><strong>Creador de "Promptathon Corporativo":</strong> Diseño de una metodología in-company práctica y guiada de 2 días para la creación in-situ de asistentes digitales automatizados por los propios equipos de la empresa.</li>
+              <li><strong>Desarrollo e Integración de Agentes:</strong> Programación y despliegue de sistemas autónomos de análisis y optimización de campañas publicitarias mediante el uso integrado de n8n, bases de datos no relacionales y APIs de modelos de lenguaje (LLMs).</li>
+              <li><strong>Consultoría Tecnológica:</strong> Diseño de soluciones de comunicación y automatización de CRM, integrando pipelines y APIs para aumentar la productividad interna del cliente.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <h3 class="exp-title">Agencia de Marketing Digital (Marca Personal) — <span>Consultor de Performance & Web</span></h3>
+              <span class="exp-date">2020 - 2024</span>
+            </div>
+            <p class="exp-desc">Servicios independientes de captación digital, Paid Media y maquetación web para PYMEs y clientes B2B.</p>
+            <ul class="exp-bullets">
+              <li><strong>Gestión de Paid Media:</strong> Planificación, ejecución y optimización de campañas de alta conversión en Meta Ads y Google Ads, gestionando y auditando presupuestos publicitarios con reportes enfocados a ROAS/CPA.</li>
+              <li><strong>Diseño y Desarrollo Web:</strong> Construcción de sitios corporativos, embudos de venta y landing pages optimizadas en WordPress y Elementor, garantizando velocidad de carga y mejores prácticas de SEO On-Page.</li>
+              <li><strong>Automatización Básica:</strong> Setup de integraciones iniciales de captación (leads a CRM) y automatización de marketing por correo electrónico.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <h3 class="exp-title">Atomic Pixel Party — <span>Co-Fundador y Productor de Eventos</span></h3>
+              <span class="exp-date">2017 - 2020</span>
+            </div>
+            <p class="exp-desc">Emprendimiento y dirección de una de las principales promotoras de eventos culturales de ocio de temática japonesa en España.</p>
+            <ul class="exp-bullets">
+              <li><strong>Operaciones y Logística:</strong> Coordinación general de la logística de eventos multitudinarios presenciales, control de personal, proveedores y presupuestos.</li>
+              <li><strong>Estrategia Digital:</strong> Diseño del embudo de venta de entradas (ticketing), campañas orgánicas y paid en redes sociales, logrando llenos absolutos en salas de referencia.</li>
+              <li><strong>Pivotación por Contingencia:</strong> Lideré el cierre ordenado y posterior pivotación hacia el sector de marketing digital a raíz de la suspensión completa de eventos presenciales debido a la pandemia en 2020.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HABILIDADES -->
+      <section>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Áreas de Competencia Técnica
+        </h2>
+        <div class="skills-grid">
+          
+          <div class="skills-category">
+            <h4>Inteligencia Artificial</h4>
+            <ul class="skills-list">
+              <li>IA Agéntica</li>
+              <li>Prompt Engineering</li>
+              <li>Orquestación LLM</li>
+              <li>APIs de Modelos</li>
+              <li>Claude Code CLI</li>
+              <li>Agentes Autónomos</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4>Automatización y Ops</h4>
+            <ul class="skills-list">
+              <li>n8n (Self-hosted)</li>
+              <li>Integraciones API</li>
+              <li>Notion CRM</li>
+              <li>Zapier</li>
+              <li>Make</li>
+              <li>BBDD y Webhooks</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4>Desarrollo y CMS</h4>
+            <ul class="skills-list">
+              <li>WordPress</li>
+              <li>Elementor Pro</li>
+              <li>WP REST API</li>
+              <li>Python (Scripts)</li>
+              <li>HTML & CSS</li>
+              <li>PowerShell</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4>Performance & Growth</h4>
+            <ul class="skills-list">
+              <li>Meta Ads</li>
+              <li>Google Ads (MCC)</li>
+              <li>GA4 & GTM</li>
+              <li>SEO On-Page</li>
+              <li>Narrativa Audiovisual</li>
+              <li>Eventos Presenciales</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EDUCACIÓN -->
+      <section>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+          Educación y Aprendizaje
+        </h2>
+        <div class="edu-grid">
+          
+          <div class="edu-card">
+            <h3 class="edu-title">Grado Universitario en Cine</h3>
+            <div class="edu-meta">ESCAC (Escuela Superior de Cine y Audiovisuales de Cataluña)</div>
+            <div class="edu-badge">Dirección y Producción</div>
+          </div>
+
+          <div class="edu-card">
+            <h3 class="edu-title">Postgrado en Marketing Digital</h3>
+            <div class="edu-meta">CEP (Centro de Estudios Profesionales)</div>
+            <div class="edu-badge">Paid Media & Estrategia</div>
+          </div>
+
+          <div class="edu-card">
+            <h3 class="edu-title">Desarrollo Autodidacta Avanzado</h3>
+            <div class="edu-meta">Programación, APIs, IA Agéntica y Automatización Operativa</div>
+            <div class="edu-badge">Aprendizaje en Vivo</div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const themeText = document.getElementById('themeText');
+      const themeIcon = document.getElementById('themeIcon');
+      
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        themeText.textContent = 'Modo Claro';
+        themeIcon.innerHTML = `
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        `;
+      } else {
+        themeText.textContent = 'Modo Oscuro';
+        themeIcon.innerHTML = `
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

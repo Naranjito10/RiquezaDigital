@@ -71,7 +71,7 @@ def init_google_client(profile: dict):
         "client_id": google["client_id"],
         "client_secret": google["client_secret"],
         "refresh_token": google["refresh_token"],
-        "login_customer_id": google["customer_id"],
+        "login_customer_id": google["customer_id"].replace("-", ""),
         "use_proto_plus": True,
     }
     return GoogleAdsClient.load_from_dict(config)

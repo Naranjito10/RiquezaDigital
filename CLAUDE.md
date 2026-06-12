@@ -77,6 +77,7 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | `/sistema:session-start` | Arranque inteligente de sesión reconstruyendo prioridades y contexto |
 | `/sistema:context-validator` | Validar estado del sistema al abrir sesión |
 | `/sistema:buscar-sop` | Busca y localiza SOPs en la biblioteca de procesos repetibles |
+| `/sistema:integrar-video` | Absorbe transcripción de YouTube y crea plan de integración al sistema RD |
 | `/sistema:Claudia` | Activar canal Telegram |
 
 ## HERRAMIENTAS MCP DISPONIBLES
@@ -165,6 +166,7 @@ RD-TEAM/
 13. **Continuidad de Planes y Sesiones**: Antes de redactar cualquier plan de implementación o proponer cambios en una nueva sesión, escanea la carpeta de tareas `tasks.md` y comprueba si hay enlaces a planes de implementación de sesiones/conversaciones previas (ej. rutas en `.gemini/antigravity-ide/brain/...`). Si existe un plan previo, léelo y respeta sus especificaciones de diseño.
 14. **Commits internos con Vibiz activo**: Añadir `[skip-vibiz]` al mensaje de commit cuando el cambio sea de infraestructura interna (configuración, memoria, SOPs, refactors de sistema) y no deba generar contenido de marketing automático por el hook de Vibiz.
 15. **Búsqueda automática de SOPs**: Cuando el usuario pregunte cómo realizar un proceso (ej: "¿cómo hacemos X?", "¿cuál es el proceso de Y?"), debes buscar primero en la carpeta de SOPs `shared/sops/` y guiar al usuario según el procedimiento probado allí.
+16. **Dirigirse a Kevin por su nombre**: La primera palabra de TODAS las respuestas debe ser "Kevin". Siempre al inicio, antes de cualquier otro contenido, sin excepción.
 
 ## GESTIÓN DE SESIONES
 

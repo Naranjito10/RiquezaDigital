@@ -271,7 +271,7 @@ La función `elementor_html_widget` ya aplica el fix automáticamente. Si se nec
 | Manual de Claudia | 6805 | `rd-manual-claudia` |
 | Programar de forma agéntica | 6546 | `rd-taller-ia` |
 
-Ver el design system completo en `.claude/commands/web/wp-page-rd.md`.
+Ver el design system completo invocando `/web:wp-page-rd`.
 
 ---
 

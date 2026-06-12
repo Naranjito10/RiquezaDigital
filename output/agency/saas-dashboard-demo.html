@@ -1,0 +1,3184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencia Agéntica OS — Sistema Operativo de Marketing Autónomo</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* variables de diseño ultra premium */
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #0e0e11;
+      --bg-card: #151518;
+      --bg-card-hover: #1c1c20;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --border-color-glow: rgba(168, 85, 247, 0.35);
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+
+      --color-purple: #a855f7;
+      --color-purple-glow: rgba(168, 85, 247, 0.12);
+      --color-blue: #3b82f6;
+      --color-blue-glow: rgba(59, 130, 246, 0.12);
+      --color-emerald: #10b981;
+      --color-emerald-glow: rgba(16, 185, 129, 0.12);
+      --color-amber: #f59e0b;
+      --color-amber-glow: rgba(245, 158, 11, 0.12);
+      --color-rose: #ef4444;
+
+      --font-outfit: 'Outfit', 'Inter', sans-serif;
+      --font-inter: 'Inter', sans-serif;
+      --font-code: 'Fira Code', 'Courier New', monospace;
+
+      --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-inter);
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    aside {
+      width: 280px;
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--color-purple), var(--color-blue));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-outfit);
+      font-weight: 800;
+      font-size: 1.3rem;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(to right, #ffffff, #d8b4fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-tag {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .menu {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .menu-section {
+      font-size: 0.65rem;
+      color: #52525b;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 14px 8px 6px 8px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+
+    .menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    .menu-item.active {
+      background: var(--color-purple-glow);
+      color: var(--text-main);
+      border-color: rgba(168, 85, 247, 0.15);
+    }
+
+    .menu-item svg {
+      width: 16px;
+      height: 16px;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-item.active svg {
+      color: var(--color-purple);
+    }
+
+    .menu-item .badge {
+      margin-left: auto;
+      background: var(--color-purple);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 9999px;
+    }
+
+    .sidebar-footer {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    /* Main Container */
+    main {
+      margin-left: 280px;
+      flex-grow: 1;
+      padding: 32px;
+      max-width: 1400px;
+      width: calc(100% - 280px);
+    }
+
+    /* Sticky Sub-Header with Client Selector */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .top-header-title h1 {
+      font-family: var(--font-outfit);
+      font-weight: 800;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+    }
+
+    .top-header-title p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .client-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 10px;
+    }
+
+    .client-selector-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .client-selector-select {
+      background: transparent;
+      border: none;
+      color: white;
+      font-family: var(--font-outfit);
+      font-weight: 600;
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+      padding-right: 8px;
+    }
+
+    .client-selector-select option {
+      background: var(--bg-card);
+      color: white;
+    }
+
+    /* Layout Grids */
+    .tab-content {
+      display: none;
+      animation: tabFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @tabFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .layout-2-col {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .layout-1-2-col {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-main);
+    }
+
+    .card-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* KPIs */
+    .kpi-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: var(--transition-smooth);
+    }
+
+    .kpi-card:hover {
+      border-color: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .kpi-title-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .kpi-val {
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      font-size: 1.7rem;
+      margin: 10px 0 4px 0;
+    }
+
+    .kpi-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    .kpi-tag.up {
+      color: var(--color-emerald);
+    }
+
+    .kpi-tag.down {
+      color: var(--color-rose);
+    }
+
+    .kpi-tag.neutral {
+      color: var(--text-muted);
+    }
+
+    /* Client Details Card (Header component) */
+    .client-banner {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(59, 130, 246, 0.08));
+      border: 1px solid var(--border-color-glow);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .client-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .client-banner-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--color-purple);
+    }
+
+    .client-banner-details h2 {
+      font-family: var(--font-outfit);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .client-banner-details p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .client-banner-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border: 1px solid transparent;
+    }
+
+    .status-badge.emerald {
+      background: var(--color-emerald-glow);
+      border-color: rgba(16, 185, 129, 0.25);
+      color: #34d399;
+    }
+
+    .status-badge.amber {
+      background: var(--color-amber-glow);
+      border-color: rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+    }
+
+    .status-badge.purple {
+      background: var(--color-purple-glow);
+      border-color: rgba(168, 85, 247, 0.25);
+      color: #c084fc;
+    }
+
+    /* Ad Ops: Proposals */
+    .prop-card {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .prop-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .prop-chan-badge {
+      background: var(--color-purple-glow);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .prop-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .prop-analysis {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.15);
+      border-left: 2px solid var(--color-purple);
+      padding: 8px 12px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .prop-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prop-impact {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .prop-impact span {
+      color: var(--color-emerald);
+      font-weight: 600;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary {
+      background: var(--color-purple);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #b86bf8;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+
+    .btn-danger:hover {
+      color: var(--color-rose);
+      border-color: rgba(239, 68, 68, 0.2);
+      background: rgba(239, 68, 68, 0.04);
+    }
+
+    /* Learning Log Table */
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+      text-align: left;
+    }
+
+    .log-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      letter-spacing: 0.03em;
+    }
+
+    .log-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      vertical-align: middle;
+    }
+
+    .text-success {
+      color: var(--color-emerald);
+      font-weight: 600;
+    }
+
+    .text-danger {
+      color: var(--color-rose);
+      font-weight: 600;
+    }
+
+    /* Video Ops: phone mock */
+    .phone-container {
+      width: 230px;
+      height: 380px;
+      background: #000;
+      border-radius: 20px;
+      border: 6px solid #27272a;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+      position: relative;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 20%, rgba(0, 0, 0, 0.1) 80%);
+    }
+
+    .phone-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, #160a24, #08152e, #1a0628);
+      background-size: 400% 400%;
+      animation: phoneGradient 8s ease infinite;
+      z-index: 1;
+    }
+
+    @keyframes phoneGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .phone-captions {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+      font-family: var(--font-outfit);
+      line-height: 1.25;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+      margin-bottom: 24px;
+      transition: var(--transition-smooth);
+    }
+
+    .phone-captions span {
+      background: #facc15;
+      color: #000;
+      padding: 0 4px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .phone-overlay-meta {
+      position: relative;
+      z-index: 10;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phone-logo {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 0.5rem;
+    }
+
+    /* SEO checks */
+    .seo-header-score {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .seo-radial {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 4px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--color-emerald);
+      border-color: var(--color-emerald) var(--color-emerald) var(--color-emerald) transparent;
+      transform: rotate(-45deg);
+    }
+
+    .seo-radial-text {
+      transform: rotate(45deg);
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.75rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .check-item.ok {
+      color: var(--color-emerald);
+    }
+
+    .check-item.ok::before {
+      content: '✓';
+      font-weight: bold;
+    }
+
+    .check-item.fail {
+      color: var(--color-rose);
+    }
+
+    .check-item.fail::before {
+      content: '✗';
+      font-weight: bold;
+    }
+
+    /* Web Ops: Autopilot view */
+    .auditor-box {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: #09090b;
+      overflow: hidden;
+    }
+
+    .auditor-head {
+      background: rgba(255, 255, 255, 0.015);
+      border-bottom: 1px solid var(--border-color);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      font-family: var(--font-code);
+    }
+
+    .auditor-body {
+      padding: 16px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pane-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 0.7rem;
+    }
+
+    .pane-view {
+      background: #111113;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      padding: 12px;
+      min-height: 120px;
+      position: relative;
+    }
+
+    .pane-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 0.52rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+
+    /* SOP Wiki */
+    .sop-split {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 16px;
+    }
+
+    .sop-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .sop-item-link {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid transparent;
+    }
+
+    .sop-item-link:hover {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    .sop-item-link.active {
+      background: var(--color-purple-glow);
+      border-color: rgba(168, 85, 247, 0.15);
+      color: var(--text-main);
+    }
+
+    .sop-viewer-body {
+      background: #09090b;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.8rem;
+      max-height: 300px;
+      overflow-y: auto;
+      line-height: 1.45;
+    }
+
+    .sop-viewer-body pre {
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 8px;
+      color: #a78bfa;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      overflow-x: auto;
+    }
+
+    /* Authority settings checklist */
+    .authority-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 0.8rem;
+    }
+
+    .authority-row:last-child {
+      border-bottom: none;
+    }
+
+    .auth-badge-select {
+      display: flex;
+      gap: 4px;
+    }
+
+    .auth-radio {
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      background: transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .auth-radio.verde.active {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #34d399;
+    }
+
+    .auth-radio.amarillo.active {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+    }
+
+    .auth-radio.rojo.active {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+
+    /* Terminal Console */
+    .terminal-box {
+      background-color: #0a0a0c;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      line-height: 1.5;
+      height: 220px;
+      overflow-y: auto;
+      color: #38bdf8;
+    }
+
+    /* Integrations */
+    .auth-status-icon {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--color-emerald);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Claude Chat Assistant simulation */
+    .chat-widget {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--bg-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 320px;
+    }
+
+    .chat-header {
+      background: rgba(255, 255, 255, 0.015);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-title {
+      font-family: var(--font-outfit);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .chat-body {
+      flex-grow: 1;
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      line-height: 1.35;
+    }
+
+    .chat-msg.agent {
+      align-self: flex-start;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: white;
+      border-bottom-left-radius: 0;
+    }
+
+    .chat-msg.user {
+      align-self: flex-end;
+      background: var(--color-purple);
+      color: white;
+      border-bottom-right-radius: 0;
+    }
+
+    .chat-input-area {
+      background: #09090b;
+      padding: 10px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input {
+      flex-grow: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: white;
+      font-size: 0.75rem;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: rgba(168, 85, 247, 0.4);
+    }
+
+    /* Viral competitor cards */
+    .viral-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.75rem;
+      transition: var(--transition-smooth);
+    }
+
+    .viral-card:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(168, 85, 247, 0.15);
+    }
+
+    .viral-card-title {
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .viral-metrics {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      margin-bottom: 10px;
+    }
+
+    .viral-badge-score {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 0.6rem;
+      font-weight: 700;
+    }
+
+    /* SaaS admin cards */
+    .admin-db-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.015);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .admin-db-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--color-blue);
+      font-size: 0.8rem;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color-glow);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 40px rgba(168, 85, 247, 0.25);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 24px;
+      height: 24px;
+      background-color: rgba(168, 85, 247, 0.15);
+      color: var(--color-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .toast-body h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .toast-body p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <aside>
+    <div class="brand">
+      <div class="brand-logo">A</div>
+      <div class="brand-title-wrap">
+        <span class="brand-name">Agencia Agéntica</span>
+        <span class="brand-tag">SaaS Agency OS</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <div class="menu-section">Consola Global</div>
+      <a class="menu-item active" onclick="switchSidebarTab('global-admin')" id="menu-admin-tab">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+        </svg>
+        Panel de Administración
+      </a>
+
+      <div class="menu-section">Áreas del Cliente Activo</div>
+      <a class="menu-item" onclick="switchSidebarTab('client-overview')" id="menu-client-overview">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+        </svg>
+        Overview del Cliente
+      </a>
+      <a class="menu-item" onclick="switchSidebarTab('adops')" id="menu-adops-tab">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        Ad Ops (Meta & Google) <span class="badge" id="badge-adops-count" style="display:none;">0</span>
+      </a>
+      <a class="menu-item" onclick="switchSidebarTab('contentops')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+        Content & Video Ops
+      </a>
+      <a class="menu-item" onclick="switchSidebarTab('webops')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        </svg>
+        Web Ops (Autopilot)
+      </a>
+      <a class="menu-item" onclick="switchSidebarTab('workspaceops')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-16.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-16.25v16.25" />
+        </svg>
+        Notion Audit & SOPs
+      </a>
+      <a class="menu-item" onclick="switchSidebarTab('authority')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        Matriz de Autoridad
+      </a>
+
+      <div class="menu-section">Configuración</div>
+      <a class="menu-item" onclick="switchSidebarTab('integraciones')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+        </svg>
+        Conexiones API
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">KB</div>
+      <div class="user-info">
+        <span class="user-name">Kevin Berbel</span>
+        <span class="user-role">Socio Director (RD)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <main>
+    <!-- TOP STICKY HEADER WITH CLIENT SELECTOR -->
+    <div class="top-header">
+      <div class="top-header-title">
+        <h1 id="tab-title">Consola de Administración</h1>
+        <p id="tab-subtitle">Resumen global del rendimiento de tu agencia autónoma.</p>
+      </div>
+
+      <!-- CLIENT SELECTOR -->
+      <div class="client-selector-container">
+        <span class="client-selector-label">Trabajando en:</span>
+        <select class="client-selector-select" id="global-client-selector" onchange="handleClientChange(this.value)">
+          <option value="global" selected>📊 Toda la Agencia (Vista Admin)</option>
+          <option value="veganashi">🥗 Veganashi</option>
+          <option value="tecniclima">🔧 Tecniclima</option>
+          <option value="keller">⚖️ Keller Law</option>
+          <option value="selarom">👗 Selarom Jordi</option>
+          <option value="sirux">💼 Federico Sirux</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CLIENT CONTEXT BANNER (Hidden in Global View) -->
+    <div class="client-banner" id="client-banner" style="display:none;">
+      <div class="client-banner-left">
+        <div class="client-banner-avatar" id="client-avatar">V</div>
+        <div class="client-banner-details">
+          <h2 id="client-name">Veganashi</h2>
+          <p id="client-desc">Comida vegana y saludable B2C.</p>
+        </div>
+      </div>
+      <div class="client-banner-right">
+        <div class="status-badge emerald" id="client-status-badge">
+          <span class="dot emerald" id="client-status-dot"></span> <span id="client-status-text">Saneado</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: GLOBAL ADMIN VIEW (DEFAULT)               -->
+    <!-- ============================================== -->
+    <div id="global-admin" class="tab-content active">
+      <!-- KPIs consolidados -->
+      <div class="grid-4">
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>GASTO GESTIONADO (MES)</span>
+            <div class="kpi-icon">€</div>
+          </div>
+          <div class="kpi-val">12.450€</div>
+          <div class="kpi-tag up">▲ +12% vs. mes anterior</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>HORAS GUARDADAS (ACUM.)</span>
+            <div class="kpi-icon">⚡</div>
+          </div>
+          <div class="kpi-val">184,5h</div>
+          <div class="kpi-tag up">▲ 7.2x multiplicador AM</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>CUENTAS INTEGRADAS</span>
+            <div class="kpi-icon">👥</div>
+          </div>
+          <div class="kpi-val">5 / 10</div>
+          <div class="kpi-tag neutral">5 slots disponibles</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>ROI ESTIMADO CLIENTE</span>
+            <div class="kpi-icon">📈</div>
+          </div>
+          <div class="kpi-val">340%</div>
+          <div class="kpi-tag up">▲ ROAS promedio 3.4</div>
+        </div>
+      </div>
+
+      <!-- Main Layout Admin -->
+      <div class="layout-2-col">
+        <!-- Izquierda Admin: Clientes y Alertas de Upsell -->
+        <div>
+          <!-- Tabla de Gestión de Cuentas -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom:12px; border:none; padding:0;">
+              <span class="card-title">Cartera de la Agencia</span>
+            </div>
+            <table class="log-table" style="font-size:0.8rem;">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Servicios Activos</th>
+                  <th>Estado Conexión</th>
+                  <th>Plan Facturación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="selectClientFromTable('veganashi')" style="cursor:pointer;">
+                  <td><strong>Veganashi</strong><br><span
+                      style="font-size:0.7rem; color:var(--text-muted);">Alimentación</span></td>
+                  <td>Paid Ads (Meta) + Strategy</td>
+                  <td><span class="status-badge emerald" style="padding:2px 6px; font-size:0.6rem;">Conectado</span>
+                  </td>
+                  <td>Growth Tier (249€/m)</td>
+                </tr>
+                <tr onclick="selectClientFromTable('tecniclima')" style="cursor:pointer;">
+                  <td><strong>Tecniclima</strong><br><span
+                      style="font-size:0.7rem; color:var(--text-muted);">Servicios</span></td>
+                  <td>Google Ads (Búsqueda)</td>
+                  <td><span class="status-badge amber" style="padding:2px 6px; font-size:0.6rem;">Token Expirado</span>
+                  </td>
+                  <td>Starter Tier (79€/m)</td>
+                </tr>
+                <tr onclick="selectClientFromTable('keller')" style="cursor:pointer;">
+                  <td><strong>Keller Law</strong><br><span
+                      style="font-size:0.7rem; color:var(--text-muted);">Legal</span></td>
+                  <td>Maquetación Web + REST</td>
+                  <td><span class="status-badge purple" style="padding:2px 6px; font-size:0.6rem;">Desarrollo</span>
+                  </td>
+                  <td>Growth Tier (249€/m)</td>
+                </tr>
+                <tr onclick="selectClientFromTable('selarom')" style="cursor:pointer;">
+                  <td><strong>Selarom Jordi</strong><br><span
+                      style="font-size:0.7rem; color:var(--text-muted);">Moda</span></td>
+                  <td>Pendiente Setup</td>
+                  <td><span class="status-badge amber"
+                      style="background:rgba(255,255,255,0.03); border-color:var(--border-color); color:var(--text-muted); padding:2px 6px; font-size:0.6rem;">Desconectado</span>
+                  </td>
+                  <td>Ninguno (Onboarding)</td>
+                </tr>
+                <tr onclick="selectClientFromTable('sirux')" style="cursor:pointer;">
+                  <td><strong>Federico Sirux</strong><br><span style="font-size:0.7rem; color:var(--text-muted);">SaaS
+                      HR</span></td>
+                  <td>Pendiente Setup</td>
+                  <td><span class="status-badge amber"
+                      style="background:rgba(255,255,255,0.03); border-color:var(--border-color); color:var(--text-muted); padding:2px 6px; font-size:0.6rem;">Desconectado</span>
+                  </td>
+                  <td>Ninguno (Onboarding)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Detección de Señales de Upsell (F-006) -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom: 12px; border:none; padding:0;">
+              <div>
+                <span class="card-title">Upsell Intelligence (F-006)</span>
+                <p class="card-subtitle">IA monitoriza hitos de clientes y detecta señales de venta proactivas</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div
+                style="background:rgba(168, 85, 247, 0.05); border:1px solid rgba(168, 85, 247, 0.2); border-radius:8px; padding:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-size:0.85rem; font-weight:600;">Señal detectada en:
+                    <strong>Veganashi</strong></span>
+                  <span class="status-badge emerald" style="font-size:0.6rem; padding:2px 6px;">Alta probabilidad</span>
+                </div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.4; margin-bottom:12px;">
+                  Hito: ROAS constante de 3.2 y CPA inferior al baseline durante 14 días. Las campañas pagadas de Meta
+                  están saturando el público templado. La IA sugiere lanzar una propuesta para captar tráfico orgánico.
+                </p>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:0.72rem; color:var(--color-purple); font-weight:600;">Servicio recomendado: SEO
+                    Auditoría + La Bóveda</span>
+                  <button class="btn btn-primary" onclick="simulateUpsellProposal('Veganashi')">Generar Propuesta
+                    Automática (F-007)</button>
+                </div>
+              </div>
+
+              <div
+                style="background:rgba(255, 255, 255, 0.01); border:1px solid var(--border-color); border-radius:8px; padding:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-size:0.85rem; font-weight:600;">Señal detectada en:
+                    <strong>Tecniclima</strong></span>
+                  <span class="status-badge purple" style="font-size:0.6rem; padding:2px 6px;">Media probabilidad</span>
+                </div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.4; margin-bottom:12px;">
+                  Hito: Campañas estabilizadas, pero el tiempo de respuesta del comercial a los leads entrantes supera
+                  las 4 horas (detectado en base de datos de leads).
+                </p>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:0.72rem; color:var(--color-purple); font-weight:600;">Servicio recomendado:
+                    Flujo Automatizado n8n (Leads -&gt; WhatsApp/CRM)</span>
+                  <button class="btn btn-secondary" onclick="simulateUpsellProposal('Tecniclima')">Generar
+                    Propuesta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Derecha Admin: Estado Técnico de la Infraestructura -->
+        <div>
+          <!-- VPS & System Health Monitor -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom: 12px; border:none; padding:0;">
+              <div>
+                <span class="card-title">Infraestructura del Sistema (VPS Hostinger)</span>
+                <p class="card-subtitle">Servicios en la nube operando 24/7</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div class="admin-db-status">
+                <div class="admin-db-icon">🐳</div>
+                <div style="flex-grow:1;">
+                  <div style="font-weight:600; font-size:0.8rem;">OpenClaw (Docker Runtime)</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted);">Gateway activo para peticiones Telegram y API
+                  </div>
+                </div>
+                <span class="status-badge emerald" style="font-size:0.6rem; padding:2px 6px;">Online</span>
+              </div>
+
+              <div class="admin-db-status">
+                <div class="admin-db-icon" style="background:rgba(255, 108, 55, 0.15); color:#ff6c37;">🔀</div>
+                <div style="flex-grow:1;">
+                  <div style="font-weight:600; font-size:0.8rem;">n8n Workflow Engine</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted);">Orquestador de scheduling (12 workflows
+                    activos)</div>
+                </div>
+                <span class="status-badge emerald" style="font-size:0.6rem; padding:2px 6px;">Online</span>
+              </div>
+
+              <div class="admin-db-status">
+                <div class="admin-db-icon" style="background:rgba(168, 85, 247, 0.15); color:var(--color-purple);">🗄️
+                </div>
+                <div style="flex-grow:1;">
+                  <div style="font-weight:600; font-size:0.8rem;">PostgreSQL DB (Notion Logs)</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted);">Log de Acciones Agénticas (374d2fec-4b82...)
+                  </div>
+                </div>
+                <span class="status-badge emerald" style="font-size:0.6rem; padding:2px 6px;">Conectado</span>
+              </div>
+
+              <div class="admin-db-status">
+                <div class="admin-db-icon" style="background:rgba(239, 68, 68, 0.15); color:var(--color-rose);">🔒</div>
+                <div style="flex-grow:1;">
+                  <div style="font-weight:600; font-size:0.8rem;">API Keys & Tokens Security</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted);">Windows Registry keys / n8n Credentials Hub
+                  </div>
+                </div>
+                <span class="status-badge emerald" style="font-size:0.6rem; padding:2px 6px;">Encriptado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat interactivo con OpenClaw (Claude SDK) -->
+          <div class="chat-widget">
+            <div class="chat-header">
+              <div
+                style="width:24px; height:24px; border-radius:50%; background:var(--color-purple); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:0.65rem;">
+                A</div>
+              <div class="chat-title">OpenClaw Chat Terminal (Asistente Claude)</div>
+            </div>
+            <div class="chat-body" id="chat-widget-body">
+              <div class="chat-msg agent">
+                Hola Kevin. Soy Claude, el orquestador agéntico. Puedo gestionar reportes, editar webs WP, auditar
+                workspaces u optimizar campañas de Meta/Google. <br><br>
+                Prueba pidiéndome cosas como:<br>
+                • <code>Optimizar Veganashi</code><br>
+                • <code>Soporte Tecniclima</code><br>
+                • <code>Crear post SEO</code>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <input type="text" class="chat-input" id="chat-input-field"
+                placeholder="Pídele una tarea a Claude (ej: Optimizar Veganashi)..."
+                onkeypress="handleChatKeyPress(event)">
+              <button class="btn btn-primary" onclick="sendChatMsg()">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: CLIENT OVERVIEW TAB                       -->
+    <!-- ============================================== -->
+    <div id="client-overview" class="tab-content">
+      <!-- KPIs reactivos del cliente -->
+      <div class="grid-4">
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>GASTO ACUMULADO</span>
+            <div class="kpi-icon">€</div>
+          </div>
+          <div class="kpi-val" id="c-kpi-spend">1.254€</div>
+          <div class="kpi-tag" id="c-kpi-spend-change">▲ +12% Leads</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>COSTE POR LEAD (CPA)</span>
+            <div class="kpi-icon">🎯</div>
+          </div>
+          <div class="kpi-val" id="c-kpi-cpa">4,20€</div>
+          <div class="kpi-tag" id="c-kpi-cpa-change">▼ -8.5% vs baseline</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>CONVERSIONES (LEADS)</span>
+            <div class="kpi-icon">📥</div>
+          </div>
+          <div class="kpi-val" id="c-kpi-leads">298</div>
+          <div class="kpi-tag" id="c-kpi-leads-change">Objetivo: 250 leads</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title-row">
+            <span>MÁXIMO UMBRAL CPA</span>
+            <div class="kpi-icon">🛡️</div>
+          </div>
+          <div class="kpi-val" id="c-kpi-maxcpa">4,50€</div>
+          <div class="kpi-tag neutral">Baseline de referencia</div>
+        </div>
+      </div>
+
+      <div class="layout-2-col">
+        <!-- Columna Izquierda: Buzón de Virales (F-002) y Upsell de Cliente -->
+        <div>
+          <!-- Buzón de Virales (F-002) -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom:12px; border:none; padding:0;">
+              <div>
+                <span class="card-title">Buzón de Virales (F-002 Competitor Watcher)</span>
+                <p class="card-subtitle">Posts virales detectados de competidores listos para adaptar al cliente</p>
+              </div>
+            </div>
+
+            <div class="grid-3-col" style="grid-template-columns: repeat(2, 1fr); gap:12px;" id="viral-posts-grid">
+              <!-- Creados dinámicamente -->
+            </div>
+          </div>
+
+          <!-- F-001 Strategic Onboarding Outputs -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom:12px; border:none; padding:0;">
+              <div>
+                <span class="card-title">Fundación de Contexto Estratégico (F-001)</span>
+                <p class="card-subtitle">Sesiones de onboarding completadas en la carpeta /strategy/</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:0.8rem;">
+              <div
+                style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:6px;">
+                <span>1. Brief Estratégico (profile.md completo)</span>
+                <span style="color:var(--color-emerald); font-weight:600;">Completado ✅</span>
+              </div>
+              <div
+                style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:6px;">
+                <span>2. Estudio de Competidores (inteligencia-competitiva/)</span>
+                <span style="color:var(--color-emerald); font-weight:600;">Completado ✅</span>
+              </div>
+              <div
+                style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:6px;">
+                <span>3. PRD de Detección de Virales (F-002 Active)</span>
+                <span style="color:var(--color-emerald); font-weight:600;">Completado ✅</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding-bottom:4px;">
+                <span>4. Plan de Inbound y Outbound Marketing</span>
+                <span style="color:var(--color-emerald); font-weight:600;">Completado ✅</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Upsell del Cliente y Diagnóstico de Contexto -->
+        <div>
+          <!-- Context Validator (F-016 / /sistema:context-validator) -->
+          <div class="card" style="border-color: rgba(168,85,247,0.25);">
+            <div class="card-header" style="margin-bottom:12px; border:none; padding:0;">
+              <div>
+                <span class="card-title">Context Validator (/sistema:context-validator)</span>
+                <p class="card-subtitle">Auditoría del perfil operativo del cliente para evitar gaps de ejecución</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:0.78rem;"
+              id="context-validator-results">
+              <!-- Dinámico -->
+            </div>
+          </div>
+
+          <!-- Active Upsell Suggestion -->
+          <div class="card"
+            style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05)); border-color: rgba(168, 85, 247, 0.15);">
+            <div class="card-title" style="border:none; margin-bottom:8px; font-size:1rem;">Oportunidad de Upsell
+              Detectada</div>
+            <div style="font-size:0.8rem; line-height:1.45; color:var(--text-muted);" id="client-upsell-box">
+              Cargando oportunidades para el cliente...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: AD OPS (OPTIMIZER & LOGS)                 -->
+    <!-- ============================================== -->
+    <div id="adops" class="tab-content">
+      <div class="layout-2-col">
+        <!-- Proposals Optimizer -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Monday Campaign Optimizer (F-017)</span>
+                <p class="card-subtitle">Aprobación interactiva del operador humano (Human-In-The-Loop)</p>
+              </div>
+            </div>
+
+            <div id="optimizer-list-container">
+              <!-- Rellenado por JS -->
+            </div>
+            <div id="no-optimizer-message"
+              style="display:none; text-align:center; padding:40px; color:var(--text-muted);">
+              🎉 ¡Cuentas optimizadas y en perfecto rendimiento! No hay alertas pendientes.
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning log -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Learning Feedback Log</span>
+                <p class="card-subtitle">feedback-log.json de la cuenta de cliente</p>
+              </div>
+            </div>
+
+            <table class="log-table" id="learning-log-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Acción</th>
+                  <th>Resultado 7d</th>
+                  <th>Aprendizaje Registrado</th>
+                </tr>
+              </thead>
+              <tbody id="learning-log-tbody">
+                <!-- Rellenado por JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: CONTENT & VIDEO OPS                       -->
+    <!-- ============================================== -->
+    <div id="contentops" class="tab-content">
+      <div class="layout-2-col">
+        <!-- Video generator controller -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Generador de Contenido Orgánico (`/contenido:guion-instagram`)</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div>
+                  <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Pilar
+                    Estratégico</label>
+                  <select id="c-pilar-select"
+                    style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); padding:8px; border-radius:6px; color:white; outline:none;">
+                    <option value="caso">Caso de Éxito / Social Proof</option>
+                    <option value="educacion">Educativo / Tutorial</option>
+                    <option value="dolor">Dolor de Cabeza del Cliente</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Formato
+                    de Publicación</label>
+                  <select
+                    style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); padding:8px; border-radius:6px; color:white; outline:none;"
+                    disabled>
+                    <option>IG Reel + LinkedIn Post</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Tema o Hook
+                  del Vídeo</label>
+                <input type="text" id="c-video-topic" value=""
+                  style="width:100%; background:var(--bg-secondary); border:1px solid var(--border-color); padding:8px; border-radius:6px; color:white; outline:none;">
+              </div>
+
+              <div class="btn-group" style="margin-top:8px;">
+                <button class="btn btn-primary" onclick="triggerVideoRenderSimulation()">Generar y Renderizar Vídeo
+                  Autónomo</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEO blog publisher -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">WordPress REST Publisher (`/contenido:boveda-post`)</span>
+                <p class="card-subtitle">Inyección y publicación directa de blogs con SEO Onpage automatizado</p>
+              </div>
+            </div>
+
+            <div
+              style="background:rgba(255,255,255,0.01); border:1px solid var(--border-color); border-radius:8px; padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span style="font-size:0.85rem; font-weight:600;" id="c-seo-title">Título del artículo</span>
+                <span class="proposal-badge" id="c-seo-score"
+                  style="background:rgba(16,185,129,0.1); color:#34d399; border-color:rgba(16,185,129,0.2)">Score:
+                  92%</span>
+              </div>
+
+              <div class="seo-header-score">
+                <div class="seo-radial" id="c-seo-circle">
+                  <span class="seo-radial-text" id="c-seo-circle-text">92%</span>
+                </div>
+                <div class="check-list" id="c-seo-checklist-box">
+                  <!-- Rellenado por JS -->
+                </div>
+              </div>
+
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; border-top:1px solid rgba(255,255,255,0.04); padding-top:12px;">
+                <span style="font-size:0.75rem; color:var(--text-muted);" id="c-seo-wp-target">Publicar en:
+                  riquezadigital.es/la-boveda</span>
+                <button class="btn btn-primary" id="c-btn-publish-wp" onclick="simulateWPBlogPublish()">Publicar a WP
+                  (Draft ID: 6868)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone screen preview -->
+        <div>
+          <div class="card" style="text-align:center;">
+            <div class="card-header">
+              <span class="card-title">Previsualización de Reels / Shorts</span>
+            </div>
+            <p style="font-size:0.72rem; color:var(--text-muted); margin-bottom:14px;">Renderizando subtítulos HSL y
+              layouts virales.</p>
+
+            <div class="phone-container">
+              <div class="phone-screen">
+                <div class="phone-bg"></div>
+                <div class="phone-captions" id="c-mock-captions">
+                  Escribe un tema y haz clic en <span>Generar</span>
+                </div>
+                <div class="phone-overlay-meta">
+                  <div class="phone-logo">A</div>
+                  <span>Agencia Agéntica Pipeline</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="c-render-progress" style="display:none; margin-top:14px; text-align:left;">
+              <div
+                style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--text-muted); margin-bottom:4px;">
+                <span>Procesando capas de FFMPEG F-003...</span>
+                <span id="c-render-pct">0%</span>
+              </div>
+              <div style="width:100%; height:4px; background:var(--bg-primary); border-radius:2px; overflow:hidden;">
+                <div id="c-render-bar"
+                  style="width:0%; height:100%; background:var(--color-purple); transition:width 0.1s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: WEB OPS (AUTOPILOT)                       -->
+    <!-- ============================================== -->
+    <div id="webops" class="tab-content">
+      <div class="layout-2-col">
+        <!-- Generador Evaluador -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Autopilot Generador-Evaluador (F-013)</span>
+                <p class="card-subtitle">Bucle multi-agente de calidad y corrección automática con Playwright</p>
+              </div>
+            </div>
+
+            <div id="webops-active-box" style="display:none;">
+              <div class="auditor-box">
+                <div class="auditor-head">
+                  <span>Playwright Headless Auditor v3 — Keller Layout (WP ID: 6822)</span>
+                  <span style="color:var(--color-amber);" id="c-auditor-score">Calidad Inicial: 68% (Rechazado)</span>
+                </div>
+                <div class="auditor-body">
+                  <div class="pane-split">
+                    <!-- Pane 1 -->
+                    <div class="pane-view">
+                      <span class="pane-tag" style="background:rgba(239, 68, 68, 0.2); color:#fca5a5;">Maqueta
+                        Inicial</span>
+                      <div
+                        style="margin-top:14px; font-size:0.65rem; color:var(--text-muted); font-family:var(--font-code);"
+                        id="c-code-initial">
+                        Code loading...
+                      </div>
+                    </div>
+
+                    <!-- Pane 2 -->
+                    <div class="pane-view">
+                      <span class="pane-tag" style="background:rgba(16, 185, 129, 0.2); color:#a7f3d0;"
+                        id="c-healed-tag">Resultado Auto-Heal</span>
+                      <div
+                        style="margin-top:14px; font-size:0.65rem; color:var(--text-muted); font-family:var(--font-code);"
+                        id="c-code-healed">
+                        Esperando que se inicie el bucle de reparación automática...
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; border-top:1px solid rgba(255,255,255,0.03); padding-top:12px;">
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Auditor visual: <strong>Playwright
+                        Chromium Driver</strong></span>
+                    <button class="btn btn-primary" id="c-btn-auto-heal" onclick="simulatePlaywrightAutoHeal()">Ejecutar
+                      Auto-Heal (Bucle de Calidad)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="webops-inactive-box" style="text-align:center; padding:40px; color:var(--text-muted);">
+              📭 <span id="webops-inactive-text">No hay desarrollos web activos para este cliente.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WordPress REST API info widget -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">WordPress REST API layouts manager (`/web:wp-edit`)</span>
+            </div>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:14px; line-height:1.45;">
+              Permite a Claude Code leer y escribir maquetas en WordPress usando Application Passwords del sistema
+              operativo Windows Registry (`WP_&lt;CLIENTE&gt;_URL`).
+            </p>
+            <div
+              style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:6px; padding:12px; font-family:var(--font-code); font-size:0.75rem; color:#a78bfa;"
+              id="c-wp-bash-preview">
+              # WordPress API connection proxy <br>
+              curl -u "$WP_RD_USER:$WP_RD_APP_PASSWORD" \\<br>
+              &nbsp;&nbsp;"$WP_RD_URL/wp-json/wp/v2/pages/6822"
+            </div>
+            <div
+              style="font-size:0.7rem; color:var(--text-muted); margin-top:8px; display:flex; align-items:center; gap:6px;">
+              <span class="status-dot dot emerald" style="width:5px; height:5px;"></span> Credenciales validadas en
+              Windows Registry del Operador.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: WORKSPACE & SOPS                          -->
+    <!-- ============================================== -->
+    <div id="workspaceops" class="tab-content">
+      <div class="layout-2-col">
+        <!-- Notion Triage -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Auditoría de Workspace (F-010 Notion Audit)</span>
+                <p class="card-subtitle">Seguimiento de fases del triage operativo de Notion de este cliente</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.8rem;">
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:8px;">
+                <span><strong>Fase A:</strong> Mapeo Top-Level y Registro de Bases de Datos</span>
+                <span style="font-weight:600;" id="c-notion-faseA">Completado ✅</span>
+              </div>
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:8px;">
+                <span><strong>Fase B:</strong> Triage por áreas y archivado de páginas obsoletas</span>
+                <span style="font-weight:600;" id="c-notion-faseB">Completado ✅</span>
+              </div>
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:8px;">
+                <span><strong>Fase C:</strong> Ejecución de limpieza de drift</span>
+                <span style="font-weight:600;" id="c-notion-faseC">Completado ✅</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:4px;">
+                <span><strong>Fase D:</strong> Mantenimiento periódico periódico y automatizado</span>
+                <span style="font-weight:600;" id="c-notion-faseD">Completado ✅</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOPs library -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Biblioteca de SOPs Autogenerada (F-014)</span>
+                <p class="card-subtitle">Procedimientos operativos estándar leídos por el Agente al cerrar sesión</p>
+              </div>
+            </div>
+
+            <div class="sop-split">
+              <div class="sop-sidebar" id="sop-sidebar-links">
+                <!-- Rellenado por JS -->
+              </div>
+              <div class="sop-viewer-body" id="c-sop-body">
+                Selecciona un SOP del panel de la izquierda.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: AUTHORITY MATRIX                          -->
+    <!-- ============================================== -->
+    <div id="authority" class="tab-content">
+      <div class="layout-2-col">
+        <!-- Matrix -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Matriz de Autoridad del Cliente</span>
+                <p class="card-subtitle">Define lo que los agentes de la IA pueden hacer sin pedir confirmación</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:4px;" id="authority-rows-container">
+              <!-- Rellenado por JS -->
+            </div>
+
+            <div
+              style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.03); padding-top:16px; display:flex; justify-content:flex-end;">
+              <button class="btn btn-primary" onclick="saveAuthorityMatrix()">Guardar Matriz en Repo Git</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explicación de la matriz -->
+        <div>
+          <div class="card" style="background: rgba(255, 255, 255, 0.015);">
+            <div class="card-title" style="font-size:1rem; border:none; margin-bottom:8px;">Leyenda de Niveles de
+              Autoridad</div>
+            <div
+              style="font-size:0.78rem; color:var(--text-muted); line-height:1.45; display:flex; flex-direction:column; gap:10px;">
+              <p>
+                🟢 <strong style="color:var(--color-emerald)">Verde:</strong> El agente ejecuta la acción de forma
+                autónoma. No envía notificaciones de aprobación previa.
+              </p>
+              <p>
+                🟡 <strong style="color:var(--color-amber)">Amarillo:</strong> El agente genera la propuesta y la envía
+                al canal de Telegram y al Dashboard. Requiere aprobación 1-tap en el móvil antes de ejecutarse en
+                Meta/Google.
+              </p>
+              <p>
+                🔴 <strong style="color:var(--color-rose)">Rojo:</strong> El agente tiene prohibido proponer o realizar
+                esta acción. Siempre debe escalar al operador principal (Kevin).
+              </p>
+              <p
+                style="background:rgba(0,0,0,0.2); padding:10px; border-radius:6px; border-left:2px solid var(--color-purple);">
+                El archivo <code>authority-matrix.md</code> se lee en cada ejecución de Claude Code y n8n, actuando como
+                un guardrail de seguridad absoluto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- TAB: CONEXIONES API (OAUTH HUB)                -->
+    <!-- ============================================== -->
+    <div id="integraciones" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <span class="card-title">Hub de Conexiones OAuth y Tokens</span>
+            <p class="card-subtitle">Autorización segura para las APIs y automatizaciones de la agencia</p>
+          </div>
+        </div>
+
+        <div class="integration-grid">
+          <div class="integration-card">
+            <div class="integration-icon meta">f</div>
+            <div class="integration-name">Meta Ads Manager</div>
+            <div class="integration-desc">Sincroniza campañas de Facebook, Instagram y Messenger Ads.</div>
+            <button class="btn-connect connected" disabled>Conectado (RD Demo)</button>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon google">G</div>
+            <div class="integration-name">Google Ads API</div>
+            <div class="integration-desc">Sincroniza campañas de Búsqueda, Performance Max y YouTube.</div>
+            <button class="btn-connect" id="saas-btn-google" onclick="connectGoogleAdsSaaS()">Conectar Cuenta</button>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon notion">N</div>
+            <div class="integration-name">Notion Workspace</div>
+            <div class="integration-desc">Conecta tu CRM interno, bases de datos de tareas y logs.</div>
+            <button class="btn-connect connected" disabled>Conectado (RD Notion)</button>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon wp">W</div>
+            <div class="integration-name">WordPress REST API</div>
+            <div class="integration-desc">Publica artículos de SEO y edita páginas web autónomamente.</div>
+            <button class="btn-connect connected" disabled>Conectado (REST API)</button>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon n8n">N</div>
+            <div class="integration-name">n8n Workflow Engine</div>
+            <div class="integration-desc">Ejecuta y orquesta los scripts de segundo plano y pipelines.</div>
+            <button class="btn-connect connected" disabled>Conectado (n8n Cloud)</button>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon" style="background:#0088cc;">T</div>
+            <div class="integration-name">Telegram Bot Gateway</div>
+            <div class="integration-desc">Habilita alertas en tiempo real y aprobaciones desde el móvil.</div>
+            <button class="btn-connect connected" disabled>Conectado (BotFather)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast-notification">
+    <div class="toast-icon">⚡</div>
+    <div class="toast-body">
+      <h4 id="toast-notif-title">Campaña optimizada</h4>
+      <p id="toast-notif-desc">Cambio enviado con éxito a la API.</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT: DATA & INTERACTIVITY -->
+  <script>
+    // 1. DATA STRUCTURES FOR INDIVIDUAL CLIENTS
+    const clientData = {
+      veganashi: {
+        name: 'Veganashi',
+        description: 'Alimentación saludable & vegana B2C',
+        status: 'emerald',
+        statusText: 'Saneado (08:07h)',
+        metricSpend: '1.254€',
+        metricSpendChange: '▲ +12% Leads este mes',
+        metricCPA: '4,20€',
+        metricCPAChange: '▼ -8.5% vs baseline',
+        metricLeads: '298',
+        metricLeadsChange: 'Objetivo: 250 leads',
+        baselineMaxCPA: '4,50€',
+        adOpsBadge: 1,
+        proposals: [
+          {
+            id: 1,
+            channel: 'Meta Ads',
+            title: 'Pausar conjunto de anuncios "Lookalike España 1%" (ID: 940211)',
+            analysis: 'El CPA acumulado de 7 días ascendió a 6,80€ (Objetivo: 4,50€). CTR disminuyó a 0.45%. Fatiga creativa detectada.',
+            impact: 'CPA general baja a ~4,10€'
+          }
+        ],
+        learningLogs: [
+          { date: '2026-05-28', action: 'Pausar adset Broad-Look', result: 'CPA -12%', class: 'text-success', learning: 'Pausar broad fatigados saneó presupuesto.' },
+          { date: '2026-05-18', action: 'Cambiar copy (Variante C)', result: 'CPA +15%', class: 'text-danger', learning: 'Ángulo "Recetas rápidas" no convirtió. Revertido.' }
+        ],
+        videoTopic: "3 Errores de Inteligencia Artificial que cometen las Agencias de Marketing",
+        videoCaptions: [
+          "¿Quieres saber por qué tu <span>IA no funciona</span> en tu agencia?",
+          "Porque no tiene <span>contexto estructurado</span> de tus clientes.",
+          "Sin <span>baselines ni SOPs</span>, solo improvisa respuestas.",
+          "Con <span>Agencia Agéntica OS</span>, creas procesos repetibles.",
+          "Y escalas tu agencia sin <span>multiplicar tus costes</span>."
+        ],
+        videoPilar: "dolor",
+        seoArticleTitle: "Gobernanza de IA y Claude Team para Agencias",
+        seoArticleScore: 92,
+        seoChecks: [
+          { text: "Palabra clave principal en título H1 y primer párrafo", ok: true },
+          { text: "Schema LocalBusiness y Service inyectados vía JSON-LD", ok: true },
+          { text: "Estructura jerárquica H2/H3 limpia", ok: true },
+          { text: "Falta subir imágenes optimizadas a la biblioteca de WordPress", ok: false }
+        ],
+        seoWpTarget: 'Publicar en: riquezadigital.es/la-boveda (ID: 6868)',
+        webOpsActive: false,
+        webOpsText: "No hay desarrollos web activos para Veganashi. Enfoque exclusivo en Marketing Digital.",
+        notionFases: { a: 'Completado ✅', b: 'Completado ✅', c: 'Completado ✅', d: 'Completado ✅' },
+        authorityMatrix: {
+          analizar: 'verde',
+          alentar: 'verde',
+          reportar: 'verde',
+          sops: 'verde',
+          proponerCopy: 'amarillo',
+          ajustarPuja: 'amarillo',
+          pausarAnuncio: 'amarillo',
+          implementar: 'rojo',
+          presupuesto: 'rojo',
+          lanzarCampaña: 'rojo'
+        },
+        upsell: {
+          trigger: 'ROAS de Meta Ads > 3.0 por 14 días',
+          service: 'SEO On-Page & La Bóveda (Contenido orgánico)',
+          reason: 'El canal de tráfico de paid ads está saturando las audiencias calientes en Meta. Lanzar una estrategia SEO diversificará las fuentes de tráfico reduciendo el CPA medio de adquisición.'
+        },
+        viralPosts: [
+          { title: "El truco para organizar tu cocina saludable en 1 hora", views: "142K", likes: "12K", score: "9.5/10", topic: "3 Pasos para preparar tu menú vegano semanal en 1 hora" },
+          { title: "Por qué dejé de comprar comida procesada", views: "98K", likes: "6.5K", score: "8.2/10", topic: "Los ingredientes ocultos en la comida ultraprocesada que dañan tu salud" }
+        ],
+        contextGaps: [
+          { text: "Objetivos de leads mensuales definidos", ok: true },
+          { text: "Acceso Meta Ads Token verificado", ok: true },
+          { text: "Baseline de CPA establecido en JSON", ok: true },
+          { text: "Estructura de perfiles vacía detectada", ok: true }
+        ]
+      },
+      tecniclima: {
+        name: 'Tecniclima',
+        description: 'Servicios de Climatización y reparación de calderas B2C',
+        status: 'amber',
+        statusText: 'Token Expirado ⚠️',
+        metricSpend: '0€',
+        metricSpendChange: '▼ -100% Gasto semanal',
+        metricCPA: '—',
+        metricCPAChange: 'Campañas en pausa',
+        metricLeads: '—',
+        metricLeadsChange: 'Objetivo: 80 leads',
+        baselineMaxCPA: '14,00€',
+        adOpsBadge: 1,
+        proposals: [
+          {
+            id: 2,
+            channel: 'Google Ads',
+            title: 'Incrementar presupuesto diario 15% en campaña "Urgencias Calderas Madrid"',
+            analysis: 'El ROAS promedio se mantiene en 4.8. Pérdida de cuota de impresiones del 22% por límite de presupuesto diario durante picos de frío/calor.',
+            impact: 'Incremento de +8 a +12 leads semanales'
+          }
+        ],
+        learningLogs: [
+          { date: '2026-05-25', action: 'Aumentar puja urgencias', result: 'Conv. +8%', class: 'text-success', learning: 'Ajuste estacional efectivo en calderas.' }
+        ],
+        videoTopic: "Cómo ahorrar un 30% en la factura de calefacción con calderas de condensación",
+        videoCaptions: [
+          "¿Tu factura de gas <span>sigue subiendo</span> cada mes?",
+          "La solución no es apagar la <span>calefacción</span>.",
+          "Es cambiar a una <span>caldera de condensación</span> de alta eficiencia.",
+          "Con <span>Tecniclima</span>, la instalación se hace en menos de 24 horas.",
+          "Escríbenos para un <span>presupuesto gratuito</span> hoy mismo."
+        ],
+        videoPilar: "caso",
+        seoArticleTitle: "Comparativa de Calderas de Condensación para 2026",
+        seoArticleScore: 84,
+        seoChecks: [
+          { text: "Estructura jerárquica H2/H3 limpia", ok: true },
+          { text: "Schema Product y LocalBusiness inyectados", ok: true },
+          { text: "Falta keyword principal en la meta descripción del post", ok: false },
+          { text: "Faltan enlaces internos hacia la página de servicios de calefacción", ok: false }
+        ],
+        seoWpTarget: 'Publicar en: tecniclima.es/blog (ID: 6870)',
+        webOpsActive: false,
+        webOpsText: "No hay maquetaciones web activas. El sitio corporativo WordPress está estable.",
+        notionFases: { a: 'Completado ✅', b: 'Completado ✅', c: 'Pendiente decisión ⚠️', d: 'Bloqueado 🚫' },
+        authorityMatrix: {
+          analizar: 'verde',
+          alentar: 'verde',
+          reportar: 'verde',
+          sops: 'verde',
+          proponerCopy: 'amarillo',
+          ajustarPuja: 'rojo',
+          pausarAnuncio: 'amarillo',
+          implementar: 'rojo',
+          presupuesto: 'rojo',
+          lanzarCampaña: 'rojo'
+        },
+        upsell: {
+          trigger: 'CPA de Google Ads estabilizado',
+          service: 'Automatización de Leads n8n -> CRM',
+          reason: 'El comercial tarda más de 4 horas en llamar a los leads que entran por Tally. Automatizar la notificación directa por WhatsApp reducirá el tiempo de contacto a menos de 5 minutos, duplicando la conversión a venta.'
+        },
+        viralPosts: [
+          { title: "El error que cometes al encender tu calefacción", views: "245K", likes: "19K", score: "9.8/10", topic: "Por qué apagar la calefacción por la noche no siempre ahorra gas" },
+          { title: "Cómo arreglar una fuga en tu radiador tú mismo", views: "65K", likes: "3.2K", score: "7.5/10", topic: "Pasos de emergencia cuando tu caldera muestra el Error F1" }
+        ],
+        contextGaps: [
+          { text: "Objetivos de leads mensuales definidos", ok: true },
+          { text: "Google Developer Token verificado", ok: true },
+          { text: "Falta Google OAuth credentials setup", ok: false },
+          { text: "Falta customer_id en profile.json", ok: false }
+        ]
+      },
+      keller: {
+        name: 'Keller Law Firm',
+        description: 'Boutique legal de inmigración para clientes de habla inglesa',
+        status: 'purple',
+        statusText: 'Maquetación Web',
+        metricSpend: '—',
+        metricSpendChange: 'Servicio de maquetación activo',
+        metricCPA: '—',
+        metricCPAChange: 'Sin campañas de Paid',
+        metricLeads: '—',
+        metricLeadsChange: 'Fase 1: Maquetando Home',
+        baselineMaxCPA: '—',
+        adOpsBadge: 0,
+        proposals: [],
+        learningLogs: [],
+        videoTopic: "Guía completa para obtener la Golden Visa en España en 2026",
+        videoCaptions: [
+          "¿Quieres residir en España de <span>forma legal</span> y rápida?",
+          "La <span>Golden Visa</span> es la opción más sólida para inversores.",
+          "Solo requiere una inversión inmobiliaria de <span>500.000€</span>.",
+          "En <span>Keller Law</span> gestionamos todo tu expediente en 20 días.",
+          "Haz clic en el enlace para <span>agendar una consulta</span>."
+        ],
+        videoPilar: "educacion",
+        seoArticleTitle: "Requisitos de Inmigración España 2026",
+        seoArticleScore: 78,
+        seoChecks: [
+          { text: "Estructura jerárquica H2/H3 limpia", ok: true },
+          { text: "Falta Schema FAQPage para resolver dudas de la visa", ok: false },
+          { text: "Keyword densidad muy baja (0.4%) en el cuerpo del texto", ok: false }
+        ],
+        seoWpTarget: 'Publicar en: kellerimmigration.com/blog (ID: 6872)',
+        webOpsActive: true,
+        webOpsScore: 68,
+        webOpsDraftId: 6822,
+        webOpsInitialCode: `&lt;div class="hero-section"&gt;
+  &lt;style&gt;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins'); /* CORS */
+    .hero-title { font-family: {{TITLE_FONT}}; } /* Double braces */
+  &lt;/style&gt;
+  &lt;h1 class="hero-title"&gt;Keller Law Firm&lt;/h1&gt;
+&lt;/div&gt;`,
+        webOpsHealedCode: `&lt;div class="hero-section"&gt;
+  &lt;style&gt;
+    /* Fuente cargada vía enlace local verificado */
+    .hero-title { font-family: 'Poppins', sans-serif; }
+  &lt;/style&gt;
+  &lt;h1 class="hero-title"&gt;Keller Law Firm&lt;/h1&gt;
+&lt;/div&gt;`,
+        notionFases: { a: 'Completado ✅', b: 'Completado ✅', c: 'Completado ✅', d: 'En curso ⏳' },
+        authorityMatrix: {
+          analizar: 'verde',
+          alentar: 'verde',
+          reportar: 'verde',
+          sops: 'verde',
+          proponerCopy: 'verde',
+          ajustarPuja: 'rojo',
+          pausarAnuncio: 'rojo',
+          implementar: 'amarillo',
+          presupuesto: 'rojo',
+          lanzarCampaña: 'rojo'
+        },
+        upsell: {
+          trigger: 'Web remaquetada con éxito (velocidad &lt; 1.5s)',
+          service: 'Meta Ads Retargeting Inversionistas',
+          reason: 'Con una landing de marca y tiempos de carga óptimos, lanzar anuncios dirigidos a expatriados de habla inglesa en Facebook/Instagram para agendar videollamadas de asesoría legal tiene un coste de conversión sumamente bajo.'
+        },
+        viralPosts: [
+          { title: "How to move to Spain without paying taxes", views: "340K", likes: "28K", score: "9.9/10", topic: "The Beckham Law: How high-earning expats pay only 24% tax in Spain" },
+          { title: "Everything wrong with Spanish bureaucracy", views: "115K", likes: "9.2K", score: "8.8/10", topic: "5 mistakes that will get your Golden Visa application rejected instantly" }
+        ],
+        contextGaps: [
+          { text: "Design System estructurado", ok: true },
+          { text: "WordPress REST API credentials setup", ok: true },
+          { text: "Falta completar la traducción del perfil legal en inglés", ok: false }
+        ]
+      },
+      selarom: {
+        name: 'Selarom Jordi',
+        description: 'E-commerce de moda sostenible y ecológica B2C',
+        status: 'pending',
+        statusText: 'Pendiente Onboarding',
+        metricSpend: '—',
+        metricSpendChange: 'Onboarding F-001',
+        metricCPA: '—',
+        metricCPAChange: 'Falta configurar cuentas',
+        metricLeads: '—',
+        metricLeadsChange: 'Cuentas desconectadas',
+        baselineMaxCPA: '—',
+        adOpsBadge: 0,
+        proposals: [],
+        learningLogs: [],
+        videoTopic: "Cómo vestir sostenible sin perder el estilo en 2026",
+        videoCaptions: [
+          "La moda rápida es el segundo <span>mayor contaminante</span> mundial.",
+          "Pero puedes vestir increíble con <span>impacto cero</span>.",
+          "En <span>Selarom</span> diseñamos prendas orgánicas certificadas.",
+          "Ropa que dura toda la vida y <span>cuida el planeta</span>.",
+          "Usa el código <span>VERDE10</span> para tu primer pedido."
+        ],
+        videoPilar: "educacion",
+        seoArticleTitle: "Qué es la Moda Lenta o Slow Fashion",
+        seoArticleScore: 60,
+        seoChecks: [
+          { text: "Falta estructurar encabezados H2/H3", ok: false },
+          { text: "Falta inyectar Schema Product y WebSite", ok: false }
+        ],
+        seoWpTarget: 'Publicar en: selarom.es/blog (ID: 6875)',
+        webOpsActive: false,
+        webOpsText: "Onboarding incompleto. Requiere completar perfil y configurar accesos APIs.",
+        notionFases: { a: 'En curso ⏳', b: 'Pendiente 📭', c: 'Pendiente 📭', d: 'Pendiente 📭' },
+        authorityMatrix: {
+          analizar: 'amarillo',
+          alentar: 'amarillo',
+          reportar: 'amarillo',
+          sops: 'amarillo',
+          proponerCopy: 'rojo',
+          ajustarPuja: 'rojo',
+          pausarAnuncio: 'rojo',
+          implementar: 'rojo',
+          presupuesto: 'rojo',
+          lanzarCampaña: 'rojo'
+        },
+        upsell: {
+          trigger: 'Onboarding estratégico incompleto',
+          service: 'Pack de Onboarding Completo (Tier 1)',
+          reason: 'El cliente no tiene claro su cliente ideal (ICP) ni su posicionamiento estratégico. Realizar las 4 sesiones del onboarding estratégico de Riqueza Digital estructurará su marketing.'
+        },
+        viralPosts: [
+          { title: "El secreto de la ropa de lino orgánica", views: "88K", likes: "4.5K", score: "7.9/10", topic: "3 prendas de lino que puedes combinar todo el verano" }
+        ],
+        contextGaps: [
+          { text: "Falta definir ICP y buyer persona", ok: false },
+          { text: "Falta Meta Pixel integration", ok: false }
+        ]
+      },
+      sirux: {
+        name: 'Federico Sirux',
+        description: 'SaaS de Recursos Humanos y Clima Laboral B2B',
+        status: 'pending',
+        statusText: 'Pendiente Onboarding',
+        metricSpend: '—',
+        metricSpendChange: 'Onboarding F-001',
+        metricCPA: '—',
+        metricCPAChange: 'Falta configurar cuentas',
+        metricLeads: '—',
+        metricLeadsChange: 'Cuentas desconectadas',
+        baselineMaxCPA: '—',
+        adOpsBadge: 0,
+        proposals: [],
+        learningLogs: [],
+        videoTopic: "Cómo reducir la rotación de personal en tu empresa tech en un 40%",
+        videoCaptions: [
+          "Perder a un programador clave cuesta más de <span>30.000€</span>.",
+          "La solución no es solo subirles el <span>salario</span>.",
+          "Es mejorar la <span>experiencia interna</span> y el clima de trabajo.",
+          "Con <span>Sirux HR</span>, monitorizas el engagement en tiempo real.",
+          "Pide una <span>demo gratuita</span> para tu equipo B2B."
+        ],
+        videoPilar: "dolor",
+        seoArticleTitle: "Estrategias de Retención del Talento Técnico en España",
+        seoArticleScore: 50,
+        seoChecks: [
+          { text: "Falta inyectar metadatos Schema y LocalBusiness", ok: false },
+          { text: "Falta estructurar jerárquicamente H1/H2", ok: false }
+        ],
+        seoWpTarget: 'Publicar en: sirux.hr/blog (ID: 6876)',
+        webOpsActive: false,
+        webOpsText: "Onboarding incompleto. Requiere completar sesión estratégica F-001 y autorizar API Keys.",
+        notionFases: { a: 'En curso ⏳', b: 'Pendiente 📭', c: 'Pendiente 📭', d: 'Pendiente 📭' },
+        authorityMatrix: {
+          analizar: 'amarillo',
+          alentar: 'amarillo',
+          reportar: 'amarillo',
+          sops: 'amarillo',
+          proponerCopy: 'rojo',
+          ajustarPuja: 'rojo',
+          pausarAnuncio: 'rojo',
+          implementar: 'rojo',
+          presupuesto: 'rojo',
+          lanzarCampaña: 'rojo'
+        },
+        upsell: {
+          trigger: 'Onboarding estratégico incompleto',
+          service: 'Google Ads B2B lead generation',
+          reason: 'El software de Sirux resuelve un dolor sumamente específico y costoso para empresas (rotación de personal en IT). Las campañas de búsqueda de alta intención en Google Ads son perfectas para captar directores de RRHH buscando soluciones.'
+        },
+        viralPosts: [
+          { title: "Por qué tus desarrolladores se van a otra empresa", views: "190K", likes: "14K", score: "9.2/10", topic: "3 razones reales por las que un programador senior renuncia" }
+        ],
+        contextGaps: [
+          { text: "Falta definir el presupuesto máximo diario", ok: false },
+          { text: "Falta Google Ads developer token setup", ok: false }
+        ]
+      }
+    };
+
+    // 2. SOPS DICTIONARY (Wiki)
+    const sops = {
+      'claves-api-windows': {
+        title: 'claves-api-windows.md',
+        desc: 'SOP para la lectura de variables de entorno de Windows desde el shell no interactivo de Claude Code.',
+        code: `# SOP: Gestión de Claves API en Windows
+## Problema:
+El shell Bash de Claude Code no hereda variables del registro.
+## Solución:
+Utilizar PowerShell como proxy puente para cargar las keys directamente:
+$WP_URL = [System.Environment]::GetEnvironmentVariable("WP_RD_URL")
+$WP_USER = [System.Environment]::GetEnvironmentVariable("WP_RD_USER")`
+      },
+      'wordpress-rest-api': {
+        title: 'wordpress-rest-api.md',
+        desc: 'Conexión, bypass de Elementor DB y maquetación mediante la WordPress REST API corporativa.',
+        code: `# SOP: Integración de Layouts WordPress
+## Procedimiento:
+Para actualizar la base de datos de Elementor directamente sin pasar por hooks:
+1. Codificar Elementor JSON
+2. Ejecutar bypass directo SQL vía PHP snippet de WPCode:
+$wpdb->update('wp_postmeta', array('meta_value' => $clean_data), array('post_id' => $id, 'meta_key' => '_elementor_data'));`
+      },
+      'seo-onpage-guidelines': {
+        title: 'seo-onpage-guidelines.md',
+        desc: 'Estructura de metadatos, enlazado interno y JSON-LD de esquemas locales obligatorios.',
+        code: `# SOP: Pautas de SEO Técnico
+1. Cada post de La Bóveda DEBE incluir un Schema LocalBusiness.
+2. Inyectar JSON-LD dinámico en el footer:
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Riqueza Digital",
+  "url": "https://riquezadigital.es"
+}`
+      }
+    };
+
+    // 3. REACTIVE NAVIGATION AND CLIENT CONTEXT LOGIC
+    let currentClient = 'global';
+
+    function handleClientChange(val) {
+      currentClient = val;
+
+      // Update header titles
+      const tabTitle = document.getElementById('tab-title');
+      const tabSubtitle = document.getElementById('tab-subtitle');
+      const banner = document.getElementById('client-banner');
+
+      if (val === 'global') {
+        banner.style.display = 'none';
+        tabTitle.textContent = "Consola de Administración";
+        tabSubtitle.textContent = "Resumen global del rendimiento de tu agencia autónoma.";
+
+        // Return menu states and switch sidebar to global
+        switchSidebarTab('global-admin');
+        document.getElementById('menu-admin-tab').classList.add('active');
+        return;
+      }
+
+      // If client selected, show context banner and activate client-overview tab
+      banner.style.display = 'flex';
+      const data = clientData[val];
+
+      // Populate banner details
+      document.getElementById('client-avatar').textContent = data.name.charAt(0);
+      document.getElementById('client-name').textContent = data.name;
+      document.getElementById('client-desc').textContent = data.description;
+
+      // Status badge logic
+      const statusBadge = document.getElementById('client-status-badge');
+      const statusDot = document.getElementById('client-status-dot');
+      const statusText = document.getElementById('client-status-text');
+
+      statusBadge.className = `status-badge ${data.status}`;
+      statusDot.className = `dot ${data.status}`;
+      statusText.textContent = data.statusText;
+
+      // Update KPIs
+      document.getElementById('c-kpi-spend').textContent = data.metricSpend;
+      document.getElementById('c-kpi-spend-change').textContent = data.metricSpendChange;
+      document.getElementById('c-kpi-spend-change').className = `kpi-tag ${data.metricSpend.includes('0') || data.metricSpend.includes('—') ? 'neutral' : 'up'}`;
+
+      document.getElementById('c-kpi-cpa').textContent = data.metricCPA;
+      document.getElementById('c-kpi-cpa-change').textContent = data.metricCPAChange;
+      document.getElementById('c-kpi-cpa-change').className = `kpi-tag ${data.metricCPA.includes('—') ? 'neutral' : 'up'}`;
+
+      document.getElementById('c-kpi-leads').textContent = data.metricLeads;
+      document.getElementById('c-kpi-leads-change').textContent = data.metricLeadsChange;
+      document.getElementById('c-kpi-leads-change').className = `kpi-tag ${data.metricLeads.includes('—') ? 'neutral' : 'up'}`;
+
+      document.getElementById('c-kpi-maxcpa').textContent = data.baselineMaxCPA;
+
+      // Render client-specific tabs details
+      renderAdOpsTab(data);
+      renderContentOpsTab(data);
+      renderWebOpsTab(data);
+      renderWorkspaceOpsTab(data);
+      renderAuthorityMatrixTab(data);
+
+      // Refresh adops badge
+      const adopsBadge = document.getElementById('badge-adops-count');
+      if (data.adOpsBadge > 0) {
+        adopsBadge.textContent = data.adOpsBadge;
+        adopsBadge.style.display = 'inline-block';
+      } else {
+        adopsBadge.style.display = 'none';
+      }
+
+      tabTitle.textContent = `Gestión: ${data.name}`;
+      tabSubtitle.textContent = `Entorno operativo contextualizado del cliente.`;
+
+      switchSidebarTab('client-overview');
+    }
+
+    function selectClientFromTable(clientKey) {
+      document.getElementById('global-client-selector').value = clientKey;
+      handleClientChange(clientKey);
+    }
+
+    // Switch Sidebar tabs
+    function switchSidebarTab(tabId) {
+      // Deactivate all sidebar active styles
+      document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+
+      // Deactivate all content panes
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      // Activate content pane
+      document.getElementById(tabId).classList.add('active');
+
+      // Highlight sidebar element
+      const clickedItem = Array.from(document.querySelectorAll('.menu-item')).find(item => {
+        return item.getAttribute('onclick').includes(tabId);
+      });
+      if (clickedItem) clickedItem.classList.add('active');
+
+      // If sidebar switched to admin global while client selected, reset selector
+      if (tabId === 'global-admin') {
+        document.getElementById('global-client-selector').value = 'global';
+        document.getElementById('client-banner').style.display = 'none';
+        document.getElementById('tab-title').textContent = "Consola de Administración";
+        document.getElementById('tab-subtitle').textContent = "Resumen global del rendimiento de tu agencia autónoma.";
+        currentClient = 'global';
+      }
+    }
+
+    // 4. CLIENT REACTIVE RENDERS
+    // A. Ad Ops Tab
+    function renderAdOpsTab(data) {
+      const listContainer = document.getElementById('optimizer-list-container');
+      const noMsg = document.getElementById('no-optimizer-message');
+
+      listContainer.innerHTML = '';
+
+      if (data.proposals.length === 0) {
+        noMsg.style.display = 'block';
+        return;
+      }
+      noMsg.style.display = 'none';
+
+      data.proposals.forEach(prop => {
+        if (prop.status === 'pending') {
+          listContainer.innerHTML += `
+            <div class="prop-card" id="c-prop-${prop.id}">
+              <div class="prop-meta-row">
+                <span class="prop-chan-badge">${prop.channel}</span>
+                <span style="color:var(--color-purple)">Propuesta Optimizer (Lunes 09:03)</span>
+              </div>
+              <div class="prop-title">${prop.title}</div>
+              <div class="prop-analysis">
+                <strong>Análisis:</strong> ${prop.analysis}
+              </div>
+              <div class="prop-footer">
+                <div class="prop-impact">Impacto: <span>${prop.impact}</span></div>
+                <div class="btn-group">
+                  <button class="btn btn-secondary btn-danger" onclick="handleProposalExec(${prop.id}, 'rechazar')">Rechazar</button>
+                  <button class="btn btn-primary" onclick="handleProposalExec(${prop.id}, 'aprobar')">Aprobar</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      // Populate Learning Log Table
+      const tbody = document.getElementById('learning-log-tbody');
+      tbody.innerHTML = '';
+      if (data.learningLogs.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Sin optimizaciones registradas en feedback-log.json</td></tr>`;
+      } else {
+        data.learningLogs.forEach(log => {
+          tbody.innerHTML += `
+            <tr>
+              <td>${log.date}</td>
+              <td><strong>${log.action}</strong></td>
+              <td><span class="${log.class}">${log.result}</span></td>
+              <td>${log.learning}</td>
+            </tr>
+          `;
+        });
+      }
+    }
+
+    function handleProposalExec(id, action) {
+      const card = document.getElementById(`c-prop-${id}`);
+      card.style.transform = 'scale(0.97)';
+      card.style.opacity = '0';
+
+      setTimeout(() => {
+        card.style.display = 'none';
+
+        // Sincronizar en data
+        const clientObj = clientData[currentClient];
+        const propIndex = clientObj.proposals.findIndex(p => p.id === id);
+        if (propIndex !== -1) {
+          clientObj.proposals[propIndex].status = action === 'aprobar' ? 'approved' : 'rejected';
+          clientObj.adOpsBadge = 0;
+          document.getElementById('badge-adops-count').style.display = 'none';
+        }
+
+        // Show Toast
+        const toast = document.getElementById('toast-notification');
+        const tTitle = document.getElementById('toast-notif-title');
+        const tDesc = document.getElementById('toast-notif-desc');
+
+        if (action === 'aprobar') {
+          tTitle.textContent = "Optimización Ejecutada";
+          tDesc.textContent = "Cambio aplicado en Meta/Google Ads API y guardado en log de feedback.";
+          toast.style.borderColor = 'var(--color-emerald)';
+          addConsoleLog('SYSTEM_API', `Bypass manual de validación recibido para propuesta ${id}.`, 'success');
+          addConsoleLog('SYSTEM_API', `Meta/Google Ads API respondió 200 OK.`, 'success');
+          addConsoleLog('LEARNING_LOG', `Registrada acción aprobada en feedback-log.json de ${clientObj.name}.`, 'main');
+        } else {
+          tTitle.textContent = "Propuesta Denegada";
+          tDesc.textContent = "Optimización archivada. El agente no volverá a sugerirla.";
+          toast.style.borderColor = 'var(--color-rose)';
+          addConsoleLog('CAMPAIGN_OPTIMIZER', `Propuesta ${id} denegada por Kevin Berbel. Peso de recomendación devaluado.`, 'warn');
+        }
+
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+
+        // Check if remaining
+        renderAdOpsTab(clientObj);
+      }, 250);
+    }
+
+    // B. Content & Video Ops Tab
+    function renderContentOpsTab(data) {
+      document.getElementById('c-video-topic').value = data.videoTopic;
+      document.getElementById('c-seo-title').textContent = `Artículo: "${data.seoArticleTitle}"`;
+      document.getElementById('c-seo-score').textContent = `Score: ${data.seoArticleScore}%`;
+      document.getElementById('c-seo-circle').style.borderColor = `${data.seoArticleScore >= 80 ? 'var(--color-emerald)' : 'var(--color-rose)'}`;
+      document.getElementById('c-seo-circle').style.color = `${data.seoArticleScore >= 80 ? 'var(--color-emerald)' : 'var(--color-rose)'}`;
+      document.getElementById('c-seo-circle-text').textContent = `${data.seoArticleScore}%`;
+      document.getElementById('c-seo-wp-target').innerHTML = `Publicar en: <strong>${data.seoWpTarget}</strong>`;
+
+      const btnPublish = document.getElementById('c-btn-publish-wp');
+      btnPublish.textContent = `Publicar a WordPress (Draft ID: ${data.seoWpDraftId})`;
+      btnPublish.disabled = false;
+      btnPublish.style.background = 'var(--color-purple)';
+
+      // Checklists
+      const checklistBox = document.getElementById('c-seo-checklist-box');
+      checklistBox.innerHTML = '';
+      data.seoChecks.forEach(check => {
+        checklistBox.innerHTML += `
+          <div class="check-item ${check.ok ? 'ok' : 'fail'}">${check.text}</div>
+        `;
+      });
+
+      // Reset render screen captions
+      document.getElementById('c-mock-captions').innerHTML = `Escribe un tema para <span>${data.name}</span> y pulsa Renderizar`;
+    }
+
+    function triggerVideoRenderSimulation() {
+      const data = clientData[currentClient];
+      const progress = document.getElementById('c-render-progress');
+      const bar = document.getElementById('c-render-bar');
+      const pct = document.getElementById('c-render-pct');
+
+      progress.style.display = 'block';
+      bar.style.width = '0%';
+      pct.textContent = '0%';
+
+      addConsoleLog('VIDEO_PIPELINE', `Detector de virales inyectó hook temático para ${data.name}.`, 'main');
+      addConsoleLog('VIDEO_PIPELINE', `Renderizando Reel vertical para Instagram + Post en LinkedIn...`, 'main');
+
+      let currentPct = 0;
+      let capIndex = 0;
+      const capContainer = document.getElementById('c-mock-captions');
+
+      const interval = setInterval(() => {
+        currentPct += 5;
+        bar.style.width = `${currentPct}%`;
+        pct.textContent = `${currentPct}%`;
+
+        if (currentPct % 20 === 0 && capIndex < data.videoCaptions.length) {
+          capContainer.style.opacity = '0';
+          setTimeout(() => {
+            capContainer.innerHTML = data.videoCaptions[capIndex];
+            capContainer.style.opacity = '1';
+            capIndex++;
+          }, 150);
+        }
+
+        if (currentPct >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            progress.style.display = 'none';
+            addConsoleLog('VIDEO_PIPELINE', `Reel renderizado con éxito en output/video/${data.name.toLowerCase()}_viral.mp4`, 'success');
+
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-notif-title').textContent = "Reel Renderizado";
+            document.getElementById('toast-notif-desc').textContent = "Video publicado automáticamente en Notion Media folder.";
+            toast.style.borderColor = 'var(--color-emerald)';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+          }, 400);
+        }
+      }, 120);
+    }
+
+    function simulateWPBlogPublish() {
+      const data = clientData[currentClient];
+      const btn = document.getElementById('c-btn-publish-wp');
+      btn.textContent = "Publicando vía REST...";
+      btn.disabled = true;
+
+      addConsoleLog('WP_API_CLIENT', `Autenticando contra REST API de WordPress (${data.name})...`, 'main');
+      addConsoleLog('WP_API_CLIENT', `Inyectando metadatos Schema JSON-LD y categorización SEO...`, 'main');
+
+      setTimeout(() => {
+        btn.textContent = "¡Publicado con éxito!";
+        btn.style.background = 'var(--color-emerald)';
+
+        // Set all checks to true
+        data.seoChecks.forEach((c, idx) => data.seoChecks[idx].ok = true);
+        renderContentOpsTab(data);
+
+        addConsoleLog('WP_API_CLIENT', `WordPress REST API: 201 Created. Post publicado con éxito. ID: ${data.seoWpDraftId}`, 'success');
+
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-notif-title').textContent = "Blog Publicado";
+        document.getElementById('toast-notif-desc').textContent = "El artículo ahora está visible en producción.";
+        toast.style.borderColor = 'var(--color-emerald)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }, 2000);
+    }
+
+    // C. Web Ops Tab
+    function renderWebOpsTab(data) {
+      const activeBox = document.getElementById('webops-active-box');
+      const inactiveBox = document.getElementById('webops-inactive-box');
+
+      if (!data.webOpsActive) {
+        activeBox.style.display = 'none';
+        inactiveBox.style.display = 'block';
+        document.getElementById('webops-inactive-text').textContent = data.webOpsText;
+        return;
+      }
+
+      activeBox.style.display = 'block';
+      inactiveBox.style.display = 'none';
+
+      document.getElementById('c-auditor-score').textContent = `Calidad Inicial: ${data.webOpsScore}% (Rechazado)`;
+      document.getElementById('c-auditor-score').style.color = 'var(--color-amber)';
+      document.getElementById('c-code-initial').innerHTML = data.webOpsInitialCode;
+
+      document.getElementById('c-healed-tag').style.background = 'rgba(255,255,255,0.03)';
+      document.getElementById('c-healed-tag').style.color = 'var(--text-muted)';
+      document.getElementById('c-code-healed').textContent = "Esperando inicio del bucle...";
+
+      const btnHeal = document.getElementById('c-btn-auto-heal');
+      btnHeal.textContent = "Ejecutar Auto-Heal (Bucle de Calidad)";
+      btnHeal.disabled = false;
+      btnHeal.style.background = 'var(--color-purple)';
+
+      // Update bash code target
+      document.getElementById('c-wp-bash-preview').innerHTML = `
+        # WordPress API connection proxy (${data.name}) <br>
+        curl -u "$WP_${data.name.split(' ')[0].toUpperCase()}_USER:$WP_${data.name.split(' ')[0].toUpperCase()}_APP_PASSWORD" \\<br>
+        &nbsp;&nbsp;"$WP_${data.name.split(' ')[0].toUpperCase()}_URL/wp-json/wp/v2/pages/${data.webOpsDraftId}"
+      `;
+    }
+
+    function simulatePlaywrightAutoHeal() {
+      const data = clientData[currentClient];
+      const btn = document.getElementById('c-btn-auto-heal');
+      btn.textContent = "Reparando maquetas...";
+      btn.disabled = true;
+
+      addConsoleLog('PLAYWRIGHT_AUDITOR', `Iniciando test headless con Chromium en local...`, 'main');
+      addConsoleLog('CLAUDE_EVALUATOR', `Identificados errores CORS en cabecera Poppins y dobles llaves Elementor. Reparando...`, 'warn');
+
+      setTimeout(() => {
+        document.getElementById('c-auditor-score').textContent = "Calidad Final: 95% (Aprobado)";
+        document.getElementById('c-auditor-score').style.color = 'var(--color-emerald)';
+
+        const healedTag = document.getElementById('c-healed-tag');
+        healedTag.style.background = 'rgba(16, 185, 129, 0.15)';
+        healedTag.style.color = '#34d399';
+
+        document.getElementById('c-code-healed').innerHTML = data.webOpsHealedCode;
+
+        btn.textContent = "Bucle de Calidad Aprobado";
+        btn.style.background = 'var(--color-emerald)';
+
+        addConsoleLog('PLAYWRIGHT_AUDITOR', `Bucle F-013 completado con éxito. Todo en verde.`, 'success');
+
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-notif-title').textContent = "Maqueta Sanada";
+        document.getElementById('toast-notif-desc').textContent = "Cambios inyectados directamente vía WordPress REST API.";
+        toast.style.borderColor = 'var(--color-emerald)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }, 2500);
+    }
+
+    // D. Workspace & SOPs Tab
+    function renderWorkspaceOpsTab(data) {
+      document.getElementById('c-notion-faseA').textContent = data.notionFases.a;
+      document.getElementById('c-notion-faseA').style.color = data.notionFases.a.includes('Completado') ? 'var(--color-emerald)' : 'var(--color-amber)';
+
+      document.getElementById('c-notion-faseB').textContent = data.notionFases.b;
+      document.getElementById('c-notion-faseB').style.color = data.notionFases.b.includes('Completado') ? 'var(--color-emerald)' : 'var(--color-amber)';
+
+      document.getElementById('c-notion-faseC').textContent = data.notionFases.c;
+      document.getElementById('c-notion-faseC').style.color = data.notionFases.c.includes('Completado') ? 'var(--color-emerald)' : 'var(--color-amber)';
+
+      document.getElementById('c-notion-faseD').textContent = data.notionFases.d;
+      document.getElementById('c-notion-faseD').style.color = data.notionFases.d.includes('Completado') ? 'var(--color-emerald)' : 'var(--color-amber)';
+
+      // Setup SOP sidebar links
+      const sidebarLinks = document.getElementById('sop-sidebar-links');
+      sidebarLinks.innerHTML = '';
+
+      Object.keys(sops).forEach((key, index) => {
+        sidebarLinks.innerHTML += `
+          <div class="sop-item-link ${index === 0 ? 'active' : ''}" id="c-sop-link-${key}" onclick="loadClientSop('${key}')">
+            📄 ${sops[key].title}
+          </div>
+        `;
+      });
+
+      // Load first SOP
+      loadClientSop(Object.keys(sops)[0]);
+
+      // Populating context validator diagnostic box inside Client Overview tab
+      const validatorBox = document.getElementById('context-validator-results');
+      validatorBox.innerHTML = '';
+
+      data.contextGaps.forEach(gap => {
+        validatorBox.innerHTML += `
+          <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.03); padding-bottom:6px;">
+            <span>${gap.text}</span>
+            <span style="font-weight:600; color:${gap.ok ? 'var(--color-emerald)' : 'var(--color-rose)'}">${gap.ok ? 'Completo ✓' : 'Faltante ✗'}</span>
+          </div>
+        `;
+      });
+
+      // Active upsell text
+      document.getElementById('client-upsell-box').innerHTML = `
+        <div style="font-weight:600; color:var(--text-main); margin-bottom:4px;">Gatillo: ${data.upsell.trigger}</div>
+        <p style="font-size:0.75rem; margin-bottom:8px;">Ofrecer: <strong>${data.upsell.service}</strong></p>
+        <p style="font-size:0.72rem; color:var(--text-muted); line-height:1.3;">${data.upsell.reason}</p>
+      `;
+
+      // Viral competitor posts render inside Client Overview
+      const viralGrid = document.getElementById('viral-posts-grid');
+      viralGrid.innerHTML = '';
+
+      data.viralPosts.forEach((post, index) => {
+        viralGrid.innerHTML += `
+          <div class="viral-card">
+            <div class="viral-card-title" title="${post.title}">${post.title}</div>
+            <div class="viral-metrics">
+              <span>Views: <strong>${post.views}</strong></span>
+              <span class="viral-badge-score">${post.score} Viral</span>
+            </div>
+            <button class="btn btn-secondary" style="width:100%; font-size:0.65rem; padding:4px;" onclick="adaptViralPost('${post.topic}')">Recrear para ${data.name}</button>
+          </div>
+        `;
+      });
+    }
+
+    function loadClientSop(key) {
+      document.querySelectorAll('.sop-item-link').forEach(link => link.classList.remove('active'));
+      document.getElementById(`c-sop-link-${key}`).classList.add('active');
+
+      const sop = sops[key];
+      document.getElementById('c-sop-body').innerHTML = `
+        <h4 style="font-family:var(--font-outfit); font-weight:600; margin-bottom:4px;">${sop.title}</h4>
+        <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:10px;">${sop.desc}</p>
+        <pre>${sop.code}</pre>
+      `;
+    }
+
+    function adaptViralPost(adaptedTopic) {
+      const data = clientData[currentClient];
+      data.videoTopic = adaptedTopic;
+
+      // Update text in UI
+      document.getElementById('c-video-topic').value = adaptedTopic;
+
+      addConsoleLog('CAMPAIGN_MONITOR', `Extrayendo patrón de éxito de competidores. Adaptando hook para ${data.name}...`, 'main');
+      addConsoleLog('CAMPAIGN_MONITOR', `Tema adaptado: "${adaptedTopic}" inyectado en Content Ops.`, 'success');
+
+      // Toast feedback
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-notif-title').textContent = "Pattern Extraído";
+      document.getElementById('toast-notif-desc').textContent = "El nuevo tema de video ha sido cargado en Content Ops.";
+      toast.style.borderColor = 'var(--color-emerald)';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+
+      // Switch tab to Content Ops visually
+      setTimeout(() => {
+        switchSidebarTab('contentops');
+      }, 800);
+    }
+
+    // E. Authority Matrix Tab
+    function renderAuthorityMatrixTab(data) {
+      const container = document.getElementById('authority-rows-container');
+      container.innerHTML = '';
+
+      const actions = [
+        { key: 'analizar', name: 'Analizar métricas de rendimiento en Ads' },
+        { key: 'alentar', name: 'Alerta y detección de anomalías' },
+        { key: 'reportar', name: 'Auto-generación de reportes cliente' },
+        { key: 'sops', name: 'Auto-generación de documentación SOP' },
+        { key: 'proponerCopy', name: 'Proponer copys/guiones creativos' },
+        { key: 'ajustarPuja', name: 'Ajustar puja de subasta' },
+        { key: 'pausarAnuncio', name: 'Pausar adset con baja conversión' },
+        { key: 'implementar', name: 'Inyectar maquetaciones en producción' },
+        { key: 'presupuesto', name: 'Modificar presupuesto de campaña' },
+        { key: 'lanzarCampaña', name: 'Lanzar campañas completas' }
+      ];
+
+      actions.forEach(action => {
+        const level = data.authorityMatrix[action.key];
+
+        container.innerHTML += `
+          <div class="authority-row">
+            <span>${action.name}</span>
+            <div class="auth-badge-select">
+              <span class="auth-radio verde ${level === 'verde' ? 'active' : ''}" onclick="setAuthLevel('${action.key}', 'verde')">Verde</span>
+              <span class="auth-radio amarillo ${level === 'amarillo' ? 'active' : ''}" onclick="setAuthLevel('${action.key}', 'amarillo')">Amarillo</span>
+              <span class="auth-radio rojo ${level === 'rojo' ? 'active' : ''}" onclick="setAuthLevel('${action.key}', 'rojo')">Rojo</span>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function setAuthLevel(actionKey, level) {
+      const data = clientData[currentClient];
+      data.authorityMatrix[actionKey] = level;
+
+      // Re-render
+      renderAuthorityMatrixTab(data);
+      addConsoleLog('SOP_SYSTEM', `Modificación temporal de nivel de autoridad para [${actionKey}] -> ${level.toUpperCase()}`, 'warn');
+    }
+
+    function saveAuthorityMatrix() {
+      const data = clientData[currentClient];
+      addConsoleLog('SOP_SYSTEM', `Guardando matriz de autoridad de ${data.name} en authority-matrix.md...`, 'main');
+
+      setTimeout(() => {
+        addConsoleLog('SYSTEM_API', `Commit realizado: [update] authority-matrix.md de ${data.name}. [skip-vibiz]`, 'success');
+
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-notif-title').textContent = "Matriz Guardada";
+        document.getElementById('toast-notif-desc').textContent = "Cambios commiteados y empujados a Git.";
+        toast.style.borderColor = 'var(--color-emerald)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }, 1000);
+    }
+
+    // 5. GLOBAL ADMIN ACTIONS
+    function simulateUpsellProposal(clientName) {
+      addConsoleLog('CAMPAIGN_OPTIMIZER', `F-007: Generando borrador de propuesta comercial para ${clientName}...`, 'main');
+      setTimeout(() => {
+        addConsoleLog('SYSTEM_API', `Propuesta generada en clients/${clientName.toLowerCase()}/proposals/2026-06-04_upsell.html.`, 'success');
+
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-notif-title').textContent = "Propuesta Creada";
+        document.getElementById('toast-notif-desc').textContent = `Guardada en proposals/ del cliente con formato premium.`;
+        toast.style.borderColor = 'var(--color-emerald)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }, 1200);
+    }
+
+    function connectGoogleAdsSaaS() {
+      const btn = document.getElementById('saas-btn-google');
+      btn.textContent = "Autorizando OAuth...";
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = "Conectado";
+        btn.className = "btn-connect connected";
+
+        addConsoleLog('OAUTH_HUB', `Google Ads API autorizada con éxito. Token inyectado.`, 'success');
+
+        // Modificar estado de Tecniclima
+        clientData.tecniclima.status = 'emerald';
+        clientData.tecniclima.statusText = 'Saneado (Conectado)';
+        clientData.tecniclima.metricSpend = '890€';
+        clientData.tecniclima.metricSpendChange = '▲ +8% Conversiones';
+        clientData.tecniclima.metricCPA = '12,20€';
+        clientData.tecniclima.metricCPAChange = '▼ -5% vs baseline';
+        clientData.tecniclima.metricLeads = '73';
+        clientData.tecniclima.metricLeadsChange = 'Objetivo: 80 leads';
+        clientData.tecniclima.contextGaps[2].ok = true;
+        clientData.tecniclima.contextGaps[3].ok = true;
+
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-notif-title').textContent = "Google Ads Conectado";
+        document.getElementById('toast-notif-desc').textContent = "Métricas sincronizadas para la cuenta Tecniclima.";
+        toast.style.borderColor = 'var(--color-emerald)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+
+        // Si tenemos a Tecniclima seleccionado, refrescar vista
+        if (currentClient === 'tecniclima') {
+          handleClientChange('tecniclima');
+        }
+      }, 1500);
+    }
+
+    // 6. CHAT SIMULATOR WITH CLAUDE / OPENCLAW
+    function handleChatKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendChatMsg();
+      }
+    }
+
+    function sendChatMsg() {
+      const field = document.getElementById('chat-input-field');
+      const val = field.value.trim();
+      if (!val) return;
+
+      const chatBody = document.getElementById('chat-widget-body');
+
+      // User message
+      chatBody.innerHTML += `
+        <div class="chat-msg user">${val}</div>
+      `;
+      field.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // Agent thinking simulation
+      setTimeout(() => {
+        let answer = "🤖 No he reconocido ese comando. Prueba pidiéndome <code>Optimizar Veganashi</code>, <code>Soporte Tecniclima</code>, o <code>Crear post SEO</code>.";
+        const normalized = val.toLowerCase();
+
+        if (normalized.includes('optimiz') && normalized.includes('veganashi')) {
+          answer = "🤖 [Claude OS] ¡Recibido! Ejecutando optimizaciones de Meta Ads de Veganashi. Analizando métricas... He inyectado la propuesta de pausa para el AdSet fatigado en el panel. ¡Revísala!";
+          // Cambiar selector y tab
+          selectClientFromTable('veganashi');
+          setTimeout(() => switchSidebarTab('adops'), 1000);
+        } else if (normalized.includes('soporte') && normalized.includes('tecniclima')) {
+          answer = "🤖 [Claude OS] ¡Entendido! El token OAuth de Google Ads está expirado. He preparado el botón de autorización en la pestaña de integraciones del panel.";
+          selectClientFromTable('tecniclima');
+          setTimeout(() => switchSidebarTab('integraciones'), 1000);
+        } else if (normalized.includes('crear') && normalized.includes('seo')) {
+          answer = "🤖 [Claude OS] ¡Marchando! He estructurado un post SEO optimizado sobre 'Gobernanza de IA' en tu pestaña de Content Ops. Compilando y auditando keywords...";
+          selectClientFromTable('veganashi');
+          setTimeout(() => switchSidebarTab('contentops'), 1000);
+        }
+
+        chatBody.innerHTML += `
+          <div class="chat-msg agent">${answer}</div>
+        `;
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 1200);
+    }
+
+
+    // 7. TERMINAL CONSOLE SIMULATOR RUN
+    const consoleLogs = [
+      { tag: 'CAMPAIGN_MONITOR', text: 'Escaneando cuentas publicitarias en la base de datos...' },
+      { tag: 'CAMPAIGN_MONITOR', text: 'Veganashi Meta Ads (ID: 593021) -> CPA estable a 4.20€.', type: 'success' },
+      { tag: 'CAMPAIGN_MONITOR', text: 'Tecniclima Google Ads (ID: 842-192) -> Alerta: Token OAuth Expirado ⚠️', type: 'warn' },
+      { tag: 'DAILY_BRIEFING', text: 'Briefing diario compilado. Enviando alerta a Kevin por canal CEO.' },
+      { tag: 'SOP_SYSTEM', text: 'Escaneo de Git completado. 3 SOPs de infraestructura indexados con éxito.' },
+      { tag: 'WP_API_CLIENT', text: 'Test de API REST WordPress (Keller Law) -> Conexión exitosa, 200 OK.', type: 'success' }
+    ];
+
+    let currentLog = 0;
+    const term = document.getElementById('terminal-widget');
+
+    function addConsoleLog(tag, text, type = 'main') {
+      const time = new Date().toTimeString().split(' ')[0];
+      const html = `
+        <div class="terminal-line">
+          <span class="terminal-time">[${time}]</span>
+          <span class="terminal-tag">[${tag}]</span>
+          <span class="terminal-content ${type === 'success' ? 'terminal-success' : type === 'warn' ? 'terminal-warn' : ''}">${text}</span>
+        </div>
+      `;
+      term.innerHTML += html;
+      term.scrollTop = term.scrollHeight;
+    }
+
+    function runConsoleLogs() {
+      if (currentLog < consoleLogs.length) {
+        const log = consoleLogs[currentLog];
+        addConsoleLog(log.tag, log.text, log.type);
+        currentLog++;
+        setTimeout(runConsoleLogs, 600);
+      }
+    }
+
+    window.onload = () => {
+      runConsoleLogs();
+
+      // Auto updates
+      setInterval(() => {
+        const tags = ['CAMPAIGN_MONITOR', 'SYSTEM_API', 'SOP_SYSTEM', 'WP_API_CLIENT', 'OAUTH_HUB'];
+        const tag = tags[Math.floor(Math.random() * tags.length)];
+        let text = "Auditoría en ejecución. Servicios operativos.";
+        let type = "main";
+
+        if (tag === 'SYSTEM_API') {
+          text = "Docker runtime OpenClaw reporta consumo óptimo (CPU: 2%, MEM: 184MB).";
+          type = "success";
+        } else if (tag === 'SOP_SYSTEM') {
+          text = "Actualizando SOPs desde repositorio Git. No se registran conflictos de fusión.";
+        } else if (tag === 'WP_API_CLIENT') {
+          text = "WordPress REST inyectando Schema Service. Estado: Guardado como borrador.";
+        } else if (tag === 'OAUTH_HUB') {
+          text = "Comprobando tiempo de expiración de tokens Meta... Válido por 48 días.";
+          type = "success";
+        }
+
+        addConsoleLog(tag, text, type);
+      }, 7000);
+    };
+  </script>
+</body>
+
+</html>
