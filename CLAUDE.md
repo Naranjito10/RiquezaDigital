@@ -80,6 +80,19 @@ Los perfiles completos están en `clients/<nombre>/profile.md`.
 | `/sistema:integrar-video` | Absorbe transcripción de YouTube y crea plan de integración al sistema RD |
 | `/sistema:Claudia` | Activar canal Telegram |
 
+## SKILLS DE CONOCIMIENTO (Auto-activables)
+
+Además de los slash commands existe una capa de 16 skills de conocimiento en `.claude/skills/` que se activan solas por contexto (no se invocan con `/`). Regla: **command = workflow** (pasos, archivos, pipelines) / **skill = conocimiento experto** (frameworks, límites de caracteres, benchmarks, estructuras).
+
+| Área | Skills |
+|------|--------|
+| Marketing | `ad-copy`, `email-marketing`, `landing-page-copy`, `seo-content`, `seo-audit`, `social-media-calendar`, `reporting-client` |
+| Ventas / Prospección | `account-research`, `call-prep`, `draft-outreach`, `proposal-generator`, `competitive-brief` |
+| Legal | `review-contract`, `triage-nda` |
+| Operaciones | `notion-workspace`, `prompt-library` |
+
+Cada una lleva una sección "Contexto RD / Agency Context" con las convenciones del sistema. Inventario y adaptaciones: F-020 en `agencia/AGENCIA-AGENTICA.md`.
+
 ## HERRAMIENTAS MCP DISPONIBLES
 
 | MCP | Servicio principal |

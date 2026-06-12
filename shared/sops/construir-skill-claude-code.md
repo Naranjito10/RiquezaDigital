@@ -151,6 +151,38 @@ Para una capacidad completamente nueva sin namespace: crear namespace nuevo y do
 
 ---
 
+## Variante B: Importar y adaptar una skill externa
+
+Proceso verificado el 2026-06-12 al integrar 16 skills externas (export propio + plugins Anthropic) como capa de conocimiento (F-020).
+
+### B1. Decidir la capa correcta
+
+- **¿Workflow con pasos y efectos** (preguntar cliente, guardar archivos, ejecutar pipeline)? → `.claude/commands/<ns>/<nombre>/` (slash command)
+- **¿Conocimiento experto que debe activarse solo por contexto** (frameworks, límites, benchmarks)? → `.claude/skills/<nombre>/` (skill auto-activable)
+- Pueden coexistir: el command orquesta y referencia a la skill como capa de conocimiento (ej: `/marketing:generar-copy` usa la skill `ad-copy` para límites y fórmulas).
+
+### B2. Evaluar solapamiento antes de copiar
+
+- Comparar con commands y skills existentes — si el contenido mejora algo existente, cross-referenciar en lugar de duplicar
+- Verificar que no esté ya cubierto por un plugin instalado (document-skills, superpowers, claude-ads...)
+
+### B3. Checklist de adaptación RD (obligatorio antes del commit)
+
+- [ ] Rutas de guardado según reglas 4-6 del orquestador (`clients/<nombre>/reports|proposals|contracts/`, `output/agency/`)
+- [ ] Política repo-vs-Notion respetada (source of truth por tipo, ver `ARQUITECTURA.md`)
+- [ ] Stack real de RD (WordPress REST/Vercel, Notion como CRM, Ahrefs MCP, MailerLite/Klaviyo) en lugar de herramientas genéricas
+- [ ] Contexto España/UE si aplica (RGPD, LSSI, jurisdicción, DPA)
+- [ ] Checkpoints humanos preservados (precios → Kevin, legal → abogado, envíos → nunca automáticos)
+- [ ] Sección final "Contexto RD" / "Agency Context" con todo lo anterior
+- [ ] Escanear que no traiga secretos, rutas de otros entornos (`/mnt/...`) ni conectores no disponibles
+
+### B4. Registrar
+
+- Entrada o ampliación de F-### en `agencia/AGENCIA-AGENTICA.md`
+- Slash command nuevo → tabla "SKILLS DISPONIBLES" de `CLAUDE.md`; skill de conocimiento → tabla "SKILLS DE CONOCIMIENTO"
+
+---
+
 ## Problemas comunes y soluciones
 
 | Problema | Causa probable | Solución |
@@ -178,4 +210,4 @@ Para una capacidad completamente nueva sin namespace: crear namespace nuevo y do
 
 ---
 
-*Última sesión que actualizó este SOP: 2026-06-05 — Reescritura completa tras migración a estructura carpeta+SKILL.md (19 skills migradas). Creado originalmente 2026-05-26 al construir F-011.*
+*Última sesión que actualizó este SOP: 2026-06-12 — Añadida Variante B (importar y adaptar skills externas) tras integrar las 16 skills de conocimiento de F-020. Anterior: 2026-06-05 reescritura completa tras migración a carpeta+SKILL.md. Creado originalmente 2026-05-26 al construir F-011.*

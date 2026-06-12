@@ -33,6 +33,8 @@ Este archivo es el panel de control exclusivo para el **Agente Claude**. Aquí s
 | **Riqueza Digital** | Contenido | Crear 2º guión IG/LinkedIn con `/contenido:guion-instagram` (pilar: caso real o tutorial) | `[ ]` | Skill lista. Primer guión fue "agobia IA". Siguiente debe ser pilar distinto. |
 | **Riqueza Digital** | Contenido | Integrar skill `/contenido:boveda-post` con `/contenido:guion-instagram` para generación multicanal | `[ ]` | Para derivar automáticamente guiones de redes (IG/LinkedIn) a partir de un post de la Bóveda de golpe. |
 | **Riqueza Digital** | Marketing | Automatizar envío lead magnet por DM al comentar AGENCIA/SISTEMA/INFORME (n8n) | `[ ]` | Bloqueado: primero publicar artículo WP 6868. Luego sprint con Andrés. |
+| **Riqueza Digital** | Infraestructura | Validar triggers de las 16 skills de conocimiento (F-020) en uso real | `[ ]` | Observar 2-3 sesiones: ¿se activan cuando toca? ¿alguna salta de más? Afinar descripciones si hace falta. |
+| **Riqueza Digital** | Producto | Valorar skill `client-onboarding-pack` (proposal-generator + notion-workspace + pack onboarding) | `[ ]` | Avanzaría F-007 (propuestas auto-generadas): brief → propuesta → portal en 1 sesión. |
 
 | Cliente | Servicio | Tarea | Estado | Notas / Enlaces |
 | :--- | :--- | :--- | :---: | :--- |
